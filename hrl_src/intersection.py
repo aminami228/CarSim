@@ -10,22 +10,22 @@ class UpdateInter(object):
     Lidar_NO = 36
     Resolution = 2 * 180 / Lidar_NO
     # stop_line = [192, 195, 198]
-    Stop_Line = 142
+    Stop_Line = 142.0
     # Comfort_Acc = 12
-    Comfort_Acc = 1
-    Pass_Point = 180
+    Comfort_Acc = 1.0
+    Pass_Point = 180.0
     # self.Tau = 0.1
     # self.Tau = 0.0666
     Tau = 0.033
-    Speed_limit = 30  # m/s
-    Max_Acc = 3  # m/s
-    observe_vel = 12   # m/s
+    Speed_limit = 30.0  # m/s
+    Max_Acc = 3.0  # m/s
+    observe_vel = 12.0   # m/s
 
     def __init__(self):
         SimVires.restart_sim()
-        self.av_velocity = np.random.normal(self.Speed_limit, 1)
-        self.av_x = 0
-        self.av_y = 0
+        self.av_velocity = np.random.normal(self.Speed_limit, 1.)
+        self.av_x = 0.0
+        self.av_y = 0.
         self.state_vm = []
         self.state_dim = None
 
@@ -48,11 +48,11 @@ class UpdateInter(object):
         for theta, dist in sensor_data.iteritems():
             state.append(dist)
             self.state_vm.append(dist)
-        state.append(curr_state['position']['x'] - 16)
-        state.append(curr_state['position']['y'] - 153)
+        state.append(curr_state['position']['x'] - 16.)
+        state.append(curr_state['position']['y'] - 153.)
         state.append(6)
         state.append(18)
-        state.append(max(- self.Stop_Line + curr_state['position']['y'], 0))
+        state.append(max(- self.Stop_Line + curr_state['position']['y'], 0.))
         self.state_dim = len(state)
         return np.array(state, ndmin=2)
 

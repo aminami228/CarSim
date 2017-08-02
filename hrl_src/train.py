@@ -11,8 +11,8 @@ from keras import backend as K
 
 
 class MainTrain(object):
-    buffer_size = 100000.
-    batch_size = 100.
+    buffer_size = 100000
+    batch_size = 100
     gamma = 0.99
     tau = 0.0001  # Target Network HyperParameters
     LRA = 0.001  # Learning rate for Actor
