@@ -1,0 +1,21 @@
+# -------------------------------------------
+# Track file for track reader 
+#
+# Filename: /home/cmu/Software/VTD.2.0/Data/Projects/intersection_behavior/intersection_roads/Tracks/track38.trk
+#
+# Date: Mon Feb 13 13:25:15 2017
+#
+# Track: 38
+#
+# (c) 1998-2012 by VIRES
+# -------------------------------------------
+
+TRACK_ID 38
+P    0.0000000    162.0000000  136.0500000    0.0000000   180.0000000    0.0000000    0.0000000 0.0000000e+00    0.0000000
+P    1.0000000    161.0000000  136.0500000    0.0000000   180.0000000    0.0000000    0.0000000 0.0000000e+00    1.0000000
+# exact length:      1.00000000    # actually, it's the interpolated length
+# total length2D:      0.00000000
+# -------------------------------------------
+# End of: /home/cmu/Software/VTD.2.0/Data/Projects/intersection_behavior/intersection_roads/Tracks/track38.trk
+# -------------------------------------------
+

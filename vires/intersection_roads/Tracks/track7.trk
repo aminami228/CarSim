@@ -1,0 +1,23 @@
+# -------------------------------------------
+# Track file for track reader 
+#
+# Filename: /home/cmu/Software/VTD.2.0/Data/Projects/intersection_behavior/intersection_roads/Tracks/track7.trk
+#
+# Date: Mon Feb 13 13:25:15 2017
+#
+# Track: 7
+#
+# (c) 1998-2012 by VIRES
+# -------------------------------------------
+
+TRACK_ID 7
+P    0.0000000    102.0000000  120.8500000    0.0000000     0.0000000    0.0000000    0.0000000 0.0000000e+00    0.0000000
+P    2.8750000    104.8750000  120.8500000    0.0000000     0.0000000    0.0000000    0.0000000 0.0000000e+00    2.8750000
+P   33.8750000    135.8750000  120.8500000    0.0000000     0.0000000    0.0000000    0.0000000 0.0000000e+00   33.8750000
+P   46.0000000    148.0000000  120.8500000    0.0000000     0.0000000    0.0000000    0.0000000 0.0000000e+00   46.0000000
+# exact length:     46.00000000    # actually, it's the interpolated length
+# total length2D:      0.00000000
+# -------------------------------------------
+# End of: /home/cmu/Software/VTD.2.0/Data/Projects/intersection_behavior/intersection_roads/Tracks/track7.trk
+# -------------------------------------------
+
