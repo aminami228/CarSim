@@ -1,10 +1,11 @@
+#!/usr/bin/env python
 import math
 import numpy as np
 import matplotlib.pyplot as plt
 
 
 class ReinAcc(object):
-    def __int__(self):
+    def __init__(self):
         self.Tau = 1. / 30
         self.pos = av_pos
         self.target_pos = target_pos
