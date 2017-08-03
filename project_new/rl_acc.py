@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-class rl_acc(object):
+class ReinAcc(object):
     def __int__(self):
         self.Tau = 1. / 30
         self.pos = av_pos
@@ -23,5 +23,5 @@ class rl_acc(object):
 if __name__ == '__main__':
     av_pos = dict()
     target_pos = dict()
-    acc = rl_acc()
+    acc = ReinAcc()
     acc.acc_target(av_pos, target_pos)
