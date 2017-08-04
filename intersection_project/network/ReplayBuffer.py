@@ -4,12 +4,12 @@ import random
 
 class ReplayBuffer(object):
 
-    def __init__(self, buffer_size):
+    def __init__(self, buffer_size=None):
         self.buffer_size = buffer_size
         self.num_experiences = 0
         self.buffer = deque()
 
-    def getBatch(self, batch_size):
+    def get_batch(self, batch_size):
         # Randomly sample batch_size examples
         if self.num_experiences < batch_size:
             return random.sample(self.buffer, self.num_experiences)

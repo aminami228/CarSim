@@ -15,21 +15,21 @@ HIDDEN4_UNITS = 128
 
 
 class ActorNetwork(object):
-    def __init__(self, sess, state_size, action_size, BATCH_SIZE, TAU, LEARNING_RATE):
+    def __init__(self, sess=None, state_size=None, action_size=None, batch_size=None, sigma=None, learn_rate=None):
         self.sess = sess
-        self.BATCH_SIZE = BATCH_SIZE
-        self.TAU = TAU
-        self.LEARNING_RATE = LEARNING_RATE
+        self.batch_size = batch_size
+        self.sigma = sigma
+        self.learn_rate = learn_rate
 
         K.set_session(sess)
 
-        #Now create the model
+        # Now c0reate the model
         self.model, self.weights, self.state = self.create_actor_network(state_size, action_size)
         self.target_model, self.target_weights, self.target_state = self.create_actor_network(state_size, action_size)
         self.action_gradient = tf.placeholder(tf.float32,[None, action_size])
         self.params_grad = tf.gradients(self.model.output, self.weights, -self.action_gradient)
         grads = zip(self.params_grad, self.weights)
-        self.optimize = tf.train.AdamOptimizer(LEARNING_RATE).apply_gradients(grads)
+        self.optimize = tf.train.AdamOptimizer(learn_rate).apply_gradients(grads)
         self.sess.run(tf.global_variables_initializer())
 
     def train(self, states, action_grads):
@@ -42,7 +42,7 @@ class ActorNetwork(object):
         actor_weights = self.model.get_weights()
         actor_target_weights = self.target_model.get_weights()
         for i in range(len(actor_weights)):
-            actor_target_weights[i] = self.TAU * actor_weights[i] + (1 - self.TAU)* actor_target_weights[i]
+            actor_target_weights[i] = self.sigma * actor_weights[i] + (1 - self.sigma) * actor_target_weights[i]
         self.target_model.set_weights(actor_target_weights)
 
     def create_actor_network(self, state_size, action_size):

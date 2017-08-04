@@ -11,20 +11,21 @@ HIDDEN2_UNITS = 512
 HIDDEN3_UNITS = 256
 HIDDEN4_UNITS = 128
 
+
 class CriticNetwork(object):
-    def __init__(self, sess, state_size, action_size, BATCH_SIZE, TAU, LEARNING_RATE):
+    def __init__(self, sess=None, state_size=None, action_size=None, batch_size=None, sigma=None, learn_rate=None):
         self.sess = sess
-        self.BATCH_SIZE = BATCH_SIZE
-        self.TAU = TAU
-        self.LEARNING_RATE = LEARNING_RATE
+        self.BATCH_SIZE = batch_size
+        self.TAU = sigma
+        self.LEARNING_RATE = learn_rate
         self.action_size = action_size
         
         K.set_session(sess)
 
-        #Now create the model
+        # Now create the model
         self.model, self.action, self.state = self.create_critic_network(state_size, action_size)  
         self.target_model, self.target_action, self.target_state = self.create_critic_network(state_size, action_size)  
-        self.action_grads = tf.gradients(self.model.output, self.action)  #GRADIENTS for policy update
+        self.action_grads = tf.gradients(self.model.output, self.action)  # GRADIENTS for policy update
         self.sess.run(tf.global_variables_initializer())
 
     def gradients(self, states, actions):
@@ -37,7 +38,7 @@ class CriticNetwork(object):
         critic_weights = self.model.get_weights()
         critic_target_weights = self.target_model.get_weights()
         for i in range(len(critic_weights)):
-            critic_target_weights[i] = self.TAU * critic_weights[i] + (1 - self.TAU)* critic_target_weights[i]
+            critic_target_weights[i] = self.TAU * critic_weights[i] + (1 - self.TAU) * critic_target_weights[i]
         self.target_model.set_weights(critic_target_weights)
 
     def create_critic_network(self, state_size,action_size):
@@ -52,7 +53,7 @@ class CriticNetwork(object):
         h3 = Dense(HIDDEN3_UNITS, activation='relu')(h2)
         h4 = Dense(HIDDEN4_UNITS, activation='relu')(h3)
         V = Dense(1,activation='linear')(h4)
-        model = Model(input=[S,A],output=V)
+        model = Model(input=[S, A], output=V)
         adam = Adam(lr=self.LEARNING_RATE)
         model.compile(loss='mse', optimizer=adam)
         return model, A, S 

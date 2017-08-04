@@ -15,11 +15,11 @@ HIDDEN4_UNITS = 128
 
 
 class ActorNetwork(object):
-    def __init__(self, sess, state_size, action_size, BATCH_SIZE, TAU, LEARNING_RATE):
+    def __init__(self, sess=None, state_size=None, action_size=None, batch_size=None, sigma=None, learn_rate=None):
         self.sess = sess
-        self.BATCH_SIZE = BATCH_SIZE
-        self.TAU = TAU
-        self.LEARNING_RATE = LEARNING_RATE
+        self.BATCH_SIZE = batch_size
+        self.TAU = sigma
+        self.LEARNING_RATE = learn_rate
 
         K.set_session(sess)
 
@@ -29,7 +29,7 @@ class ActorNetwork(object):
         self.action_gradient = tf.placeholder(tf.float32,[None, action_size])
         self.params_grad = tf.gradients(self.model.output, self.weights, -self.action_gradient)
         grads = zip(self.params_grad, self.weights)
-        self.optimize = tf.train.AdamOptimizer(LEARNING_RATE).apply_gradients(grads)
+        self.optimize = tf.train.AdamOptimizer(learn_rate).apply_gradients(grads)
         self.sess.run(tf.global_variables_initializer())
 
     def train(self, states, action_grads):

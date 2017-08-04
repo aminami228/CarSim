@@ -2,11 +2,11 @@
 import numpy as np
 import tensorflow as tf
 import json
-from ReplayBuffer import ReplayBuffer
-from ActorNetwork import ActorNetwork
-from CriticNetwork import CriticNetwork
-from intersection import UpdateInter
-from OU import OU
+from network.ActorNetwork import ActorNetwork
+from network.CriticNetwork import CriticNetwork
+from network.ReplayBuffer import ReplayBuffer
+from utilities.OU import OU
+from inter_sim import InterSim
 from keras import backend as K
 
 
