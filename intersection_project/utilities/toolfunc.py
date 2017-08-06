@@ -12,5 +12,5 @@ class ToolFunc(object):
         return theta * (mu - x) + sigma * np.random.randn(1)
 
     @staticmethod
-    def sigmoid(x, b, c=0):
-        return 1 / (1 + exp(- b * x + c))
+    def sigmoid(x, b, c=0.):
+        return 1. / (1. + exp(- b * x + c))

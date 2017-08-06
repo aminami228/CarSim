@@ -5,6 +5,20 @@ from keras.models import Sequential, Model
 from keras.optimizers import Adam
 import keras.backend as keras
 import tensorflow as tf
+import sys
+import logging
+import utilities.log_color
+
+LEVELS = {'debug': logging.DEBUG,
+          'info': logging.INFO,
+          'warning': logging.WARNING,
+          'error': logging.ERROR,
+          'critical': logging.CRITICAL}
+
+if len(sys.argv) > 1:
+    level_name = sys.argv[1]
+    level = LEVELS.get(level_name, logging.NOTSET)
+    logging.basicConfig(level=level)
 
 HIDDEN1_UNITS = 128
 HIDDEN2_UNITS = 64
@@ -42,7 +56,7 @@ class CriticNetwork(object):
         self.target_model.set_weights(critic_target_weights)
 
     def create_critic_network(self, state_size, action_size):
-        print("Now we build the model")
+        logging.info('...... Building critic model ......')
         S = Input(shape=[state_size])  
         A = Input(shape=[action_size], name='action2')
         w0 = Dense(state_size, activation='linear')(S)

@@ -12,20 +12,11 @@ from utilities.toolfunc import ToolFunc
 from inter_sim import InterSim
 from keras import backend as keras
 import time
+import utilities.log_color
 
 __author__ = 'qzq'
 
-
-LEVELS = {'debug': logging.DEBUG,
-          'info': logging.INFO,
-          'warning': logging.WARNING,
-          'error': logging.ERROR,
-          'critical': logging.CRITICAL}
-
-if len(sys.argv) > 1:
-    level_name = sys.argv[1]
-    level = LEVELS.get(level_name, logging.NOTSET)
-    logging.basicConfig(level=level)
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 class ReinAcc(object):
@@ -125,7 +116,6 @@ class ReinAcc(object):
         self.epsilon -= 1.0 / self.explore_iter
         noise = []
         action_ori = self.sim.Cft_Accel * self.actor_network.model.predict(self.state_t)
-        print("Action ", action_ori)
         for i in range(self.action_size):
             a = action_ori[0][i]
             noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.00, 0.01, 0.01))

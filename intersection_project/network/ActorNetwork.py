@@ -7,6 +7,8 @@ from keras.layers import Dense, Flatten, Input, merge, Lambda, concatenate
 from keras.optimizers import Adam
 import tensorflow as tf
 import keras.backend as keras
+import logging
+import utilities.log_color
 
 HIDDEN1_UNITS = 128
 HIDDEN2_UNITS = 64
@@ -46,7 +48,7 @@ class ActorNetwork(object):
 
     @staticmethod
     def create_actor_network(state_size):
-        print("Now we build the model")
+        logging.info('...... Building actor model ......')
         S  = Input(shape=[state_size])
         h0 = Dense(HIDDEN1_UNITS, activation='relu')(S)
         h1 = Dense(HIDDEN2_UNITS, activation='relu')(h0)
