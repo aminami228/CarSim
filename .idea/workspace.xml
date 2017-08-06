@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="282bd2f8-540a-4b5a-917b-c4cf118a465b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/intersection_project/utilities/OU.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CarSim.iml" afterPath="$PROJECT_DIR$/.idea/CarSim.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/intersection_project/approach_src/inter_sim.py" afterPath="$PROJECT_DIR$/intersection_project/approach_src/inter_sim.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/intersection_project/approach_src/rl_acc.py" afterPath="$PROJECT_DIR$/intersection_project/approach_src/rl_acc.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/intersection_project/network/ActorNetwork.py" afterPath="$PROJECT_DIR$/intersection_project/network/ActorNetwork.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/intersection_project/network/CriticNetwork.py" afterPath="$PROJECT_DIR$/intersection_project/network/CriticNetwork.py" />
-    </list>
+    <list default="true" id="282bd2f8-540a-4b5a-917b-c4cf118a465b" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
