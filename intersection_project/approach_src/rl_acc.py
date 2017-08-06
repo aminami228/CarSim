@@ -80,21 +80,21 @@ class ReinAcc(object):
     def load_weights(self):
         logging.info('...... Loading weight ......')
         try:
-            self.actor_network.model.load_weights("actormodel.h5")
-            self.critic_network.model.load_weights("criticmodel.h5")
-            self.actor_network.target_model.load_weights("actormodel.h5")
-            self.critic_network.target_model.load_weights("criticmodel.h5")
+            self.actor_network.model.load_weights("weights/actormodel.h5")
+            self.critic_network.model.load_weights("weights/criticmodel.h5")
+            self.actor_network.target_model.load_weights("weights/actormodel.h5")
+            self.critic_network.target_model.load_weights("weights/criticmodel.h5")
             logging.info("Weight load successfully")
         except:
             logging.warn("Cannot find the weight !")
 
     def update_weights(self):
         logging.info('...... Updating weight ......')
-        self.actor_network.model.save_weights("actormodel.h5", overwrite=True)
-        with open("actormodel.json", "w") as outfile:
+        self.actor_network.model.save_weights("weights/actormodel.h5", overwrite=True)
+        with open("weights/actormodel.json", "w") as outfile:
             json.dump(self.actor_network.model.to_json(), outfile)
-        self.critic_network.model.save_weights("criticmodel.h5", overwrite=True)
-        with open("criticmodel.json", "w") as outfile:
+        self.critic_network.model.save_weights("weights/criticmodel.h5", overwrite=True)
+        with open("weights/criticmodel.json", "w") as outfile:
             json.dump(self.critic_network.model.to_json(), outfile)
 
     def update_batch(self):
@@ -153,16 +153,24 @@ class ReinAcc(object):
             self.update_loss()
         self.total_reward += reward_t
 
-        if old_av_y >= self.sim.Stop_Line - 0.1 or collision > 0:
-            self.if_pass = old_av_y >= self.sim.Stop_Line - 0.1 and (old_av_velocity <= 0.01)
-            self.if_done = True
-        else:
+        if collision > 0:
+            logging.warn('Crash to other vehicles or road boundary!')
             self.if_pass = False
+            self.if_done = True
+        elif collision == 0 and (old_av_y >= self.sim.Stop_Line - 0.1) and (old_av_velocity >= 0.01):
+            logging.warn('No crash and reached stop line. But has not stopped!')
+            self.if_pass = False
+            self.if_done = True
+        elif collision == 0 and old_av_y >= self.sim.Stop_Line - 0.1 and (old_av_velocity <= 0.01):
+            logging.info('Congratulations! Reach stop line without crashing and has stopped.')
+            self.if_pass = True
+            self.if_done = True
+
         self.state_t = state_t1
         return collision, self.if_pass
 
     def launch_train(self, train_indicator=1):  # 1 means Train, 0 means simply Run
-        print 'Launch Training Process'
+        logging.info('Launch Training Process')
         np.random.seed(1337)
         self.state_t = self.sim.get_state()
         state_dim = self.sim.state_dim
@@ -175,7 +183,7 @@ class ReinAcc(object):
         total_wrong = 0.
 
         for e in range(self.episode_count):
-            print("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
+            logging.debug("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
             for j in range(self.max_steps):
                 self.loss = 0
                 self.total_reward = 0
@@ -203,9 +211,9 @@ class ReinAcc(object):
                 total_correct = 0
                 total_wrong = 0
 
-            print("TOTAL REWARD @ " + str(e) + "-th Episode  : Reward " + str(self.total_reward) +
-                  " Collision " + str(collision > 0) + " Accuracy " + str(accuracy) +
-                  " All Accuracy " + str(all_accuracy))
+            logging.debug("TOTAL REWARD @ " + str(e) + "-th Episode  : Reward " + str(self.total_reward) +
+                          " Collision " + str(collision > 0) + " Accuracy " + str(accuracy) +
+                          " All Accuracy " + str(all_accuracy))
             print("")
         print("Finish.")
 
