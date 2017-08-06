@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from random import randint, random
 from utilities.toolfunc import ToolFunc
+import logging
+import utilities.log_color
 
 __author__ = 'qzq'
 
@@ -124,7 +126,7 @@ class InterSim(object):
 
     def reward_smooth(self, a, st):
         x1 = a - self.av_pos['aceel']
-        f1 = - 2. * abs(self.tools.sigmoid(x1, 10) - 0.5) + 1.
+        f1 = - 2. * abs(self.tools.sigmoid(x1, 5) - 0.5) + 1.
         x2 = st - self.av_pos['steer']
         f2 = - 2. * abs(self.tools.sigmoid(x2, 2) - 0.5) + 1.
         return f1 + f2
@@ -136,7 +138,7 @@ class InterSim(object):
         fl = abs(self.tools.sigmoid(l_clear, 6) - 0.5) * 2
         r_clear = self.state_road[2]
         fr = abs(self.tools.sigmoid(r_clear, 6) - 0.5) * 2
-        collision = (f_clear <= 0) or (r_clear <= 0) or (l_clear <= 0)
+        collision = (f_clear <= 0.1) or (r_clear <= 0.1) or (l_clear <= 0.1)
         return ff + fl + fr,  collision
 
     def reward_stop(self):
@@ -144,7 +146,8 @@ class InterSim(object):
         th_2 = 2.
         mid_point = (th_1 + th_2) / 2
         x = self.av_pos['vy'] ** 2 / self.state_road[0]
-        fx = self.tools.sigmoid(-x + mid_point, 1)
+        # logging.debug('x = ' + str(x))
+        fx = self.tools.sigmoid(- x + mid_point, 1)
         return fx
 
 

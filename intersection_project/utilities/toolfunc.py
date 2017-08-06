@@ -13,4 +13,11 @@ class ToolFunc(object):
 
     @staticmethod
     def sigmoid(x, b, c=0.):
-        return 1. / (1. + exp(- b * x + c))
+        try:
+            e = exp(- b * x + c)
+        except OverflowError:
+            e = float('inf')
+        if e == float('inf'):
+            return 0.
+        else:
+            return 1. / (1. + e)

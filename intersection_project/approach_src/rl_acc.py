@@ -16,7 +16,7 @@ import utilities.log_color
 
 __author__ = 'qzq'
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+# logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 class ReinAcc(object):
@@ -69,27 +69,27 @@ class ReinAcc(object):
         self.end_time = time.time()
 
     def load_weights(self):
-        logging.info('...... Loading weight ......')
+        # logging.info('...... Loading weight ......')
         try:
-            self.actor_network.model.load_weights("weights/actormodel.h5")
-            self.critic_network.model.load_weights("weights/criticmodel.h5")
-            self.actor_network.target_model.load_weights("weights/actormodel.h5")
-            self.critic_network.target_model.load_weights("weights/criticmodel.h5")
-            logging.info("Weight load successfully")
+            self.actor_network.model.load_weights("../weights/actormodel.h5")
+            self.critic_network.model.load_weights("../weights/criticmodel.h5")
+            self.actor_network.target_model.load_weights("../weights/actormodel.h5")
+            self.critic_network.target_model.load_weights("../weights/criticmodel.h5")
+            # logging.info("Weight load successfully")
         except:
             logging.warn("Cannot find the weight !")
 
     def update_weights(self):
-        logging.info('...... Updating weight ......')
-        self.actor_network.model.save_weights("weights/actormodel.h5", overwrite=True)
-        with open("weights/actormodel.json", "w") as outfile:
+        # logging.info('...... Updating weight ......')
+        self.actor_network.model.save_weights("../weights/actormodel.h5", overwrite=True)
+        with open("../weights/actormodel.json", "w") as outfile:
             json.dump(self.actor_network.model.to_json(), outfile)
-        self.critic_network.model.save_weights("weights/criticmodel.h5", overwrite=True)
-        with open("weights/criticmodel.json", "w") as outfile:
+        self.critic_network.model.save_weights("../weights/criticmodel.h5", overwrite=True)
+        with open("../weights/criticmodel.json", "w") as outfile:
             json.dump(self.critic_network.model.to_json(), outfile)
 
     def update_batch(self):
-        logging.info('...... Updating batch ......')
+        # logging.info('...... Updating batch ......')
         self.batch = self.buffer.get_batch(self.batch_size)
         self.batch_state = np.squeeze(np.asarray([e[0] for e in self.batch]), axis=1)
         self.batch_action = np.asarray([e[1] for e in self.batch])
@@ -103,7 +103,7 @@ class ReinAcc(object):
             self.batch_output[k] = self.batch_reward[k] if done else self.batch_reward[k] + self.gamma * target_q_values[k]
 
     def update_loss(self):
-        logging.info('...... Updating loss ......')
+        # logging.info('...... Updating loss ......')
         self.loss += self.critic_network.model.train_on_batch([self.batch_state, self.batch_action], self.batch_output)
         actor_predict = self.actor_network.model.predict(self.batch_state)
         actor_grad = self.critic_network.gradients(self.batch_state, actor_predict)
@@ -112,7 +112,7 @@ class ReinAcc(object):
         self.critic_network.target_train()
 
     def get_action(self, train_indicator):
-        logging.info('...... Getting action ......')
+        # logging.info('...... Getting action ......')
         self.epsilon -= 1.0 / self.explore_iter
         noise = []
         action_ori = self.sim.Cft_Accel * self.actor_network.model.predict(self.state_t)
@@ -125,15 +125,15 @@ class ReinAcc(object):
         return action
 
     def update_reward(self, action, train_indicator, e, j):
-        logging.info('...... Updating reward ......')
+        # logging.info('...... Updating reward ......')
         old_av_y = self.sim.av_pos['y']
         old_av_velocity = self.sim.av_pos['vy']
         state_t = self.state_t
         reward_t, collision = self.sim.get_reward(action[0][0])
         self.end_time = time.time()
-        logging.debug('Episode: ', e, 'Step: ', j, 'loc: ', old_av_y, 'velocity: ', old_av_velocity,
-                      'reward: ', reward_t, 'loss: ', self.loss)
-        logging.debug('Training time: ',  self.end_time - self.start_time)
+        logging.debug('Episode: ' + str(e) + ', Step: ' + str(j) + ', loc: ' + str(old_av_y) + ', velocity: ' +
+                      str(old_av_velocity) + ', reward: ' + str(reward_t) + ', loss: ' + str(self.loss) +
+                      ', Training time: ' + str(self.end_time - self.start_time))
         state_t1 = self.sim.update_vehicle(action[0][0])
         self.start_time = time.time()
 
@@ -160,8 +160,8 @@ class ReinAcc(object):
         return collision, self.if_pass
 
     def launch_train(self, train_indicator=1):  # 1 means Train, 0 means simply Run
-        logging.info('Launch Training Process')
-        np.random.seed(1337)
+        # logging.info('Launch Training Process')
+        # np.random.seed(1337)
         self.state_t = self.sim.get_state()
         state_dim = self.sim.state_dim
         self.actor_network = ActorNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRA)
@@ -173,10 +173,8 @@ class ReinAcc(object):
         total_wrong = 0.
 
         for e in range(self.episode_count):
-            logging.debug("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
+            # logging.debug("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
             for j in range(self.max_steps):
-                self.loss = 0
-                self.total_reward = 0
                 self.state_t = self.sim.get_state()
                 action_t = self.get_action(train_indicator)
                 collision, if_pass = self.update_reward(action_t, train_indicator, e, j)
@@ -203,9 +201,7 @@ class ReinAcc(object):
 
             logging.debug("TOTAL REWARD @ " + str(e) + "-th Episode  : Reward " + str(self.total_reward) +
                           " Collision " + str(collision > 0) + " Accuracy " + str(accuracy) +
-                          " All Accuracy " + str(all_accuracy))
-            print("")
-        print("Finish.")
+                          " All Accuracy " + str(all_accuracy) + '\n')
 
 
 if __name__ == '__main__':

@@ -48,7 +48,7 @@ class ActorNetwork(object):
 
     @staticmethod
     def create_actor_network(state_size):
-        logging.info('...... Building actor model ......')
+        # logging.info('...... Building actor model ......')
         S  = Input(shape=[state_size])
         h0 = Dense(HIDDEN1_UNITS, activation='relu')(S)
         h1 = Dense(HIDDEN2_UNITS, activation='relu')(h0)
