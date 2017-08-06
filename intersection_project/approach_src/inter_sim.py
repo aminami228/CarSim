@@ -109,6 +109,7 @@ class InterSim(object):
             hv_pos['y'] += hv_pos['vy'] * self.Tau + 0.5 * hv_a * (self.Tau ** 2)
         old_av_vel = self.av_pos['vy']
         self.av_pos['vy'] += a * self.Tau
+        self.av_pos['vy'] = max(0.1, self.av_pos['vy'])
         self.av_pos['y'] += old_av_vel * self.Tau + 0.5 * a * (self.Tau ** 2)
         self.av_pos['heading'] += st
         self.av_pos['aceel'] = a
@@ -121,7 +122,10 @@ class InterSim(object):
         r_smooth = self.reward_smooth(a, st)
         r_clerance, collision = self.reward_clear()
         r_stop = self.reward_stop()
-        r = r_smooth + r_clerance + r_stop - 1
+        r_speedlimit = self.reward_speedlimit()
+        r_time = - 1.
+        r_finish = self.reward_finish()
+        r = r_smooth + r_clerance + r_stop + r_speedlimit + r_time + r_finish
         return r, collision
 
     def reward_smooth(self, a, st):
@@ -149,6 +153,20 @@ class InterSim(object):
         # logging.debug('x = ' + str(x))
         fx = self.tools.sigmoid(- x + mid_point, 1)
         return fx
+
+    def reward_speedlimit(self):
+        th_1 = self.Speed_limit
+        th_2 = th_1 + 2.
+        mid_point = (th_1 + th_2) / 2
+        x = self.av_pos['vy'] - mid_point
+        fx = self.tools.sigmoid(- 3 * x, 1)
+        return fx
+
+    def reward_finish(self):
+        if self.state_road[0] <= 1. and (self.av_pos['vy'] <= 1.):
+            return 50.
+        else:
+            return 0.
 
 
 if __name__ == '__main__':

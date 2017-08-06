@@ -49,7 +49,7 @@ class CriticNetwork(object):
         S = Input(shape=[state_size])  
         A = Input(shape=[action_size], name='action2')
         w0 = Dense(state_size, activation='linear')(S)
-        a0 = Dense(action_size, activation='relu')(A)
+        a0 = Dense(action_size, activation='linear')(A)
         h0 = merge([w0, a0], mode='concat')
         h1 = Dense(HIDDEN1_UNITS, activation='relu')(h0)
         h2 = Dense(HIDDEN2_UNITS, activation='relu')(h1)

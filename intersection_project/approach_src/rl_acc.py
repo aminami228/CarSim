@@ -16,7 +16,7 @@ import utilities.log_color
 
 __author__ = 'qzq'
 
-# logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 class ReinAcc(object):
@@ -115,7 +115,7 @@ class ReinAcc(object):
         # logging.info('...... Getting action ......')
         self.epsilon -= 1.0 / self.explore_iter
         noise = []
-        action_ori = self.sim.Cft_Accel * self.actor_network.model.predict(self.state_t)
+        action_ori = 2. * self.sim.Cft_Accel * (self.actor_network.model.predict(self.state_t) - 0.5)
         for i in range(self.action_size):
             a = action_ori[0][i]
             noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.00, 0.01, 0.01))
