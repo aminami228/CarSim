@@ -31,6 +31,7 @@ class InterSim(object):
         self.sim = None
         self.av_pos = dict()
         self.av_pos['y'] = - random() * 50. - 100.
+        self.Start_Pos = self.av_pos['y']
         self.av_pos['x'] = 2.
         self.av_pos['vx'] = 0.
         self.av_pos['vy'] = random() * self.Speed_limit + 5
@@ -41,7 +42,7 @@ class InterSim(object):
         self.hv_poses = []
         for i in range(self.Vehicle_NO):
             hv_pos = dict()
-            hv_pos['y'] = self.av_pos['y'] + random() * 100. + 20.
+            hv_pos['y'] = self.av_pos['y'] + random() * 50. + 20.
             hv_pos['x'] = 2.
             hv_pos['vx'] = 0.
             hv_pos['vy'] = self.Speed_limit - random()
@@ -123,25 +124,28 @@ class InterSim(object):
         r_clerance, collision = self.reward_clear()
         r_stop = self.reward_stop()
         r_speedlimit = self.reward_speedlimit()
-        r_time = - 10.
+        r_v = 0.1 * self.av_pos['vy'] - 0.2 if self.av_pos['vy'] <= self.Speed_limit \
+            else (- 0.6 * self.av_pos['vy'] + 8.4) - 0.2
+        r_v = max(- 0.2, r_v)
+        r_time = - 3.0
         r_finish = self.reward_finish()
-        r = r_smooth + r_clerance + r_stop + r_speedlimit + r_time + r_finish
+        r = r_smooth + r_clerance + r_stop + r_speedlimit + r_v + r_time + r_finish
         return r, collision
 
     def reward_smooth(self, a, st):
         x1 = a - self.av_pos['aceel']
-        f1 = - 2. * abs(self.tools.sigmoid(x1, 5) - 0.5) + 1.
+        f1 = - 2. * abs(self.tools.sigmoid(x1, 5) - 0.5) + 0.9
         x2 = st - self.av_pos['steer']
-        f2 = - 2. * abs(self.tools.sigmoid(x2, 2) - 0.5) + 1.
+        f2 = - 2. * abs(self.tools.sigmoid(x2, 2) - 0.5) + 0.9
         return f1 + f2
 
     def reward_clear(self):
         f_clear = self.state_fv[1]
-        ff = abs(self.tools.sigmoid(f_clear, 0.4) - 0.5) * 2
+        ff = abs(self.tools.sigmoid(f_clear, 0.4) - 1.0) + 0.1
         l_clear = self.state_road[1]
-        fl = abs(self.tools.sigmoid(l_clear, 6) - 0.5) * 2
+        fl = abs(self.tools.sigmoid(l_clear, 6) - 1.) + 0.1
         r_clear = self.state_road[2]
-        fr = abs(self.tools.sigmoid(r_clear, 6) - 0.5) * 2
+        fr = abs(self.tools.sigmoid(r_clear, 6) - 1.) + 0.1
         collision = (f_clear <= 0.1) or (r_clear <= 0.1) or (l_clear <= 0.1)
         return ff + fl + fr,  collision
 
@@ -149,9 +153,8 @@ class InterSim(object):
         th_1 = 2. * self.Cft_Accel
         th_2 = 2.
         mid_point = (th_1 + th_2) / 2
-        x = self.av_pos['vy'] ** 2 / self.state_road[0]
-        # logging.debug('x = ' + str(x))
-        fx = self.tools.sigmoid(- x + mid_point, 1)
+        x = self.av_pos['vy'] ** 2 / self.state_road[0] - mid_point
+        fx = self.tools.sigmoid(x, - 1) - 0.1
         return fx
 
     def reward_speedlimit(self):
@@ -159,12 +162,12 @@ class InterSim(object):
         th_2 = th_1 + 2.
         mid_point = (th_1 + th_2) / 2
         x = self.av_pos['vy'] - mid_point
-        fx = self.tools.sigmoid(- 3 * x, 1)
+        fx = self.tools.sigmoid(x, - 3) - 0.9
         return fx
 
     def reward_finish(self):
-        if self.state_road[0] <= 1. and (self.av_pos['vy'] <= 0.1):
-            return 50.
+        if self.state_road[0] <= 2.0 and (self.av_pos['vy'] <= 0.15):
+            return 500.
         else:
             return 0.
 

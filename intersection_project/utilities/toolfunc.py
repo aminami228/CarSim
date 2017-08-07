@@ -9,7 +9,7 @@ class ToolFunc(object):
 
     @staticmethod
     def ou(x, mu, theta, sigma):
-        return theta * (mu - x) + sigma * np.random.randn(1)
+        return theta * (mu - x) + sigma * np.random.randn()
 
     @staticmethod
     def sigmoid(x, b, c=0.):

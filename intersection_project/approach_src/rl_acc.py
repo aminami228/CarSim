@@ -56,6 +56,7 @@ class ReinAcc(object):
         self.crash = 0.
         self.not_stop = 0.
         self.success = 0.
+        self.not_finish = 0.
 
         self.actor_network = ActorNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRA)
         self.critic_network = CriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
@@ -123,13 +124,13 @@ class ReinAcc(object):
         action_ori = 2. * self.sim.Cft_Accel * (self.actor_network.model.predict(self.state_t) - 0.5)
         for i in range(self.action_size):
             a = action_ori[0][i]
-            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.00, 0.01, 0.01))
+            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.5, 0.1, 0.1))
         action = np.zeros([1, self.action_size])
         for i in range(self.action_size):
             action[0][i] = action_ori[0][i] + noise[i]
         return action
 
-    def update_reward(self, action, train_indicator, e, j):
+    def update_reward(self, action, train_indicator, e, step):
         # logging.info('...... Updating reward ......')
         old_av_y = self.sim.av_pos['y']
         old_av_velocity = self.sim.av_pos['vy']
@@ -137,9 +138,9 @@ class ReinAcc(object):
         reward_t, collision = self.sim.get_reward(action[0][0])
         self.end_time = time.time()
         self.total_time = self.end_time - self.start_time
-        # logging.debug('Episode: ' + str(e) + ', Step: ' + str(j) + ', loc: ' + str(old_av_y) + ', velocity: ' +
-        #               str(old_av_velocity) + ', reward: ' + str(reward_t) + ', loss: ' + str(self.loss) +
-        #               ', Training time: ' + str(self.end_time - self.start_time))
+        # logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', loc: ' + str(old_av_y) + ', velocity: ' +
+        #               str(old_av_velocity) + ', action: ' + str(action) + ', reward: ' + str(reward_t) + ', loss: ' +
+        #               str(self.loss) + ', Training time: ' + str(self.end_time - self.start_time))
         state_t1 = self.sim.update_vehicle(action[0][0])
         self.start_time = time.time()
 
@@ -149,18 +150,28 @@ class ReinAcc(object):
             self.update_loss()
         self.total_reward += reward_t
 
-        if collision > 0:
-            logging.warn('Crash to other vehicles or road boundary!')
+        if step >= self.max_steps:
+            logging.warn('Not finished with max steps! Start: ' + str(self.sim.Start_Pos) + ', Position: ' +
+                         str(old_av_y) + ', Velocity: ' + str(old_av_velocity))
+            self.not_finish += 1.
+            self.if_pass = False
+            self.if_done = True
+        elif collision > 0:
+            logging.warn('Crash to other vehicles or road boundary! Start: ' + str(self.sim.Start_Pos) + ', Position: '
+                         + str(old_av_y) + ', Velocity: ' + str(old_av_velocity))
             self.crash += 1.
             self.if_pass = False
             self.if_done = True
         elif collision == 0 and (old_av_y >= self.sim.Stop_Line - 1.) and (old_av_velocity > 0.1):
-            logging.warn('No crash and reached stop line. But has not stopped!')
+            logging.warn('No crash and reached stop line. But has not stopped! Start: ' + str(self.sim.Start_Pos) +
+                         ', Position: ' + str(old_av_y) + ', Velocity: ' + str(old_av_velocity))
             self.not_stop += 1.
             self.if_pass = False
             self.if_done = True
-        elif collision == 0 and old_av_y >= self.sim.Stop_Line - 1. and (old_av_velocity <= 0.1):
-            logging.info('Congratulations! Reach stop line without crashing and has stopped.')
+        elif collision == 0 and old_av_y >= self.sim.Stop_Line - 1.0 and (old_av_velocity <= 0.1):
+            logging.info('Congratulations! Reach stop line without crashing and has stopped. Start: ' +
+                         str(self.sim.Start_Pos) + ', Position: ' + str(old_av_y) + ', Velocity: ' +
+                         str(old_av_velocity))
             self.success += 1.
             self.if_pass = True
             self.if_done = True
@@ -181,17 +192,19 @@ class ReinAcc(object):
             total_loss = 0.
             total_time = 0.
             # logging.debug("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
-            for j in range(self.max_steps):
+            step = 0
+            while True:
                 self.state_t = self.sim.get_state()
                 action_t = self.get_action(train_indicator)
-                self.update_reward(action_t, train_indicator, e, j)
+                self.update_reward(action_t, train_indicator, e, step)
+                step += 1
                 total_loss += self.loss
                 total_time += self.total_time
 
                 if self.if_done:
                     break
 
-            total_step = j + 1
+            total_step = step + 1
             if train_indicator:
                 self.update_weights()
 
@@ -199,8 +212,8 @@ class ReinAcc(object):
             mean_time = total_time / total_step
             logging.debug(str(e) + "-th Episode: Steps: " + str(total_step) + ', Time: ' + str(mean_time) +
                           ', Reward: ' + str(self.total_reward) + " Loss: " + str(mean_loss) + ', Crash: ' +
-                          str(self.crash) + ', Not Stop: ' + str(self.not_stop) + ', Success: ' + str(self.success) +
-                          '\n')
+                          str(self.crash) + ', Not Stop: ' + str(self.not_stop) + ', Not Finished: ' +
+                          str(self.not_finish) + ', Success: ' + str(self.success))
 
             self.sim = InterSim()
             self.state_t = None
