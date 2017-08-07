@@ -123,7 +123,7 @@ class InterSim(object):
         r_clerance, collision = self.reward_clear()
         r_stop = self.reward_stop()
         r_speedlimit = self.reward_speedlimit()
-        r_time = - 1.
+        r_time = - 10.
         r_finish = self.reward_finish()
         r = r_smooth + r_clerance + r_stop + r_speedlimit + r_time + r_finish
         return r, collision
@@ -163,7 +163,7 @@ class InterSim(object):
         return fx
 
     def reward_finish(self):
-        if self.state_road[0] <= 1. and (self.av_pos['vy'] <= 1.):
+        if self.state_road[0] <= 1. and (self.av_pos['vy'] <= 0.1):
             return 50.
         else:
             return 0.

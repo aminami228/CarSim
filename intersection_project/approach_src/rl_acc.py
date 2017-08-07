@@ -26,8 +26,8 @@ class ReinAcc(object):
     gamma = 0.99
     epsilon = 1.
 
-    buffer_size = 100000
-    batch_size = 100
+    buffer_size = 10000
+    batch_size = 64
     tau = 0.0001            # Target Network HyperParameters
     LRA = 0.001             # Learning rate for Actor
     LRC = 0.001             # Learning rate for Critic
@@ -53,6 +53,10 @@ class ReinAcc(object):
         self.if_pass = False
         self.if_done = False
 
+        self.crash = 0.
+        self.not_stop = 0.
+        self.success = 0.
+
         self.actor_network = ActorNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRA)
         self.critic_network = CriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
         self.buffer = ReplayBuffer()
@@ -67,6 +71,7 @@ class ReinAcc(object):
 
         self.start_time = time.time()
         self.end_time = time.time()
+        self.total_time = 0.
 
     def load_weights(self):
         # logging.info('...... Loading weight ......')
@@ -104,7 +109,7 @@ class ReinAcc(object):
 
     def update_loss(self):
         # logging.info('...... Updating loss ......')
-        self.loss += self.critic_network.model.train_on_batch([self.batch_state, self.batch_action], self.batch_output)
+        self.loss = self.critic_network.model.train_on_batch([self.batch_state, self.batch_action], self.batch_output)
         actor_predict = self.actor_network.model.predict(self.batch_state)
         actor_grad = self.critic_network.gradients(self.batch_state, actor_predict)
         self.actor_network.train(self.batch_state, actor_grad)
@@ -131,9 +136,10 @@ class ReinAcc(object):
         state_t = self.state_t
         reward_t, collision = self.sim.get_reward(action[0][0])
         self.end_time = time.time()
-        logging.debug('Episode: ' + str(e) + ', Step: ' + str(j) + ', loc: ' + str(old_av_y) + ', velocity: ' +
-                      str(old_av_velocity) + ', reward: ' + str(reward_t) + ', loss: ' + str(self.loss) +
-                      ', Training time: ' + str(self.end_time - self.start_time))
+        self.total_time = self.end_time - self.start_time
+        # logging.debug('Episode: ' + str(e) + ', Step: ' + str(j) + ', loc: ' + str(old_av_y) + ', velocity: ' +
+        #               str(old_av_velocity) + ', reward: ' + str(reward_t) + ', loss: ' + str(self.loss) +
+        #               ', Training time: ' + str(self.end_time - self.start_time))
         state_t1 = self.sim.update_vehicle(action[0][0])
         self.start_time = time.time()
 
@@ -145,19 +151,21 @@ class ReinAcc(object):
 
         if collision > 0:
             logging.warn('Crash to other vehicles or road boundary!')
+            self.crash += 1.
             self.if_pass = False
             self.if_done = True
-        elif collision == 0 and (old_av_y >= self.sim.Stop_Line - 0.1) and (old_av_velocity >= 0.01):
+        elif collision == 0 and (old_av_y >= self.sim.Stop_Line - 1.) and (old_av_velocity > 0.1):
             logging.warn('No crash and reached stop line. But has not stopped!')
+            self.not_stop += 1.
             self.if_pass = False
             self.if_done = True
-        elif collision == 0 and old_av_y >= self.sim.Stop_Line - 0.1 and (old_av_velocity <= 0.01):
+        elif collision == 0 and old_av_y >= self.sim.Stop_Line - 1. and (old_av_velocity <= 0.1):
             logging.info('Congratulations! Reach stop line without crashing and has stopped.')
+            self.success += 1.
             self.if_pass = True
             self.if_done = True
 
         self.state_t = state_t1
-        return collision, self.if_pass
 
     def launch_train(self, train_indicator=1):  # 1 means Train, 0 means simply Run
         # logging.info('Launch Training Process')
@@ -169,39 +177,37 @@ class ReinAcc(object):
         self.buffer = ReplayBuffer(self.buffer_size)
         self.load_weights()
 
-        total_correct = 0.
-        total_wrong = 0.
-
         for e in range(self.episode_count):
+            total_loss = 0.
+            total_time = 0.
             # logging.debug("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
             for j in range(self.max_steps):
                 self.state_t = self.sim.get_state()
                 action_t = self.get_action(train_indicator)
-                collision, if_pass = self.update_reward(action_t, train_indicator, e, j)
+                self.update_reward(action_t, train_indicator, e, j)
+                total_loss += self.loss
+                total_time += self.total_time
 
                 if self.if_done:
-                    self.sim = InterSim()
-                    self.state_t = None
-                    self.if_done = False
                     break
 
+            total_step = j + 1
             if train_indicator:
                 self.update_weights()
 
-            total_correct += int(collision <= 0 and self.if_pass)
-            total_wrong += int(collision > 0)
-            accuracy = 0
-            all_accuracy = []
-            if total_correct + total_wrong:
-                accuracy = total_correct / (total_correct + total_wrong)
-            if np.mod(e, 100) == 0:
-                all_accuracy.append(accuracy)
-                total_correct = 0
-                total_wrong = 0
+            mean_loss = total_loss / total_step
+            mean_time = total_time / total_step
+            logging.debug(str(e) + "-th Episode: Steps: " + str(total_step) + ', Time: ' + str(mean_time) +
+                          ', Reward: ' + str(self.total_reward) + " Loss: " + str(mean_loss) + ', Crash: ' +
+                          str(self.crash) + ', Not Stop: ' + str(self.not_stop) + ', Success: ' + str(self.success) +
+                          '\n')
 
-            logging.debug("TOTAL REWARD @ " + str(e) + "-th Episode  : Reward " + str(self.total_reward) +
-                          " Collision " + str(collision > 0) + " Accuracy " + str(accuracy) +
-                          " All Accuracy " + str(all_accuracy) + '\n')
+            self.sim = InterSim()
+            self.state_t = None
+            self.total_reward = 0
+            self.loss = 0.
+            self.if_pass = False
+            self.if_done = False
 
 
 if __name__ == '__main__':
