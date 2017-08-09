@@ -34,7 +34,7 @@ class ReinAcc(object):
 
     explore_iter = 100000
     episode_count = 20000
-    max_steps = 1500
+    max_steps = 2000
 
     action_dim = 1          # Steering/Acceleration/Brake
     action_size = 1
@@ -57,6 +57,7 @@ class ReinAcc(object):
         self.not_stop = 0.
         self.success = 0.
         self.not_finish = 0.
+        self.overspeed = 0.
 
         self.actor_network = ActorNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRA)
         self.critic_network = CriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
@@ -156,6 +157,12 @@ class ReinAcc(object):
             self.not_finish += 1.
             self.if_pass = False
             self.if_done = True
+        elif old_av_velocity >= self.sim.Speed_limit + 5.:
+            logging.warn('Exceed Speed Limit: ' + str(self.sim.Start_Pos) + ', Position: ' +
+                         str(old_av_y) + ', Velocity: ' + str(old_av_velocity))
+            self.overspeed += 1.
+            self.if_pass = False
+            self.if_done = True
         elif collision > 0:
             logging.warn('Crash to other vehicles or road boundary! Start: ' + str(self.sim.Start_Pos) + ', Position: '
                          + str(old_av_y) + ', Velocity: ' + str(old_av_velocity))
@@ -213,7 +220,8 @@ class ReinAcc(object):
             logging.debug(str(e) + "-th Episode: Steps: " + str(total_step) + ', Time: ' + str(mean_time) +
                           ', Reward: ' + str(self.total_reward) + " Loss: " + str(mean_loss) + ', Crash: ' +
                           str(self.crash) + ', Not Stop: ' + str(self.not_stop) + ', Not Finished: ' +
-                          str(self.not_finish) + ', Success: ' + str(self.success))
+                          str(self.not_finish) + ', Overspeed: ' + str(self.overspeed) + ', Success: ' +
+                          str(self.success))
 
             self.sim = InterSim()
             self.state_t = None
