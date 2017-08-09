@@ -19,7 +19,7 @@ class InterSim(object):
     Inter_Up = 4.
     Inter_Left = - 4.
     Inter_Right = 4.
-    Vehicle_NO = 3
+    Vehicle_NO = 1
     Lane_Left = 0.
     Lane_Right = 4.
     Cft_Accel = 3.     # m/s**2
@@ -96,7 +96,8 @@ class InterSim(object):
         sl_dis = self.Stop_Line - self.av_pos['y']
         ll = self.av_pos['x'] - self.av_size[1] / 2 - self.Lane_Left
         lr = self.Lane_Right - (self.av_pos['x'] + self.av_size[1] / 2)
-        self.state_road = [sl_dis, ll, lr]
+        start_pos = self.Start_Pos
+        self.state_road = [sl_dis, ll, lr, start_pos]
         self.state = np.array(self.state_av + self.state_fv + self.state_road, ndmin=2)
         self.state_dim = self.state.shape[1]
         return self.state
@@ -110,7 +111,7 @@ class InterSim(object):
             hv_pos['y'] += hv_pos['vy'] * self.Tau + 0.5 * hv_a * (self.Tau ** 2)
         old_av_vel = self.av_pos['vy']
         self.av_pos['vy'] += a * self.Tau
-        self.av_pos['vy'] = max(0.1, self.av_pos['vy'])
+        self.av_pos['vy'] = max(0.0, self.av_pos['vy'])
         self.av_pos['y'] += old_av_vel * self.Tau + 0.5 * a * (self.Tau ** 2)
         self.av_pos['heading'] += st
         self.av_pos['aceel'] = a
@@ -124,37 +125,50 @@ class InterSim(object):
         r_clerance, collision = self.reward_clear()
         r_stop = self.reward_stop()
         r_speedlimit = self.reward_speedlimit()
-        r_v = 0.1 * self.av_pos['vy'] - 0.2 if self.av_pos['vy'] <= self.Speed_limit \
-            else (- 0.6 * self.av_pos['vy'] + 8.4) - 0.2
-        r_v = max(- 0.2, r_v)
-        r_time = - 3.0
+        # r_v = 0.1 * self.av_pos['vy'] - 0.2 if self.av_pos['vy'] <= self.Speed_limit \
+        #     else (- 0.6 * self.av_pos['vy'] + 8.4) - 0.2
+        # r_v = max(- 0.2, r_v)
+        r_time = - 0.5
+        r_crash = - 100. if self.state_fv[1] <= 2.0 else 0.
+        r_dis = self.reward_dis()
         r_finish = self.reward_finish()
-        r = r_smooth + r_clerance + r_stop + r_speedlimit + r_v + r_time + r_finish
+        # logging.error('r_smooth: ' + str(r_smooth) + ', jerk: ' + str((a - self.av_pos['aceel'])/self.Tau) +
+        #               ', r_clearance: ' + str(r_clerance) + ', fv: [' + str(self.state_fv[1]) + ', ' +
+        #               str(self.state_fv[0]) + ']'
+        #               ', r_stop: ' + str(r_stop) + ', v^2/s: ' + str(self.av_pos['vy'] ** 2 / self.state_road[0]) +
+        #               ', r_dis: ' + str(r_dis) + ', dis: ' + str(self.av_pos['vy'] * self.Tau) +
+        #               ', r_speed: ' + str(r_speedlimit) + ', overspeed: ' + str(self.av_pos['vy']-self.Speed_limit))
+        r = r_smooth + r_clerance + r_stop + r_dis + r_finish + r_speedlimit + r_time
         return r, collision
 
     def reward_smooth(self, a, st):
-        x1 = a - self.av_pos['aceel']
-        f1 = - 2. * abs(self.tools.sigmoid(x1, 5) - 0.5) + 0.9
-        x2 = st - self.av_pos['steer']
-        f2 = - 2. * abs(self.tools.sigmoid(x2, 2) - 0.5) + 0.9
+        jerk = (a - self.av_pos['aceel']) / self.Tau
+        f1 = - 2. * abs(self.tools.sigmoid(jerk, 2) - 0.5)
+        # yaw = (st - self.av_pos['steer']) / self.Tau
+        # f2 = - 2 * abs(self.tools.sigmoid(yaw, 2) - 0.5)
+        f2 = 0.
         return f1 + f2
 
     def reward_clear(self):
         f_clear = self.state_fv[1]
-        ff = abs(self.tools.sigmoid(f_clear, 0.4) - 1.0) + 0.1
+        t_clear = f_clear / (self.state_av[0] - self.state_fv[0]) if self.state_av[0] - self.state_fv[0] >= 0.1 else 0.
+        ff = self.tools.sigmoid(abs(f_clear), 0.8) - 0.5
+        ft = self.tools.sigmoid(abs(t_clear), 6.) - 0.7
         l_clear = self.state_road[1]
-        fl = abs(self.tools.sigmoid(l_clear, 6) - 1.) + 0.1
+        # fl = self.tools.sigmoid(abs(l_clear), 6) - 0.95
+        fl = 0.
         r_clear = self.state_road[2]
-        fr = abs(self.tools.sigmoid(r_clear, 6) - 1.) + 0.1
+        # fr = self.tools.sigmoid(abs(r_clear), 6) - 0.95
+        fr = 0.
         collision = (f_clear <= 0.1) or (r_clear <= 0.1) or (l_clear <= 0.1)
-        return ff + fl + fr,  collision
+        return ff + ft + fl + fr,  collision
 
     def reward_stop(self):
         th_1 = 2. * self.Cft_Accel
         th_2 = 2.
-        mid_point = (th_1 + th_2) / 2
-        x = self.av_pos['vy'] ** 2 / self.state_road[0] - mid_point
-        fx = self.tools.sigmoid(x, - 1) - 0.1
+        mid_point = (th_1 + th_2) / 2.
+        x = self.av_pos['vy'] ** 2. / self.state_road[0] - mid_point
+        fx = self.tools.sigmoid(x, - 2) - 0.2
         return fx
 
     def reward_speedlimit(self):
@@ -162,8 +176,12 @@ class InterSim(object):
         th_2 = th_1 + 2.
         mid_point = (th_1 + th_2) / 2
         x = self.av_pos['vy'] - mid_point
-        fx = self.tools.sigmoid(x, - 3) - 0.9
+        fx = 10.0 * self.tools.sigmoid(x, - 3) - 9.95
         return fx
+
+    def reward_dis(self):
+        dis = (self.av_pos['vy']) * self.Tau / (self.Stop_Line - self.Start_Pos) * 1000.
+        return dis
 
     def reward_finish(self):
         if self.state_road[0] <= 2.0 and (self.av_pos['vy'] <= 0.15):
