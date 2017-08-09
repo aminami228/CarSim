@@ -157,12 +157,12 @@ class ReinAcc(object):
             self.not_finish += 1.
             self.if_pass = False
             self.if_done = True
-        elif old_av_velocity >= self.sim.Speed_limit + 5.:
-            logging.warn('Exceed Speed Limit: ' + str(self.sim.Start_Pos) + ', Position: ' +
-                         str(old_av_y) + ', Velocity: ' + str(old_av_velocity))
-            self.overspeed += 1.
-            self.if_pass = False
-            self.if_done = True
+        # elif old_av_velocity >= self.sim.Speed_limit + 5.:
+        #     logging.warn('Exceed Speed Limit: ' + str(self.sim.Start_Pos) + ', Position: ' +
+        #                  str(old_av_y) + ', Velocity: ' + str(old_av_velocity))
+        #     self.overspeed += 1.
+        #     self.if_pass = False
+        #     self.if_done = True
         elif collision > 0:
             logging.warn('Crash to other vehicles or road boundary! Start: ' + str(self.sim.Start_Pos) + ', Position: '
                          + str(old_av_y) + ', Velocity: ' + str(old_av_velocity))

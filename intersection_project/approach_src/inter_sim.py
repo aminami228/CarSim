@@ -28,7 +28,7 @@ class InterSim(object):
     tools = ToolFunc()
 
     def __init__(self):
-        self.sim = None
+
         self.av_pos = dict()
         self.av_pos['y'] = - random() * 50. - 100.
         self.Start_Pos = self.av_pos['y']
@@ -143,7 +143,7 @@ class InterSim(object):
 
     def reward_smooth(self, a, st):
         jerk = (a - self.av_pos['aceel']) / self.Tau
-        f1 = - 2. * abs(self.tools.sigmoid(jerk, 2) - 0.5)
+        f1 = - abs(self.tools.sigmoid(jerk, 2) - 0.5)
         # yaw = (st - self.av_pos['steer']) / self.Tau
         # f2 = - 2 * abs(self.tools.sigmoid(yaw, 2) - 0.5)
         f2 = 0.
@@ -152,8 +152,8 @@ class InterSim(object):
     def reward_clear(self):
         f_clear = self.state_fv[1]
         t_clear = f_clear / (self.state_av[0] - self.state_fv[0]) if self.state_av[0] - self.state_fv[0] >= 0.1 else 0.
-        ff = self.tools.sigmoid(abs(f_clear), 0.8) - 0.5
-        ft = self.tools.sigmoid(abs(t_clear), 6.) - 0.7
+        ff = self.tools.sigmoid(abs(f_clear), 0.8) - 0.95
+        ft = self.tools.sigmoid(abs(t_clear), 6.) - 0.95
         l_clear = self.state_road[1]
         # fl = self.tools.sigmoid(abs(l_clear), 6) - 0.95
         fl = 0.
@@ -168,7 +168,7 @@ class InterSim(object):
         th_2 = 2.
         mid_point = (th_1 + th_2) / 2.
         x = self.av_pos['vy'] ** 2. / self.state_road[0] - mid_point
-        fx = self.tools.sigmoid(x, - 2) - 0.2
+        fx = 2. * self.tools.sigmoid(x, - 2) - 1.95
         return fx
 
     def reward_speedlimit(self):
