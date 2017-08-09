@@ -34,7 +34,7 @@ class ReinAcc(object):
 
     explore_iter = 100000
     episode_count = 20000
-    max_steps = 2000
+    max_steps = 1500
 
     action_dim = 1          # Steering/Acceleration/Brake
     action_size = 1
