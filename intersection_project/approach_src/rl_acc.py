@@ -139,9 +139,7 @@ class ReinAcc(object):
         reward_t, collision = self.sim.get_reward(action[0][0])
         self.end_time = time.time()
         self.total_time = self.end_time - self.start_time
-        # logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', loc: ' + str(old_av_y) + ', velocity: ' +
-        #               str(old_av_velocity) + ', action: ' + str(action) + ', reward: ' + str(reward_t) + ', loss: ' +
-        #               str(self.loss) + ', Training time: ' + str(self.end_time - self.start_time))
+        # logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', loc: ' + str(old_av_y) + ', velocity: ' + str(old_av_velocity) + ', action: ' + str(action) + ', reward: ' + str(reward_t) + ', loss: ' + str(self.loss) + ', Training time: ' + str(self.end_time - self.start_time))
         state_t1 = self.sim.update_vehicle(action[0][0])
         self.start_time = time.time()
 
