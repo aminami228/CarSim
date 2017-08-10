@@ -27,7 +27,7 @@ class ReinAcc(object):
     epsilon = 1.
 
     buffer_size = 10000
-    batch_size = 64
+    batch_size = 32
     tau = 0.0001            # Target Network HyperParameters
     LRA = 0.001             # Learning rate for Actor
     LRC = 0.001             # Learning rate for Critic
@@ -126,9 +126,7 @@ class ReinAcc(object):
         for i in range(self.action_size):
             a = action_ori[0][i]
             noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.5, 0.1, 0.1))
-        action = np.zeros([1, self.action_size])
-        for i in range(self.action_size):
-            action[0][i] = action_ori[0][i] + noise[i]
+        action = action_ori + np.array(noise)
         return action
 
     def update_reward(self, action, train_indicator, e, step):
@@ -157,12 +155,12 @@ class ReinAcc(object):
             self.not_finish += 1.
             self.if_pass = False
             self.if_done = True
-        # elif old_av_velocity >= self.sim.Speed_limit + 5.:
-        #     logging.warn('Exceed Speed Limit: ' + str(self.sim.Start_Pos) + ', Position: ' +
-        #                  str(old_av_y) + ', Velocity: ' + str(old_av_velocity))
-        #     self.overspeed += 1.
-        #     self.if_pass = False
-        #     self.if_done = True
+        elif old_av_velocity >= self.sim.Speed_limit + 2.:
+            logging.warn('Exceed Speed Limit: ' + str(self.sim.Start_Pos) + ', Position: ' +
+                         str(old_av_y) + ', Velocity: ' + str(old_av_velocity))
+            self.overspeed += 1.
+            self.if_pass = False
+            self.if_done = True
         elif collision > 0:
             logging.warn('Crash to other vehicles or road boundary! Start: ' + str(self.sim.Start_Pos) + ', Position: '
                          + str(old_av_y) + ', Velocity: ' + str(old_av_velocity))

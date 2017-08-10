@@ -34,7 +34,7 @@ class InterSim(object):
         self.Start_Pos = self.av_pos['y']
         self.av_pos['x'] = 2.
         self.av_pos['vx'] = 0.
-        self.av_pos['vy'] = random() * self.Speed_limit + 5
+        self.av_pos['vy'] = self.Speed_limit + random() * 2. - 1.
         self.av_pos['heading'] = 0
         self.av_pos['aceel'] = 0
         self.av_pos['steer'] = 0
@@ -123,12 +123,12 @@ class InterSim(object):
     def get_reward(self, a=0, st=0):
         r_smooth = self.reward_smooth(a, st)
         r_clerance, collision = self.reward_clear()
-        r_stop = self.reward_stop()
+        r_stop = self.reward_stop(a)
         r_speedlimit = self.reward_speedlimit()
         # r_v = 0.1 * self.av_pos['vy'] - 0.2 if self.av_pos['vy'] <= self.Speed_limit \
         #     else (- 0.6 * self.av_pos['vy'] + 8.4) - 0.2
         # r_v = max(- 0.2, r_v)
-        r_time = - 0.5
+        r_time = - 0.3
         r_crash = - 100. if self.state_fv[1] <= 2.0 else 0.
         r_dis = self.reward_dis()
         r_finish = self.reward_finish()
@@ -138,12 +138,13 @@ class InterSim(object):
         #               ', r_stop: ' + str(r_stop) + ', v^2/s: ' + str(self.av_pos['vy'] ** 2 / self.state_road[0]) +
         #               ', r_dis: ' + str(r_dis) + ', dis: ' + str(self.av_pos['vy'] * self.Tau) +
         #               ', r_speed: ' + str(r_speedlimit) + ', overspeed: ' + str(self.av_pos['vy']-self.Speed_limit))
-        r = r_smooth + r_clerance + r_stop + r_dis + r_finish + r_speedlimit + r_time
+        # r = r_smooth + r_clerance + r_stop + r_dis + r_finish + r_speedlimit + r_time
+        r = r_dis + r_time + r_speedlimit + r_clerance + r_smooth + r_stop + r_finish
         return r, collision
 
     def reward_smooth(self, a, st):
-        jerk = (a - self.av_pos['aceel']) / self.Tau
-        f1 = - abs(self.tools.sigmoid(jerk, 2) - 0.5)
+        jerk = abs(a - self.av_pos['aceel']) / self.Tau
+        f1 = - self.tools.sigmoid(jerk, 2) if jerk >= 1. else 0.
         # yaw = (st - self.av_pos['steer']) / self.Tau
         # f2 = - 2 * abs(self.tools.sigmoid(yaw, 2) - 0.5)
         f2 = 0.
@@ -152,8 +153,8 @@ class InterSim(object):
     def reward_clear(self):
         f_clear = self.state_fv[1]
         t_clear = f_clear / (self.state_av[0] - self.state_fv[0]) if self.state_av[0] - self.state_fv[0] >= 0.1 else 0.
-        ff = self.tools.sigmoid(abs(f_clear), 0.8) - 0.95
-        ft = self.tools.sigmoid(abs(t_clear), 6.) - 0.95
+        ff = min(0., 2. * (self.tools.sigmoid(abs(f_clear), 0.8) - 0.5))
+        ft = min(0., 2. * (self.tools.sigmoid(abs(t_clear), 6.) - 0.5))
         l_clear = self.state_road[1]
         # fl = self.tools.sigmoid(abs(l_clear), 6) - 0.95
         fl = 0.
@@ -163,20 +164,27 @@ class InterSim(object):
         collision = (f_clear <= 0.1) or (r_clear <= 0.1) or (l_clear <= 0.1)
         return ff + ft + fl + fr,  collision
 
-    def reward_stop(self):
-        th_1 = 2. * self.Cft_Accel
-        th_2 = 2.
-        mid_point = (th_1 + th_2) / 2.
-        x = self.av_pos['vy'] ** 2. / self.state_road[0] - mid_point
-        fx = 2. * self.tools.sigmoid(x, - 2) - 1.95
-        return fx
+    def reward_stop(self, a):
+        # th_1 = 2. * self.Cft_Accel
+        # th_2 = 2.
+        # mid_point = (th_1 + th_2) / 2.
+        # a_mean = - self.av_pos['vy'] ** 2. / self.state_road[0]
+        # score1 = - a_mean - mid_point
+        # f1 = 0.1 * (self.tools.sigmoid(score1, - 2) - 0.5)
+        # score2 = a - a_mean / 2.
+        # f2 = 2. * (self.tools.sigmoid(score2, - 4) - 0.5) if score2 >= 0 else 0
+        # # 0.2 * (self.tools.sigmoid(score2, - 4) - 0.5)
+        a_stop = - self.av_pos['vy'] ** 2. / (2. * self.state_road[0])
+        delta = a - a_stop
+        f2 = 2. * (self.tools.sigmoid(delta, - 4) - 0.5) if delta >= 0 else 0
+        return f2
 
     def reward_speedlimit(self):
         th_1 = self.Speed_limit
         th_2 = th_1 + 2.
         mid_point = (th_1 + th_2) / 2
         x = self.av_pos['vy'] - mid_point
-        fx = 10.0 * self.tools.sigmoid(x, - 3) - 9.95
+        fx = min(0., 5. * (self.tools.sigmoid(x, - 3) - 0.5))
         return fx
 
     def reward_dis(self):

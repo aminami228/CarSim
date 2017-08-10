@@ -51,9 +51,10 @@ class ActorNetwork(object):
         # logging.info('...... Building actor model ......')
         S  = Input(shape=[state_size])
         h0 = Dense(HIDDEN1_UNITS, activation='relu')(S)
-        h1 = Dense(HIDDEN2_UNITS, activation='relu')(h0)
+        h1 = Dense(HIDDEN2_UNITS, activation='sigmoid')(h0)
         # h2 = Dense(HIDDEN3_UNITS, activation='relu')(h1)
-        h3 = Dense(HIDDEN4_UNITS, activation='sigmoid')(h1)
+        # h2 = Dense(HIDDEN3_UNITS, activation='relu')(h1)
+        h3 = Dense(HIDDEN4_UNITS, activation='relu')(h1)
         a = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
         # V = concatenate([Action, Parameter_Acc1, Parameter_Acc2, Parameter_Time1, Parameter_Time2,
         #            Parameter_Time3, Parameter_Time4])
