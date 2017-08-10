@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Scenario>
 <Scenario RevMajor="2" RevMinor="0">
-    <Layout Database="Projects/gmcmuavb_intersection/Databases/gmcmuavb_intersection/test2.opt.osgb" File="Projects/Current/Databases/gmcmuavb_intersection/test2.xodr"/>
+    <Layout Database="../Runtime/Tools/RodDistro_2638_Rod64b_4.5.5/DefaultProject/Database/test2.opt.osgb" File="../Runtime/Tools/RodDistro_2442_Rod64b_4.5.4/DefaultProject/Odr/test2.xodr"/>
     <VehicleList ConfigFile="Distros/Current/Config/Players/Vehicles">
-        <VehicleDef MaxSpeed="3.8333333333333336e+01" Name="smart_fortwo_2007_yellow"/>
+        <VehicleDef Class="van" Name="smart_fortwo_2007_yellow"/>
     </VehicleList>
     <DriverList ConfigFile="Distros/Current/Config/Players/driverCfg.xml">
         <DriverDef LaneKeeping="1.0000000000000000e+00" SteeringDistance="5.0000000000000000e-01" UseOfIndicator="5.0000000000000000e-01" ObeyTrafficSigns="0" RespondToTailgatingVehicles="0.0000000000000000e+00" SwarmFront="1" DesiredVelocity="0.0000000000000000e+00" UrgeToOvertake="0.0000000000000000e+00" Swarm="1" ObserveSpeedLimits="0.0000000000000000e+00" DesiredAcceleration="1.0000000000000000e+00" ConsiderEnvConditions="5.0000000000000000e-01" ObeyTrafficLights="0" LaneChangingDynamic="5.0000000000000000e-01" ObserveKeepRightRule="5.0000000000000000e-01" ObeyTrafficRules="1" ForesightDistance="0.0000000000000000e+00" DistanceKeeping="0.0000000000000000e+00" Name="AVDriver" CurveBehavior="1.0000000000000000e+00" SpeedKeeping="1.0000000000000000e+00" DesiredDeceleration="1.0000000000000000e+00" ReactionTime="5.0000000000000000e-01" SwarmBack="1"/>
@@ -12,45 +12,35 @@
     <ObjectList ConfigFile="Distros/Current/Config/Players/Objects"/>
     <DynObjects Path="Distros/Current/Config/DynObjects/Logic"/>
     <TrafficElements/>
-    <PulkTraffic>
-        <PulkDef FillAtStart="false" OwnSide="5.0000000000000000e-01" InnerRadius="8.5000000000000000e+01" VisibleInArea="-1" CenterOffset="1.5000000000000000e+01" Trucks="2.0000000000000001e-01" Vans="0.0000000000000000e+00" AreaB="2.5000000000000000e-01" Count="0" SemiMinorAxis="3.0000000000000000e+02" AreaF="2.5000000000000000e-01" SemiMajorAxis="3.0000000000000000e+02" Cars="8.0000000000000004e-01" CentralPlayer="New Player 01" Buses="0.0000000000000000e+00" AreaL="2.5000000000000000e-01" AreaR="2.5000000000000000e-01" Bikes="0.0000000000000000e+00"/>
-    </PulkTraffic>
     <TrafficControl>
         <Path Name="Path01" PathId="1">
             <Waypoint PathOption="classic" s="1.7981578773292949e+02" TrackId="36"/>
             <Waypoint PathOption="classic" s="1.7346283841900407e+02" TrackId="44"/>
         </Path>
         <Player>
-            <Description Driver="No Driver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 01"/>
+            <Description Driver="No Driver" Control="external" AdaptDriverToVehicleType="true" Type="VW_Tiguan_2012_deep black" Name="AV"/>
             <Init>
-                <Speed Value="0.0000000000000000e+00"/>
-                <PosAbsolute X="2.4792759418487549e+00" Y="1.6250764465332031e+02" Z="0.0000000000000000e+00" Direction="5.7141713741576880e-02" AlignToRoad="true"/>
+                <Speed Value="5.0000000000000000e+00"/>
+                <PosAbsolute X="1.6444260918196974e+01" Y="5.6469286240988211e+01" Z="0.0000000000000000e+00" Direction="1.5558167024843741e+00" AlignToRoad="true"/>
             </Init>
         </Player>
         <Player>
-            <Description Driver="DefaultDriver" Control="external" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="AV"/>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 02"/>
             <Init>
-                <Speed Value="0.0000000000000000e+00"/>
-                <PosPathShape/>
-                <PathShapeRef StartS="1.0000000000000000e-02" EndAction="continue" TargetS="9.4561642784193481e+01" PathShapeId="1"/>
+                <Speed Value="4.5000000000000000e+00"/>
+                <PosAbsolute X="1.6377776149528753e+01" Y="6.7981864465781698e+01" Z="0.0000000000000000e+00" Direction="1.5744697827320344e+00" AlignToRoad="true"/>
             </Init>
         </Player>
-        <PlayerActions Player="New Player 01"/>
         <PlayerActions Player="AV"/>
+        <PlayerActions Player="New Player 02"/>
     </TrafficControl>
     <MovingObjectsControl>
         <PathShape ShapeId="1" ShapeType="polyline" Closed="false" Name="PathShape01">
-            <Waypoint X="1.6476100921630859e+01" Y="9.3728179931640625e+01" Options="0x00000000" Z="0.0000000000000000e+00" Weight="1.0000000000000000e+00" Yaw="1.5577818592597048e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
-            <Waypoint X="1.7706735610961914e+01" Y="1.8828181457519531e+02" Options="0x00000000" Z="0.0000000000000000e+00" Weight="1.0000000000000000e+00" Yaw="1.5577818592597048e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+            <Waypoint X="1.6476100921630859e+01" Y="9.3728179931640625e+01" Options="0x00000000" Z="0.0000000000000000e+00" Weight="1.0000000000000000e+00" Yaw="1.5577818592597050e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+            <Waypoint X="1.7706735610961914e+01" Y="1.8828181457519531e+02" Options="0x00000000" Z="0.0000000000000000e+00" Weight="1.0000000000000000e+00" Yaw="1.5577818592597050e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
         </PathShape>
-        <Object Type="other" Name="" Definition="Building">
-            <StartPosAbs X="0.0000000000000000e+00" Y="0.0000000000000000e+00" Z="0.0000000000000000e+00" Direction="0.0000000000000000e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
-        </Object>
-        <Object Type="other" Name="New Object" Definition="DummyCube">
-            <StartPosAbs X="-2.0310688018798828e+00" Y="1.2048998260498047e+02" Z="0.0000000000000000e+00" Direction="0.0000000000000000e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
-        </Object>
         <Object Type="other" Name="New Object 02" Definition="Building">
-            <StartPosAbs X="-6.4191436767578125e-01" Y="1.2575297546386719e+02" Z="0.0000000000000000e+00" Direction="3.9469812243321871e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+            <StartPosAbs X="-6.4191436767578125e-01" Y="1.2575297546386719e+02" Z="0.0000000000000000e+00" Direction="0.0000000000000000e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
         </Object>
         <Object Type="other" Name="New Object 02 Copy 01" Definition="Building">
             <StartPosAbs X="3.0546073913574219e+01" Y="1.2568646240234375e+02" Z="0.0000000000000000e+00" Direction="0.0000000000000000e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
@@ -73,11 +63,6 @@
         <Object Type="other" Name="New Object 02 Copy 04 Copy 03" Definition="Building">
             <StartPosAbs X="-2.7492256164550781e+01" Y="1.3893609619140625e+02" Z="0.0000000000000000e+00" Direction="1.5736512894597010e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
         </Object>
-        <Object Type="other" Name="New Object01" Definition="DummyCube">
-            <StartPosAbs X="-9.0232906341552734e+00" Y="1.2540118408203125e+02" Z="0.0000000000000000e+00" Direction="0.0000000000000000e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
-        </Object>
-        <ObjectActions Object=""/>
-        <ObjectActions Object="New Object"/>
         <ObjectActions Object="New Object 02"/>
         <ObjectActions Object="New Object 02 Copy 01"/>
         <ObjectActions Object="New Object 02 Copy 02"/>
@@ -86,7 +71,6 @@
         <ObjectActions Object="New Object 02 Copy 04 Copy 01"/>
         <ObjectActions Object="New Object 02 Copy 04 Copy 02"/>
         <ObjectActions Object="New Object 02 Copy 04 Copy 03"/>
-        <ObjectActions Object="New Object01"/>
     </MovingObjectsControl>
     <LightSigns>
         <SignalController Id="1" DelayRef="-1" Delay="0.0000000000000000e+00"/>
