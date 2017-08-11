@@ -8,8 +8,9 @@ import Queue
 from threading import Thread
 import vires_comm
 import control
-#from interface.vires_types import *
+# from interface.vires_types import *
 from vires_types import *
+
 __author__ = 'qzq'
 
 
@@ -18,23 +19,23 @@ class InterSim(object):
     Speed_limit = 12        # m/s
     Scenary = randint(0, 2)
     Inter_Ori = 0.
-    #Stop_Line = - 5. - random()
     Stop_Line = 142.733
     Pass_Point = 168
     Inter_Low = 147.355
     Inter_Up = 157.931
     Inter_Left = 11.545
     Inter_Right = 19.571
-    Vehicle_NO = 3
+    Vehicle_NO = 1
     Lane_Left = 14.935
     Lane_Right = 17.683
     Cft_Accel = 3.     # m/s**2
     Visual = False
-    collision=0
+    collision = False
 
     tools = ToolFunc()
 
     def __init__(self):
+
         control.ReStart()
         self.state_q = Queue.LifoQueue()
         self.neighbor_state_q = Queue.LifoQueue()
@@ -61,14 +62,11 @@ class InterSim(object):
         curr_neighbor_state = self.neighbor_state_q.get()
         for i in range(self.Vehicle_NO):
             hv_pos = dict()
-            #hv_pos['y'] = self.av_pos['y'] + random() * 50. + 20.
-            #hv_pos['x'] = 2.
-            curr_human_vehicle=curr_neighbor_state['position']
+            curr_human_vehicle = curr_neighbor_state['position']
             hv_pos['y'] = curr_human_vehicle['y']
             hv_pos['x'] = curr_human_vehicle['x']
-            hv_pos['vx'] = 0
+            hv_pos['vx'] = 0.
             hv_pos['vy'] = curr_human_vehicle['v']
-            #hv_pos['vy'] = self.Speed_limit - random()
             self.hv_poses.append(hv_pos)
         self.target_dis = None
         self.target_v = None
@@ -122,16 +120,13 @@ class InterSim(object):
         self.av_pos['steer'] = 0
         self.state_av = [self.av_pos['vy'], self.av_pos['heading'], self.av_pos['aceel'], self.av_pos['steer']]
         self.hv_poses = []
-        curr_neighbor_state = self.neighbor_state_q.get()
+        nei_pos = self.neighbor_state_q.get()
         for i in range(self.Vehicle_NO):
             hv_pos = dict()
-            #hv_pos['y'] = self.av_pos['y'] + random() * 50. + 20.
-            #hv_pos['x'] = 2.
-            hv_pos['y'] = curr_neighbor_state['position']['y']
-            hv_pos['x'] = curr_neighbor_state['position']['x']
-            hv_pos['vx'] = 0
-            hv_pos['vy'] =curr_neighbor_state['position']['v']
-            #hv_pos['vy'] = self.Speed_limit - random()
+            hv_pos['y'] = nei_pos['position']['y']
+            hv_pos['x'] = nei_pos['position']['x']
+            hv_pos['vx'] = 0.
+            hv_pos['vy'] = nei_pos['position']['v']
             self.hv_poses.append(hv_pos)
         fv_dis_list = [hv_pos['y'] - self.av_pos['y'] for hv_pos in self.hv_poses]
         fv_index = np.argmin(fv_dis_list)
@@ -144,7 +139,7 @@ class InterSim(object):
         self.state = np.array(self.state_av + self.state_fv + self.state_road, ndmin=2)
         self.state_dim = self.state.shape[1]
         global collision
-        collision=curr_state['collision']
+        collision = curr_state['collision']
         print collision
         return self.state
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-sys.path.append('/home/scotty/qzq/git/CarSim/intersection_vires')
+sys.path.append('/home/scotty/qzq/git/CarSim/intersection_project')
 import logging
 import numpy as np
 import tensorflow as tf
@@ -27,7 +27,7 @@ class ReinAcc(object):
     epsilon = 1.
 
     buffer_size = 10000
-    batch_size = 64
+    batch_size = 32
     tau = 0.0001            # Target Network HyperParameters
     LRA = 0.001             # Learning rate for Actor
     LRC = 0.001             # Learning rate for Critic
@@ -57,6 +57,7 @@ class ReinAcc(object):
         self.not_stop = 0.
         self.success = 0.
         self.not_finish = 0.
+        self.overspeed = 0.
 
         self.actor_network = ActorNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRA)
         self.critic_network = CriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
@@ -125,9 +126,7 @@ class ReinAcc(object):
         for i in range(self.action_size):
             a = action_ori[0][i]
             noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.5, 0.1, 0.1))
-        action = np.zeros([1, self.action_size])
-        for i in range(self.action_size):
-            action[0][i] = action_ori[0][i] + noise[i]
+        action = action_ori + np.array(noise)
         return action
 
     def update_reward(self, action, train_indicator, e, step):
@@ -138,7 +137,9 @@ class ReinAcc(object):
         reward_t, collision = self.sim.get_reward(action[0][0])
         self.end_time = time.time()
         self.total_time = self.end_time - self.start_time
-        logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', loc: ' + str(old_av_y) + ', velocity: ' + str(old_av_velocity) + ', action: ' + str(action) + ', reward: ' + str(reward_t) + ', loss: ' + str(self.loss) + ', Training time: ' + str(self.end_time - self.start_time))
+        logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', loc: ' + str(old_av_y) + ', velocity: ' +
+                      str(old_av_velocity) + ', action: ' + str(action) + ', reward: ' + str(reward_t) + ', loss: ' +
+                      str(self.loss) + ', Training time: ' + str(self.end_time - self.start_time))
         state_t1 = self.sim.update_vehicle(action[0][0])
         self.start_time = time.time()
 
@@ -152,6 +153,12 @@ class ReinAcc(object):
             logging.warn('Not finished with max steps! Start: ' + str(self.sim.Start_Pos) + ', Position: ' +
                          str(old_av_y) + ', Velocity: ' + str(old_av_velocity))
             self.not_finish += 1.
+            self.if_pass = False
+            self.if_done = True
+        elif old_av_velocity >= self.sim.Speed_limit + 2.:
+            logging.warn('Exceed Speed Limit: ' + str(self.sim.Start_Pos) + ', Position: ' +
+                         str(old_av_y) + ', Velocity: ' + str(old_av_velocity))
+            self.overspeed += 1.
             self.if_pass = False
             self.if_done = True
         elif collision > 0:
@@ -193,6 +200,7 @@ class ReinAcc(object):
             step = 0
             while True:
                 self.state_t = self.sim.get_state()
+                self.start_time = time.time()
                 action_t = self.get_action(train_indicator)
                 self.update_reward(action_t, train_indicator, e, step)
                 step += 1
@@ -211,7 +219,8 @@ class ReinAcc(object):
             logging.debug(str(e) + "-th Episode: Steps: " + str(total_step) + ', Time: ' + str(mean_time) +
                           ', Reward: ' + str(self.total_reward) + " Loss: " + str(mean_loss) + ', Crash: ' +
                           str(self.crash) + ', Not Stop: ' + str(self.not_stop) + ', Not Finished: ' +
-                          str(self.not_finish) + ', Success: ' + str(self.success))
+                          str(self.not_finish) + ', Overspeed: ' + str(self.overspeed) + ', Success: ' +
+                          str(self.success))
 
             self.sim = InterSim()
             self.state_t = None

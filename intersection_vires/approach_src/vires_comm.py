@@ -162,14 +162,14 @@ def vires_state(state_q):
 
     # x, y, theta (heading )
     vehicle_state = {}
-    #vehicle_speed=0.0
+    # vehicle_speed=0.0
 
     def process_rdb_frame():
 
         # extract sensor obj info, vehicle position, & position in path
 
         rdb_hdr = RDB_MSG_HDR_t.from_buffer(rdb_buf[:sizeof(RDB_MSG_HDR_t)])
-        #print rdb_hdr.magicNo
+        # print rdb_hdr.magicNo
 
         if rdb_hdr.magicNo != RDB_MAGIC_NO:
             return
@@ -253,9 +253,6 @@ def vires_state(state_q):
         state_q.put(full_state)
 
         time.sleep(0)
-
-
-
 
 # worker function for main training script
 # handles actions (restarts also)

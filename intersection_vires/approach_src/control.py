@@ -84,6 +84,7 @@ def SimStep(speed):
     scp_msg.dataSize = len(msg_text)
     SCP_sock.send(bytearray(scp_msg) + bytearray(msg_text))
 
+
 def SimStepAcceleration(acceleration):
     SCP_PORT = 48179
     DEFAULT_BUFFER = 204800
