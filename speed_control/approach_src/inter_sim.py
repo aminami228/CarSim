@@ -7,7 +7,7 @@ import utilities.log_color
 import Queue
 from threading import Thread
 import vires_comm
-import control
+from control import SimVires
 # from interface.vires_types import *
 from vires_types import *
 
@@ -36,10 +36,10 @@ class InterSim(object):
 
     def __init__(self):
 
-        control.ReStart()
-        self.state_q = Queue.LifoQueue()
-        self.neighbor_state_q = Queue.LifoQueue()
-        self.action_q = Queue.LifoQueue()
+        SimVires.restart_sim()
+        self.state_q = Queue.LifoQueue(maxsize=100)
+        self.neighbor_state_q = Queue.LifoQueue(maxsize=100)
+        self.action_q = Queue.LifoQueue(maxsize=100)
         self.state_thread = Thread(target=vires_comm.vires_state, args=(self.state_q,))
         self.state_thread.start()
         self.action_thread = Thread(target=vires_comm.vires_action, args=(self.action_q, self.neighbor_state_q,))
@@ -143,10 +143,11 @@ class InterSim(object):
         return self.state
 
     def update_vehicle(self, a=0, st=0):
-        old_av_vel = self.av_pos['vy']
-        self.action_q.put(a)
+        # self.action_q.put(a)
+        new_av_vel = self.av_pos['vy'] + a * self.Tau
+        SimVires.update_speed(new_av_vel)
         self.av_pos = self.state_q.get()['position']
-        logging.error('Sim Vel: ' + str(old_av_vel + a * self.Tau) + ', Real_vel: ' + str(self.av_pos['v']))
+        logging.error('Sim Vel: ' + str(new_av_vel) + ', Real_vel: ' + str(self.av_pos['v']))
         self.av_pos['aceel'] = a
         self.av_pos['steer'] = st
         return self.get_state()
@@ -182,7 +183,6 @@ class InterSim(object):
 
     def reward_clear(self):
         f_clear = self.state_fv[1]
-        print f_clear
         t_clear = f_clear / (self.state_av[0] - self.state_fv[0]) if self.state_av[0] - self.state_fv[0] >= 0.1 else 0.
         ff = self.tools.sigmoid(abs(f_clear), 0.8) - 0.5
         ft = self.tools.sigmoid(abs(t_clear), 6.) - 0.7
