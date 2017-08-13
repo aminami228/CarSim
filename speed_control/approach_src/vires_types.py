@@ -2,6 +2,7 @@ from ctypes import *
 
 __author__ = {'qzq', 'shuang'}
 
+
 RDB_MAGIC_NO = 35712
 # RDB_MAGIC_NO = 48195
 RDB_PKG_ID_START_OF_FRAME = 1

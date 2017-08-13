@@ -6,7 +6,7 @@ import logging
 import utilities.log_color
 import Queue
 from threading import Thread
-import vires_comm
+from vires_comm import ViresComm
 from control import SimVires
 # from interface.vires_types import *
 from vires_types import *
@@ -40,9 +40,9 @@ class InterSim(object):
         self.state_q = Queue.LifoQueue(maxsize=100)
         self.neighbor_state_q = Queue.LifoQueue(maxsize=100)
         self.action_q = Queue.LifoQueue(maxsize=100)
-        self.state_thread = Thread(target=vires_comm.vires_state, args=(self.state_q,))
+        self.state_thread = Thread(target=ViresComm.vires_state, args=(self.state_q,))
         self.state_thread.start()
-        self.action_thread = Thread(target=vires_comm.vires_action, args=(self.action_q, self.neighbor_state_q,))
+        self.action_thread = Thread(target=ViresComm.vires_rdb_action, args=(self.action_q, self.neighbor_state_q,))
         self.action_thread.start()
         self.action = {}
 
