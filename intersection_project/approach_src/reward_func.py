@@ -48,9 +48,11 @@ class Reward(object):
         # r = r_smooth + r_clerance + r_stop + r_dis + r_finish + r_speedlimit + r_time
         r = r_dis + r_time + r_speedlimit + r_clerance + r_smooth + r_stop + r_finish + r_crash
         if (self.state[0] <= 0.01) and a < 0:
-            collision += 1
+            not_move = 1
             r -= 500.
-        return r, collision
+        else:
+            not_move = 0
+        return r, collision, not_move
 
     def reward_smooth(self, a, st):
         #############################################################################
@@ -103,7 +105,7 @@ class Reward(object):
         # f2 = 2. * (self.tools.sigmoid(delta, - 4) - 0.5) if delta >= 0 else 0
         f = 0.
         if self.state[6] <= 5 and (self.state[0] >= self.state[6]):
-            f = - 100.
+            f = - 5. * (self.state[0] - self.state[6])
         return f
 
     def reward_speedlimit(self):

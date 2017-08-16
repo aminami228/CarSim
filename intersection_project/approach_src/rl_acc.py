@@ -59,6 +59,7 @@ class ReinAcc(object):
         self.success = 0.
         self.not_finish = 0.
         self.overspeed = 0.
+        self.not_move = 0.
 
         self.actor_network = ActorNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRA)
         self.critic_network = CriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
@@ -132,7 +133,7 @@ class ReinAcc(object):
         action = action_ori + np.array(noise)
         return action
 
-    def if_exit(self, step, loc, v, collision):
+    def if_exit(self, step, loc, v, collision, not_move):
         if step >= self.max_steps:
             logging.warn('Not finished with max steps! Start: ' + str(self.sim.Start_Pos) + ', Position: ' +
                          str(loc) + ', Velocity: ' + str(v))
@@ -143,6 +144,12 @@ class ReinAcc(object):
             logging.warn('Exceed Speed Limit: ' + str(self.sim.Start_Pos) + ', Position: ' +
                          str(loc) + ', Velocity: ' + str(v))
             self.overspeed += 1.
+            self.if_pass = False
+            self.if_done = True
+        elif not_move > 0:
+            logging.warn('Not move! Start: ' + str(self.sim.Start_Pos) + ', Position: '
+                         + str(loc) + ', Velocity: ' + str(v))
+            self.not_move += 1.
             self.if_pass = False
             self.if_done = True
         elif collision > 0:
@@ -184,7 +191,7 @@ class ReinAcc(object):
                 state_t = self.sim.get_state()
                 start_time = time.time()
                 action_t = self.get_action(state_t, train_indicator)
-                reward_t, collision = self.reward.get_reward(state_t[0], action_t[0][0])
+                reward_t, collision, not_move = self.reward.get_reward(state_t[0], action_t[0][0])
                 train_time = time.time() - start_time
                 self.sim.update_vehicle(reward_t, action_t[0][0])
                 state_t1 = self.sim.get_state()
@@ -193,7 +200,7 @@ class ReinAcc(object):
                 if train_indicator:
                     loss = self.update_loss()
                 self.total_reward += reward_t
-                self.if_exit(step, self.sim.av_pos['y'], self.sim.av_pos['vy'], collision)
+                self.if_exit(step, self.sim.av_pos['y'], self.sim.av_pos['vy'], collision, not_move)
                 step += 1
                 total_loss += loss
                 train_time += time.time() - start_time
@@ -215,8 +222,8 @@ class ReinAcc(object):
             logging.debug(str(e) + "-th Episode: Steps: " + str(total_step) + ', Time: ' + str(mean_time) +
                           ', Reward: ' + str(self.total_reward) + " Loss: " + str(mean_loss) + ', Crash: ' +
                           str(self.crash) + ', Not Stop: ' + str(self.not_stop) + ', Not Finished: ' +
-                          str(self.not_finish) + ', Overspeed: ' + str(self.overspeed) + ', Success: ' +
-                          str(self.success))
+                          str(self.not_finish) + ', Overspeed: ' + str(self.overspeed) + ', Not Move: ' +
+                          str(self.not_move) + ', Success: ' + str(self.success))
 
             self.sim = InterSim(True) if e % 50 == 0 else InterSim()
             self.total_reward = 0
