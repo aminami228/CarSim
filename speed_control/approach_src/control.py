@@ -71,7 +71,7 @@ class SimVires(object):
         scp_msg.version = 1
         scp_msg.sender = "python_scp"
         scp_msg.receiver = "any"
-        print("speed:", speed)
+        # print("speed:", speed)
 
         msg_text = "<SimCtrl><Start/></SimCtrl>"
         scp_msg.dataSize = len(msg_text)

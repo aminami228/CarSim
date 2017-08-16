@@ -40,9 +40,11 @@ class InterSim(object):
         self.state_q = Queue.LifoQueue(maxsize=100)
         self.neighbor_state_q = Queue.LifoQueue(maxsize=100)
         self.action_q = Queue.LifoQueue(maxsize=100)
+        ViresComm()
         self.state_thread = Thread(target=ViresComm.vires_state, args=(self.state_q,))
         self.state_thread.start()
-        self.action_thread = Thread(target=ViresComm.vires_rdb_action, args=(self.action_q, self.neighbor_state_q,))
+        # self.action_thread = Thread(target=ViresComm.vires_rdb_action, args=(self.action_q, self.neighbor_state_q,))
+        self.action_thread = Thread(target=ViresComm.vires_scp_action, args=(self.action_q,))
         self.action_thread.start()
         self.action = {}
 
@@ -143,9 +145,9 @@ class InterSim(object):
         return self.state
 
     def update_vehicle(self, a=0, st=0):
-        # self.action_q.put(a)
         new_av_vel = self.av_pos['vy'] + a * self.Tau
-        SimVires.update_speed(new_av_vel)
+        # SimVires.update_speed(new_av_vel)
+        self.action_q.put(new_av_vel)
         self.av_pos = self.state_q.get()['position']
         logging.error('Sim Vel: ' + str(new_av_vel) + ', Real_vel: ' + str(self.av_pos['v']))
         self.av_pos['aceel'] = a

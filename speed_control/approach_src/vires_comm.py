@@ -285,3 +285,52 @@ class ViresComm(object):
             n_bytes = RDB_sock.recv_into(rdb_buf)    # blocking?
             self.action_rdb_frame(RDB_sock, rdb_buf, action_q, neighbor_state_q)
             time.sleep(0)
+
+    def scp_reset(self, scp_msg, SCP_sock):
+        msg_text = "<EgoCtrl><Speed value=\"0.0\"/></EgoCtrl>"
+        scp_msg.dataSize = len(msg_text)
+        SCP_sock.send(bytearray(scp_msg) + bytearray(msg_text))
+        msg_text = "<SimCtrl><Restart/></SimCtrl>"
+        scp_msg.dataSize = len(msg_text)
+        SCP_sock.send(bytearray(scp_msg) + bytearray(msg_text))
+        time.sleep(1)
+        msg_text = "<Traffic><Collision enable=\"true\"/></Traffic>"
+        scp_msg.dataSize = len(msg_text)
+        SCP_sock.send(bytearray(scp_msg) + bytearray(msg_text))
+        self.collision = 0
+
+    @staticmethod
+    def scp_vel_ctrl(scp_msg, SCP_sock, speed):
+        """only works for 'preparation' mode"""
+        msg_text = "<EgoCtrl><Speed value=\"" + str(speed) + "\"/></EgoCtrl>"
+        scp_msg.dataSize = len(msg_text)
+        SCP_sock.send(bytearray(scp_msg) + bytearray(msg_text))
+
+    def vires_scp_action(self, action_q):
+        """
+        worker function for main training script
+        handles actions (restarts also)
+        """
+        SCP_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        """
+        TCP_NODELAY is intended to disable/enable segment buffering
+        so data can be sent out to peer as quickly as possible.
+        This is typically used to improve network utilisation.
+        """
+        SCP_sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+        SCP_sock.connect(('127.0.0.1', SCP_PORT))
+        scp_buf = bytearray(DEFAULT_BUFFER)
+        scp_msg = vt.SCP_MSG_HDR_t()
+        scp_msg.magicNo = SCP_MAGIC_NO
+        scp_msg.version = 1
+        scp_msg.sender = "python_scp"
+        scp_msg.receiver = "any"
+
+        """wait for actions from the agent"""
+        while True:
+            curr_action = action_q.get()  # blocking read
+            if 'reset' in curr_action:
+                self.scp_reset(scp_msg, SCP_sock)
+            elif 'vel' in curr_action:
+                self.scp_vel_ctrl(curr_action['vel'])
+            time.sleep(0)

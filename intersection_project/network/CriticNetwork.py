@@ -12,7 +12,7 @@ import utilities.log_color
 HIDDEN1_UNITS = 128
 HIDDEN2_UNITS = 64
 HIDDEN3_UNITS = 32
-HIDDEN4_UNITS = 16
+HIDDEN4_UNITS = 32
 
 
 class CriticNetwork(object):
