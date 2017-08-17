@@ -8,7 +8,7 @@ __author__ = 'qzq'
 
 class Reward(object):
     Tau = 1. / 30
-    Speed_limit = 12  # m/s
+    Speed_limit = 12.  # m/s
     Scenary = randint(0, 2)
     Inter_Ori = 0.
     Stop_Line = - 5. - random()

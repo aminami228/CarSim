@@ -8,7 +8,7 @@ __author__ = 'qzq'
 
 class Reward(object):
     Tau = 1. / 30
-    Speed_limit = 12  # m/s
+    Speed_limit = 12.  # m/s
     Scenary = randint(0, 2)
     Inter_Ori = 0.
     Stop_Line = - 5. - random()
@@ -39,7 +39,7 @@ class Reward(object):
         #     else (- 0.6 * self.av_pos['vy'] + 8.4) - 0.2
         # r_v = max(- 0.2, r_v)
         r_time = - 1.
-        r_crash = - 500. if state[5] <= 10.0 else 0.
+        r_crash = - 500. if collision == 1 else 0.
         r_dis = self.reward_dis()
         r_finish = self.reward_finish()
         r_cft = self.reward_cft(a, b)
@@ -51,89 +51,83 @@ class Reward(object):
         #               ', r_speed: ' + str(r_speedlimit) + ', overspeed: ' + str(self.av_pos['vy']-self.Speed_limit))
         # r = r_smooth + r_clerance + r_stop + r_dis + r_finish + r_speedlimit + r_time
         r = r_dis + r_time + r_speedlimit + r_clerance + r_smooth + r_stop + r_finish + r_crash + r_cft
-        if (self.state[0] <= 0.01) and a < 0:
-            not_move = 1
-            r -= 500.
-        else:
-            not_move = 0
+
+        not_move = 0
+        # if (self.state[0] <= 0.01) and a < 0:
+        #     not_move = 1
+        #     r -= 500.
+        # else:
+        #     not_move = 0
+
         return r, collision, not_move
 
     def reward_smooth(self, a, st):
         #############################################################################
-        # jerk = abs(a - self.state[2]) / self.Tau - 1.
-        # f1 = 2. * (- self.tools.sigmoid(jerk, 10) + 0.5) if jerk >= 0. else 0.
-        # # yaw = (st - self.av_pos['steer']) / self.Tau
-        # # f2 = - 2 * abs(self.tools.sigmoid(yaw, 2) - 0.5)
-        # f2 = 0.
-        #############################################################################
         jerk = abs(a - self.state[2]) / self.Tau
-        f1 = - 0.1 * (jerk - 1.) if jerk >= 1. else 0.
+        x1 = abs(jerk) - 1.
+        f1 = 4. * (- self.tools.sigmoid(x1, 3) + 0.5) if x1 >= 0. else 0.
+        # yaw = (st - self.av_pos['steer']) / self.Tau
+        # f2 = - 2 * abs(self.tools.sigmoid(yaw, 2) - 0.5)
         f2 = 0.
+        #############################################################################
+        # jerk = abs(a - self.state[2]) / self.Tau
+        # f1 = - 0.1 * (jerk - 1.) if jerk >= 1. else 0.
+        # f2 = 0.
         return f1 + f2
 
     def reward_cft(self, a, b):
         #############################################################################
-        # jerk = abs(a - self.state[2]) / self.Tau - 1.
-        # f1 = 2. * (- self.tools.sigmoid(jerk, 10) + 0.5) if jerk >= 0. else 0.
-        # # yaw = (st - self.av_pos['steer']) / self.Tau
-        # # f2 = - 2 * abs(self.tools.sigmoid(yaw, 2) - 0.5)
-        # f2 = 0.
+        accel = self.Full_Accel * a - self.Full_Brake * b
+        x = abs(accel) - self.Cft_Accel
+        f = 4. * (- self.tools.sigmoid(x, 2) + 0.5) if x >= 0. else 0.
         #############################################################################
-        f1 = - (abs(a) - self.Cft_Accel) if abs(a) >= self.Cft_Accel else 0.
-        f2 = - (abs(b) - self.Cft_Accel) if abs(b) >= self.Cft_Accel else 0.
-        return f1 + f2
+        # f1 = - (abs(a) - self.Cft_Accel) if abs(a) >= self.Cft_Accel else 0.
+        # f2 = - (abs(b) - self.Cft_Accel) if abs(b) >= self.Cft_Accel else 0.
+        return f
 
     def reward_clear(self):
         #############################################################################
-        # f_clear = self.state[5] - 10.
-        # t_clear = self.state[5] / (self.state[0] - self.state[4]) - 3. if self.state[0] - self.state[4] >= 0.1 else 20.
-        # ff = min(0., 5. * (self.tools.sigmoid(f_clear, 0.5) - 0.5))
-        # ft = min(0., 2. * (self.tools.sigmoid(t_clear, 6.) - 0.5))
-        # l_clear = self.state[7]
-        # # fl = self.tools.sigmoid(abs(l_clear), 6) - 0.95
-        # fl = 0.
-        # r_clear = self.state[8]
-        # # fr = self.tools.sigmoid(abs(r_clear), 6) - 0.95
-        # fr = 0.
-        # collision = (f_clear <= 0.1) or (r_clear <= 0.1) or (l_clear <= 0.1)
+        crash_dis = self.state[5] - 10.
+        crash_time = crash_dis / (self.state[0] - self.state[4]) if self.state[0] - self.state[4] >= 0.01 else 100.
+        x1 = crash_dis - 10.
+        x2 = crash_time - 3.
+        f1 = 4. * (self.tools.sigmoid(x1, 0.3) - 0.5) if x1 <= 0. else 0.
+        f2 = 20. * (self.tools.sigmoid(x2, 1) - 0.5) if x2 <= 0. else 0.
+        crash_left = self.state[7]
+        f3 = 0.
+        crash_right = self.state[8]
+        f4 = 0.
+        collision = (crash_dis <= 0.1)
         #############################################################################
-        f_clear = self.state[5] - 10.
-        t_clear = self.state[5] / (self.state[0] - self.state[4]) if self.state[0] - self.state[4] >= 0.1 else 20.
-        ff = - 1. * (10. - f_clear) if f_clear <= 10. else 0.
-        ft = - 10. * (1.5 - f_clear) if t_clear <= 1.5 else 0.
-        fl = 0.
-        fr = 0.
-        collision = (f_clear <= 0.1)
-        return ff + ft + fl + fr,  collision
+        # f_clear = self.state[5] - 10.
+        # t_clear = self.state[5] / (self.state[0] - self.state[4]) if self.state[0] - self.state[4] >= 0.1 else 20.
+        # ff = - 1. * (10. - f_clear) if f_clear <= 10. else 0.
+        # ft = - 10. * (1.5 - f_clear) if t_clear <= 1.5 else 0.
+        # fl = 0.
+        # fr = 0.
+        # collision = (f_clear <= 0.1)
+        return f1 + f2 + f3 + f4,  collision
 
     def reward_stop(self):
-        # th_1 = 2. * self.Cft_Accel
-        # th_2 = 2.
-        # mid_point = (th_1 + th_2) / 2.
-        # a_mean = - self.av_pos['vy'] ** 2. / self.state_road[0]
-        # score1 = - a_mean - mid_point
-        # f1 = 0.1 * (self.tools.sigmoid(score1, - 2) - 0.5)
-        # score2 = a - a_mean / 2.
-        # f2 = 2. * (self.tools.sigmoid(score2, - 4) - 0.5) if score2 >= 0 else 0
-        # # 0.2 * (self.tools.sigmoid(score2, - 4) - 0.5)
-        # a_stop = - self.state[0] ** 2. / (2. * self.state[6])
-        # delta = a - a_stop
-        # f2 = 2. * (self.tools.sigmoid(delta, - 4) - 0.5) if delta >= 0 else 0
-        f = 0.
-        if self.state[6] <= 5 and (self.state[0] >= self.state[6]):
-            f = - 10. * (self.state[0] - self.state[6])
+        #############################################################################
+        x = self.state[0] / self.state[6] - 1.
+        f = 100. * (- self.tools.sigmoid(x, 2.5) + 0.5) if x >= 0. else 0.
+        f = f if self.state[6] <= 5. else 0.
+        #############################################################################
+        # f = 0.
+        # if self.state[6] <= 5 and (self.state[0] >= self.state[6]):
+        #     f = - 10. * (self.state[0] - self.state[6])
         return f
 
     def reward_speedlimit(self):
         #############################################################################
-        # th_1 = self.Speed_limit
-        # th_2 = th_1 + 2.
-        # mid_point = (th_1 + th_2) / 2
-        # x = self.state[0] - mid_point
-        # fx = min(0., 100. * (self.tools.sigmoid(x, - 3) - 0.5))
+        x = self.state[0] - self.Speed_limit
+        f = 100. * (- self.tools.sigmoid(x, 1.5) + 0.5) if x >= 0. else 0.
+        if x >= 2.:
+            f -= 500
         #############################################################################
-        fx = - 10. * (self.state[0] - self.Speed_limit) if self.state[0] >= self.Speed_limit else 0.
-        return fx
+        # f = - 10. * (self.state[0] - self.Speed_limit) if self.state[0] >= self.Speed_limit else 0.
+        return f
 
     def reward_dis(self):
         dis = (self.state[0]) * self.Tau / (self.Stop_Line - self.state[9]) * 5000.
