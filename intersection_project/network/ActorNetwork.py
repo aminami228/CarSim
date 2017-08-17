@@ -43,7 +43,7 @@ class ActorNetwork(object):
         actor_weights = self.model.get_weights()
         actor_target_weights = self.target_model.get_weights()
         for i in range(len(actor_weights)):
-            actor_target_weights[i] = self.TAU * actor_weights[i] + (1 - self.TAU)* actor_target_weights[i]
+            actor_target_weights[i] = self.TAU * actor_weights[i] + (1 - self.TAU) * actor_target_weights[i]
         self.target_model.set_weights(actor_target_weights)
 
     @staticmethod
@@ -56,10 +56,12 @@ class ActorNetwork(object):
         # h2 = Dense(HIDDEN3_UNITS, activation='relu')(h1)
         h3 = Dense(HIDDEN4_UNITS, activation='relu')(h1)
         a = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
+        b = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
         # V = concatenate([Action, Parameter_Acc1, Parameter_Acc2, Parameter_Time1, Parameter_Time2,
         #            Parameter_Time3, Parameter_Time4])
         # V = concatenate([a])
-        V = a
-        # V = tf.concat(values=[Action, Parameter])
+        V = concatenate([a, b])
+        # V = a
+        # V = tf.concat(values=[a, b])
         model = Model(input=S, output=V)
         return model, model.trainable_weights, S

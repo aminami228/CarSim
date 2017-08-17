@@ -9,11 +9,11 @@ from network.ActorNetwork import ActorNetwork
 from network.CriticNetwork import CriticNetwork
 from network.ReplayBuffer import ReplayBuffer
 from utilities.toolfunc import ToolFunc
-from inter_sim import InterSim
+from inter_sim2 import InterSim
 from keras import backend as keras
 import time
 import matplotlib.pyplot as plt
-from reward_func import Reward
+from reward_func2 import Reward
 import utilities.log_color
 
 __author__ = 'qzq'
@@ -38,8 +38,8 @@ class ReinAcc(object):
     episode_count = 20000
     max_steps = 2000
 
-    action_dim = 1          # Steering/Acceleration/Brake
-    action_size = 1
+    action_dim = 2          # Steering/Acceleration/Brake
+    action_size = 2
 
     # Tensorflow GPU optimization
     config = tf.ConfigProto()
@@ -60,6 +60,13 @@ class ReinAcc(object):
         self.not_finish = 0.
         self.overspeed = 0.
         self.not_move = 0.
+
+        self.sub_crash = 0.
+        self.sub_not_stop = 0.
+        self.sub_success = 0.
+        self.sub_not_finish = 0.
+        self.sub_overspeed = 0.
+        self.sub_not_move = 0.
 
         self.actor_network = ActorNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRA)
         self.critic_network = CriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
@@ -126,10 +133,10 @@ class ReinAcc(object):
         # logging.info('...... Getting action ......')
         self.epsilon -= 1.0 / self.explore_iter
         noise = []
-        action_ori = 2. * self.sim.Cft_Accel * (self.actor_network.model.predict(state_t) - 0.5)
-        for i in range(self.action_size):
-            a = action_ori[0][i]
-            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.5, 0.5, 0.5))
+        action_ori = self.actor_network.model.predict(state_t)
+        noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(action_ori[0][0], 0.1, 0.5, 0.3))
+        # noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(action_ori[0][1], -0.2, 0.5, 0.5))
+        noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(action_ori[0][1], 0.1, 0.5, 0.3))
         action = action_ori + np.array(noise)
         return action
 
@@ -138,30 +145,35 @@ class ReinAcc(object):
             logging.warn('Not finished with max steps! Start: ' + str(self.sim.Start_Pos) + ', Position: ' +
                          str(loc) + ', Velocity: ' + str(v))
             self.not_finish += 1.
+            self.sub_not_finish += 1.
             self.if_pass = False
             self.if_done = True
         elif v >= self.sim.Speed_limit + 2.:
             logging.warn('Exceed Speed Limit: ' + str(self.sim.Start_Pos) + ', Position: ' +
                          str(loc) + ', Velocity: ' + str(v))
             self.overspeed += 1.
+            self.sub_overspeed += 1.
             self.if_pass = False
             self.if_done = True
         elif not_move > 0:
             logging.warn('Not move! Start: ' + str(self.sim.Start_Pos) + ', Position: '
                          + str(loc) + ', Velocity: ' + str(v))
             self.not_move += 1.
+            self.sub_not_move += 1.
             self.if_pass = False
             self.if_done = True
         elif collision > 0:
             logging.warn('Crash to other vehicles or road boundary! Start: ' + str(self.sim.Start_Pos) + ', Position: '
                          + str(loc) + ', Velocity: ' + str(v))
             self.crash += 1.
+            self.sub_crash += 1.
             self.if_pass = False
             self.if_done = True
         elif collision == 0 and (loc >= self.sim.Stop_Line - 1.) and (v > 2.0):
             logging.warn('No crash and reached stop line. But has not stopped! Start: ' + str(self.sim.Start_Pos) +
                          ', Position: ' + str(loc) + ', Velocity: ' + str(v))
             self.not_stop += 1.
+            self.sub_not_stop += 1.
             self.if_pass = False
             self.if_done = True
         elif collision == 0 and loc >= self.sim.Stop_Line - 1.0 and (v <= 2.0):
@@ -169,6 +181,7 @@ class ReinAcc(object):
                          str(self.sim.Start_Pos) + ', Position: ' + str(loc) + ', Velocity: ' +
                          str(v))
             self.success += 1.
+            self.sub_success += 1.
             self.if_pass = True
             self.if_done = True
 
@@ -183,6 +196,14 @@ class ReinAcc(object):
         self.load_weights()
 
         for e in range(self.episode_count):
+            if e % 200 == 0:
+                self.sub_crash = 0.
+                self.sub_not_stop = 0.
+                self.sub_success = 0.
+                self.sub_not_finish = 0.
+                self.sub_overspeed = 0.
+                self.sub_not_move = 0.
+
             total_loss = 0.
             total_time = 0.
             # logging.debug("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
@@ -196,7 +217,7 @@ class ReinAcc(object):
                 self.sim.update_vehicle(reward_t, action_t[0][0])
                 state_t1 = self.sim.get_state()
                 start_time = time.time()
-                self.update_batch(state_t, action_t[0][0], reward_t, state_t1)
+                self.update_batch(state_t, action_t[0], reward_t, state_t1)
                 if train_indicator:
                     loss = self.update_loss()
                 else:
@@ -225,7 +246,10 @@ class ReinAcc(object):
                           ', Reward: ' + str(self.total_reward) + " Loss: " + str(mean_loss) + ', Crash: ' +
                           str(self.crash) + ', Not Stop: ' + str(self.not_stop) + ', Not Finished: ' +
                           str(self.not_finish) + ', Overspeed: ' + str(self.overspeed) + ', Not Move: ' +
-                          str(self.not_move) + ', Success: ' + str(self.success))
+                          str(self.not_move) + ', Success: ' + str(self.success) +
+                          '\n Crash: ' + str(self.sub_crash) + ', Not Stop: ' + str(self.sub_not_stop) +
+                          ', Not Finished: ' + str(self.sub_not_finish) + ', Overspeed: ' + str(self.sub_overspeed) +
+                          ', Not Move: ' + str(self.sub_not_move) + ', Success: ' + str(self.sub_success))
 
             self.sim = InterSim(True) if e % 50 == 0 else InterSim()
             self.total_reward = 0
@@ -236,4 +260,4 @@ class ReinAcc(object):
 if __name__ == '__main__':
     plt.ion()
     acc = ReinAcc()
-    acc.launch_train(0)
+    acc.launch_train(1)
