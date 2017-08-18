@@ -1,20 +1,20 @@
 #!/usr/bin/env python
-import sys
-sys.path.append('/home/scotty/qzq/git/CarSim_acceleration/intersection_project')
-import logging
+from random import random
 import numpy as np
 import tensorflow as tf
+from keras import backend as keras
 import json
+import time
+import logging
+import utilities.log_color
+import sys
+sys.path.append('/home/scotty/qzq/git/CarSim_acceleration/intersection_project')
+from reward_func import Reward
 from network.ActorNetwork import ActorNetwork
 from network.CriticNetwork import CriticNetwork
 from network.ReplayBuffer import ReplayBuffer
 from utilities.toolfunc import ToolFunc
-from inter_sim import InterSim
-from keras import backend as keras
-import time
-import matplotlib.pyplot as plt
-from reward_func import Reward
-import utilities.log_color
+from interface.vires_sim import InterSim
 
 __author__ = 'qzq'
 
@@ -47,19 +47,29 @@ class ReinAcc(object):
     tf_sess = tf.Session(config=config)
     keras.set_session(tf_sess)
 
+    Speed_limit = 12
+
     def __init__(self):
-        self.sim = InterSim()
+        self.sim = InterSim(self.Speed_limit * random())
         self.reward = Reward()
         self.total_reward = 0
         self.if_pass = False
         self.if_done = False
 
-        self.crash = 0.
-        self.not_stop = 0.
-        self.success = 0.
-        self.not_finish = 0.
-        self.overspeed = 0.
-        self.not_move = 0.
+        self.crash = []
+        self.not_stop = []
+        self.success = []
+        self.not_finish = []
+        self.overspeed = []
+        self.not_move = []
+        self.loss = []
+
+        self.sub_crash = 0.
+        self.sub_not_stop = 0.
+        self.sub_success = 0.
+        self.sub_not_finish = 0.
+        self.sub_overspeed = 0.
+        self.sub_not_move = 0.
 
         self.actor_network = ActorNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRA)
         self.critic_network = CriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
@@ -110,7 +120,8 @@ class ReinAcc(object):
         target_q_values = self.critic_network.target_model.predict(
             [self.batch_new_state, self.actor_network.target_model.predict(self.batch_new_state)])
         for k, done in enumerate(self.batch_if_done):
-            self.batch_output[k] = self.batch_reward[k] if done else self.batch_reward[k] + self.gamma * target_q_values[k]
+            self.batch_output[k] = self.batch_reward[k] if done \
+                else self.batch_reward[k] + self.gamma * target_q_values[k]
 
     def update_loss(self):
         # logging.info('...... Updating loss ......')
@@ -126,55 +137,51 @@ class ReinAcc(object):
         # logging.info('...... Getting action ......')
         self.epsilon -= 1.0 / self.explore_iter
         noise = []
-        action_ori = 2. * self.sim.Cft_Accel * (self.actor_network.model.predict(state_t) - 0.5)
-        for i in range(self.action_size):
-            a = action_ori[0][i]
-            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.5, 0.5, 0.5))
+        action_ori = self.sim.Cft_Accel * self.actor_network.model.predict(state_t)
+        noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(action_ori[0][0], 1.0, 0.3, -0.6))
         action = action_ori + np.array(noise)
         return action
 
-    def if_exit(self, step, loc, v, collision, not_move):
+    def if_exit(self, step, state, collision, not_move):
         if step >= self.max_steps:
-            logging.warn('Not finished with max steps! Start: ' + str(self.sim.Start_Pos) + ', Position: ' +
-                         str(loc) + ', Velocity: ' + str(v))
+            logging.warn('Not finished with max steps! Start: ' + str(state[9]) + ', Dis to SL: ' + str(state[4]) +
+                         ', Velocity: ' + str(state[0]))
             self.not_finish += 1.
             self.if_pass = False
             self.if_done = True
-        elif v >= self.sim.Speed_limit + 2.:
-            logging.warn('Exceed Speed Limit: ' + str(self.sim.Start_Pos) + ', Position: ' +
-                         str(loc) + ', Velocity: ' + str(v))
+        elif state[0] >= self.sim.Speed_limit + 2.:
+            logging.warn('Exceed Speed Limit: ' + str(state[9]) + ', Dis to SL: ' + str(state[4]) +
+                         ', Velocity: ' + str(state[0]))
             self.overspeed += 1.
             self.if_pass = False
             self.if_done = True
         elif not_move > 0:
-            logging.warn('Not move! Start: ' + str(self.sim.Start_Pos) + ', Position: '
-                         + str(loc) + ', Velocity: ' + str(v))
+            logging.warn('Not move! Start: ' + str(state[9]) + ', Dis to SL: ' + str(state[4]) +
+                         ', Velocity: ' + str(state[0]))
             self.not_move += 1.
             self.if_pass = False
             self.if_done = True
         elif collision > 0:
-            logging.warn('Crash to other vehicles or road boundary! Start: ' + str(self.sim.Start_Pos) + ', Position: '
-                         + str(loc) + ', Velocity: ' + str(v))
+            logging.warn('Crash to other vehicles or road boundary! Start: ' + str(state[9]) + ', Dis to SL: '
+                         + str(state[4]) + ', Velocity: ' + str(state[0]))
             self.crash += 1.
             self.if_pass = False
             self.if_done = True
-        elif collision == 0 and (loc >= self.sim.Stop_Line - 1.) and (v > 2.0):
-            logging.warn('No crash and reached stop line. But has not stopped! Start: ' + str(self.sim.Start_Pos) +
-                         ', Position: ' + str(loc) + ', Velocity: ' + str(v))
+        elif collision == 0 and (state[4] <= 1.0) and (state[0] > 2.0):
+            logging.warn('No crash and reached stop line. But has not stopped! Start: ' + str(state[9]) +
+                         ', Dis to SL: ' + str(state[4]) + ', Velocity: ' + str(state[0]))
             self.not_stop += 1.
             self.if_pass = False
             self.if_done = True
-        elif collision == 0 and loc >= self.sim.Stop_Line - 1.0 and (v <= 2.0):
+        elif collision == 0 and (state[4] <= 1.0) and (state[0] <= 2.0):
             logging.info('Congratulations! Reach stop line without crashing and has stopped. Start: ' +
-                         str(self.sim.Start_Pos) + ', Position: ' + str(loc) + ', Velocity: ' +
-                         str(v))
+                         str(state[9]) + ', Dis to SL: ' + str(state[4]) + ', Velocity: ' + str(state[0]))
             self.success += 1.
             self.if_pass = True
             self.if_done = True
 
-    def launch_train(self, train_indicator=1):  # 1 means Train, 0 means simply Run
+    def launch_train(self, train_indicator=1):
         # logging.info('Launch Training Process')
-        # np.random.seed(1337)
         state_t = self.sim.get_state()
         state_dim = state_t.shape[1]
         self.actor_network = ActorNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRA)
@@ -193,28 +200,25 @@ class ReinAcc(object):
                 action_t = self.get_action(state_t, train_indicator)
                 reward_t, collision, not_move = self.reward.get_reward(state_t[0], action_t[0][0])
                 train_time = time.time() - start_time
-                self.sim.update_vehicle(reward_t, action_t[0][0])
+                self.sim.update_vehicle(start_time, action_t[0][0])
                 state_t1 = self.sim.get_state()
                 start_time = time.time()
-                self.update_batch(state_t, action_t[0][0], reward_t, state_t1)
-                if train_indicator:
-                    loss = self.update_loss()
-                else:
-                    loss = 0.
+                self.update_batch(state_t, action_t[0], reward_t, state_t1)
+                loss = self.update_loss() if train_indicator else 0.
+
                 self.total_reward += reward_t
-                self.if_exit(step, self.sim.av_pos['y'], self.sim.av_pos['vy'], collision, not_move)
+                self.if_exit(step, state_t, collision, not_move)
                 step += 1
                 total_loss += loss
                 train_time += time.time() - start_time
-                # logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', loc: ' + str(self.sim.av_pos['y']) +
-                #               ', velocity: ' + str(self.sim.av_pos['vy']) + ', action: ' + str(action_t) +
-                #               ', reward: ' + str(reward_t) + ', loss: ' + str(loss) + ', Training time: ' +
-                #               str(train_time))
+                logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', loc: ' + str(self.sim.av_pos['y']) +
+                              ', velocity: ' + str(state_t[0]) + ', action: ' + str(action_t[0]) +
+                              ', reward: ' + str(reward_t) + ', loss: ' + str(loss) + ', Training time: ' +
+                              str(train_time))
                 total_time += train_time
                 if self.if_done:
                     break
 
-            plt.close('all')
             total_step = step + 1
             if train_indicator:
                 self.update_weights()
@@ -223,17 +227,34 @@ class ReinAcc(object):
             mean_time = total_time / total_step
             logging.debug(str(e) + "-th Episode: Steps: " + str(total_step) + ', Time: ' + str(mean_time) +
                           ', Reward: ' + str(self.total_reward) + " Loss: " + str(mean_loss) + ', Crash: ' +
-                          str(self.crash) + ', Not Stop: ' + str(self.not_stop) + ', Not Finished: ' +
-                          str(self.not_finish) + ', Overspeed: ' + str(self.overspeed) + ', Not Move: ' +
-                          str(self.not_move) + ', Success: ' + str(self.success))
+                          str(self.sub_crash) + ', Not Stop: ' + str(self.sub_not_stop) + ', Not Finished: ' +
+                          str(self.sub_not_finish) + ', Overspeed: ' + str(self.sub_overspeed) + ', Not Move: ' +
+                          str(self.sub_not_move) + ', Success: ' + str(self.sub_success))
 
-            self.sim = InterSim(True) if e % 50 == 0 else InterSim()
+            self.sim = InterSim(self.Speed_limit * random())
             self.total_reward = 0
             self.if_pass = False
             self.if_done = False
 
+            if (e + 1) % 200 == 0:
+                self.crash.append(self.sub_crash)
+                self.not_stop.append(self.sub_not_stop)
+                self.success.append(self.sub_success)
+                self.not_finish.append(self.sub_not_finish)
+                self.overspeed.append(self.sub_overspeed)
+                self.not_move.append(self.sub_not_move)
+
+                self.sub_crash = 0.
+                self.sub_not_stop = 0.
+                self.sub_success = 0.
+                self.sub_not_finish = 0.
+                self.sub_overspeed = 0.
+                self.sub_not_move = 0.
+                logging.info('Crash: ' + str(self.crash) + ', Not Stop: ' + str(self.not_stop) + ', Not Finished: ' +
+                             str(self.not_finish) + ', Overspeed: ' + str(self.overspeed) + ', Not Move: ' +
+                             str(self.not_move) + ', Success: ' + str(self.success) + ', Loss: ' + str(loss))
+
 
 if __name__ == '__main__':
-    plt.ion()
     acc = ReinAcc()
-    acc.launch_train(0)
+    acc.launch_train()             # 1 means Train, 0 means simply Run

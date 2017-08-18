@@ -23,6 +23,7 @@ SCP_PORT = 48179
 
 # name of agent in Vires scenario
 AV_NAME = "AV"
+NEIGHBOR_NAME = "New Player 02"
 
 # lazy way to communicate between threads
 collision_flag = 0
@@ -148,8 +149,8 @@ def scp_state():
 def vires_state(state_q):
 
     RDB_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # TCP_NODELAY is intended to disable/enable segment buffering 
-    # so data can be sent out to peer as quickly as possible. 
+    # TCP_NODELAY is intended to disable/enable segment buffering
+    # so data can be sent out to peer as quickly as possible.
     # This is typically used to improve network utilisation.
     RDB_sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
     conn_err = RDB_sock.connect_ex(('127.0.0.1', RDB_PORT))
@@ -161,14 +162,14 @@ def vires_state(state_q):
 
     # x, y, theta (heading )
     vehicle_state = {}
-    #vehicle_speed=0.0
+    # vehicle_speed=0.0
 
     def process_rdb_frame():
 
         # extract sensor obj info, vehicle position, & position in path
 
         rdb_hdr = RDB_MSG_HDR_t.from_buffer(rdb_buf[:sizeof(RDB_MSG_HDR_t)])
-        #print rdb_hdr.magicNo
+        # print rdb_hdr.magicNo
 
         if rdb_hdr.magicNo != RDB_MAGIC_NO:
             return
@@ -193,16 +194,20 @@ def vires_state(state_q):
 
                 if entry.pkgId == 9: # RDB_PKG_ID_OBJECT_STATE
                     data = RDB_OBJECT_STATE_t.from_buffer(rdb_buf[data_idx:data_idx+sizeof(RDB_OBJECT_STATE_t)])
+                    #print data.base.id
                     if data.base.name == AV_NAME:
                         vehicle_state['x'] = data.base.pos.x
                         vehicle_state['y'] = data.base.pos.y
                         vehicle_state['h'] = data.base.pos.h
                         vehicle_state['v'] = data.ext.speed.y
-                       
+                        vehicle_state['a'] = data.ext.accel.y
+                # elif entry.pkgId == 26:
+                #     data = RDB_DRIVER_CTRL_t.from_buffer(rdb_buf[data_idx:data_idx+sizeof(RDB_DRIVER_CTRL_t)])
+	            # global acc
+                #     vehicle_state['accel'] = data.accelTgt
                 elif entry.pkgId == 17: #RDB_PKG_ID_SENSOR_OBJECT
-                    data = RDB_SENSOR_OBJECT_t.from_buffer(rdb_buf[data_idx:data_idx+sizeof(RDB_SENSOR_OBJECT_t)])                  
+                    data = RDB_SENSOR_OBJECT_t.from_buffer(rdb_buf[data_idx:data_idx+sizeof(RDB_SENSOR_OBJECT_t)])
                     sensor_responses[data.sensorPos.h] = data.dist
-		
                 data_idx = data_idx + entry.elementSize
 
             # advance in buffer
@@ -249,15 +254,12 @@ def vires_state(state_q):
 
         time.sleep(0)
 
-
-
-
 # worker function for main training script
 # handles actions (restarts also)
-def vires_action(action_q):
+def vires_action(action_q, neighbor_state_q):
     RDB_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # TCP_NODELAY is intended to disable/enable segment buffering 
-    # so data can be sent out to peer as quickly as possible. 
+    # TCP_NODELAY is intended to disable/enable segment buffering
+    # so data can be sent out to peer as quickly as possible.
     # This is typically used to improve network utilisation.
     RDB_sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
     conn_err = RDB_sock.connect_ex(('127.0.0.1', RDB_CONTROL_PORT))
@@ -296,18 +298,33 @@ def vires_action(action_q):
                 n_elements = entry.dataSize / entry.elementSize
 
             #print n_elements
-
+            global acc
+            full_state = {}
+            human_vehicle_state={}
             for n in range(n_elements):
-		if entry.pkgId == 26: #RDB_PKG_ID_SENSOR_OBJECT
-                    data = RDB_DRIVER_CTRL_t.from_buffer(rdb_buf[data_idx:data_idx+sizeof(RDB_DRIVER_CTRL_t)]) 
-	            global acc
-                    acc=action_q.get()
-		    print("original acc:",data.accelTgt,"acc:",acc)
-                    data.accelTgt=acc
-                    RDB_sock.send(bytearray(rdb_hdr) + bytearray(entry)+bytearray(data))
-                    
-                data_idx = data_idx + entry.elementSize
+                #print entry.pkgId
+                if entry.pkgId == 9: # RDB_PKG_ID_OBJECT_STATE
+                    data = RDB_OBJECT_STATE_t.from_buffer(rdb_buf[data_idx:data_idx+sizeof(RDB_OBJECT_STATE_t)])
+                    #print data.base.id
+                    if data.base.name == NEIGHBOR_NAME:
+                        #print data.base.name
+                        human_vehicle_state['x'] = data.base.pos.x
+                        human_vehicle_state['y'] = data.base.pos.y
+                        human_vehicle_state['h'] = data.base.pos.h
+                        human_vehicle_state['v'] = data.ext.speed.y
+                        human_vehicle_state['a'] = data.ext.accel.y
 
+                elif entry.pkgId == 26: #RDB_PKG_ID_SENSOR_OBJECT
+                    data = RDB_DRIVER_CTRL_t.from_buffer(rdb_buf[data_idx:data_idx+sizeof(RDB_DRIVER_CTRL_t)])
+                    if not action_q.empty():
+                        acc=action_q.get_nowait()
+                        data.accelTgt=acc
+                        RDB_sock.send(bytearray(rdb_hdr) + bytearray(entry)+bytearray(data))
+
+                data_idx = data_idx + entry.elementSize
+            if len(human_vehicle_state)==5:
+                 full_state['position'] = human_vehicle_state
+                 neighbor_state_q.put(full_state)
             # advance in buffer
             n_remainingBytes = n_remainingBytes - (entry.headerSize + entry.dataSize)
             if n_remainingBytes > 0:
@@ -316,7 +333,7 @@ def vires_action(action_q):
 
 
     print "vires state thread started"
-   
+
     while True:
 
         sensor_responses = {}
@@ -326,4 +343,3 @@ def vires_action(action_q):
         process_rdb_frame()
 
         time.sleep(0)
-   
