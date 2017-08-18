@@ -28,7 +28,7 @@ class Reward(object):
         self.tools = ToolFunc()
         self.state = None
 
-    def get_reward(self, state, a=0, b=0, st=0):
+    def get_reward(self, state, a=0., b=0., st=0.):
         self.state = state
         accel = self.Full_Accel * a - self.Full_Brake * b
         r_smooth = self.reward_smooth(accel, st)
@@ -39,10 +39,11 @@ class Reward(object):
         #     else (- 0.6 * self.av_pos['vy'] + 8.4) - 0.2
         # r_v = max(- 0.2, r_v)
         r_time = - 1.
-        r_crash = - 500. if collision == 1 else 0.
+        r_crash = - 1000. if collision == 1 else 0.
         r_dis = self.reward_dis()
         r_finish = self.reward_finish()
         r_cft = self.reward_cft(a, b)
+        r_notmove, not_move = self.reward_notmove(a, b)
         # logging.error('r_smooth: ' + str(r_smooth) + ', jerk: ' + str((a - self.av_pos['accel'])/self.Tau) +
         #               ', r_clearance: ' + str(r_clerance) + ', fv: [' + str(self.state_fv[1]) + ', ' +
         #               str(self.state_fv[0]) + ']'
@@ -50,22 +51,26 @@ class Reward(object):
         #               ', r_dis: ' + str(r_dis) + ', dis: ' + str(self.av_pos['vy'] * self.Tau) +
         #               ', r_speed: ' + str(r_speedlimit) + ', overspeed: ' + str(self.av_pos['vy']-self.Speed_limit))
         # r = r_smooth + r_clerance + r_stop + r_dis + r_finish + r_speedlimit + r_time
-        r = r_dis + r_time + r_speedlimit + r_clerance + r_smooth + r_stop + r_finish + r_crash + r_cft
-
-        not_move = 0
-        # if (self.state[0] <= 0.01) and a < 0:
-        #     not_move = 1
-        #     r -= 500.
-        # else:
-        #     not_move = 0
+        r = r_dis + r_time + r_speedlimit + r_clerance + r_smooth + r_stop + r_finish + r_crash + r_cft + r_notmove
 
         return r, collision, not_move
+
+    def reward_notmove(self, a, b):
+        not_move = 0
+        f = 0.
+        accel = self.Full_Accel * a - self.Full_Brake * b
+        if (self.state[0] <= 0.01) and (self.state[2] < 0) and (-1. <= accel < 0.):
+            f = 100. * (self.tools.sigmoid(accel, 4.) - 0.5) if accel <= 0. else 0.
+        if (self.state[0] <= 0.01) and (self.state[2] < 0) and (accel <= - 1.):
+            not_move = 1
+            f = - 1000.
+        return f, not_move
 
     def reward_smooth(self, a, st):
         #############################################################################
         jerk = abs(a - self.state[2]) / self.Tau
         x1 = abs(jerk) - 1.
-        f1 = 4. * (- self.tools.sigmoid(x1, 3) + 0.5) if x1 >= 0. else 0.
+        f1 = 4. * (- self.tools.sigmoid(x1, 3.) + 0.5) if x1 >= 0. else 0.
         # yaw = (st - self.av_pos['steer']) / self.Tau
         # f2 = - 2 * abs(self.tools.sigmoid(yaw, 2) - 0.5)
         f2 = 0.
@@ -79,7 +84,7 @@ class Reward(object):
         #############################################################################
         accel = self.Full_Accel * a - self.Full_Brake * b
         x = abs(accel) - self.Cft_Accel
-        f = 4. * (- self.tools.sigmoid(x, 2) + 0.5) if x >= 0. else 0.
+        f = 4. * (- self.tools.sigmoid(x, 2.) + 0.5) if x >= 0. else 0.
         #############################################################################
         # f1 = - (abs(a) - self.Cft_Accel) if abs(a) >= self.Cft_Accel else 0.
         # f2 = - (abs(b) - self.Cft_Accel) if abs(b) >= self.Cft_Accel else 0.
@@ -92,7 +97,7 @@ class Reward(object):
         x1 = crash_dis - 10.
         x2 = crash_time - 3.
         f1 = 4. * (self.tools.sigmoid(x1, 0.3) - 0.5) if x1 <= 0. else 0.
-        f2 = 20. * (self.tools.sigmoid(x2, 1) - 0.5) if x2 <= 0. else 0.
+        f2 = 50. * (self.tools.sigmoid(x2, 1.) - 0.5) if x2 <= 0. else 0.
         crash_left = self.state[7]
         f3 = 0.
         crash_right = self.state[8]

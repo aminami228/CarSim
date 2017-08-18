@@ -69,7 +69,7 @@ class InterSim(object):
             plt.plot(self.Inter_Right / 2., self.Pass_Point, 'g.', markersize=10)
             plt.plot(av['x'], av['y'], 'r.', markersize=15)
             plt.text(av['x'], av['y'], 'a: ' + str(av['accel']) + ', v: ' + str(av['vy']) + ', reward: ' + str(r) +
-                     '\n f_dis: ' + str(self.state_fv[1]))
+                     '\n f_dis: ' + str(self.state_fv[1]) + ', sl_dis: ' + str(self.Stop_Line - av['y']))
             for hv in hvs:
                 plt.plot(hv['x'], hv['y'], 'c.', markersize=15)
                 plt.text(hv['x'], hv['y'], str(hv['vy']))
@@ -92,7 +92,7 @@ class InterSim(object):
         self.state_dim = self.state.shape[1]
         return self.state
 
-    def update_vehicle(self, r, a=0, b=0, st=0):
+    def update_vehicle(self, r, a=0., b=0., st=0.):
         accel = self.Full_Accel * a - self.Full_Brake * b
         for hv_pos in self.hv_poses:
             hv_a = - 0.5 * (hv_pos['vy'] ** 2) / (self.Stop_Line - hv_pos['y']) if hv_pos['y'] < self.Stop_Line - 1 \

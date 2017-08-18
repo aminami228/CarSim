@@ -60,6 +60,7 @@ class ReinAcc(object):
         self.not_finish = []
         self.overspeed = []
         self.not_move = []
+        self.loss = []
 
         self.sub_crash = 0.
         self.sub_not_stop = 0.
@@ -251,7 +252,7 @@ class ReinAcc(object):
                 self.sub_not_move = 0.
                 logging.info('Crash: ' + str(self.crash) + ', Not Stop: ' + str(self.not_stop) + ', Not Finished: ' +
                              str(self.not_finish) + ', Overspeed: ' + str(self.overspeed) + ', Not Move: ' +
-                             str(self.not_move) + ', Success: ' + str(self.success))
+                             str(self.not_move) + ', Success: ' + str(self.success) + ', Loss: ' + str(loss))
 
 
 if __name__ == '__main__':
