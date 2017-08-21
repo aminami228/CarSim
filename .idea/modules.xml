@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CarSim.iml" filepath="$PROJECT_DIR$/.idea/CarSim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../CarSim_sensor/.idea/CarSim_sensor.iml" filepath="$PROJECT_DIR$/../../CarSim_sensor/.idea/CarSim_sensor.iml" />
     </modules>
   </component>
 </project>

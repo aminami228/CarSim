@@ -61,6 +61,8 @@ class ActorNetwork(object):
         #            Parameter_Time3, Parameter_Time4])
         # V = concatenate([a])
         # V = concatenate([a, b])
+        # V = merge([Action, Parameter_Acc1, Parameter_Acc2, Parameter_Time1, Parameter_Time2,
+        #            Parameter_Time3, Parameter_Time4], mode='concat')
         V = a
         # V = tf.concat(values=[a, b])
         model = Model(input=S, output=V)

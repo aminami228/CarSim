@@ -6,15 +6,15 @@ from keras import backend as keras
 import json
 import time
 import logging
-import utilities.log_color
 import sys
-sys.path.append('/home/scotty/qzq/git/CarSim_acceleration/intersection_project')
-from reward_func import Reward
+sys.path.append('/home/scotty/qzq/git/CarSim_vires/main_project')
+from reward_vires import Reward
 from network.ActorNetwork import ActorNetwork
 from network.CriticNetwork import CriticNetwork
 from network.ReplayBuffer import ReplayBuffer
-from utilities.toolfunc import ToolFunc
 from interface.vires_sim import InterSim
+from utilities.toolfunc import ToolFunc
+import utilities.log_color
 
 __author__ = 'qzq'
 
@@ -50,7 +50,8 @@ class ReinAcc(object):
     Speed_limit = 12
 
     def __init__(self):
-        self.sim = InterSim(self.Speed_limit * random())
+        # self.sim = InterSim(self.Speed_limit / 2 * random())
+        self.sim = InterSim(10.)
         self.reward = Reward()
         self.total_reward = 0
         self.if_pass = False
@@ -146,78 +147,93 @@ class ReinAcc(object):
         if step >= self.max_steps:
             logging.warn('Not finished with max steps! Start: ' + str(state[9]) + ', Dis to SL: ' + str(state[4]) +
                          ', Velocity: ' + str(state[0]))
-            self.not_finish += 1.
+            self.sub_not_finish += 1.
             self.if_pass = False
             self.if_done = True
         elif state[0] >= self.sim.Speed_limit + 2.:
             logging.warn('Exceed Speed Limit: ' + str(state[9]) + ', Dis to SL: ' + str(state[4]) +
                          ', Velocity: ' + str(state[0]))
-            self.overspeed += 1.
+            self.sub_overspeed += 1.
             self.if_pass = False
             self.if_done = True
         elif not_move > 0:
             logging.warn('Not move! Start: ' + str(state[9]) + ', Dis to SL: ' + str(state[4]) +
                          ', Velocity: ' + str(state[0]))
-            self.not_move += 1.
+            self.sub_not_move += 1.
             self.if_pass = False
             self.if_done = True
         elif collision > 0:
             logging.warn('Crash to other vehicles or road boundary! Start: ' + str(state[9]) + ', Dis to SL: '
                          + str(state[4]) + ', Velocity: ' + str(state[0]))
-            self.crash += 1.
+            self.sub_crash += 1.
             self.if_pass = False
             self.if_done = True
-        elif collision == 0 and (state[4] <= 1.0) and (state[0] > 2.0):
+        elif collision == 0 and (state[6] <= 1.0) and (state[0] > 2.0):
             logging.warn('No crash and reached stop line. But has not stopped! Start: ' + str(state[9]) +
                          ', Dis to SL: ' + str(state[4]) + ', Velocity: ' + str(state[0]))
-            self.not_stop += 1.
+            self.sub_not_stop += 1.
             self.if_pass = False
             self.if_done = True
-        elif collision == 0 and (state[4] <= 1.0) and (state[0] <= 2.0):
+        elif collision == 0 and (state[6] <= 1.0) and (state[0] <= 2.0):
             logging.info('Congratulations! Reach stop line without crashing and has stopped. Start: ' +
                          str(state[9]) + ', Dis to SL: ' + str(state[4]) + ', Velocity: ' + str(state[0]))
-            self.success += 1.
+            self.sub_success += 1.
             self.if_pass = True
             self.if_done = True
 
     def launch_train(self, train_indicator=1):
         # logging.info('Launch Training Process')
-        state_t = self.sim.get_state()
-        state_dim = state_t.shape[1]
-        self.actor_network = ActorNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRA)
-        self.critic_network = CriticNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRC)
-        self.buffer = ReplayBuffer(self.buffer_size)
-        self.load_weights()
+        # state_t = self.sim.get_state()
+        # state_dim = state_t.shape[1]
+        state_dim = 10
+
+        # self.actor_network = ActorNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRA)
+        # self.critic_network = CriticNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRC)
+        # self.buffer = ReplayBuffer(self.buffer_size)
+        # self.load_weights()
 
         for e in range(self.episode_count):
             total_loss = 0.
             total_time = 0.
             # logging.debug("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
             step = 0
+            a = 0
             while True:
-                state_t = self.sim.get_state()
-                start_time = time.time()
-                action_t = self.get_action(state_t, train_indicator)
-                reward_t, collision, not_move = self.reward.get_reward(state_t[0], action_t[0][0])
-                train_time = time.time() - start_time
-                self.sim.update_vehicle(start_time, action_t[0][0])
-                state_t1 = self.sim.get_state()
-                start_time = time.time()
-                self.update_batch(state_t, action_t[0], reward_t, state_t1)
-                loss = self.update_loss() if train_indicator else 0.
+                logging.debug('Begin get state !!!')
+                state_t = self.sim.get_state(a)
+                if state_t is None:
+                    logging.error('No states get !!!')
+                    time.sleep(1)
+                    continue
+                logging.debug('State_t: ' + str(state_t))
+                # start_time = time.time()
+                # action_t = self.get_action(state_t, train_indicator)
+                # a = action_t[0][0]
+                # reward_t, collision, not_move = self.reward.get_reward(state_t[0], a)
+                # train_time = time.time() - start_time
+                # logging.debug(train_time)
+                # time_b = time.time()
+                self.sim.update_vehicle(state_t[0], a)
+                # state_t1 = self.sim.get_state(a)
+                # print time.time() - time_b
+                # logging.debug('State_t1: ' + str(state_t1))
+                # start_time = time.time()
+                # self.update_batch(state_t, action_t[0], reward_t, state_t1)
+                # loss = self.update_loss() if train_indicator else 0.
 
-                self.total_reward += reward_t
-                self.if_exit(step, state_t, collision, not_move)
-                step += 1
-                total_loss += loss
-                train_time += time.time() - start_time
-                logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', loc: ' + str(self.sim.av_pos['y']) +
-                              ', velocity: ' + str(state_t[0]) + ', action: ' + str(action_t[0]) +
-                              ', reward: ' + str(reward_t) + ', loss: ' + str(loss) + ', Training time: ' +
-                              str(train_time))
-                total_time += train_time
-                if self.if_done:
-                    break
+                # self.total_reward += reward_t
+                # self.if_exit(step, state_t[0], collision, not_move)
+                # step += 1
+                # total_loss += loss
+                # train_time += time.time() - start_time
+                # logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', loc: ' + str(state_t[0][6]) +
+                #               ', velocity: ' + str(state_t[0][0]) + ', action: ' + str(action_t[0]) +
+                #               ', reward: ' + str(reward_t) + ', loss: ' + str(loss) + ', Training time: ' +
+                #               str(train_time))
+                # total_time += train_time
+                # if self.if_done:
+                #     break
+                time.sleep(1)
 
             total_step = step + 1
             if train_indicator:
@@ -231,7 +247,7 @@ class ReinAcc(object):
                           str(self.sub_not_finish) + ', Overspeed: ' + str(self.sub_overspeed) + ', Not Move: ' +
                           str(self.sub_not_move) + ', Success: ' + str(self.sub_success))
 
-            self.sim = InterSim(self.Speed_limit * random())
+            self.sim = InterSim(self.Speed_limit / 2 * random())
             self.total_reward = 0
             self.if_pass = False
             self.if_done = False
@@ -257,4 +273,5 @@ class ReinAcc(object):
 
 if __name__ == '__main__':
     acc = ReinAcc()
+    # time.sleep(1.)
     acc.launch_train()             # 1 means Train, 0 means simply Run

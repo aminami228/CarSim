@@ -1,6 +1,6 @@
 import numpy as np
 import math
-from keras.layers import Dense, Flatten, Input, merge, Lambda, Activation
+from keras.layers import Dense, Flatten, Input, merge, Lambda, Activation, concatenate
 from keras.models import Sequential, Model
 from keras.optimizers import Adam
 import keras.backend as keras
@@ -50,11 +50,12 @@ class CriticNetwork(object):
         A = Input(shape=[action_size], name='action2')
         w0 = Dense(state_size, activation='linear')(S)
         a0 = Dense(action_size, activation='linear')(A)
-        h0 = merge([w0, a0], mode='concat')
+        # h0 = merge([w0, a0], mode='concat')
+        h0 = concatenate([w0, a0])
         h1 = Dense(HIDDEN1_UNITS, activation='relu')(h0)
         h2 = Dense(HIDDEN2_UNITS, activation='sigmoid')(h1)
         # h3 = Dense(HIDDEN3_UNITS, activation='relu')(h2)
-        h4 = Dense(HIDDEN4_UNITS, activation='relu')(h1)
+        h4 = Dense(HIDDEN4_UNITS, activation='relu')(h2)
         V = Dense(1, activation='linear')(h4)
         model = Model(input=[S, A], output=V)
         adam = Adam(lr=self.LEARNING_RATE)
