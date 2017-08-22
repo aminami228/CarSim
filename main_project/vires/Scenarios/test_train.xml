@@ -12,28 +12,57 @@
     <ObjectList ConfigFile="Distros/Current/Config/Players/Objects"/>
     <DynObjects Path="Distros/Current/Config/DynObjects/Logic"/>
     <TrafficElements/>
-    <PulkTraffic/>
+    <PulkTraffic>
+        <PulkDef FillAtStart="false" OwnSide="5.9999999999999998e-01" InnerRadius="5.0000000000000000e+00" VisibleInArea="-1" CenterOffset="0.0000000000000000e+00" Trucks="2.0000000000000001e-01" Vans="2.0000000000000001e-01" AreaB="2.5000000000000000e-01" Count="15" SemiMinorAxis="3.0000000000000000e+02" AreaF="2.5000000000000000e-01" SemiMajorAxis="3.0000000000000000e+02" Cars="2.0000000000000004e-01" CentralPlayer="AV" Buses="0.0000000000000000e+00" AreaL="2.5000000000000000e-01" AreaR="2.5000000000000000e-01" Bikes="4.0000000000000002e-01"/>
+        <PulkDef FillAtStart="false" OwnSide="5.0000000000000000e-01" InnerRadius="5.0000000000000000e+00" VisibleInArea="-1" CenterOffset="1.5000000000000000e+01" Trucks="2.0000000000000001e-01" Vans="0.0000000000000000e+00" AreaB="2.5000000000000000e-01" Count="15" SemiMinorAxis="3.0000000000000000e+02" AreaF="2.5000000000000000e-01" SemiMajorAxis="3.0000000000000000e+02" Cars="8.0000000000000004e-01" CentralPlayer="New Player 01" Buses="0.0000000000000000e+00" AreaL="2.5000000000000000e-01" AreaR="2.5000000000000000e-01" Bikes="0.0000000000000000e+00"/>
+        <PulkDef FillAtStart="false" OwnSide="5.0000000000000000e-01" InnerRadius="5.0000000000000000e+00" VisibleInArea="-1" CenterOffset="1.5000000000000000e+01" Trucks="2.0000000000000001e-01" Vans="0.0000000000000000e+00" AreaB="2.5000000000000000e-01" Count="15" SemiMinorAxis="3.0000000000000000e+02" AreaF="2.5000000000000000e-01" SemiMajorAxis="3.0000000000000000e+02" Cars="8.0000000000000004e-01" CentralPlayer="New Player 03" Buses="0.0000000000000000e+00" AreaL="2.5000000000000000e-01" AreaR="2.5000000000000000e-01" Bikes="0.0000000000000000e+00"/>
+        <PulkDef FillAtStart="false" OwnSide="5.0000000000000000e-01" InnerRadius="5.0000000000000000e+00" VisibleInArea="-1" CenterOffset="1.5000000000000000e+01" Trucks="2.0000000000000001e-01" Vans="0.0000000000000000e+00" AreaB="2.5000000000000000e-01" Count="15" SemiMinorAxis="3.0000000000000000e+02" AreaF="2.5000000000000000e-01" SemiMajorAxis="3.0000000000000000e+02" Cars="8.0000000000000004e-01" CentralPlayer="New Player 04" Buses="0.0000000000000000e+00" AreaL="2.5000000000000000e-01" AreaR="2.5000000000000000e-01" Bikes="0.0000000000000000e+00"/>
+    </PulkTraffic>
     <TrafficControl>
         <Path Name="Path01" PathId="1">
             <Waypoint PathOption="classic" s="1.7981578773292949e+02" TrackId="36"/>
             <Waypoint PathOption="classic" s="1.7346283841900407e+02" TrackId="44"/>
         </Path>
         <Player>
-            <Description Driver="No Driver" Control="external" AdaptDriverToVehicleType="true" Type="VW_Tiguan_2012_deep black" Name="AV"/>
+            <Description Driver="No Driver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 01"/>
             <Init>
-                <Speed Value="5.0000000000000000e+00"/>
-                <PosAbsolute X="1.7081900000000001e+01" Y="-4.2000000000000000e+01" Z="0.0000000000000000e+00" Direction="1.5557864952277454e+00" AlignToRoad="true"/>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="2.4792759418487549e+00" Y="1.6250764465332031e+02" Z="0.0000000000000000e+00" Direction="5.7141713741576880e-02" AlignToRoad="true"/>
             </Init>
         </Player>
         <Player>
-            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="HV1"/>
+            <Description Driver="No Driver" Control="external" AdaptDriverToVehicleType="true" Type="VW_Tiguan_2012_deep black" Name="AV"/>
             <Init>
-                <Speed Value="5.5555555555555554e+00"/>
-                <PosAbsolute X="1.6937361720817815e+01" Y="-1.4298340307167521e+01" Z="0.0000000000000000e+00" Direction="1.5744697827320344e+00" AlignToRoad="true"/>
+                <Speed Value="5.0000000000000000e+00"/>
+                <PosAbsolute X="1.6444260918196974e+01" Y="5.6469286240988211e+01" Z="0.0000000000000000e+00" Direction="1.5558167024843741e+00" AlignToRoad="true"/>
             </Init>
         </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 02"/>
+            <Init>
+                <Speed Value="4.0000000000000000e+01"/>
+                <PosAbsolute X="1.6377776149528753e+01" Y="1.0109822036177779e+02" Z="0.0000000000000000e+00" Direction="1.5744697827320344e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="No Driver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 03"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="3.3688316345214844e+01" Y="1.4771411132812500e+02" Z="0.0000000000000000e+00" Direction="3.1880701038677630e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 04"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="4.8200101852416992e+00" Y="1.4785911560058594e+02" Z="0.0000000000000000e+00" Direction="6.2267867670984431e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <PlayerActions Player="New Player 01"/>
         <PlayerActions Player="AV"/>
-        <PlayerActions Player="HV1"/>
+        <PlayerActions Player="New Player 02"/>
+        <PlayerActions Player="New Player 03"/>
+        <PlayerActions Player="New Player 04"/>
     </TrafficControl>
     <MovingObjectsControl>
         <PathShape ShapeId="1" ShapeType="polyline" Closed="false" Name="PathShape01">

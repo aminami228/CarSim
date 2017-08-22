@@ -22,18 +22,10 @@
             <Description Driver="No Driver" Control="external" AdaptDriverToVehicleType="true" Type="VW_Tiguan_2012_deep black" Name="AV"/>
             <Init>
                 <Speed Value="5.0000000000000000e+00"/>
-                <PosAbsolute X="1.7081900000000001e+01" Y="-4.2000000000000000e+01" Z="0.0000000000000000e+00" Direction="1.5557864952277454e+00" AlignToRoad="true"/>
-            </Init>
-        </Player>
-        <Player>
-            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="HV1"/>
-            <Init>
-                <Speed Value="5.5555555555555554e+00"/>
-                <PosAbsolute X="1.6937361720817815e+01" Y="-1.4298340307167521e+01" Z="0.0000000000000000e+00" Direction="1.5744697827320344e+00" AlignToRoad="true"/>
+                <PosAbsolute X="1.6315669380721388e+01" Y="1.2434400013869327e+02" Z="0.0000000000000000e+00" Direction="1.5558167024843741e+00" AlignToRoad="true"/>
             </Init>
         </Player>
         <PlayerActions Player="AV"/>
-        <PlayerActions Player="HV1"/>
     </TrafficControl>
     <MovingObjectsControl>
         <PathShape ShapeId="1" ShapeType="polyline" Closed="false" Name="PathShape01">

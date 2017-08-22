@@ -48,12 +48,13 @@
     <Config   updateRatio="20"/>
 </Sensor>
 -->
-<!--
+
+
 <Sensor name="TestMultipleSensor" type="radar">
     <Load     lib="libTestMultipleSensor.so" path="" persistent="true" />
     <Frustum  near="0.0" far="80.0" left="1.0" right="1.0" bottom="1.0" top="1.0" />
     <Cull     maxObjects="1" enable="true" />
-    <Port     name="RDBout" number="48190" type="TCP" sendEgo="true" />
+    <Port     name="RDBout" number="48195" type="TCP" sendEgo="true" />
     <Player   default="true" />
     <Position dx="3.5" dy="0.0" dz="0.5" dhDeg="0.0" dpDeg="0.0" drDeg="0.0" />
     <Database resolveRepeatedObjects="true" continuousObjectTesselation="2.0" />
@@ -61,19 +62,21 @@
     <Debug    enable="false"/>
     <Config   updateRatio="20"/>
 </Sensor>
--->
- <Sensor name="multiRay" type="video">    
-  <Load     lib="libModuleMultiRaySensor.so" path="" persistent="true" />    
-  <Frustum  near="0.0" far="80.0" left="60.0" right="60.0" bottom="3.0" top="3.0" />    
+
+
+<!--
+ <Sensor name="multiRay" type="radar">    
+<Load     lib="libModuleSingleRaySensor.so" path="" persistent="true" /> 
+ <Frustum  near="0.0" far="80.0" left="60.0" right="60.0" bottom="3.0" top="3.0" />  
   <Config   noRaysHorizontal="3" noRaysVertical="3" verbose="true" />    
-  <Port     name="RDBout" number="48195" type="TCP" sendEgo="false" />    
+  <Port     name="RDBout" number="48195" type="TCP" sendEgo="true" />    
   <Player   default="true" />    
-  <Position dx="3.5" dy="0.0" dz="0.5" dhDeg="1.0" dpDeg="0.0" drDeg="0.0" />
+  <Position dx="3.5" dy="0.0" dz="0.5" dhDeg="0.0" dpDeg="0.0" drDeg="0.0" />
   <Database resolveRepeatedObjects="true" continuousObjectTesselation="2.0" />
   <Filter   objectType="all"/>
-  <Debug    enable="false" /> 
+  <Debug    enable="true" /> 
 </Sensor>
-
+-->
 
 <DynamicsPlugin name="viTrafficDyn">
     <Load     lib="libModuleTrafficDyn.so" path=""/>

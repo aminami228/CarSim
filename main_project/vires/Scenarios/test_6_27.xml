@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Scenario>
+<Scenario RevMajor="2" RevMinor="0">
+    <Layout Database="../../VTD/Runtime/Tools/RodDistro_2442_Rod64b_4.5.4/DefaultProject/Database/test2.opt.osgb" File="../Runtime/Tools/RodDistro_2442_Rod64b_4.5.4/DefaultProject/Odr/test2.xodr"/>
+    <VehicleList ConfigFile="Distros/Current/Config/Players/Vehicles"/>
+    <DriverList ConfigFile="Distros/Current/Config/Players/driverCfg.xml">
+        <DriverDef LaneKeeping="1.0000000000000000e+00" SteeringDistance="5.0000000000000000e-01" UseOfIndicator="5.0000000000000000e-01" ObeyTrafficSigns="0" RespondToTailgatingVehicles="0.0000000000000000e+00" SwarmFront="1" DesiredVelocity="0.0000000000000000e+00" UrgeToOvertake="0.0000000000000000e+00" Swarm="1" ObserveSpeedLimits="0.0000000000000000e+00" DesiredAcceleration="1.0000000000000000e+00" ConsiderEnvConditions="5.0000000000000000e-01" ObeyTrafficLights="0" LaneChangingDynamic="5.0000000000000000e-01" ObserveKeepRightRule="5.0000000000000000e-01" ObeyTrafficRules="1" ForesightDistance="0.0000000000000000e+00" DistanceKeeping="0.0000000000000000e+00" Name="AVDriver" CurveBehavior="1.0000000000000000e+00" SpeedKeeping="1.0000000000000000e+00" DesiredDeceleration="1.0000000000000000e+00" ReactionTime="5.0000000000000000e-01" SwarmBack="1"/>
+        <DriverDef Swarm="1" Name="HastyDriver"/>
+        <DriverDef Swarm="1" Name="InsecureDriver"/>
+    </DriverList>
+    <CharacterList ConfigFile="Distros/Current/Config/Players/characterCfg.xml"/>
+    <ObjectList ConfigFile="Distros/Current/Config/Players/Objects"/>
+    <DynObjects Path="Distros/Current/Config/DynObjects/Logic"/>
+    <TrafficElements/>
+    <PulkTraffic>
+        <PulkDef FillAtStart="true" OwnSide="0.0000000000000000e+00" InnerRadius="0.0000000000000000e+00" VisibleInArea="-1" CenterOffset="1.0000000000000000e+02" Trucks="2.0000000000000001e-01" Vans="0.0000000000000000e+00" AreaB="2.5000000000000000e-01" Count="30" SemiMinorAxis="1.0000000000000000e+02" AreaF="2.5000000000000000e-01" SemiMajorAxis="1.0000000000000000e+02" Cars="8.0000000000000004e-01" CentralPlayer="AV" Buses="0.0000000000000000e+00" AreaL="2.5000000000000000e-01" AreaR="2.5000000000000000e-01" Bikes="0.0000000000000000e+00"/>
+        <PulkDef FillAtStart="true" OwnSide="5.0000000000000000e-01" InnerRadius="0.0000000000000000e+00" VisibleInArea="-1" CenterOffset="1.2000000000000000e+02" Trucks="2.0000000000000001e-01" Vans="0.0000000000000000e+00" AreaB="1.0000000000000000e+00" Count="30" SemiMinorAxis="1.0000000000000000e+02" AreaF="0.0000000000000000e+00" SemiMajorAxis="1.0000000000000000e+02" Cars="8.0000000000000004e-01" CentralPlayer="New Player 01" Buses="0.0000000000000000e+00" AreaL="0.0000000000000000e+00" AreaR="0.0000000000000000e+00" Bikes="0.0000000000000000e+00"/>
+        <PulkDef FillAtStart="true" OwnSide="5.0000000000000000e-01" InnerRadius="0.0000000000000000e+00" VisibleInArea="-1" CenterOffset="1.7000000000000000e+02" Trucks="2.0000000000000001e-01" Vans="0.0000000000000000e+00" AreaB="5.0000000000000000e-01" Count="30" SemiMinorAxis="1.0000000000000000e+02" AreaF="5.0000000000000000e-01" SemiMajorAxis="1.0000000000000000e+02" Cars="8.0000000000000004e-01" CentralPlayer="New Player 02" Buses="0.0000000000000000e+00" AreaL="0.0000000000000000e+00" AreaR="0.0000000000000000e+00" Bikes="0.0000000000000000e+00"/>
+        <PulkDef FillAtStart="true" OwnSide="5.0000000000000000e-01" InnerRadius="0.0000000000000000e+00" VisibleInArea="-1" CenterOffset="1.7000000000000000e+02" Trucks="2.0000000000000001e-01" Vans="0.0000000000000000e+00" AreaB="1.0000000000000000e+00" Count="30" SemiMinorAxis="1.0000000000000000e+02" AreaF="0.0000000000000000e+00" SemiMajorAxis="1.0000000000000000e+02" Cars="8.0000000000000004e-01" CentralPlayer="New Player 03" Buses="0.0000000000000000e+00" AreaL="0.0000000000000000e+00" AreaR="0.0000000000000000e+00" Bikes="0.0000000000000000e+00"/>
+        <PulkDef FillAtStart="true" OwnSide="5.0000000000000000e-01" InnerRadius="0.0000000000000000e+00" VisibleInArea="-1" CenterOffset="1.7000000000000000e+02" Trucks="2.0000000000000001e-01" Vans="0.0000000000000000e+00" AreaB="5.0000000000000000e-01" Count="30" SemiMinorAxis="1.0000000000000000e+02" AreaF="5.0000000000000000e-01" SemiMajorAxis="1.0000000000000000e+02" Cars="8.0000000000000004e-01" CentralPlayer="New Player 04" Buses="0.0000000000000000e+00" AreaL="0.0000000000000000e+00" AreaR="0.0000000000000000e+00" Bikes="0.0000000000000000e+00"/>
+        <PulkDef FillAtStart="true" OwnSide="5.0000000000000000e-01" InnerRadius="0.0000000000000000e+00" VisibleInArea="-1" CenterOffset="1.7000000000000000e+02" Trucks="2.0000000000000001e-01" Vans="0.0000000000000000e+00" AreaB="5.0000000000000000e-01" Count="30" SemiMinorAxis="1.0000000000000000e+02" AreaF="5.0000000000000000e-01" SemiMajorAxis="1.0000000000000000e+02" Cars="8.0000000000000004e-01" CentralPlayer="New Player 11" Buses="0.0000000000000000e+00" AreaL="0.0000000000000000e+00" AreaR="0.0000000000000000e+00" Bikes="0.0000000000000000e+00"/>
+    </PulkTraffic>
+    <TrafficControl>
+        <Path Name="Path01" PathId="1">
+            <Waypoint PathOption="classic" s="1.7981578773292949e+02" TrackId="36"/>
+            <Waypoint PathOption="classic" s="1.7346283841900407e+02" TrackId="44"/>
+        </Path>
+        <Player>
+            <Description Driver="No Driver" Control="external" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="AV"/>
+            <Init>
+                <Speed Value="2.0000000000000000e+01"/>
+                <PosAbsolute X="1.7114255272445021e+01" Y="-3.9940164290017648e+01" Z="0.0000000000000000e+00" Direction="1.5558167024843741e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="No Driver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 01"/>
+            <Init>
+                <Speed Value="5.0000000000000000e+00"/>
+                <PosAbsolute X="-1.2712327456474304e+02" Y="1.5226889038085938e+02" Z="0.0000000000000000e+00" Direction="3.0140556258005300e-02" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="No Driver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 03"/>
+            <Init>
+                <Speed Value="5.0000000000000000e+00"/>
+                <PosAbsolute X="2.1021074867248535e+02" Y="1.5553746032714844e+02" Z="0.0000000000000000e+00" Direction="3.1660650902401177e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 02"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="-8.7377410888671875e+01" Y="1.5220591735839844e+02" Z="0.0000000000000000e+00" Direction="6.2811732374552545e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 04"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="1.7011943054199219e+02" Y="1.5568864440917969e+02" Z="0.0000000000000000e+00" Direction="3.1439236516939539e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 05"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="-2.6023830413818359e+01" Y="1.5176177978515625e+02" Z="0.0000000000000000e+00" Direction="6.2811732374552545e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 06"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="5.6328277587890625e+01" Y="1.5546148681640625e+02" Z="0.0000000000000000e+00" Direction="3.1439236516939539e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="InsecureDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 07"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="1.1983346557617188e+02" Y="1.5526676940917969e+02" Z="0.0000000000000000e+00" Direction="3.1439236516939539e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="InsecureDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 08"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="3.8184043884277344e+01" Y="1.5505120849609375e+02" Z="0.0000000000000000e+00" Direction="3.1439236516939530e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="InsecureDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 09"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="-3.2932701110839844e+00" Y="1.5175260925292969e+02" Z="0.0000000000000000e+00" Direction="6.2811732374552545e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="InsecureDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 10"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="6.4911338806152344e+01" Y="1.5551625061035156e+02" Z="0.0000000000000000e+00" Direction="3.1439236516939539e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="InsecureDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 11"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="8.3233398437500000e+01" Y="1.5505120849609375e+02" Z="0.0000000000000000e+00" Direction="3.1439236516939539e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="InsecureDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 12"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="9.9490745544433594e+01" Y="1.5575805664062500e+02" Z="0.0000000000000000e+00" Direction="3.1439236516939539e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="InsecureDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 13"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="-1.1895774841308594e+01" Y="1.5222384643554688e+02" Z="0.0000000000000000e+00" Direction="6.2811732374552545e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="InsecureDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 14"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="-3.6635208129882812e+01" Y="1.5151699829101562e+02" Z="0.0000000000000000e+00" Direction="6.2811732374552545e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="InsecureDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 15"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="-5.6662376403808594e+01" Y="1.5175262451171875e+02" Z="0.0000000000000000e+00" Direction="6.2811732374552545e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="InsecureDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 16"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="-7.1270423889160156e+01" Y="1.5245945739746094e+02" Z="0.0000000000000000e+00" Direction="6.2811732374552545e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="InsecureDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 17"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="-8.4856033325195312e-01" Y="1.5527014160156250e+02" Z="0.0000000000000000e+00" Direction="3.1439236516939530e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="InsecureDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 18"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="4.7246360778808594e+01" Y="1.5551817321777344e+02" Z="0.0000000000000000e+00" Direction="3.1439236516939539e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <PlayerActions Player="AV"/>
+        <PlayerActions Player="New Player 01"/>
+        <PlayerActions Player="New Player 03"/>
+        <PlayerActions Player="New Player 02"/>
+        <PlayerActions Player="New Player 04"/>
+        <PlayerActions Player="New Player 05"/>
+        <PlayerActions Player="New Player 06"/>
+        <PlayerActions Player="New Player 07"/>
+        <PlayerActions Player="New Player 08"/>
+        <PlayerActions Player="New Player 09"/>
+        <PlayerActions Player="New Player 10"/>
+        <PlayerActions Player="New Player 11"/>
+        <PlayerActions Player="New Player 12"/>
+        <PlayerActions Player="New Player 13"/>
+        <PlayerActions Player="New Player 14"/>
+        <PlayerActions Player="New Player 15"/>
+        <PlayerActions Player="New Player 16"/>
+        <PlayerActions Player="New Player 17"/>
+        <PlayerActions Player="New Player 18"/>
+    </TrafficControl>
+    <MovingObjectsControl>
+        <PathShape ShapeId="1" ShapeType="polyline" Closed="false" Name="PathShape01">
+            <Waypoint X="1.6476100921630859e+01" Y="9.3728179931640625e+01" Options="0x00000000" Z="0.0000000000000000e+00" Weight="1.0000000000000000e+00" Yaw="1.5577818592597050e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+            <Waypoint X="1.7706735610961914e+01" Y="1.8828181457519531e+02" Options="0x00000000" Z="0.0000000000000000e+00" Weight="1.0000000000000000e+00" Yaw="1.5577818592597050e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+        </PathShape>
+        <Object Type="other" Name="New Object 02" Definition="Building">
+            <StartPosAbs X="-6.4191436767578125e-01" Y="1.2575297546386719e+02" Z="0.0000000000000000e+00" Direction="0.0000000000000000e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+        </Object>
+        <Object Type="other" Name="New Object 02 Copy 01" Definition="Building">
+            <StartPosAbs X="3.0074851989746094e+01" Y="1.2710014343261719e+02" Z="0.0000000000000000e+00" Direction="0.0000000000000000e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+        </Object>
+        <Object Type="other" Name="New Object 02 Copy 02" Definition="Building">
+            <StartPosAbs X="3.1876045227050781e+01" Y="1.8247653198242188e+02" Z="0.0000000000000000e+00" Direction="0.0000000000000000e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+        </Object>
+        <Object Type="other" Name="New Object 02 Copy 03" Definition="Building">
+            <StartPosAbs X="-1.2404022216796875e+00" Y="1.8194462585449219e+02" Z="0.0000000000000000e+00" Direction="0.0000000000000000e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+        </Object>
+        <Object Type="other" Name="New Object 02 Copy 04" Definition="Building">
+            <StartPosAbs X="5.7309219360351562e+01" Y="1.3883872985839844e+02" Z="0.0000000000000000e+00" Direction="1.5736512894597010e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+        </Object>
+        <Object Type="other" Name="New Object 02 Copy 04 Copy 01" Definition="Building">
+            <StartPosAbs X="5.8380195617675781e+01" Y="1.6950746154785156e+02" Z="0.0000000000000000e+00" Direction="1.5736512894597010e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+        </Object>
+        <Object Type="other" Name="New Object 02 Copy 04 Copy 02" Definition="Building">
+            <StartPosAbs X="-2.7686977386474609e+01" Y="1.6892330932617188e+02" Z="0.0000000000000000e+00" Direction="1.5736512894597010e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+        </Object>
+        <Object Type="other" Name="New Object 02 Copy 04 Copy 03" Definition="Building">
+            <StartPosAbs X="-2.7492256164550781e+01" Y="1.3893609619140625e+02" Z="0.0000000000000000e+00" Direction="1.5736512894597010e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+        </Object>
+        <ObjectActions Object="New Object 02"/>
+        <ObjectActions Object="New Object 02 Copy 01"/>
+        <ObjectActions Object="New Object 02 Copy 02"/>
+        <ObjectActions Object="New Object 02 Copy 03"/>
+        <ObjectActions Object="New Object 02 Copy 04"/>
+        <ObjectActions Object="New Object 02 Copy 04 Copy 01"/>
+        <ObjectActions Object="New Object 02 Copy 04 Copy 02"/>
+        <ObjectActions Object="New Object 02 Copy 04 Copy 03"/>
+    </MovingObjectsControl>
+    <LightSigns>
+        <SignalController Id="1" DelayRef="-1" Delay="0.0000000000000000e+00">
+            <Phase Duration="5.0000000000000000e+00" Type="go"/>
+            <Phase Duration="5.0000000000000000e+00" Type="stop"/>
+        </SignalController>
+        <SignalController Id="2" DelayRef="-1" Delay="0.0000000000000000e+00">
+            <Phase Duration="5.0000000000000000e+00" Type="stop"/>
+            <Phase Duration="5.0000000000000000e+00" Type="go"/>
+        </SignalController>
+        <SignalController Id="3" DelayRef="-1" Delay="0.0000000000000000e+00"/>
+        <SignalController Id="4" DelayRef="-1" Delay="0.0000000000000000e+00"/>
+        <Signal Id="3"/>
+        <Signal Id="4"/>
+        <Signal Id="5"/>
+        <Signal Id="7"/>
+        <Signal Id="8"/>
+        <Signal Id="9"/>
+        <Signal Id="10"/>
+        <Signal Id="11"/>
+        <Signal Id="12"/>
+        <Signal Id="13"/>
+        <Signal Id="14"/>
+        <Signal Id="21"/>
+        <Signal Id="22"/>
+        <Signal Id="23"/>
+        <Signal Id="24"/>
+        <Signal Id="31"/>
+    </LightSigns>
+    <Selections/>
+</Scenario>
