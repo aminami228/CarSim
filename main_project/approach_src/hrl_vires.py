@@ -85,8 +85,6 @@ class ReinAcc(object):
         self.batch_output = None
 
         self.start_time = time.time()
-        self.end_time = time.time()
-        self.total_time = 0.
 
     def load_weights(self):
         # logging.info('...... Loading weight ......')
@@ -190,7 +188,6 @@ class ReinAcc(object):
         self.load_weights()
 
         for e in range(self.episode_count):
-            total_time = 0.
             step = 0
             a = 0
             begin_time = time.time()
@@ -228,7 +225,7 @@ class ReinAcc(object):
                           str(self.sub_not_finish) + ', Overspeed: ' + str(self.sub_overspeed) + ', Not Move: ' +
                           str(self.sub_not_move) + ', Success: ' + str(self.sub_success))
 
-            self.sim = InterSim(self.Speed_limit / 2 * random())
+            self.sim = InterSim(self.Speed_limit - 5. * random())
             self.total_reward = 0
             self.if_pass = False
             self.if_done = False

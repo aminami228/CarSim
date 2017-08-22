@@ -5,8 +5,8 @@ import Queue
 from threading import Thread
 from interface.scp_comm import SCPComm
 from interface.rdb_comm import RDBComm
-import time
 import logging
+import time
 import utilities.log_color
 
 __author__ = 'qzq'
