@@ -1,0 +1,1647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Macro type="StyleExternalMacro" name="Town_500m" category="Town" version="1.0">
+    <Styles>
+        <Style type="GR_COBBLE">
+            <Position start="0" stop="308" side="left" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="49" stop="49"/>
+            <LaneOffset start="1" stop="1"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="SH_PAV_NO_DIR">
+            <Position start="0" stop="308" side="left" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="1" stop="1"/>
+            <LaneOffset start="0" stop="0"/>
+            <LaneZOffset start="0.12" stop="0.12"/>
+            <Flags value="4"/>
+        </Style>
+        <Style type="GR_COBBLE">
+            <Position start="0" stop="308" side="right" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="49" stop="49"/>
+            <LaneOffset start="1" stop="1"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="SH_PAV_NO_DIR">
+            <Position start="0" stop="308" side="right" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="1" stop="1"/>
+            <LaneOffset start="0" stop="0"/>
+            <LaneZOffset start="0.12" stop="0.12"/>
+            <Flags value="4"/>
+        </Style>
+        <Style type="HORIZON_CITY">
+            <Position start="0" stop="500" side="left" isInner="0"/>
+            <Height start="18" stop="18"/>
+            <Width start="0" stop="0"/>
+            <LaneOffset start="50" stop="50"/>
+            <LaneZOffset start="-0.3" stop="-0.3"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="HORIZON_CITY">
+            <Position start="0" stop="500" side="right" isInner="0"/>
+            <Height start="18" stop="18"/>
+            <Width start="0" stop="0"/>
+            <LaneOffset start="50" stop="50"/>
+            <LaneZOffset start="-0.3" stop="-0.3"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="GR_COBBLE">
+            <Position start="308" stop="400" side="left" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="49" stop="49"/>
+            <LaneOffset start="1" stop="1"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="SH_PAV_NO_DIR">
+            <Position start="308" stop="400" side="left" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="1" stop="1"/>
+            <LaneOffset start="0" stop="0"/>
+            <LaneZOffset start="0.12" stop="0.12"/>
+            <Flags value="4"/>
+        </Style>
+        <Style type="GR_GRASS_ROUGH">
+            <Position start="308" stop="400" side="right" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="49" stop="49"/>
+            <LaneOffset start="1" stop="1"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="SHOULDER">
+            <Position start="308" stop="400" side="right" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="1" stop="1"/>
+            <LaneOffset start="0" stop="0"/>
+            <LaneZOffset start="0.12" stop="0.12"/>
+            <Flags value="4"/>
+        </Style>
+        <Style type="GR_COBBLE">
+            <Position start="400" stop="500" side="left" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="49" stop="49"/>
+            <LaneOffset start="1" stop="1"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="SH_PAV_NO_DIR">
+            <Position start="400" stop="500" side="left" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="1" stop="1"/>
+            <LaneOffset start="0" stop="0"/>
+            <LaneZOffset start="0.12" stop="0.12"/>
+            <Flags value="4"/>
+        </Style>
+        <Style type="GR_COBBLE">
+            <Position start="400" stop="500" side="right" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="49" stop="49"/>
+            <LaneOffset start="1" stop="1"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="SH_PAV_NO_DIR">
+            <Position start="400" stop="500" side="right" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="1" stop="1"/>
+            <LaneOffset start="0" stop="0"/>
+            <LaneZOffset start="0.12" stop="0.12"/>
+            <Flags value="4"/>
+        </Style>
+    </Styles>
+    <Externals>
+        <External type="BldHotelSingle02">
+            <Position start="7.9688" stop="7.9688" side="right" isInner="0"/>
+            <LaneOffset start="9.99981" stop="9.99981"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldResMuSto12">
+            <Position start="17.6562" stop="17.6562" side="right" isInner="0"/>
+            <LaneOffset start="25.6425" stop="25.6425"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldResMuSto13">
+            <Position start="20.7813" stop="20.7813" side="left" isInner="0"/>
+            <LaneOffset start="3.3972" stop="3.3972"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscRestaurantMenu01">
+            <Position start="25" stop="25" side="left" isInner="0"/>
+            <LaneOffset start="5.43471" stop="5.43471"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdLight01">
+            <Position start="30" stop="500" side="right" isInner="0"/>
+            <LaneOffset start="0" stop="0"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="60"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegTreeMaple6m">
+            <Position start="30.0781" stop="30.0781" side="left" isInner="0"/>
+            <LaneOffset start="3.1341" stop="3.1341"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscTreeBench01">
+            <Position start="30.0781" stop="30.0781" side="left" isInner="0"/>
+            <LaneOffset start="3.13409" stop="3.13409"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs01">
+            <Position start="31.0157" stop="31.0157" side="left" isInner="0"/>
+            <LaneOffset start="9.9124" stop="9.9124"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs01">
+            <Position start="33.5938" stop="33.5938" side="left" isInner="0"/>
+            <LaneOffset start="11.0037" stop="11.0037"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs01">
+            <Position start="33.8281" stop="33.8281" side="left" isInner="0"/>
+            <LaneOffset start="7.69963" stop="7.69963"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegTree02v6m">
+            <Position start="35.0782" stop="35.0782" side="right" isInner="0"/>
+            <LaneOffset start="8.32331" stop="8.32331"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscTreeBase01">
+            <Position start="35.1564" stop="35.1564" side="right" isInner="0"/>
+            <LaneOffset start="8.4106" stop="8.4106"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle02a">
+            <Position start="36.0157" stop="36.0157" side="left" isInner="0"/>
+            <LaneOffset start="21.4573" stop="21.4573"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90.58"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs01">
+            <Position start="36.7188" stop="36.7188" side="left" isInner="0"/>
+            <LaneOffset start="10.468" stop="10.468"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs01">
+            <Position start="37.1876" stop="37.1876" side="left" isInner="0"/>
+            <LaneOffset start="7.3936" stop="7.3936"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscHydrant">
+            <Position start="40.7813" stop="40.7813" side="left" isInner="0"/>
+            <LaneOffset start="1.9969" stop="1.9969"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle04">
+            <Position start="53.7501" stop="53.7501" side="left" isInner="0"/>
+            <LaneOffset start="7.0129" stop="7.0129"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle15">
+            <Position start="54.9218" stop="54.9218" side="right" isInner="0"/>
+            <LaneOffset start="10.4437" stop="10.4437"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdLight01">
+            <Position start="60" stop="500" side="left" isInner="0"/>
+            <LaneOffset start="0" stop="0"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="60"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscPowerbox01">
+            <Position start="61.1719" stop="61.1719" side="right" isInner="0"/>
+            <LaneOffset start="1.14823" stop="1.14823"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscColumn01">
+            <Position start="62.8906" stop="62.8906" side="right" isInner="0"/>
+            <LaneOffset start="0.88783" stop="0.88783"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="CafeUmbrellaClosed">
+            <Position start="63.5938" stop="63.5938" side="right" isInner="0"/>
+            <LaneOffset start="3.35034" stop="3.35034"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs02">
+            <Position start="64.8438" stop="64.8438" side="right" isInner="0"/>
+            <LaneOffset start="4.01045" stop="4.01045"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldRes16">
+            <Position start="65.5469" stop="65.5469" side="right" isInner="0"/>
+            <LaneOffset start="17.8181" stop="17.8181"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs02">
+            <Position start="66.5625" stop="66.5625" side="right" isInner="0"/>
+            <LaneOffset start="7.65348" stop="7.65348"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscKioskStand01">
+            <Position start="69.2969" stop="69.2969" side="right" isInner="0"/>
+            <LaneOffset start="2.6468" stop="2.6468"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="181"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscLetterbox">
+            <Position start="69.7656" stop="69.7656" side="left" isInner="0"/>
+            <LaneOffset start="1.2571" stop="1.2571"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="269.31"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs02">
+            <Position start="72.8125" stop="72.8125" side="right" isInner="0"/>
+            <LaneOffset start="1.9286" stop="1.9286"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="CafeUmbrellaClosed">
+            <Position start="72.8906" stop="72.8906" side="right" isInner="0"/>
+            <LaneOffset start="3.98574" stop="3.98574"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscNewsRack01">
+            <Position start="73.125" stop="73.125" side="left" isInner="0"/>
+            <LaneOffset start="1.3337" stop="1.3337"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs02">
+            <Position start="74.9999" stop="74.9999" side="right" isInner="0"/>
+            <LaneOffset start="5.5639" stop="5.5639"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscNewsRack01">
+            <Position start="75.4688" stop="75.4688" side="left" isInner="0"/>
+            <LaneOffset start="1.5455" stop="1.5455"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscHydrant">
+            <Position start="76.9531" stop="76.9531" side="right" isInner="0"/>
+            <LaneOffset start="1.01789" stop="1.01789"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle06">
+            <Position start="77.031" stop="77.031" side="left" isInner="0"/>
+            <LaneOffset start="11.0367" stop="11.0367"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldRes18">
+            <Position start="78.4376" stop="78.4376" side="right" isInner="0"/>
+            <LaneOffset start="6.7574" stop="6.7574"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscRecBin02">
+            <Position start="83.9844" stop="83.9844" side="left" isInner="0"/>
+            <LaneOffset start="2.3131" stop="2.3131"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle11">
+            <Position start="89.9998" stop="89.9998" side="left" isInner="0"/>
+            <LaneOffset start="11.8462" stop="11.8462"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscPowerbox01">
+            <Position start="91.7969" stop="91.7969" side="right" isInner="0"/>
+            <LaneOffset start="1.3911" stop="1.3911"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="84.7617"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscHydrant">
+            <Position start="96.875" stop="96.875" side="left" isInner="0"/>
+            <LaneOffset start="0.9881" stop="0.9881"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldRes05">
+            <Position start="97.7344" stop="97.7344" side="right" isInner="0"/>
+            <LaneOffset start="11.3935" stop="11.3935"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscHydrant">
+            <Position start="104.062" stop="104.062" side="right" isInner="0"/>
+            <LaneOffset start="1.52087" stop="1.52087"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs02">
+            <Position start="107.422" stop="107.422" side="right" isInner="0"/>
+            <LaneOffset start="4.77001" stop="4.77001"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeUmbrella">
+            <Position start="109.609" stop="109.609" side="right" isInner="0"/>
+            <LaneOffset start="4.77007" stop="4.77007"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs02">
+            <Position start="110.625" stop="110.625" side="right" isInner="0"/>
+            <LaneOffset start="2.17094" stop="2.17094"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle08">
+            <Position start="110.781" stop="110.781" side="right" isInner="0"/>
+            <LaneOffset start="14.4976" stop="14.4976"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldPoliceStation1">
+            <Position start="111.406" stop="111.406" side="left" isInner="0"/>
+            <LaneOffset start="6.2631" stop="6.2631"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscRecBin03">
+            <Position start="112.109" stop="112.109" side="left" isInner="0"/>
+            <LaneOffset start="0.983956" stop="0.983956"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs02">
+            <Position start="112.969" stop="112.969" side="right" isInner="0"/>
+            <LaneOffset start="3.6005" stop="3.6005"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeUmbrella">
+            <Position start="115.312" stop="115.312" side="right" isInner="0"/>
+            <LaneOffset start="1.781" stop="1.781"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs02">
+            <Position start="115.625" stop="115.625" side="right" isInner="0"/>
+            <LaneOffset start="4.3801" stop="4.3801"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs02">
+            <Position start="117.969" stop="117.969" side="right" isInner="0"/>
+            <LaneOffset start="2.30066" stop="2.30066"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle13">
+            <Position start="124.531" stop="124.531" side="left" isInner="0"/>
+            <LaneOffset start="9.44558" stop="9.44558"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle12">
+            <Position start="125.547" stop="125.547" side="right" isInner="0"/>
+            <LaneOffset start="9.62971" stop="9.62971"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscRecBin03">
+            <Position start="131.562" stop="131.562" side="right" isInner="0"/>
+            <LaneOffset start="1.00119" stop="1.00119"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldRes16">
+            <Position start="136.484" stop="136.484" side="right" isInner="0"/>
+            <LaneOffset start="11.8027" stop="11.8027"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscPowerbox01">
+            <Position start="136.641" stop="136.641" side="left" isInner="0"/>
+            <LaneOffset start="2.4651" stop="2.4651"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="273.9"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldRes01a">
+            <Position start="144.531" stop="144.531" side="left" isInner="0"/>
+            <LaneOffset start="10.0413" stop="10.0413"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscHydrant">
+            <Position start="148.984" stop="148.984" side="right" isInner="0"/>
+            <LaneOffset start="0.871189" stop="0.871189"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscHydrant">
+            <Position start="151.484" stop="151.484" side="left" isInner="0"/>
+            <LaneOffset start="1.11393" stop="1.11393"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldRes24">
+            <Position start="155.469" stop="155.469" side="right" isInner="0"/>
+            <LaneOffset start="8.0484" stop="8.0484"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscTableASeats01">
+            <Position start="157.734" stop="157.734" side="left" isInner="0"/>
+            <LaneOffset start="2.02367" stop="2.02367"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscPowerbox01">
+            <Position start="161.328" stop="161.328" side="right" isInner="0"/>
+            <LaneOffset start="1.9109" stop="1.9109"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscRecBin03">
+            <Position start="162.656" stop="162.656" side="right" isInner="0"/>
+            <LaneOffset start="1.26097" stop="1.26097"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscTableASeats01">
+            <Position start="163.516" stop="163.516" side="left" isInner="0"/>
+            <LaneOffset start="1.63406" stop="1.63406"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle02a">
+            <Position start="163.906" stop="163.906" side="left" isInner="0"/>
+            <LaneOffset start="10.44" stop="10.44"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscTreeBase01">
+            <Position start="164.844" stop="164.844" side="right" isInner="0"/>
+            <LaneOffset start="5.8098" stop="5.8098"/>
+            <LaneZOffset start="-0.1" stop="-0.1"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="0"/>
+        </External>
+        <External type="VegTree6m_01">
+            <Position start="164.844" stop="164.844" side="right" isInner="0"/>
+            <LaneOffset start="2.8029" stop="2.8029"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscBenchCafe">
+            <Position start="169.766" stop="169.766" side="right" isInner="0"/>
+            <LaneOffset start="1.781" stop="1.781"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscNewsRack01">
+            <Position start="170.156" stop="170.156" side="left" isInner="0"/>
+            <LaneOffset start="2.54371" stop="2.54371"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="CafeUmbrellaClosed">
+            <Position start="171.484" stop="171.484" side="right" isInner="0"/>
+            <LaneOffset start="1.78085" stop="1.78085"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscNewsRack01">
+            <Position start="172.109" stop="172.109" side="left" isInner="0"/>
+            <LaneOffset start="1.50399" stop="1.50399"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscBenchCafe">
+            <Position start="173.984" stop="173.984" side="right" isInner="0"/>
+            <LaneOffset start="2.82051" stop="2.82051"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscNewsRack01">
+            <Position start="173.984" stop="173.984" side="left" isInner="0"/>
+            <LaneOffset start="1.37384" stop="1.37384"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscRecBin03">
+            <Position start="177.188" stop="177.188" side="left" isInner="0"/>
+            <LaneOffset start="0.464229" stop="0.464229"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscBenchCafe">
+            <Position start="177.578" stop="177.578" side="right" isInner="0"/>
+            <LaneOffset start="1.52099" stop="1.52099"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="CafeUmbrellaClosed">
+            <Position start="179.375" stop="179.375" side="right" isInner="0"/>
+            <LaneOffset start="2.3009" stop="2.3009"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle04">
+            <Position start="179.375" stop="179.375" side="right" isInner="0"/>
+            <LaneOffset start="10.4922" stop="10.4922"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle05">
+            <Position start="184.062" stop="184.062" side="left" isInner="0"/>
+            <LaneOffset start="10.8316" stop="10.8316"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscBikeStand02">
+            <Position start="184.453" stop="184.453" side="right" isInner="0"/>
+            <LaneOffset start="2.17088" stop="2.17088"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscBikeStand01">
+            <Position start="189.453" stop="189.453" side="right" isInner="0"/>
+            <LaneOffset start="2.8205" stop="2.8205"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscLetterbox">
+            <Position start="191.328" stop="191.328" side="left" isInner="0"/>
+            <LaneOffset start="1.5041" stop="1.5041"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="268.244"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscRecBinCon03">
+            <Position start="193.281" stop="193.281" side="left" isInner="0"/>
+            <LaneOffset start="1.81579" stop="1.81579"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscLitfassColumn01">
+            <Position start="193.828" stop="193.828" side="right" isInner="0"/>
+            <LaneOffset start="1.7809" stop="1.7809"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldResMuSto10b">
+            <Position start="194.844" stop="194.844" side="left" isInner="0"/>
+            <LaneOffset start="4.3792" stop="4.3792"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscLetterbox">
+            <Position start="195.625" stop="195.625" side="right" isInner="0"/>
+            <LaneOffset start="0.5805" stop="0.5805"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="91.4376"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscBsFountain4m">
+            <Position start="197.656" stop="197.656" side="right" isInner="0"/>
+            <LaneOffset start="13.1854" stop="13.1854"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscHydrant">
+            <Position start="200.547" stop="200.547" side="right" isInner="0"/>
+            <LaneOffset start="4.33939" stop="4.33939"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs02">
+            <Position start="203.047" stop="203.047" side="right" isInner="0"/>
+            <LaneOffset start="2.25752" stop="2.25752"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscBikeStand01">
+            <Position start="203.594" stop="203.594" side="left" isInner="0"/>
+            <LaneOffset start="2.7499" stop="2.7499"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeUmbrella">
+            <Position start="205" stop="205" side="right" isInner="0"/>
+            <LaneOffset start="3.18273" stop="3.18273"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs02">
+            <Position start="207.422" stop="207.422" side="right" isInner="0"/>
+            <LaneOffset start="2.54658" stop="2.54658"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldHotelSingle02">
+            <Position start="208.672" stop="208.672" side="right" isInner="0"/>
+            <LaneOffset start="12.5855" stop="12.5855"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs02">
+            <Position start="210.703" stop="210.703" side="right" isInner="0"/>
+            <LaneOffset start="2.02611" stop="2.02611"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeUmbrella">
+            <Position start="212.5" stop="212.5" side="right" isInner="0"/>
+            <LaneOffset start="1.96827" stop="1.96827"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscCafeChairs02">
+            <Position start="214.297" stop="214.297" side="right" isInner="0"/>
+            <LaneOffset start="2.836" stop="2.836"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscBikeStand02">
+            <Position start="221.406" stop="221.406" side="left" isInner="0"/>
+            <LaneOffset start="2.5753" stop="2.5753"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle06">
+            <Position start="222.812" stop="222.812" side="right" isInner="0"/>
+            <LaneOffset start="9.4688" stop="9.4688"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle08">
+            <Position start="237.656" stop="237.656" side="right" isInner="0"/>
+            <LaneOffset start="8.5127" stop="8.5127"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscBikeStand02">
+            <Position start="243.984" stop="243.984" side="left" isInner="0"/>
+            <LaneOffset start="2.6583" stop="2.6583"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscTrashCan01">
+            <Position start="245.234" stop="245.234" side="left" isInner="0"/>
+            <LaneOffset start="2.30763" stop="2.30763"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscTrashCan01">
+            <Position start="245.703" stop="245.703" side="left" isInner="0"/>
+            <LaneOffset start="2.937" stop="2.937"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscTrashCan01">
+            <Position start="245.859" stop="245.859" side="left" isInner="0"/>
+            <LaneOffset start="1.70108" stop="1.70108"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscBikeStand01">
+            <Position start="252.031" stop="252.031" side="left" isInner="0"/>
+            <LaneOffset start="2.1009" stop="2.1009"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle15">
+            <Position start="254.531" stop="254.531" side="right" isInner="0"/>
+            <LaneOffset start="7.0789" stop="7.0789"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldResSingle10G">
+            <Position start="260.781" stop="260.781" side="left" isInner="0"/>
+            <LaneOffset start="12.6486" stop="12.6486"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscTramStopBin01">
+            <Position start="267.031" stop="267.031" side="left" isInner="0"/>
+            <LaneOffset start="0.963101" stop="0.963101"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscTrashCan01">
+            <Position start="270.312" stop="270.312" side="left" isInner="0"/>
+            <LaneOffset start="0.849396" stop="0.849396"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscTrashCan01">
+            <Position start="271.172" stop="271.172" side="left" isInner="0"/>
+            <LaneOffset start="0.794106" stop="0.794106"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle02">
+            <Position start="272.188" stop="272.188" side="right" isInner="0"/>
+            <LaneOffset start="12.0137" stop="12.0137"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldResSingle10aG">
+            <Position start="275.547" stop="275.547" side="left" isInner="0"/>
+            <LaneOffset start="12.4431" stop="12.4431"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscHydrant">
+            <Position start="281.328" stop="281.328" side="left" isInner="0"/>
+            <LaneOffset start="0.472872" stop="0.472872"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscRecBinCon03">
+            <Position start="283.359" stop="283.359" side="left" isInner="0"/>
+            <LaneOffset start="5.07836" stop="5.07836"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle01">
+            <Position start="290.391" stop="290.391" side="left" isInner="0"/>
+            <LaneOffset start="5.8486" stop="5.8486"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle03">
+            <Position start="295.078" stop="295.078" side="right" isInner="0"/>
+            <LaneOffset start="6.9252" stop="6.9252"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscRecBin03">
+            <Position start="296.562" stop="296.562" side="left" isInner="0"/>
+            <LaneOffset start="0.6325" stop="0.6325"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscPowerbox01">
+            <Position start="298.281" stop="298.281" side="left" isInner="0"/>
+            <LaneOffset start="0.614434" stop="0.614434"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldHotelSingle02">
+            <Position start="299.609" stop="299.609" side="right" isInner="0"/>
+            <LaneOffset start="29.8859" stop="29.8859"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle02a">
+            <Position start="305.625" stop="305.625" side="left" isInner="0"/>
+            <LaneOffset start="11.7524" stop="11.7524"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdFenBlack5m">
+            <Position start="310" stop="343.555" side="right" isInner="0"/>
+            <LaneOffset start="1.7" stop="1.7"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="5"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v4m">
+            <Position start="311.406" stop="311.406" side="right" isInner="0"/>
+            <LaneOffset start="4.36774" stop="4.36774"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscNewsRack01">
+            <Position start="315.078" stop="315.078" side="left" isInner="0"/>
+            <LaneOffset start="3.01753" stop="3.01753"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscNewsRack01">
+            <Position start="316.016" stop="316.016" side="left" isInner="0"/>
+            <LaneOffset start="1.04962" stop="1.04962"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscNewsRack01">
+            <Position start="316.953" stop="316.953" side="left" isInner="0"/>
+            <LaneOffset start="2.12235" stop="2.12235"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v6m">
+            <Position start="318.125" stop="318.125" side="right" isInner="0"/>
+            <LaneOffset start="38.1063" stop="38.1063"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscRecBin02">
+            <Position start="318.125" stop="318.125" side="left" isInner="0"/>
+            <LaneOffset start="3.20796" stop="3.20796"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscColumn01">
+            <Position start="322.812" stop="322.812" side="left" isInner="0"/>
+            <LaneOffset start="2.44609" stop="2.44609"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscPlayground01">
+            <Position start="323.203" stop="323.203" side="right" isInner="0"/>
+            <LaneOffset start="14.091" stop="14.091"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle02">
+            <Position start="325.234" stop="325.234" side="left" isInner="0"/>
+            <LaneOffset start="11.6168" stop="11.6168"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscBeerBenche">
+            <Position start="327.734" stop="327.734" side="left" isInner="0"/>
+            <LaneOffset start="2.44615" stop="2.44615"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v4m">
+            <Position start="330" stop="330" side="right" isInner="0"/>
+            <LaneOffset start="42.0601" stop="42.0601"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscBeerBenche">
+            <Position start="331.719" stop="331.719" side="left" isInner="0"/>
+            <LaneOffset start="1.62103" stop="1.62103"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegTreeMaple6m">
+            <Position start="333.125" stop="333.125" side="right" isInner="0"/>
+            <LaneOffset start="11.3527" stop="11.3527"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscHydrant">
+            <Position start="338.516" stop="338.516" side="left" isInner="0"/>
+            <LaneOffset start="0.414972" stop="0.414972"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegTreeMaple9m">
+            <Position start="338.672" stop="338.672" side="right" isInner="0"/>
+            <LaneOffset start="20.3145" stop="20.3145"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush05v2m">
+            <Position start="339.844" stop="339.844" side="right" isInner="0"/>
+            <LaneOffset start="4.1043" stop="4.1043"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdFenBlack5m">
+            <Position start="342.5" stop="342.5" side="right" isInner="0"/>
+            <LaneOffset start="39.2" stop="39.2"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="270"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdFenBlack5m">
+            <Position start="342.5" stop="342.5" side="right" isInner="0"/>
+            <LaneOffset start="9.2" stop="9.2"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="270"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdFenBlack5m">
+            <Position start="342.5" stop="342.578" side="right" isInner="0"/>
+            <LaneOffset start="14.2" stop="14.2"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="270"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdFenBlack5m">
+            <Position start="342.5" stop="342.5" side="right" isInner="0"/>
+            <LaneOffset start="19.2" stop="19.2"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="270"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdFenBlack5m">
+            <Position start="342.5" stop="343" side="right" isInner="0"/>
+            <LaneOffset start="4.2" stop="4.2"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="270"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdFenBlack5m">
+            <Position start="342.5" stop="342.5" side="right" isInner="0"/>
+            <LaneOffset start="24.2" stop="24.2"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="270"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdFenBlack5m">
+            <Position start="342.5" stop="342.5" side="right" isInner="0"/>
+            <LaneOffset start="29.2" stop="29.2"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="270"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdFenBlack5m">
+            <Position start="342.5" stop="342.5" side="right" isInner="0"/>
+            <LaneOffset start="34.2" stop="34.2"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="270"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdFenBlack5m">
+            <Position start="342.5" stop="342.5" side="right" isInner="0"/>
+            <LaneOffset start="44.2" stop="44.2"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="270"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle06">
+            <Position start="344.297" stop="344.297" side="left" isInner="0"/>
+            <LaneOffset start="8.9132" stop="8.9132"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscPowerbox01">
+            <Position start="350.312" stop="350.312" side="left" isInner="0"/>
+            <LaneOffset start="1.36715" stop="1.36715"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegTreeParkway01c">
+            <Position start="351.641" stop="351.641" side="right" isInner="0"/>
+            <LaneOffset start="9.42614" stop="9.42614"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldResMuSto13">
+            <Position start="352.031" stop="352.031" side="right" isInner="0"/>
+            <LaneOffset start="26.1674" stop="26.1674"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldOffice07aRedBrick">
+            <Position start="356.875" stop="356.875" side="left" isInner="0"/>
+            <LaneOffset start="10.4762" stop="10.4762"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v3m">
+            <Position start="357.969" stop="357.969" side="right" isInner="0"/>
+            <LaneOffset start="15.4922" stop="15.4922"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegTreeMaple6m">
+            <Position start="365.859" stop="365.859" side="left" isInner="0"/>
+            <LaneOffset start="3.9839" stop="3.9839"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscTreeBase01">
+            <Position start="366.094" stop="366.094" side="left" isInner="0"/>
+            <LaneOffset start="3.8293" stop="3.8293"/>
+            <LaneZOffset start="-0.1" stop="-0.1"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="0"/>
+        </External>
+        <External type="VegBush04v6m">
+            <Position start="366.406" stop="366.406" side="right" isInner="0"/>
+            <LaneOffset start="13.9035" stop="13.9035"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscBenchCafe">
+            <Position start="368.594" stop="368.594" side="left" isInner="0"/>
+            <LaneOffset start="11.0333" stop="11.0333"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldOffice07aRedBrick">
+            <Position start="372.031" stop="372.031" side="left" isInner="0"/>
+            <LaneOffset start="20.2727" stop="20.2727"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegTree6m_01">
+            <Position start="372.578" stop="372.578" side="right" isInner="0"/>
+            <LaneOffset start="16.9876" stop="16.9876"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscBenchCafe">
+            <Position start="374.453" stop="374.453" side="left" isInner="0"/>
+            <LaneOffset start="11.8597" stop="11.8597"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscTreeBase01">
+            <Position start="375.547" stop="375.547" side="left" isInner="0"/>
+            <LaneOffset start="3.9838" stop="3.9838"/>
+            <LaneZOffset start="-0.1" stop="-0.1"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="0"/>
+        </External>
+        <External type="VegTreeMaple9m">
+            <Position start="375.547" stop="375.547" side="left" isInner="0"/>
+            <LaneOffset start="3.9065" stop="3.9065"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v4m">
+            <Position start="377.891" stop="377.891" side="right" isInner="0"/>
+            <LaneOffset start="30.7318" stop="30.7318"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="ForestTree07">
+            <Position start="377.891" stop="377.891" side="right" isInner="0"/>
+            <LaneOffset start="39.6864" stop="39.6864"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscBenchCafe">
+            <Position start="379.609" stop="379.609" side="left" isInner="0"/>
+            <LaneOffset start="12.5588" stop="12.5588"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldResMuSto13a">
+            <Position start="382.5" stop="382.5" side="right" isInner="0"/>
+            <LaneOffset start="30.5167" stop="30.5167"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegTree02v6m">
+            <Position start="383.438" stop="383.438" side="right" isInner="0"/>
+            <LaneOffset start="21.9317" stop="21.9317"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegTreeMaple9m">
+            <Position start="384.297" stop="384.297" side="left" isInner="0"/>
+            <LaneOffset start="3.98402" stop="3.98402"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscBenchCafe">
+            <Position start="384.375" stop="384.375" side="left" isInner="0"/>
+            <LaneOffset start="10.8427" stop="10.8427"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscTreeBase01">
+            <Position start="384.375" stop="384.375" side="left" isInner="0"/>
+            <LaneOffset start="3.984" stop="3.984"/>
+            <LaneZOffset start="-0.1" stop="-0.1"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="0"/>
+        </External>
+        <External type="VegBush08v5m">
+            <Position start="384.531" stop="384.531" side="right" isInner="0"/>
+            <LaneOffset start="10.1981" stop="10.1981"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldOffice07aRedBrick">
+            <Position start="391.719" stop="391.719" side="left" isInner="0"/>
+            <LaneOffset start="10.747" stop="10.747"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush05v2m">
+            <Position start="394.531" stop="394.531" side="right" isInner="0"/>
+            <LaneOffset start="15.9105" stop="15.9105"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscPowerbox01">
+            <Position start="398.672" stop="398.672" side="right" isInner="0"/>
+            <LaneOffset start="2.17373" stop="2.17373"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldResMuSto12a">
+            <Position start="400.859" stop="400.859" side="left" isInner="0"/>
+            <LaneOffset start="2.9286" stop="2.9286"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle02a">
+            <Position start="408.281" stop="408.281" side="right" isInner="0"/>
+            <LaneOffset start="14.2115" stop="14.2115"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscRecBin03">
+            <Position start="416.875" stop="416.875" side="right" isInner="0"/>
+            <LaneOffset start="1.60527" stop="1.60527"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle05">
+            <Position start="428.203" stop="428.203" side="right" isInner="0"/>
+            <LaneOffset start="8.4915" stop="8.4915"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldResMuSto12a">
+            <Position start="435.625" stop="435.625" side="left" isInner="0"/>
+            <LaneOffset start="1.309" stop="1.309"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscNewsRack01">
+            <Position start="437.188" stop="437.188" side="left" isInner="0"/>
+            <LaneOffset start="1.55716" stop="1.55716"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscRecBin02">
+            <Position start="438.203" stop="438.203" side="left" isInner="0"/>
+            <LaneOffset start="0.89364" stop="0.89364"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscBikeStand02">
+            <Position start="444.297" stop="444.297" side="left" isInner="0"/>
+            <LaneOffset start="1.8551" stop="1.8551"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle03">
+            <Position start="452.891" stop="452.891" side="left" isInner="0"/>
+            <LaneOffset start="8.0342" stop="8.0342"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="90"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle13">
+            <Position start="455.156" stop="455.156" side="right" isInner="0"/>
+            <LaneOffset start="13.5186" stop="13.5186"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="270"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscBikeStand01">
+            <Position start="463.281" stop="463.281" side="left" isInner="0"/>
+            <LaneOffset start="1.8603" stop="1.8603"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscLitfassColumn01">
+            <Position start="466.875" stop="466.875" side="left" isInner="0"/>
+            <LaneOffset start="2.50524" stop="2.50524"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscHydrant">
+            <Position start="467.656" stop="467.656" side="left" isInner="0"/>
+            <LaneOffset start="0.514163" stop="0.514163"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle11">
+            <Position start="472.891" stop="472.891" side="left" isInner="0"/>
+            <LaneOffset start="11.5596" stop="11.5596"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldHotelSingle01">
+            <Position start="475.938" stop="475.938" side="right" isInner="0"/>
+            <LaneOffset start="25.2558" stop="25.2558"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="0"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="MiscHydrant">
+            <Position start="479.688" stop="479.688" side="left" isInner="0"/>
+            <LaneOffset start="1.01591" stop="1.01591"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscBikeStand02">
+            <Position start="481.562" stop="481.562" side="left" isInner="0"/>
+            <LaneOffset start="1.82788" stop="1.82788"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="BldShopSingle05">
+            <Position start="488.828" stop="488.828" side="left" isInner="0"/>
+            <LaneOffset start="10.9489" stop="10.9489"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscNewsRack01">
+            <Position start="496.016" stop="496.016" side="left" isInner="0"/>
+            <LaneOffset start="1.83052" stop="1.83052"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="RdMiscNewsRack01">
+            <Position start="496.719" stop="496.719" side="left" isInner="0"/>
+            <LaneOffset start="0.930142" stop="0.930142"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="180"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+    </Externals>
+</Macro>

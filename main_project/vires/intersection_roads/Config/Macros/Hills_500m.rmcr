@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Macro type="StyleExternalMacro" name="Hills_500m" category="Landscape" version="1.0">
+    <Styles>
+        <Style type="LS_HILLNEAR_FOREST">
+            <Position start="0" stop="50" side="left" isInner="0"/>
+            <Height start="0" stop="5"/>
+            <Width start="76.5" stop="76.5"/>
+            <LaneOffset start="13.25" stop="13.25"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="SH_GRASS">
+            <Position start="0" stop="500" side="right" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="13.25" stop="13.25"/>
+            <LaneOffset start="0" stop="0"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="4"/>
+        </Style>
+        <Style type="SH_GRASS">
+            <Position start="0" stop="500" side="left" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="13.25" stop="13.25"/>
+            <LaneOffset start="0" stop="0"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="4"/>
+        </Style>
+        <Style type="LS_HILLNEAR_FOREST">
+            <Position start="0" stop="50" side="right" isInner="0"/>
+            <Height start="0" stop="0"/>
+            <Width start="76.5" stop="76.5"/>
+            <LaneOffset start="13.25" stop="13.25"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="LS_HILLNEAR_FOREST">
+            <Position start="50" stop="100" side="left" isInner="0"/>
+            <Height start="5" stop="10"/>
+            <Width start="76.5" stop="91.5"/>
+            <LaneOffset start="13.25" stop="13.25"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="LS_HILLFAR_FOREST">
+            <Position start="50" stop="100" side="right" isInner="0"/>
+            <Height start="0" stop="5"/>
+            <Width start="76.5" stop="76.5"/>
+            <LaneOffset start="13.25" stop="13.25"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="LS_HILLNEAR_FOREST">
+            <Position start="100" stop="250" side="left" isInner="0"/>
+            <Height start="10" stop="5"/>
+            <Width start="91.5" stop="66.5"/>
+            <LaneOffset start="13.25" stop="13.25"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="LS_HILLFAR_FOREST">
+            <Position start="100" stop="250" side="right" isInner="0"/>
+            <Height start="5" stop="10"/>
+            <Width start="76.5" stop="96.5"/>
+            <LaneOffset start="13.25" stop="13.25"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="LS_HILLFAR_FOREST">
+            <Position start="250" stop="350" side="right" isInner="0"/>
+            <Height start="10" stop="-5"/>
+            <Width start="96.5" stop="96.5"/>
+            <LaneOffset start="13.25" stop="13.25"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="LS_HILLNEAR_FOREST">
+            <Position start="250" stop="400" side="left" isInner="0"/>
+            <Height start="5" stop="10"/>
+            <Width start="66.5" stop="76.5"/>
+            <LaneOffset start="13.25" stop="13.25"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="LS_HILLFAR_FOREST">
+            <Position start="350" stop="400" side="right" isInner="0"/>
+            <Height start="-5" stop="0"/>
+            <Width start="96.5" stop="76.5"/>
+            <LaneOffset start="13.25" stop="13.25"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="LS_HILLNEAR_FOREST">
+            <Position start="400" stop="450" side="left" isInner="0"/>
+            <Height start="10" stop="5"/>
+            <Width start="76.5" stop="76.5"/>
+            <LaneOffset start="13.25" stop="13.25"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="LS_HILLNEAR_FOREST">
+            <Position start="400" stop="450" side="right" isInner="0"/>
+            <Height start="0" stop="5"/>
+            <Width start="76.5" stop="76.5"/>
+            <LaneOffset start="13.25" stop="13.25"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="LS_HILLNEAR_FOREST">
+            <Position start="450" stop="500" side="left" isInner="0"/>
+            <Height start="5" stop="0"/>
+            <Width start="76.5" stop="76.5"/>
+            <LaneOffset start="13.25" stop="13.25"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="LS_HILLNEAR_FOREST">
+            <Position start="450" stop="500" side="right" isInner="0"/>
+            <Height start="5" stop="0"/>
+            <Width start="76.5" stop="76.5"/>
+            <LaneOffset start="13.25" stop="13.25"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Flags value="0"/>
+        </Style>
+    </Styles>
+    <Externals>
+        <External type="VegBush03A6m">
+            <Position start="20.3125" stop="20.3125" side="right" isInner="0"/>
+            <LaneOffset start="14.6167" stop="14.6167"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="349.428"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush06">
+            <Position start="25.7812" stop="25.7812" side="left" isInner="0"/>
+            <LaneOffset start="18.7932" stop="18.7932"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="80.5163"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A3m">
+            <Position start="28.125" stop="28.125" side="right" isInner="0"/>
+            <LaneOffset start="26.7391" stop="26.7391"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="73.6758"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A6m">
+            <Position start="32.0312" stop="32.0312" side="right" isInner="0"/>
+            <LaneOffset start="27.8598" stop="27.8598"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="238.762"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A6m">
+            <Position start="32.8125" stop="32.8125" side="right" isInner="0"/>
+            <LaneOffset start="29.1101" stop="29.1101"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="315.858"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A3m">
+            <Position start="36.7188" stop="36.7188" side="right" isInner="0"/>
+            <LaneOffset start="58.9324" stop="58.9324"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="130.176"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v5m">
+            <Position start="44.5312" stop="44.5312" side="left" isInner="0"/>
+            <LaneOffset start="38.5167" stop="38.5167"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="78.5725"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v5m">
+            <Position start="70.3125" stop="70.3125" side="left" isInner="0"/>
+            <LaneOffset start="53.6193" stop="53.6193"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="73.5583"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v2m">
+            <Position start="73.4375" stop="73.4375" side="right" isInner="0"/>
+            <LaneOffset start="22.2865" stop="22.2865"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="320.022"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A6m">
+            <Position start="82.0312" stop="82.0312" side="right" isInner="0"/>
+            <LaneOffset start="41.0338" stop="41.0338"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="141.008"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush06">
+            <Position start="109.375" stop="109.375" side="left" isInner="0"/>
+            <LaneOffset start="6.62347" stop="6.62347"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="87.9886"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v5m">
+            <Position start="131.25" stop="131.25" side="left" isInner="0"/>
+            <LaneOffset start="32.1164" stop="32.1164"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="177.264"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v4m">
+            <Position start="139.062" stop="139.062" side="right" isInner="0"/>
+            <LaneOffset start="76.3207" stop="76.3207"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="68.31"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A3m">
+            <Position start="171.094" stop="171.094" side="right" isInner="0"/>
+            <LaneOffset start="98.5294" stop="98.5294"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="7.2083"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v2m">
+            <Position start="189.062" stop="189.062" side="right" isInner="0"/>
+            <LaneOffset start="58.6022" stop="58.6022"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="132.719"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v2m">
+            <Position start="195.312" stop="195.312" side="right" isInner="0"/>
+            <LaneOffset start="88.8206" stop="88.8206"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="287.438"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A3m">
+            <Position start="216.406" stop="216.406" side="right" isInner="0"/>
+            <LaneOffset start="90.2745" stop="90.2745"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="124.179"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v5m">
+            <Position start="219.531" stop="219.531" side="left" isInner="0"/>
+            <LaneOffset start="31.4964" stop="31.4964"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="298.512"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A6m">
+            <Position start="222.656" stop="222.656" side="left" isInner="0"/>
+            <LaneOffset start="4.04131" stop="4.04131"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="67.5119"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush06">
+            <Position start="225.781" stop="225.781" side="right" isInner="0"/>
+            <LaneOffset start="38.2275" stop="38.2275"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="35.8704"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A6m">
+            <Position start="241.406" stop="241.406" side="right" isInner="0"/>
+            <LaneOffset start="102.553" stop="102.553"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="342.091"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v4m">
+            <Position start="241.406" stop="241.406" side="right" isInner="0"/>
+            <LaneOffset start="19.5102" stop="19.5102"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="256.351"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v2m">
+            <Position start="246.875" stop="246.875" side="right" isInner="0"/>
+            <LaneOffset start="42.8218" stop="42.8218"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="260.731"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v5m">
+            <Position start="257.031" stop="257.031" side="right" isInner="0"/>
+            <LaneOffset start="52.1438" stop="52.1438"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="100.815"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A6m">
+            <Position start="262.5" stop="262.5" side="left" isInner="0"/>
+            <LaneOffset start="53.5047" stop="53.5047"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="86.4225"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v6m">
+            <Position start="264.062" stop="264.062" side="right" isInner="0"/>
+            <LaneOffset start="49.5073" stop="49.5073"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="350.199"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A3m">
+            <Position start="267.969" stop="267.969" side="right" isInner="0"/>
+            <LaneOffset start="55.3612" stop="55.3612"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="157.55"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v4m">
+            <Position start="276.562" stop="276.562" side="right" isInner="0"/>
+            <LaneOffset start="79.7932" stop="79.7932"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="325.776"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v6m">
+            <Position start="279.688" stop="279.688" side="left" isInner="0"/>
+            <LaneOffset start="9.81086" stop="9.81086"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="226.394"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v4m">
+            <Position start="280.469" stop="280.469" side="left" isInner="0"/>
+            <LaneOffset start="10.0992" stop="10.0992"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="61.0586"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush06">
+            <Position start="300" stop="300" side="right" isInner="0"/>
+            <LaneOffset start="37.6956" stop="37.6956"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="103.96"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush06">
+            <Position start="308.594" stop="308.594" side="left" isInner="0"/>
+            <LaneOffset start="27.8755" stop="27.8755"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="263.063"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A6m">
+            <Position start="314.062" stop="314.062" side="right" isInner="0"/>
+            <LaneOffset start="9.61571" stop="9.61571"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="282.961"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A3m">
+            <Position start="315.625" stop="315.625" side="left" isInner="0"/>
+            <LaneOffset start="28.2811" stop="28.2811"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="149.034"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v2m">
+            <Position start="322.656" stop="322.656" side="right" isInner="0"/>
+            <LaneOffset start="103.567" stop="103.567"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="50.9769"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v4m">
+            <Position start="325" stop="325" side="right" isInner="0"/>
+            <LaneOffset start="69.0976" stop="69.0976"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="247.63"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A6m">
+            <Position start="330.469" stop="330.469" side="left" isInner="0"/>
+            <LaneOffset start="48.7611" stop="48.7611"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="226.613"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v5m">
+            <Position start="334.375" stop="334.375" side="right" isInner="0"/>
+            <LaneOffset start="40.0185" stop="40.0185"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="158.242"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush06">
+            <Position start="342.969" stop="342.969" side="right" isInner="0"/>
+            <LaneOffset start="60.8423" stop="60.8423"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="124.962"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v2m">
+            <Position start="348.438" stop="348.438" side="left" isInner="0"/>
+            <LaneOffset start="28.6928" stop="28.6928"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="50.061"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush06">
+            <Position start="348.438" stop="348.438" side="right" isInner="0"/>
+            <LaneOffset start="104.482" stop="104.482"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="92.6156"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v4m">
+            <Position start="349.219" stop="349.219" side="left" isInner="0"/>
+            <LaneOffset start="40.1923" stop="40.1923"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="278.738"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v4m">
+            <Position start="357.031" stop="357.031" side="left" isInner="0"/>
+            <LaneOffset start="19.2407" stop="19.2407"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="118.36"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A3m">
+            <Position start="367.188" stop="367.188" side="right" isInner="0"/>
+            <LaneOffset start="31.7686" stop="31.7686"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="169.734"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A3m">
+            <Position start="373.438" stop="373.438" side="left" isInner="0"/>
+            <LaneOffset start="34.128" stop="34.128"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="285.649"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush06">
+            <Position start="374.219" stop="374.219" side="right" isInner="0"/>
+            <LaneOffset start="80.5974" stop="80.5974"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="348.266"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A3m">
+            <Position start="380.469" stop="380.469" side="left" isInner="0"/>
+            <LaneOffset start="31.8571" stop="31.8571"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="342.037"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v2m">
+            <Position start="382.031" stop="382.031" side="left" isInner="0"/>
+            <LaneOffset start="56.8239" stop="56.8239"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="333.136"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v4m">
+            <Position start="386.719" stop="386.719" side="right" isInner="0"/>
+            <LaneOffset start="28.7936" stop="28.7936"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="357.202"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A3m">
+            <Position start="388.281" stop="388.281" side="right" isInner="0"/>
+            <LaneOffset start="49.8753" stop="49.8753"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="48.5649"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v6m">
+            <Position start="394.531" stop="394.531" side="left" isInner="0"/>
+            <LaneOffset start="6.95226" stop="6.95226"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="277.169"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A6m">
+            <Position start="411.719" stop="411.719" side="left" isInner="0"/>
+            <LaneOffset start="37.0704" stop="37.0704"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="144.34"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush06">
+            <Position start="419.531" stop="419.531" side="right" isInner="0"/>
+            <LaneOffset start="15.3306" stop="15.3306"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="272.009"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A6m">
+            <Position start="427.344" stop="427.344" side="right" isInner="0"/>
+            <LaneOffset start="41.9278" stop="41.9278"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="243.171"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush06">
+            <Position start="430.469" stop="430.469" side="right" isInner="0"/>
+            <LaneOffset start="25.3326" stop="25.3326"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="106.571"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v6m">
+            <Position start="435.156" stop="435.156" side="right" isInner="0"/>
+            <LaneOffset start="15.7663" stop="15.7663"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="104.779"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush08v2m">
+            <Position start="450.781" stop="450.781" side="right" isInner="0"/>
+            <LaneOffset start="37.7547" stop="37.7547"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="226.408"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A6m">
+            <Position start="457.812" stop="457.812" side="right" isInner="0"/>
+            <LaneOffset start="3.46441" stop="3.46441"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="126.885"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush03A3m">
+            <Position start="472.656" stop="472.656" side="right" isInner="0"/>
+            <LaneOffset start="82.523" stop="82.523"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="341.758"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+        <External type="VegBush04v6m">
+            <Position start="485.938" stop="485.938" side="right" isInner="0"/>
+            <LaneOffset start="40.7739" stop="40.7739"/>
+            <LaneZOffset start="0" stop="0"/>
+            <Angle value="121.086"/>
+            <Repeat distance="0"/>
+            <Flags value="8"/>
+        </External>
+    </Externals>
+</Macro>

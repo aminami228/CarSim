@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Macro type="StyleExternalMacro" name="InnerRQ31" category="MotorwayRailing" version="1.0">
+    <Styles>
+        <Style type="RAILING_SGL_OPP_UP">
+            <Position start="0" stop="1000" side="left" isInner="1"/>
+            <Height start="0" stop="0"/>
+            <Width start="0" stop="0"/>
+            <LaneOffset start="1.25" stop="1.25"/>
+            <LaneZOffset start="-0.2" stop="-0.2"/>
+            <Flags value="0"/>
+        </Style>
+        <Style type="RAILING_SGL_OPP_UP">
+            <Position start="0" stop="1000" side="right" isInner="1"/>
+            <Height start="0" stop="0"/>
+            <Width start="0" stop="0"/>
+            <LaneOffset start="1.25" stop="1.25"/>
+            <LaneZOffset start="-0.2" stop="-0.2"/>
+            <Flags value="0"/>
+        </Style>
+    </Styles>
+    <Externals>
+        <External type="RdMiscRailPostSglSidedUpper">
+            <Position start="2" stop="1000" side="left" isInner="1"/>
+            <LaneOffset start="1.25" stop="1.25"/>
+            <LaneZOffset start="-0.2" stop="-0.2"/>
+            <Angle value="0"/>
+            <Repeat distance="4"/>
+            <Flags value="10"/>
+        </External>
+        <External type="RdMiscRailPostSglSidedUpper">
+            <Position start="2" stop="1000" side="right" isInner="1"/>
+            <LaneOffset start="1.25" stop="1.25"/>
+            <LaneZOffset start="-0.2" stop="-0.2"/>
+            <Angle value="180"/>
+            <Repeat distance="4"/>
+            <Flags value="10"/>
+        </External>
+    </Externals>
+</Macro>

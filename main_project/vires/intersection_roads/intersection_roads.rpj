@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<RodProject version="2.7">
+    <General>
+        <SetupFilesDir>$(RodRootDir)/TileLib/SetupFilesPool/VTL/Full</SetupFilesDir>
+        <StartUpCountryCode>0</StartUpCountryCode>
+    </General>
+    <GenerationSettings>
+        <OutputFormat>osgb</OutputFormat>
+        <GenMode>DB_BaseSig_ExtraSig</GenMode>
+        <Sequential>0</Sequential>
+        <TracksDir>Tracks</TracksDir>
+        <BuildDir>/tmp/Rod/DBGen</BuildDir>
+        <WriteStartScript>1</WriteStartScript>
+        <IncludeTexInDB>1</IncludeTexInDB>
+        <CreateShadowDB>1</CreateShadowDB>
+        <ScatterRoadDamage>0</ScatterRoadDamage>
+        <Showroom enabled="1" />
+        <UseGeoImages>0</UseGeoImages>
+        <CopyFLTs>0</CopyFLTs>
+        <CopyDBFiles>0</CopyDBFiles>
+        <DeleteBuildDir>1</DeleteBuildDir>
+        <DeleteTracks>0</DeleteTracks>
+        <AutoView>1</AutoView>
+        <BirdsEyeView updateAtDBGen="0">
+            <Grid>
+                <BottomLeftPos x="0" y="0" />
+                <Size width="500" height="500" />
+            </Grid>
+            <Cell>
+                <ImageResolution width="1000" height="1000" />
+                <Size width="50" height="50" />
+            </Cell>
+            <Camera height="1000" nearPlane="10" farPlane="4000" />
+        </BirdsEyeView>
+        <Track>
+            <Parameters>
+                <Parameter name="fontScaleX" value="1.00" />
+                <Parameter name="fontScaleY" value="1.00" />
+                <Parameter name="vcolor" />
+                <Parameter name="new_pwr" />
+                <Parameter name="pwr_dim" value="1.35" />
+                <Parameter name="2d" />
+                <Parameter name="exact_len" />
+                <Parameter name="new_link" />
+                <Parameter name="stripes" />
+                <Parameter name="skip" value="0" />
+            </Parameters>
+        </Track>
+    </GenerationSettings>
+    <ExportSettings>
+        <ExportMode>Logic</ExportMode>
+        <ExportOutlineType>NoOutline</ExportOutlineType>
+        <ExportFillets>0</ExportFillets>
+        <ExportObjects>0</ExportObjects>
+        <ExportRoadMarkType>0</ExportRoadMarkType>
+        <ExportVIGReference>0</ExportVIGReference>
+        <ExportVIGOcclusion>0</ExportVIGOcclusion>
+        <ExportTileReference>0</ExportTileReference>
+    </ExportSettings>
+    <BackgroundImages>
+        <ActiveSet>default</ActiveSet>
+    </BackgroundImages>
+</RodProject>

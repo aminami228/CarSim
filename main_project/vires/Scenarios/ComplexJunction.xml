@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Scenario>
+<Scenario RevMajor="2" RevMinor="0">
+    <Layout Database="Projects/intersection_behavior/Databases/complexJunction/ComplexJunction.opt.ive" File="Projects/intersection_behavior/intersection_roads/Odr/ComplexJunction.xodr"/>
+    <VehicleList ConfigFile="Distros/Current/Config/Players/Vehicles"/>
+    <DriverList ConfigFile="Distros/Current/Config/Players/driverCfg.xml"/>
+    <CharacterList ConfigFile="Distros/Current/Config/Players/characterCfg.xml"/>
+    <ObjectList ConfigFile="Distros/Current/Config/Players/Objects"/>
+    <DynObjects Path="Distros/Current/Config/DynObjects/Logic"/>
+    <TrafficElements/>
+    <PulkTraffic/>
+    <TrafficControl>
+        <Path Name="E" PathId="1">
+            <Waypoint PathOption="shortest" s="6.6571853637695298e+01" TrackId="24"/>
+            <Waypoint PathOption="shortest" s="4.4701232910156250e+00" TrackId="29"/>
+        </Path>
+        <Path Name="N" PathId="2">
+            <Waypoint PathOption="shortest" s="5.1245109558180346e+01" TrackId="24"/>
+            <Waypoint PathOption="shortest" s="5.6382736206035460e+01" TrackId="22"/>
+        </Path>
+        <Path Name="W" PathId="3">
+            <Waypoint PathOption="shortest" s="5.8625345687053013e+01" TrackId="24"/>
+            <Waypoint PathOption="shortest" s="3.1225933075391172e+01" TrackId="25"/>
+        </Path>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 01"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosRoute/>
+                <PathRef StartS="1.4602406998493855e+01" EndAction="continue" TargetS="1.0532348694793427e+02" StartLane="-2" PathId="3"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 02"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosRoute/>
+                <PathRef StartS="2.3000000000000000e+01" EndAction="continue" TargetS="9.9580421447698242e+01" StartLane="-3" PathId="2"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 03"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosRoute/>
+                <PathRef StartS="2.3468856811448546e+01" EndAction="continue" TargetS="9.9580421447698242e+01" StartLane="-4" PathId="2"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="HastyDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 05"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosRoute/>
+                <PathRef StartS="2.3217254638596984e+01" EndAction="continue" TargetS="9.9580421447698242e+01" StartLane="-6" PathId="2"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 06"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosRoute/>
+                <PathRef StartS="6.7091293334960938e+00" EndAction="continue" TargetS="3.8304768993039474e+01" StartLane="-1" PathId="1"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="external" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 07"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="2.0513387243652343e+02" Y="1.3083733825683592e+02" Z="0.0000000000000000e+00" PermanentLaneOffset="-3.7338256835926842e-02" Direction="3.1415926535897931e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 04"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="2.0559539794921875e+02" Y="1.2425998687744141e+02" Z="0.0000000000000000e+00" Direction="3.1521872996206319e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 09"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="4.4184772491455078e+01" Y="1.2266588592529297e+02" Z="0.0000000000000000e+00" Direction="6.2831853071746222e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 10"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="6.9891883850097656e+01" Y="1.2568930053710938e+02" Z="0.0000000000000000e+00" Direction="6.2831853071746222e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 11"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="1.1431458282470703e+02" Y="1.6977607727050781e+02" Z="0.0000000000000000e+00" Direction="4.7123889803797239e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 12"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="1.1749932861328125e+02" Y="1.8396263122558594e+02" Z="0.0000000000000000e+00" Direction="4.7123889803797239e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <Player>
+            <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="New Player 08"/>
+            <Init>
+                <Speed Value="0.0000000000000000e+00"/>
+                <PosAbsolute X="1.6845513916015625e+02" Y="1.3040112304687500e+02" Z="0.0000000000000000e+00" Direction="3.1415926535897931e+00" AlignToRoad="true"/>
+            </Init>
+        </Player>
+        <PlayerActions Player="New Player 01"/>
+        <PlayerActions Player="New Player 02"/>
+        <PlayerActions Player="New Player 03"/>
+        <PlayerActions Player="New Player 05"/>
+        <PlayerActions Player="New Player 06"/>
+        <PlayerActions Player="New Player 07"/>
+        <PlayerActions Player="New Player 04"/>
+        <PlayerActions Player="New Player 09"/>
+        <PlayerActions Player="New Player 10"/>
+        <PlayerActions Player="New Player 11"/>
+        <PlayerActions Player="New Player 12"/>
+        <PlayerActions Player="New Player 08"/>
+    </TrafficControl>
+    <MovingObjectsControl>
+        <PathShape ShapeId="1" ShapeType="polyline" Closed="false" Name="PathShape01">
+            <Waypoint X="1.3588284301757812e+02" Y="5.4863265991210938e+01" Options="0x00000000" Z="0.0000000000000000e+00" Weight="1.0000000000000000e+00" Yaw="1.5526165004326937e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+            <Waypoint X="1.3632951354980469e+02" Y="7.9430130004882812e+01" Options="0x00000000" Z="0.0000000000000000e+00" Weight="1.0000000000000000e+00" Yaw="1.6064954612329423e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+            <Waypoint X="1.3498950195312500e+02" Y="1.1695043182373047e+02" Options="0x00000000" Z="0.0000000000000000e+00" Weight="1.0000000000000000e+00" Yaw="1.5940479634544917e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+            <Waypoint X="1.3409616088867188e+02" Y="1.5536407470703125e+02" Options="0x00000000" Z="0.0000000000000000e+00" Weight="1.0000000000000000e+00" Yaw="1.5195661891995347e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+            <Waypoint X="1.3663504028320312e+02" Y="2.0487902832031250e+02" Options="0x00000000" Z="0.0000000000000000e+00" Weight="1.0000000000000000e+00" Yaw="1.5195661891995347e+00" Pitch="0.0000000000000000e+00" Roll="0.0000000000000000e+00"/>
+        </PathShape>
+        <Character CharacterType="female_pedestrian" Class="pedestrian" Appearance="betsy_jeans" Name="New Character 01">
+            <StartPosAbs X="1.4633151245117188e+02" Y="1.1217276000976562e+02" Z="0.0000000000000000e+00" Direction="1.5051020822275587e+00"/>
+        </Character>
+        <Character CharacterType="afghan_child_crowd2" Class="pedestrian" Appearance="afghan_boy1" Name="New Character 02">
+            <StartPosAbs X="1.0661630249023438e+02" Y="1.3881568908691406e+02" Z="0.0000000000000000e+00" Direction="9.9668093211112044e-02"/>
+        </Character>
+        <CharacterActions Character="New Character 01">
+            <Action Name="">
+                <PosAbsolute CounterID="" CounterComp="COMP_EQ" Radius="5.0000000000000000e+00" X="1.4633151245117188e+02" Y="1.1217276000976562e+02" NetDist="false" CounterVal="0" Pivot="New Character 01"/>
+                <Motion Move="walk" Rate="0.0000000000000000e+00" Speed="1.7777777910232544e+00" Force="false" ExecutionTimes="1" ActiveOnEnter="true" DelayTime="0.0000000000000000e+00"/>
+            </Action>
+        </CharacterActions>
+        <CharacterActions Character="New Character 02">
+            <Action Name="">
+                <PosAbsolute CounterID="" CounterComp="COMP_EQ" Radius="5.0000000000000000e+00" X="1.0661630249023438e+02" Y="1.3881568908691406e+02" NetDist="false" CounterVal="0" Pivot="New Character 02"/>
+                <Motion Move="walk" Rate="0.0000000000000000e+00" Speed="1.5000000000000000e+00" Force="false" ExecutionTimes="1" ActiveOnEnter="true" DelayTime="0.0000000000000000e+00"/>
+            </Action>
+        </CharacterActions>
+    </MovingObjectsControl>
+    <LightSigns>
+        <SignalController Id="1" DelayRef="-1" Delay="0.0000000000000000e+00">
+            <Phase Duration="4.0000000000000000e+01" Type="off"/>
+            <Phase Duration="2.0000000000000000e+00" Type="off"/>
+            <Phase Duration="5.0000000000000000e+00" Type="off"/>
+        </SignalController>
+        <SignalController Id="2" DelayRef="-1" Delay="0.0000000000000000e+00">
+            <Phase Duration="4.0000000000000000e+01" Type="off"/>
+            <Phase Duration="5.0000000000000000e+00" Type="off"/>
+        </SignalController>
+        <SignalController Id="3" DelayRef="-1" Delay="0.0000000000000000e+00"/>
+        <SignalController Id="4" DelayRef="-1" Delay="0.0000000000000000e+00"/>
+        <Signal Id="3">
+            <LightState>
+                <Light state="true"/>
+                <Light state="false"/>
+                <Light state="false"/>
+            </LightState>
+            <LightState>
+                <Light state="false"/>
+                <Light state="false"/>
+                <Light state="true"/>
+            </LightState>
+        </Signal>
+        <Signal Id="4">
+            <LightState>
+                <Light state="false"/>
+                <Light state="false"/>
+                <Light state="true"/>
+            </LightState>
+            <LightState>
+                <Light state="false"/>
+                <Light state="true"/>
+                <Light state="false"/>
+            </LightState>
+            <LightState>
+                <Light state="true"/>
+                <Light state="false"/>
+                <Light state="false"/>
+            </LightState>
+        </Signal>
+        <Signal Id="5">
+            <LightState>
+                <Light state="true"/>
+                <Light state="false"/>
+                <Light state="false"/>
+            </LightState>
+            <LightState>
+                <Light state="false"/>
+                <Light state="false"/>
+                <Light state="true"/>
+            </LightState>
+        </Signal>
+        <Signal Id="7">
+            <LightState>
+                <Light state="true"/>
+                <Light state="false"/>
+                <Light state="false"/>
+            </LightState>
+            <LightState>
+                <Light state="false"/>
+                <Light state="false"/>
+                <Light state="true"/>
+            </LightState>
+        </Signal>
+        <Signal Id="8">
+            <LightState>
+                <Light state="true"/>
+                <Light state="false"/>
+                <Light state="false"/>
+            </LightState>
+            <LightState>
+                <Light state="false"/>
+                <Light state="false"/>
+                <Light state="true"/>
+            </LightState>
+        </Signal>
+        <Signal Id="9">
+            <LightState>
+                <Light state="false"/>
+                <Light state="false"/>
+                <Light state="true"/>
+            </LightState>
+            <LightState>
+                <Light state="false"/>
+                <Light state="true"/>
+                <Light state="false"/>
+            </LightState>
+            <LightState>
+                <Light state="true"/>
+                <Light state="false"/>
+                <Light state="false"/>
+            </LightState>
+        </Signal>
+        <Signal Id="10">
+            <LightState>
+                <Light state="false"/>
+                <Light state="false"/>
+                <Light state="true"/>
+            </LightState>
+            <LightState>
+                <Light state="false"/>
+                <Light state="true"/>
+                <Light state="false"/>
+            </LightState>
+            <LightState>
+                <Light state="true"/>
+                <Light state="false"/>
+                <Light state="false"/>
+            </LightState>
+        </Signal>
+        <Signal Id="11"/>
+        <Signal Id="12"/>
+        <Signal Id="13"/>
+        <Signal Id="14"/>
+        <Signal Id="21"/>
+        <Signal Id="22"/>
+        <Signal Id="23"/>
+        <Signal Id="24"/>
+        <Signal Id="31">
+            <LightState>
+                <Light state="false"/>
+                <Light state="false"/>
+                <Light state="true"/>
+            </LightState>
+            <LightState>
+                <Light state="false"/>
+                <Light state="true"/>
+                <Light state="false"/>
+            </LightState>
+            <LightState>
+                <Light state="true"/>
+                <Light state="false"/>
+                <Light state="false"/>
+            </LightState>
+        </Signal>
+    </LightSigns>
+    <Selections/>
+</Scenario>
