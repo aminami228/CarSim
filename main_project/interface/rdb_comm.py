@@ -54,9 +54,7 @@ class RDBComm(object):
                     if entry.elementSize > 0:
                         n_elements = entry.dataSize / entry.elementSize
                     for n in range(n_elements):
-                        start_time = time.time()
                         data = RDB_OBJECT_STATE_t.from_buffer(rdb_buff[data_idx:data_idx + sizeof(RDB_OBJECT_STATE_t)])
-                        logging.debug(vehicle + ' entry: ' + str(time.time() - start_time))
                         if vehicle == 'ego' and (entry.pkgId == 9) and (data.base.name == self.EGO):
                             av_state['x'] = data.base.pos.x
                             av_state['y'] = data.base.pos.y
@@ -69,16 +67,18 @@ class RDBComm(object):
                             hv_state['h'] = data.base.pos.h
                             hv_state['v'] = data.ext.speed.y
                             hv_state['a'] = data.ext.accel.y
-                        # elif vehicle == 'ego' and (entry.pkgId == 17):
-                        #     data = RDB_SENSOR_OBJECT_t.from_buffer(rdb_buff[data_idx:data_idx + sizeof(RDB_SENSOR_OBJECT_t)])
-                        #     av_sensor[data.sensorPos.h] = data.dist
+                        elif vehicle == 'ego' and (entry.pkgId == 17):
+                            data = RDB_SENSOR_OBJECT_t.from_buffer(rdb_buff[data_idx:data_idx + sizeof(RDB_SENSOR_OBJECT_t)])
+                            av_sensor[data.sensorPos.h] = data.dist
                         data_idx += entry.elementSize
                 remain_bytes -= (entry.headerSize + entry.dataSize)
                 entry_idx = entry_idx + (entry.headerSize + entry.dataSize)
 
             full_state = dict()
-            if vehicle == 'ego' and (len(av_state) == 5):
-                state_q.put(av_state)
+            if vehicle == 'ego' and (len(av_state) == 5) and (len(av_sensor) >= 10):
+                full_state['av'] = av_state
+                full_state['sensor'] = av_sensor
+                state_q.put(full_state)
                 # logging.debug('after put av: ' + str(state_q.qsize()) + ', ' + str(state_q.queue[-1]))
             if vehicle != 'ego' and (len(hv_state) == 5):
                 state_q.put(hv_state)

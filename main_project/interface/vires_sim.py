@@ -54,9 +54,9 @@ class InterSim(object):
         self.action_thread.start()
 
         self.av_get_q = self.ego_q.get()
-        self.hv_get_q = self.hv_q.get()
         self.av_pos = dict()
         self.av_size = [4.445, 1.803]
+        self.hv_get_q = self.hv_q.get()
 
         self.state = None
         self.state_dim = None
@@ -69,12 +69,11 @@ class InterSim(object):
     def get_state(self, a):
         # Get ego vehicle data
         self.av_get_q = self.ego_q.get()
-        # logging.debug('after get ego: ' + str(self.ego_q.qsize()) + ', ' + str(self.av_get_q))
-        self.av_pos['y'] = self.av_get_q['y']
-        self.av_pos['x'] = self.av_get_q['x']
+        self.av_pos['y'] = self.av_get_q['av']['y']
+        self.av_pos['x'] = self.av_get_q['av']['x']
         self.av_pos['vx'] = 0.
-        self.av_pos['vy'] = self.av_get_q['v']
-        self.av_pos['heading'] = self.av_get_q['h']
+        self.av_pos['vy'] = self.av_get_q['av']['v']
+        self.av_pos['heading'] = self.av_get_q['av']['h']
         self.av_pos['accel'] = a
         self.av_pos['steer'] = 0.
         self.state_av = [self.av_pos['vy'], self.av_pos['heading'], self.av_pos['accel'], self.av_pos['steer']]
@@ -89,11 +88,8 @@ class InterSim(object):
         # Get other vehicles
         if not self.hv_q.empty():
             self.hv_get_q = self.hv_q.get()
-            logging.debug('Time: ' + str(time.time() - self.start_time))
+            logging.info('Time to update hv: ' + str(time.time() - self.start_time))
             self.start_time = time.time()
-            # logging.debug('after get hv: ' + str(self.hv_q.qsize()) + ', ' + str(self.hv_get_q))
-        # else:
-            # logging.debug('Cannot update fv')
         self.state_fv = [self.hv_get_q['v'], self.hv_get_q['y'] - self.av_pos['y']]
 
         # Get map info
@@ -111,7 +107,7 @@ class InterSim(object):
 
     def update_vehicle(self, state, a, st=0.):
         full_action = dict()
-        new_av_vel = state[0] + a * self.Tau
+        new_av_vel = max(0., state[0] + a * self.Tau)
         full_action['vy'] = new_av_vel
         self.action_q.put(full_action)
 
