@@ -1,4 +1,3 @@
-__author__ = 'qzq'
 from random import randint, random
 from utilities.toolfunc import ToolFunc
 import logging

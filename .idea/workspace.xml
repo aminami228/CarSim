@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb47f4d-19ca-4217-b78a-ed812ce59c4c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main_project/approach_src/reward_vires.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/approach_src/train.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/vires/keyboard_control.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/vires/rdb_comm.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/vires/scp_comm.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/vires/vires_types.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CarSim.iml" afterPath="$PROJECT_DIR$/.idea/CarSim.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_project/approach_src/hrl_vires.py" afterPath="$PROJECT_DIR$/main_project/approach_src/hrl_vires.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_project/approach_src/reward_vires.py" afterPath="$PROJECT_DIR$/main_project/approach_src/reward_vires.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_project/interface/rdb_comm.py" afterPath="$PROJECT_DIR$/main_project/interface/rdb_comm.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_project/interface/scp_comm.py" afterPath="$PROJECT_DIR$/main_project/interface/scp_comm.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_project/interface/vires_sim.py" afterPath="$PROJECT_DIR$/main_project/interface/vires_sim.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_project/network/ActorNetwork.py" afterPath="$PROJECT_DIR$/main_project/network/ActorNetwork.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_project/interface/vires_types.py" afterPath="$PROJECT_DIR$/main_project/interface/vires_types.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_project/network/CriticNetwork.py" afterPath="$PROJECT_DIR$/main_project/network/CriticNetwork.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +20,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/CarSim$rl_acc.coverage" NAME="rl_acc Coverage Results" MODIFIED="1502488795695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intersection_vires/approach_src" />
     <SUITE FILE_PATH="coverage/CarSim_acceleration$new_action.coverage" NAME="new_action Coverage Results" MODIFIED="1503000135352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intersection_project/approach_src" />
-    <SUITE FILE_PATH="coverage/CarSim_vires$hrl_vires.coverage" NAME="hrl_vires Coverage Results" MODIFIED="1503288284100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main_project/approach_src" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$hrl_vires.coverage" NAME="hrl_vires Coverage Results" MODIFIED="1503364700290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main_project/approach_src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$train.coverage" NAME="train Coverage Results" MODIFIED="1503280282466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../CarSim_sensor" />
     <SUITE FILE_PATH="coverage/CarSim$train.coverage" NAME="train Coverage Results" MODIFIED="1502399075270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../CarSim_acc" />
     <SUITE FILE_PATH="coverage/CarSim_acceleration$rl_acc__2_.coverage" NAME="rl_acc (2) Coverage Results" MODIFIED="1502821906848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intersection_project/approach_src" />
@@ -40,14 +32,14 @@
     <favorites_list name="CarSim" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6517067">
+    <splitter split-orientation="horizontal" split-proportion="0.6722045">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="vires_sim.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main_project/interface/vires_sim.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-290">
-                  <caret line="63" column="36" lean-forward="true" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+                <state relative-caret-position="1542">
+                  <caret line="101" column="38" lean-forward="false" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="38" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -58,11 +50,21 @@
           <file leaf-file-name="hrl_vires.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main_project/approach_src/hrl_vires.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1676">
-                  <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+                <state relative-caret-position="424">
+                  <caret line="213" column="30" lean-forward="false" selection-start-line="213" selection-start-column="30" selection-end-line="213" selection-end-column="30" />
                   <folding>
                     <element signature="e#22#47#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="reward_vires.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/main_project/approach_src/reward_vires.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="32">
+                  <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -74,8 +76,8 @@
           <file leaf-file-name="rdb_comm.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main_project/interface/rdb_comm.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-3">
-                  <caret line="34" column="54" lean-forward="false" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="54" />
+                <state relative-caret-position="272">
+                  <caret line="26" column="36" lean-forward="true" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
                   </folding>
@@ -86,8 +88,8 @@
           <file leaf-file-name="scp_comm.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main_project/interface/scp_comm.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="207">
-                  <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+                <state relative-caret-position="649">
+                  <caret line="66" column="14" lean-forward="false" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
                   </folding>
@@ -108,13 +110,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>collision</find>
-      <find>scp_state</find>
-      <find>RDB_MAGIC_NO</find>
-      <find>action</find>
       <find>hv_poses</find>
       <find>AV_NAME</find>
-      <find>state</find>
       <find>state_t</find>
       <find>vires state thread started</find>
       <find>collision_flag</find>
@@ -137,7 +134,12 @@
       <find>Speed_limit</find>
       <find>InterSim</find>
       <find>speed</find>
+      <find>1</find>
       <find>state_thread</find>
+      <find>action_q</find>
+      <find>state</find>
+      <find>state_dim</find>
+      <find>loss</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -164,21 +166,21 @@
         <option value="$PROJECT_DIR$/intersection_project/approach_src/reward_func2.py" />
         <option value="$PROJECT_DIR$/main_project/approach_src/new_action.py" />
         <option value="$PROJECT_DIR$/intersection_vires/approach_src/inter_sim.py" />
-        <option value="$PROJECT_DIR$/main_project/interface/vires_types.py" />
         <option value="$PROJECT_DIR$/main_project/approach_src/rl_acc.py" />
         <option value="$PROJECT_DIR$/main_project/approach_src/vires_sim.py" />
         <option value="$PROJECT_DIR$/main_project/approach_src/reward_func.py" />
         <option value="$PROJECT_DIR$/main_project/network/ActorNetwork.py" />
         <option value="$PROJECT_DIR$/../../CarSim_sensor/vires_comm_old.py" />
         <option value="$PROJECT_DIR$/../../CarSim_sensor/vires_comm.py" />
-        <option value="$PROJECT_DIR$/main_project/approach_src/reward_vires.py" />
         <option value="$PROJECT_DIR$/../../CarSim_sensor/intersection.py" />
         <option value="$PROJECT_DIR$/../../CarSim_sensor/rdb_comm.py" />
-        <option value="$PROJECT_DIR$/main_project/network/CriticNetwork.py" />
         <option value="$PROJECT_DIR$/main_project/interface/rdb_comm.py" />
+        <option value="$PROJECT_DIR$/main_project/interface/vires_types.py" />
         <option value="$PROJECT_DIR$/main_project/interface/scp_comm.py" />
-        <option value="$PROJECT_DIR$/main_project/approach_src/hrl_vires.py" />
+        <option value="$PROJECT_DIR$/main_project/network/CriticNetwork.py" />
         <option value="$PROJECT_DIR$/main_project/interface/vires_sim.py" />
+        <option value="$PROJECT_DIR$/main_project/approach_src/hrl_vires.py" />
+        <option value="$PROJECT_DIR$/main_project/approach_src/reward_vires.py" />
       </list>
     </option>
   </component>
@@ -190,7 +192,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="59" />
-    <option name="y" value="-4" />
+    <option name="y" value="-1084" />
     <option name="width" value="1861" />
     <option name="height" value="1084" />
   </component>
@@ -217,6 +219,23 @@
             <path>
               <item name="CarSim_vires" type="b2602c69:ProjectViewProjectNode" />
               <item name="CarSim_vires" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CarSim_vires" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarSim_vires" type="462c0819:PsiDirectoryNode" />
+              <item name="intersection_vires" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CarSim_vires" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarSim_vires" type="462c0819:PsiDirectoryNode" />
+              <item name="intersection_vires" type="462c0819:PsiDirectoryNode" />
+              <item name="approach_src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CarSim_vires" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarSim_vires" type="462c0819:PsiDirectoryNode" />
+              <item name="intersection_vires" type="462c0819:PsiDirectoryNode" />
+              <item name="interface" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CarSim_vires" type="b2602c69:ProjectViewProjectNode" />
@@ -462,20 +481,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="59" y="-4" width="1861" height="1084" extended-state="6" />
+    <frame x="59" y="-1084" width="1861" height="1084" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.49146006" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3322546" sideWeight="0.56271183" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.4936639" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37756202" sideWeight="0.41487604" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29424083" sideWeight="0.7245179" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32565445" sideWeight="0.6903581" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3497382" sideWeight="0.21101928" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12837465" sideWeight="0.49455675" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13774104" sideWeight="0.49455675" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24958678" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13553719" sideWeight="0.5054432" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41361257" sideWeight="0.2754821" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10157068" sideWeight="0.30964187" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21983472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -517,7 +536,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="200" />
+      <option name="time" value="212" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -663,14 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_project/interface/vires_types.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main_project/approach_src/reward_func.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1360">
@@ -683,16 +694,6 @@
         <state relative-caret-position="115">
           <caret line="716" column="8" lean-forward="false" selection-start-line="716" selection-start-column="8" selection-end-line="716" selection-end-column="8" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_project/network/ActorNetwork.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="848">
-          <caret line="63" column="23" lean-forward="false" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#18#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -725,17 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/intersection_vires/approach_src/vires_comm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="338" column="29" lean-forward="false" selection-start-line="338" selection-start-column="29" selection-end-line="338" selection-end-column="29" />
-          <folding>
-            <element signature="e#2415#4841#0" expanded="false" />
-            <element signature="e#10483#11621#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda/envs/tensorflow/lib/python2.7/site-packages/keras/engine/training.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
@@ -748,24 +738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="1022" column="0" lean-forward="false" selection-start-line="1022" selection-start-column="0" selection-end-line="1022" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_project/approach_src/reward_vires.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="55" column="50" lean-forward="false" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="50" />
-          <folding>
-            <element signature="e#19#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../CarSim_sensor/vires_comm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="43" column="114" lean-forward="true" selection-start-line="43" selection-start-column="114" selection-end-line="43" selection-end-column="114" />
           <folding />
         </state>
       </provider>
@@ -791,7 +763,7 @@
         <state relative-caret-position="-98">
           <caret line="60" column="55" lean-forward="true" selection-start-line="60" selection-start-column="55" selection-end-line="60" selection-end-column="55" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="false" />
             <element signature="e#475#508#0" expanded="false" />
           </folding>
         </state>
@@ -801,14 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="24" column="43" lean-forward="false" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_project/network/CriticNetwork.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="28" column="72" lean-forward="false" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="72" />
           <folding />
         </state>
       </provider>
@@ -823,26 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_project/interface/rdb_comm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="34" column="54" lean-forward="false" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_project/interface/scp_comm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../CarSim_sensor/scp_comm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -851,18 +795,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/intersection_vires/approach_src/vires_comm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2632">
+          <caret line="316" column="65" lean-forward="false" selection-start-line="316" selection-start-column="41" selection-end-line="316" selection-end-column="65" />
+          <folding>
+            <element signature="e#2415#4841#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../CarSim_sensor/intersection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="95" column="23" lean-forward="false" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="23" />
+        <state relative-caret-position="198">
+          <caret line="76" column="27" lean-forward="false" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../CarSim_sensor/vires_comm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="43" column="45" lean-forward="false" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_project/interface/rdb_comm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="26" column="36" lean-forward="true" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_project/interface/vires_types.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_project/interface/scp_comm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="649">
+          <caret line="66" column="14" lean-forward="false" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_project/network/ActorNetwork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="52" column="55" lean-forward="false" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_project/network/CriticNetwork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="57" column="55" lean-forward="false" selection-start-line="57" selection-start-column="55" selection-end-line="57" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_project/approach_src/reward_vires.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main_project/approach_src/hrl_vires.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1676">
-          <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+        <state relative-caret-position="424">
+          <caret line="213" column="30" lean-forward="false" selection-start-line="213" selection-start-column="30" selection-end-line="213" selection-end-column="30" />
           <folding>
             <element signature="e#22#47#0" expanded="true" />
           </folding>
@@ -871,8 +885,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main_project/interface/vires_sim.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-290">
-          <caret line="63" column="36" lean-forward="true" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+        <state relative-caret-position="1542">
+          <caret line="101" column="38" lean-forward="false" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="38" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

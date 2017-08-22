@@ -40,6 +40,7 @@ class ReinAcc(object):
 
     action_dim = 1          # Steering/Acceleration/Brake
     action_size = 1
+    state_dim = 10
 
     # Tensorflow GPU optimization
     config = tf.ConfigProto()
@@ -50,8 +51,7 @@ class ReinAcc(object):
     Speed_limit = 12
 
     def __init__(self):
-        # self.sim = InterSim(self.Speed_limit / 2 * random())
-        self.sim = InterSim(10.)
+        self.sim = InterSim(self.Speed_limit - 5. * random())
         self.reward = Reward()
         self.total_reward = 0
         self.if_pass = False
@@ -183,66 +183,47 @@ class ReinAcc(object):
 
     def launch_train(self, train_indicator=1):
         # logging.info('Launch Training Process')
-        # state_t = self.sim.get_state()
-        # state_dim = state_t.shape[1]
-        state_dim = 10
-
-        # self.actor_network = ActorNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRA)
-        # self.critic_network = CriticNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRC)
-        # self.buffer = ReplayBuffer(self.buffer_size)
-        # self.load_weights()
+        state_dim = self.state_dim
+        self.actor_network = ActorNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRA)
+        self.critic_network = CriticNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRC)
+        self.buffer = ReplayBuffer(self.buffer_size)
+        self.load_weights()
 
         for e in range(self.episode_count):
-            total_loss = 0.
             total_time = 0.
-            # logging.debug("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
             step = 0
             a = 0
-            while True:
-                logging.debug('Begin get state !!!')
+            begin_time = time.time()
+            while not self.if_done:
                 state_t = self.sim.get_state(a)
-                if state_t is None:
-                    logging.error('No states get !!!')
-                    time.sleep(1)
-                    continue
-                logging.debug('State_t: ' + str(state_t))
-                # start_time = time.time()
-                # action_t = self.get_action(state_t, train_indicator)
-                # a = action_t[0][0]
-                # reward_t, collision, not_move = self.reward.get_reward(state_t[0], a)
-                # train_time = time.time() - start_time
-                # logging.debug(train_time)
-                # time_b = time.time()
-                self.sim.update_vehicle(state_t[0], a)
-                # state_t1 = self.sim.get_state(a)
-                # print time.time() - time_b
-                # logging.debug('State_t1: ' + str(state_t1))
-                # start_time = time.time()
-                # self.update_batch(state_t, action_t[0], reward_t, state_t1)
-                # loss = self.update_loss() if train_indicator else 0.
+                a_time = time.time()
+                action_t = self.get_action(state_t, train_indicator)
+                a = action_t[0][0]
+                reward_t, collision, not_move = self.reward.get_reward(state_t[0], a)
+                self.sim.update_vehicle(state_t[0], a, time.time() - a_time)
+                self.start_time = time.time()
+                state_t1 = self.sim.get_state(a)
+                self.update_batch(state_t, action_t[0], reward_t, state_t1)
+                loss = self.update_loss() if train_indicator else 0.
 
-                # self.total_reward += reward_t
-                # self.if_exit(step, state_t[0], collision, not_move)
-                # step += 1
-                # total_loss += loss
-                # train_time += time.time() - start_time
-                # logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', loc: ' + str(state_t[0][6]) +
+                self.total_reward += reward_t
+                self.if_exit(step, state_t[0], collision, not_move)
+                step += 1
+                train_time = time.time() - self.start_time
+                self.start_time = time.time()
+                # logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', Dis to SL: ' + str(state_t[0][6]) +
                 #               ', velocity: ' + str(state_t[0][0]) + ', action: ' + str(action_t[0]) +
                 #               ', reward: ' + str(reward_t) + ', loss: ' + str(loss) + ', Training time: ' +
                 #               str(train_time))
-                # total_time += train_time
-                # if self.if_done:
-                #     break
-                time.sleep(1)
+                time.sleep(0.0)
 
-            total_step = step + 1
             if train_indicator:
                 self.update_weights()
 
-            mean_loss = total_loss / total_step
-            mean_time = total_time / total_step
+            total_step = step + 1
+            mean_time = (time.time() - begin_time) / total_step
             logging.debug(str(e) + "-th Episode: Steps: " + str(total_step) + ', Time: ' + str(mean_time) +
-                          ', Reward: ' + str(self.total_reward) + " Loss: " + str(mean_loss) + ', Crash: ' +
+                          ', Reward: ' + str(self.total_reward) + " Loss: " + str(loss) + ', Crash: ' +
                           str(self.sub_crash) + ', Not Stop: ' + str(self.sub_not_stop) + ', Not Finished: ' +
                           str(self.sub_not_finish) + ', Overspeed: ' + str(self.sub_overspeed) + ', Not Move: ' +
                           str(self.sub_not_move) + ', Success: ' + str(self.sub_success))
