@@ -38,16 +38,23 @@ class InterSim(object):
         self.rdb = RDBComm()
         self.scp.restart_scp(speed)
 
-        self.state_q = Queue.LifoQueue()
-        self.state_thread = Thread(target=self.rdb.update_state, args=(self.state_q,))
-        self.state_thread.setDaemon(True)
-        self.state_thread.start()
+        self.ego_q = Queue.LifoQueue()
+        self.ego_thread = Thread(target=self.rdb.update_state, args=(self.ego_q, 'ego'))
+        self.ego_thread.setDaemon(True)
+        self.ego_thread.start()
+
+        self.hv_q = Queue.LifoQueue()
+        self.hv_thread = Thread(target=self.rdb.update_state, args=(self.hv_q, 'hv'))
+        self.hv_thread.setDaemon(True)
+        self.hv_thread.start()
 
         self.action_q = Queue.LifoQueue()
         self.action_thread = Thread(target=self.scp.scp_control, args=(self.action_q,))
         self.action_thread.setDaemon(True)
         self.action_thread.start()
 
+        self.av_get_q = self.ego_q.get()
+        self.hv_get_q = self.hv_q.get()
         self.av_pos = dict()
         self.av_size = [4.445, 1.803]
 
@@ -57,16 +64,17 @@ class InterSim(object):
         self.state_fv = []
         self.state_road = []
 
-    def get_state(self, a):
-        vehicle_state = self.state_q.get()
+        self.start_time = time.time()
 
+    def get_state(self, a):
         # Get ego vehicle data
-        av_pos = vehicle_state['av']
-        self.av_pos['y'] = av_pos['y']
-        self.av_pos['x'] = av_pos['x']
+        self.av_get_q = self.ego_q.get()
+        # logging.debug('after get ego: ' + str(self.ego_q.qsize()) + ', ' + str(self.av_get_q))
+        self.av_pos['y'] = self.av_get_q['y']
+        self.av_pos['x'] = self.av_get_q['x']
         self.av_pos['vx'] = 0.
-        self.av_pos['vy'] = av_pos['v']
-        self.av_pos['heading'] = av_pos['h']
+        self.av_pos['vy'] = self.av_get_q['v']
+        self.av_pos['heading'] = self.av_get_q['h']
         self.av_pos['accel'] = a
         self.av_pos['steer'] = 0.
         self.state_av = [self.av_pos['vy'], self.av_pos['heading'], self.av_pos['accel'], self.av_pos['steer']]
@@ -79,8 +87,14 @@ class InterSim(object):
         # self.state = len(sensors)
 
         # Get other vehicles
-        fv_pos = vehicle_state['hv']
-        self.state_fv = [fv_pos['v'], fv_pos['y'] - self.av_pos['y']]
+        if not self.hv_q.empty():
+            self.hv_get_q = self.hv_q.get()
+            logging.debug('Time: ' + str(time.time() - self.start_time))
+            self.start_time = time.time()
+            # logging.debug('after get hv: ' + str(self.hv_q.qsize()) + ', ' + str(self.hv_get_q))
+        # else:
+            # logging.debug('Cannot update fv')
+        self.state_fv = [self.hv_get_q['v'], self.hv_get_q['y'] - self.av_pos['y']]
 
         # Get map info
         sl_dis = self.Stop_Line - self.av_pos['y']
@@ -95,7 +109,7 @@ class InterSim(object):
             logging.error('Wrong states get !!!')
         return self.state
 
-    def update_vehicle(self, state, a, t, st=0.):
+    def update_vehicle(self, state, a, st=0.):
         full_action = dict()
         new_av_vel = state[0] + a * self.Tau
         full_action['vy'] = new_av_vel
