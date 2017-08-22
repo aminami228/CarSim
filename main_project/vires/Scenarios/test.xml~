@@ -28,7 +28,7 @@
         <Player>
             <Description Driver="DefaultDriver" Control="internal" AdaptDriverToVehicleType="true" Type="Audi_A3_2009_black" Name="HV1"/>
             <Init>
-                <Speed Value="5.5555555555555554e+00"/>
+                <Speed Value="0.0000000000000000e+00"/>
                 <PosAbsolute X="1.6937361720817815e+01" Y="-1.4298340307167521e+01" Z="0.0000000000000000e+00" Direction="1.5744697827320344e+00" AlignToRoad="true"/>
             </Init>
         </Player>
