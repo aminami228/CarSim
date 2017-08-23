@@ -46,7 +46,7 @@ class Reward(object):
     def reward_notmove(self, a):
         not_move = 0
         f = 0.
-        accel = a
+        accel = self.Cft_Accel * a
         if (self.state[0] <= 0.01) and (self.state[2] < 0) and (-1. <= accel < 0.):
             f = 100. * (self.tools.sigmoid(accel, 4.) - 0.5) if accel <= 0. else 0.
         if (self.state[0] <= 0.01) and (self.state[2] < 0) and (accel <= - 1.):
@@ -62,6 +62,7 @@ class Reward(object):
         # # f2 = - 2 * abs(self.tools.sigmoid(yaw, 2) - 0.5)
         # f2 = 0.
         #############################################################################
+        a = self.Cft_Accel * a
         jerk = abs(a - self.state[2]) / self.Tau
         f1 = - 0.1 * (jerk - 1.) if jerk >= 1. else 0.
         f2 = 0.

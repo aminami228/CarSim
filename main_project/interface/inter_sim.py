@@ -67,25 +67,13 @@ class InterSim(object):
             plt.plot(self.Inter_Right / 2., self.Pass_Point, 'g.', markersize=10)
             plt.plot(av['x'], av['y'], 'r.', markersize=15)
             plt.text(av['x'], av['y'], 'a: ' + str(av['accel']) + ', v: ' + str(av['vy']) + ', reward: ' + str(r) +
-                     '\n f_dis: ' + str(self.state_fv[1]))
+                     '\n f_dis: ' + str(self.state_fv[1]) + ', sl_dis: ' + str(self.Stop_Line - av['y']))
             for hv in hvs:
                 plt.plot(hv['x'], hv['y'], 'c.', markersize=15)
                 plt.text(hv['x'], hv['y'], str(hv['vy']))
             plt.show()
             plt.pause(0.1)
             plt.clf()
-
-    # def get_state(self, a=0):
-    #     self.update_vehicle(a)
-    #     front_dis = [hv_pos['y'] - self.av_pos['y'] for hv_pos in self.hv_poses]
-    #     sl_dis = self.Stop_Line - self.av_pos['y']
-    #     dis_pool = [sl_dis] + front_dis
-    #     self.target_dis = min(dis_pool)
-    #     min_i = np.argmin(dis_pool)
-    #     self.target_v = 0. if min_i == 0 else self.hv_poses[min_i-1]['vy']
-    #     self.state = np.array([self.av_pos['vy'], self.target_v, self.target_dis], ndmin=2)
-    #     self.state_dim = self.state.shape[1]
-    #     print 'Accel: ', a, ', V_av = ', self.av_pos['vy'], ', Distance Pool: ', dis_pool
 
     def get_state(self):
         self.state_av = [self.av_pos['vy'], self.av_pos['heading'], self.av_pos['accel'], self.av_pos['steer']]
@@ -103,6 +91,7 @@ class InterSim(object):
         return self.state
 
     def update_vehicle(self, r, a=0, st=0):
+        a = self.Cft_Accel * a
         for hv_pos in self.hv_poses:
             hv_a = - 0.5 * (hv_pos['vy'] ** 2) / (self.Stop_Line - hv_pos['y']) if hv_pos['y'] < self.Stop_Line - 1 \
                 else self.Cft_Accel
@@ -114,7 +103,7 @@ class InterSim(object):
         self.av_pos['vy'] = max(0.0, self.av_pos['vy'])
         self.av_pos['y'] += old_av_vel * self.Tau + 0.5 * a * (self.Tau ** 2)
         self.av_pos['heading'] += st
-        self.av_pos['accel'] = a
+        self.av_pos['accel'] = a * self.Cft_Accel
         self.av_pos['steer'] = st
         if self.Visual:
             self.draw_scenary(self.av_pos, self.hv_poses, r)

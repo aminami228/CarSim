@@ -52,7 +52,7 @@ class CriticNetwork(object):
         a0 = Dense(action_size, activation='linear')(A)
         # h0 = merge([w0, a0], mode='concat')
         h0 = concatenate([w0, a0])
-        h1 = Dense(HIDDEN1_UNITS, activation='relu')(h0)
+        h1 = Dense(HIDDEN1_UNITS, activation='sigmoid')(h0)
         # h2 = Dense(HIDDEN2_UNITS, activation='sigmoid')(h1)
         # h3 = Dense(HIDDEN3_UNITS, activation='relu')(h2)
         h4 = Dense(HIDDEN4_UNITS, activation='relu')(h1)
