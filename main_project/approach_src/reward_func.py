@@ -157,6 +157,13 @@ class Reward(object):
         # x = self.state[0] - mid_point
         # fx = min(0., 100. * (self.tools.sigmoid(x, - 3) - 0.5))
         #############################################################################
+        # fp = []
+        # for v in np.linspace(0., 40., 100):
+        #     fp.append(- 30. * (v - self.Speed_limit) if v >= self.Speed_limit else 0.)
+        # plt.plot(np.linspace(0., 40., 100), fp, 'r')
+        # plt.xlabel('speed')
+        # plt.ylabel('reward')
+        # plt.show()
         fx = - 30. * (self.state[0] - self.Speed_limit) if self.state[0] >= self.Speed_limit else 0.
         if self.state[0] >= (self.Speed_limit + 2.):
             fx = - 500
@@ -174,4 +181,4 @@ class Reward(object):
 
 if __name__ == '__main__':
     r = Reward()
-    r.reward_stop(0)
+    r.reward_speedlimit()

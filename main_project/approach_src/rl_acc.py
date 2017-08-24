@@ -27,7 +27,7 @@ class ReinAcc(object):
 
     Tau = 1. / 30
     gamma = 0.99
-    epsilon = 1.
+    epsilon = 0.5
 
     buffer_size = 10000
     batch_size = 128
@@ -36,6 +36,7 @@ class ReinAcc(object):
     LRC = 0.001             # Learning rate for Critic
 
     explore_iter = 1000000.
+    # explore_iter = 1000.
     episode_count = 20000
     max_steps = 2000
 
@@ -245,7 +246,7 @@ class ReinAcc(object):
                           str(self.sub_not_finish) + ', Overspeed: ' + str(self.sub_overspeed) + ', Not Move: ' +
                           str(self.sub_not_move) + ', Success: ' + str(self.sub_success))
 
-            self.sim = InterSim(True) if e % 100 == 0 else InterSim()
+            self.sim = InterSim(True) if e % 50 == 0 else InterSim()
             self.total_reward = 0
             self.if_pass = False
             self.if_done = False
@@ -272,4 +273,4 @@ class ReinAcc(object):
 if __name__ == '__main__':
     plt.ion()
     acc = ReinAcc()
-    acc.launch_train()
+    acc.launch_train(1)

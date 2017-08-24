@@ -4,7 +4,6 @@
     <list default="true" id="1cb47f4d-19ca-4217-b78a-ed812ce59c4c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_project/approach_src/reward_func.py" afterPath="$PROJECT_DIR$/main_project/approach_src/reward_func.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_project/approach_src/rl_acc.py" afterPath="$PROJECT_DIR$/main_project/approach_src/rl_acc.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_project/interface/inter_sim.py" afterPath="$PROJECT_DIR$/main_project/interface/inter_sim.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,7 +21,7 @@
     <SUITE FILE_PATH="coverage/CarSim$train.coverage" NAME="train Coverage Results" MODIFIED="1502399075270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../CarSim_acc" />
     <SUITE FILE_PATH="coverage/CarSim_acceleration$rl_acc__2_.coverage" NAME="rl_acc (2) Coverage Results" MODIFIED="1502821906848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intersection_project/approach_src" />
     <SUITE FILE_PATH="coverage/CarSim$inter_sim.coverage" NAME="inter_sim Coverage Results" MODIFIED="1502286361806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intersection_project/approach_src" />
-    <SUITE FILE_PATH="coverage/CarSim_vires$reward_func.coverage" NAME="reward_func Coverage Results" MODIFIED="1503513608966" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main_project/approach_src" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$reward_func.coverage" NAME="reward_func Coverage Results" MODIFIED="1503582093230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main_project/approach_src" />
     <SUITE FILE_PATH="coverage/CarSim$rl_acc__1_.coverage" NAME="rl_acc (1) Coverage Results" MODIFIED="1502652883855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/speed_control/approach_src" />
     <SUITE FILE_PATH="coverage/CarSim_acceleration$rl_acc.coverage" NAME="rl_acc Coverage Results" MODIFIED="1502657351717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intersection_vires/approach_src" />
   </component>
@@ -31,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="reward_func.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="reward_func.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_project/approach_src/reward_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1952">
-              <caret line="167" column="0" lean-forward="true" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+            <state relative-caret-position="132">
+              <caret line="61" column="49" lean-forward="false" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -43,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rl_acc.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="rl_acc.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_project/approach_src/rl_acc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="245" column="82" lean-forward="true" selection-start-line="245" selection-start-column="82" selection-end-line="245" selection-end-column="82" />
+            <state relative-caret-position="80">
+              <caret line="122" column="35" lean-forward="false" selection-start-line="122" selection-start-column="35" selection-end-line="122" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -57,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/main_project/utilities/toolfunc.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -77,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/main_project/interface/inter_sim.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="695">
-              <caret line="108" column="57" lean-forward="true" selection-start-line="108" selection-start-column="57" selection-end-line="108" selection-end-column="57" />
+              <caret line="108" column="57" lean-forward="false" selection-start-line="108" selection-start-column="57" selection-end-line="108" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -164,8 +163,8 @@
         <option value="$PROJECT_DIR$/main_project/interface/rdb_comm.py" />
         <option value="$PROJECT_DIR$/main_project/network/CriticNetwork.py" />
         <option value="$PROJECT_DIR$/main_project/interface/inter_sim.py" />
-        <option value="$PROJECT_DIR$/main_project/approach_src/rl_acc.py" />
         <option value="$PROJECT_DIR$/main_project/approach_src/reward_func.py" />
+        <option value="$PROJECT_DIR$/main_project/approach_src/rl_acc.py" />
       </list>
     </option>
   </component>
@@ -176,8 +175,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1979" />
-    <option name="y" value="1076" />
+    <option name="x" value="59" />
+    <option name="y" value="-4" />
     <option name="width" value="1861" />
     <option name="height" value="1084" />
   </component>
@@ -508,7 +507,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1979" y="1076" width="1861" height="1084" extended-state="6" />
+    <frame x="59" y="-4" width="1861" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13829201" sideWeight="0.49455675" order="1" side_tool="false" content_ui="combo" />
@@ -517,7 +516,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.4936639" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37756202" sideWeight="0.41487604" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1539267" sideWeight="0.6793389" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1539267" sideWeight="0.6793389" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24958678" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3497382" sideWeight="0.21101928" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13553719" sideWeight="0.5054432" order="0" side_tool="true" content_ui="tabs" />
@@ -798,7 +797,7 @@
     <entry file="file://$PROJECT_DIR$/main_project/interface/inter_sim.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="695">
-          <caret line="108" column="57" lean-forward="true" selection-start-line="108" selection-start-column="57" selection-end-line="108" selection-end-column="57" />
+          <caret line="108" column="57" lean-forward="false" selection-start-line="108" selection-start-column="57" selection-end-line="108" selection-end-column="57" />
           <folding />
         </state>
       </provider>
@@ -838,26 +837,26 @@
     <entry file="file://$PROJECT_DIR$/main_project/utilities/toolfunc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_project/approach_src/rl_acc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="245" column="82" lean-forward="true" selection-start-line="245" selection-start-column="82" selection-end-line="245" selection-end-column="82" />
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main_project/approach_src/reward_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1952">
-          <caret line="167" column="0" lean-forward="true" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+        <state relative-caret-position="132">
+          <caret line="61" column="49" lean-forward="false" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_project/approach_src/rl_acc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="122" column="35" lean-forward="false" selection-start-line="122" selection-start-column="35" selection-end-line="122" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
