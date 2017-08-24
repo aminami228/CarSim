@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-sys.path.append('/home/scotty/qzq/git/CarSim_acceleration/intersection_project')
+sys.path.append('/home/scotty/qzq/git/CarSim_vires/main_project')
 import logging
 import numpy as np
 import tensorflow as tf
@@ -144,42 +144,52 @@ class ReinAcc(object):
         action = action_ori + np.array(noise)
         return action
 
-    def if_exit(self, step, loc, v, collision, not_move):
+    def if_exit(self, step, state, collision, not_move):
         if step >= self.max_steps:
-            logging.warn('Not finished with max steps! Start: ' + str(self.sim.Start_Pos) + ', Position: ' +
-                         str(loc) + ', Velocity: ' + str(v))
-            self.not_finish += 1
+            logging.warn('Not finished with max steps! Start: ' + str(self.sim.Stop_Line - state[9]) +
+                         ', Dis to SL: ' + str(state[6]) + ', Dis to FL: ' + str(state[5]) +
+                         ', Velocity: ' + str(state[0]))
+            self.sub_not_finish += 1
             self.if_pass = False
             self.if_done = True
-        elif v >= self.sim.Speed_limit + 2.:
-            logging.warn('Exceed Speed Limit: ' + str(self.sim.Start_Pos) + ', Position: ' +
-                         str(loc) + ', Velocity: ' + str(v))
-            self.overspeed += 1
+        elif state[0] >= self.sim.Speed_limit + 2.:
+            logging.warn('Exceed Speed Limit: ' + str(self.sim.Stop_Line - state[9]) + ', Dis to SL: ' + str(state[6]) +
+                         ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]))
+            self.sub_overspeed += 1
             self.if_pass = False
             self.if_done = True
-        elif not_move > 0:
-            logging.warn('Not move! Start: ' + str(self.sim.Start_Pos) + ', Position: '
-                         + str(loc) + ', Velocity: ' + str(v))
-            self.not_move += 1
+        elif not_move > 0 and (state[6] >= 2.0):
+            logging.warn('Not move! Start: ' + str(self.sim.Stop_Line - state[9]) + ', Dis to SL: ' + str(state[6]) +
+                         ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]))
+            self.sub_not_move += 1
             self.if_pass = False
+            self.if_done = True
+        elif not_move > 0 and (state[6] < 2.0):
+            logging.info('Congratulations! Reach stop line without crashing and has stopped. Start: ' +
+                         str(self.sim.Stop_Line - state[9]) + ', Dis to SL: ' + str(state[6]) +
+                         ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]))
+            self.sub_success += 1
+            self.if_pass = True
             self.if_done = True
         elif collision > 0:
-            logging.warn('Crash to other vehicles or road boundary! Start: ' + str(self.sim.Start_Pos) + ', Position: '
-                         + str(loc) + ', Velocity: ' + str(v))
-            self.crash += 1
+            logging.warn('Crash to other vehicles or road boundary! Start: ' + str(self.sim.Stop_Line - state[9]) +
+                         ', Dis to SL: ' + str(state[6]) + ', Dis to FL: ' + str(state[5]) +
+                         ', Velocity: ' + str(state[0]))
+            self.sub_crash += 1
             self.if_pass = False
             self.if_done = True
-        elif collision == 0 and (loc >= self.sim.Stop_Line - 1.) and (v > 2.0):
-            logging.warn('No crash and reached stop line. But has not stopped! Start: ' + str(self.sim.Start_Pos) +
-                         ', Position: ' + str(loc) + ', Velocity: ' + str(v))
-            self.not_stop += 1
+        elif collision == 0 and (state[6] <= 1.0) and (state[0] > 5.0):
+            logging.warn('No crash and reached stop line. But has not stopped! Start: ' +
+                         str(self.sim.Stop_Line - state[9]) + ', Dis to SL: ' + str(state[6]) +
+                         ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]))
+            self.sub_not_stop += 1
             self.if_pass = False
             self.if_done = True
-        elif collision == 0 and loc >= self.sim.Stop_Line - 1.0 and (v <= 2.0):
+        elif collision == 0 and (state[6] <= 1.0) and (state[0] <= 5.0):
             logging.info('Congratulations! Reach stop line without crashing and has stopped. Start: ' +
-                         str(self.sim.Start_Pos) + ', Position: ' + str(loc) + ', Velocity: ' +
-                         str(v))
-            self.success += 1
+                         str(self.sim.Stop_Line - state[9]) + ', Dis to SL: ' + str(state[6]) +
+                         ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]))
+            self.sub_success += 1
             self.if_pass = True
             self.if_done = True
 
@@ -208,14 +218,14 @@ class ReinAcc(object):
                 loss = self.update_loss() if train_indicator else 0.
 
                 self.total_reward += reward_t
-                self.if_exit(step, state_t, collision, not_move)
+                self.if_exit(step, state_t[0], collision, not_move)
                 step += 1
                 total_loss += loss
                 train_time = time.time() - self.start_time
-                logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', Dis to SL: ' + str(state_t[6]) +
-                              ', Dis to fv: ' + str(state_t[5]) + ', v: ' + str(state_t[0]) + ', a: ' + str(action_t) +
-                              ', r: ' + str(reward_t) + ', loss: ' + str(loss) + ', time: ' +
-                              str(train_time))
+                # logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', Dis to SL: ' + str(state_t[0][6]) +
+                #               ', Dis to fv: ' + str(state_t[0][5]) + ', v: ' + str(state_t[0][0]) +
+                #               ', a: ' + str(action_t) + ', r: ' + str(reward_t) + ', loss: ' + str(loss) +
+                #               ', time: ' + str(train_time))
                 total_time += train_time
                 if self.if_done:
                     break

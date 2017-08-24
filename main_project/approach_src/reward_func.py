@@ -1,5 +1,7 @@
 from random import randint, random
 from utilities.toolfunc import ToolFunc
+import numpy as np
+import matplotlib.pyplot as plt
 import logging
 import utilities.log_color
 
@@ -47,11 +49,20 @@ class Reward(object):
         not_move = 0
         f = 0.
         accel = self.Cft_Accel * a
-        if (self.state[0] <= 0.01) and (self.state[2] < 0) and (-1. <= accel < 0.):
-            f = 100. * (self.tools.sigmoid(accel, 4.) - 0.5) if accel <= 0. else 0.
-        if (self.state[0] <= 0.01) and (self.state[2] < 0) and (accel <= - 1.):
-            not_move = 1
-            f = - 500.
+        # fp = []
+        # self.state = [0., 0., -2.]
+        # for accel in np.linspace(-5., 5., 100):
+        if self.state[6] > 2.0:
+            if (self.state[0] <= 0.01) and (self.state[2] < 0) and (-1. <= accel < 0.):
+                f = 100. * (self.tools.sigmoid(accel, 4.) - 0.5) if accel <= 0. else 0.
+            if (self.state[0] <= 0.01) and (self.state[2] < 0) and (accel <= - 1.):
+                not_move = 1
+                f = - 500.
+            # fp.append(f)
+        # plt.plot(np.linspace(-5., 5., 100), fp, 'r.')
+        # plt.xlabel('acceleration m/s')
+        # plt.ylabel('reward')
+        # plt.show()
         return f, not_move
 
     def reward_smooth(self, a, st):
@@ -63,9 +74,16 @@ class Reward(object):
         # f2 = 0.
         #############################################################################
         a = self.Cft_Accel * a
+        # fp = []
         jerk = abs(a - self.state[2]) / self.Tau
+        # for jerk in np.linspace(-5., 5., 100):
         f1 = - 0.1 * (jerk - 1.) if jerk >= 1. else 0.
         f2 = 0.
+        # fp.append(f1 + f2)
+        # plt.plot(np.linspace(-5., 5., 100), fp, 'r.')
+        # plt.xlabel('|jerk| m/s')
+        # plt.ylabel('reward')
+        # plt.show()
         return f1 + f2
 
     def reward_clear(self):
@@ -83,9 +101,17 @@ class Reward(object):
         # collision = (f_clear <= 0.1) or (r_clear <= 0.1) or (l_clear <= 0.1)
         #############################################################################
         f_clear = self.state[5] - 10.
-        t_clear = self.state[5] / (self.state[0] - self.state[4]) if self.state[0] - self.state[4] >= 0.1 else 20.
+        t_clear = self.state[5] / (self.state[0] - self.state[4]) if self.state[0] - self.state[4] >= 0.01 else 20.
+        t_clear = min(t_clear, 20.)
+        # fp = []
+        # for t_clear in np.linspace(0., 10., 100):
         ff = - 1. * (10. - f_clear) if f_clear <= 10. else 0.
-        ft = - 5. * (1.5 - f_clear) if t_clear <= 1.5 else 0.
+        ft = - 10. * (1.5 - t_clear) if t_clear <= 1.5 else 0.
+        # fp.append(ft)
+        # plt.plot(np.linspace(0., 10., 100), fp, 'r')
+        # plt.xlabel('Crash time to front vehilce s')
+        # plt.ylabel('reward')
+        # plt.show()
         fl = 0.
         fr = 0.
         collision = (f_clear <= 0.1)
@@ -104,9 +130,23 @@ class Reward(object):
         # a_stop = - self.state[0] ** 2. / (2. * self.state[6])
         # delta = a - a_stop
         # f2 = 2. * (self.tools.sigmoid(delta, - 4) - 0.5) if delta >= 0 else 0
+        #############################################################################
+        # f = 0.
+        # if self.state[6] <= 5 and (self.state[0] >= self.state[6]):
+        #     f = - 5. * (self.state[0] - self.state[6])
+        #############################################################################
         f = 0.
-        if self.state[6] <= 5 and (self.state[0] >= self.state[6]):
-            f = - 5. * (self.state[0] - self.state[6])
+        if self.state[6] <= 5:
+            x = self.state[0] ** 2 / self.state[6]
+            f -= (x - 2. * self.Cft_Accel) if (x >= 2. * self.Cft_Accel) else 0.
+        # fp = []
+        # for x in np.linspace(0., 20., 100):
+        #     f = - 5. * (x - 2. * self.Cft_Accel) if (x >= 2. * self.Cft_Accel) else 0.
+        #     fp.append(f)
+        # plt.plot(np.linspace(0., 20., 100), fp, 'r')
+        # plt.xlabel('v^2 / l')
+        # plt.ylabel('reward')
+        # plt.show()
         return f
 
     def reward_speedlimit(self):
@@ -117,7 +157,9 @@ class Reward(object):
         # x = self.state[0] - mid_point
         # fx = min(0., 100. * (self.tools.sigmoid(x, - 3) - 0.5))
         #############################################################################
-        fx = - 10. * (self.state[0] - self.Speed_limit) if self.state[0] >= self.Speed_limit else 0.
+        fx = - 30. * (self.state[0] - self.Speed_limit) if self.state[0] >= self.Speed_limit else 0.
+        if self.state[0] >= (self.Speed_limit + 2.):
+            fx = - 500
         return fx
 
     def reward_dis(self):
@@ -129,3 +171,7 @@ class Reward(object):
             return 1000.
         else:
             return 0.
+
+if __name__ == '__main__':
+    r = Reward()
+    r.reward_stop(0)

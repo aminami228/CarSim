@@ -33,7 +33,7 @@ class InterSim(object):
         self.Start_Pos = self.av_pos['y']
         self.av_pos['x'] = 2.
         self.av_pos['vx'] = 0.
-        self.av_pos['vy'] = self.Speed_limit + random() * 2. - 1.
+        self.av_pos['vy'] = self.Speed_limit - random() * 5.
         self.av_pos['heading'] = 0
         self.av_pos['accel'] = 0
         self.av_pos['steer'] = 0
@@ -103,7 +103,7 @@ class InterSim(object):
         self.av_pos['vy'] = max(0.0, self.av_pos['vy'])
         self.av_pos['y'] += old_av_vel * self.Tau + 0.5 * a * (self.Tau ** 2)
         self.av_pos['heading'] += st
-        self.av_pos['accel'] = a * self.Cft_Accel
+        self.av_pos['accel'] = a
         self.av_pos['steer'] = st
         if self.Visual:
             self.draw_scenary(self.av_pos, self.hv_poses, r)
