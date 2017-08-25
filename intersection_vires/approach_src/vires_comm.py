@@ -319,6 +319,7 @@ def vires_action(action_q, neighbor_state_q):
                     if not action_q.empty():
                         acc=action_q.get_nowait()
                         data.accelTgt=acc
+                        data.steeringTgt = steering
                         RDB_sock.send(bytearray(rdb_hdr) + bytearray(entry)+bytearray(data))
 
                 data_idx = data_idx + entry.elementSize
