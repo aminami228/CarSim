@@ -5,9 +5,9 @@ import logging
 import numpy as np
 import tensorflow as tf
 import json
-# from network.ActorNetwork import ActorNetwork
-# from network.CriticNetwork import CriticNetwork
-# from network.ReplayBuffer import ReplayBuffer
+from observe_network.ActorNetwork import ActorNetwork
+from observe_network.CriticNetwork import CriticNetwork
+from observe_network.ReplayBuffer import ReplayBuffer
 from utilities.toolfunc import ToolFunc
 from keras import backend as keras
 from interface.inter_sim import InterSim
