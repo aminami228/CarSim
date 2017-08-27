@@ -48,7 +48,7 @@ class SCPComm(object):
         scp_msg.dataSize = len(msg_text)
         scp_sock.send(bytearray(scp_msg) + bytearray(msg_text))
 
-    def scp_control(self, action_q):
+    def scp_control(self, speed_q):
         connect_port = self.scp_port
         scp_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         scp_sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
@@ -62,7 +62,7 @@ class SCPComm(object):
         scp_msg.receiver = "any"
 
         while True:
-            action = action_q.get()
+            action = speed_q.get()
             speed = action['vy']
             msg_text = "<EgoCtrl><Speed value=\"" + str(speed) + "\"/></EgoCtrl>"
             scp_msg.dataSize = len(msg_text)
