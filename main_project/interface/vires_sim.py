@@ -107,8 +107,9 @@ class InterSim(object):
 
     def update_vehicle(self, state, a, st=0.):
         full_action = dict()
-        new_av_vel = max(0., state[0] + a * self.Tau)
-        full_action['vy'] = new_av_vel
+        # new_av_vel = max(0., state[0] + a * self.Tau)
+        # full_action['vy'] = new_av_vel
+        full_action['vy'] = 20. - random()
         self.action_q.put(full_action)
 
 
