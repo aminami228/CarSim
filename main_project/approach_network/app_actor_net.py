@@ -16,7 +16,7 @@ HIDDEN3_UNITS = 32
 HIDDEN4_UNITS = 32
 
 
-class ActorNetwork(object):
+class AppActorNetwork(object):
     def __init__(self, sess, state_size, action_size, batch_size, sigma, learn_rate):
         self.sess = sess
         self.BATCH_SIZE = batch_size

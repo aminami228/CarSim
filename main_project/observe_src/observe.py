@@ -5,16 +5,16 @@ import logging
 import numpy as np
 import tensorflow as tf
 import json
-from observe_network.ActorNetwork import ActorNetwork
-from observe_network.CriticNetwork import CriticNetwork
-from observe_network.ReplayBuffer import ReplayBuffer
+from observe_network.obs_actor_net import ObsActorNetword
+from observe_network.obs_critic_net import ObsCriticNetwork
+from observe_network.obs_replay import ObsReplay
 from utilities.toolfunc import ToolFunc
 from keras import backend as keras
-from interface.inter_sim import InterSim
+from interface.inter_sim_hv import InterSim
 import time
-from random import random
-from reward_func import Reward
+from reward_obs import ObsReward
 import matplotlib.pyplot as plt
+from random import random
 import utilities.log_color
 
 __author__ = 'qzq'
@@ -24,6 +24,9 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 
 class ReinAcc(object):
     tools = ToolFunc()
+
+    history_len = 50
+    predict_len = 50
 
     Tau = 1. / 30
     gamma = 0.99
@@ -53,7 +56,9 @@ class ReinAcc(object):
 
     def __init__(self):
         self.sim = InterSim()
-        self.reward = Reward()
+        self.history_l = []
+        self.history_r = []
+        self.reward = ObsReward()
         self.total_reward = 0
         self.if_pass = False
         self.if_done = False
@@ -73,9 +78,9 @@ class ReinAcc(object):
         self.sub_overspeed = 0
         self.sub_not_move = 0
 
-        self.actor_network = ActorNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRA)
-        self.critic_network = CriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
-        self.buffer = ReplayBuffer()
+        self.obs_actor = ObsActorNetword(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRA)
+        self.obs_critic = ObsCriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
+        self.buffer = ObsReplay()
 
         self.batch = None
         self.batch_state = None
@@ -92,22 +97,22 @@ class ReinAcc(object):
     def load_weights(self):
         # logging.info('...... Loading weight ......')
         try:
-            self.actor_network.model.load_weights("../weights/actormodel.h5")
-            self.critic_network.model.load_weights("../weights/criticmodel.h5")
-            self.actor_network.target_model.load_weights("../weights/actormodel.h5")
-            self.critic_network.target_model.load_weights("../weights/criticmodel.h5")
+            self.obs_actor.model.load_weights("../lstm_weights/actormodel.h5")
+            self.obs_critic.model.load_weights("../lstm_weights/criticmodel.h5")
+            self.obs_actor.target_model.load_weights("../lstm_weights/actormodel.h5")
+            self.obs_critic.target_model.load_weights("../lstm_weights/criticmodel.h5")
             # logging.info("Weight load successfully")
         except:
             logging.warn("Cannot find the weight !")
 
     def update_weights(self):
         # logging.info('...... Updating weight ......')
-        self.actor_network.model.save_weights("../weights/actormodel.h5", overwrite=True)
-        with open("../weights/actormodel.json", "w") as outfile:
-            json.dump(self.actor_network.model.to_json(), outfile)
-        self.critic_network.model.save_weights("../weights/criticmodel.h5", overwrite=True)
-        with open("../weights/criticmodel.json", "w") as outfile:
-            json.dump(self.critic_network.model.to_json(), outfile)
+        self.obs_actor.model.save_weights("../lstm_weights/actormodel.h5", overwrite=True)
+        with open("../lstm_weights/actormodel.json", "w") as outfile:
+            json.dump(self.obs_actor.model.to_json(), outfile)
+        self.obs_critic.model.save_weights("../lstm_weights/criticmodel.h5", overwrite=True)
+        with open("../lstm_weights/criticmodel.json", "w") as outfile:
+            json.dump(self.obs_critic.model.to_json(), outfile)
 
     def update_batch(self, s, a, r, s1):
         # logging.info('...... Updating batch ......')
@@ -119,26 +124,38 @@ class ReinAcc(object):
         self.batch_new_state = np.squeeze(np.asarray([e[3] for e in self.batch]), axis=1)
         self.batch_if_done = np.asarray([e[4] for e in self.batch])
         self.batch_output = np.asarray([e[2] for e in self.batch])
-        target_q_values = self.critic_network.target_model.predict(
-            [self.batch_new_state, self.actor_network.target_model.predict(self.batch_new_state)])
+        target_q_values = self.obs_critic.target_model.predict(
+            [self.batch_new_state, self.obs_actor.target_model.predict(self.batch_new_state)])
         for k, done in enumerate(self.batch_if_done):
-            self.batch_output[k] = self.batch_reward[k] if done else self.batch_reward[k] + self.gamma * target_q_values[k]
+            self.batch_output[k] = self.batch_reward[k] if done else \
+                self.batch_reward[k] + self.gamma * target_q_values[k]
 
     def update_loss(self):
         # logging.info('...... Updating loss ......')
-        loss = self.critic_network.model.train_on_batch([self.batch_state, self.batch_action], self.batch_output)
-        actor_predict = self.actor_network.model.predict(self.batch_state)
-        actor_grad = self.critic_network.gradients(self.batch_state, actor_predict)
-        self.actor_network.train(self.batch_state, actor_grad)
-        self.actor_network.target_train()
-        self.critic_network.target_train()
+        loss = self.obs_critic.model.train_on_batch([self.batch_state, self.batch_action], self.batch_output)
+        actor_predict = self.obs_actor.model.predict(self.batch_state)
+        actor_grad = self.obs_critic.gradients(self.batch_state, actor_predict)
+        self.obs_actor.train(self.batch_state, actor_grad)
+        self.obs_actor.target_train()
+        self.obs_critic.target_train()
         return loss
 
     def get_action(self, state_t, train_indicator):
         # logging.info('...... Getting action ......')
         self.epsilon -= 1.0 / self.explore_iter
         noise = []
-        action_ori = self.actor_network.model.predict(state_t)
+        action_ori = self.obs_actor.model.predict(state_t)
+        for i in range(self.action_size):
+            a = action_ori[0][i]
+            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.5, 0.5, 0.3))
+        action = action_ori + np.array(noise)
+        return action
+
+    def get_hist_action(self, state_t, train_indicator):
+        # logging.info('...... Getting action ......')
+        self.epsilon -= 1.0 / self.explore_iter
+        noise = []
+        action_ori = self.obs_actor.model.predict(state_t)
         for i in range(self.action_size):
             a = action_ori[0][i]
             noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.5, 0.5, 0.3))
@@ -197,11 +214,10 @@ class ReinAcc(object):
     def launch_train(self, train_indicator=1):  # 1 means Train, 0 means simply Run
         # logging.info('Launch Training Process')
         # np.random.seed(1337)
-        state_t = self.sim.get_state()
-        state_dim = state_t.shape[1]
-        self.actor_network = ActorNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRA)
-        self.critic_network = CriticNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRC)
-        self.buffer = ReplayBuffer(self.buffer_size)
+        state_dim = 110
+        self.obs_actor = ObsActorNetword(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRA)
+        self.obs_critic = ObsCriticNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRC)
+        self.buffer = ObsReplay(self.buffer_size)
         self.load_weights()
 
         for e in range(self.episode_count):
@@ -209,12 +225,16 @@ class ReinAcc(object):
             total_time = 0.
             # logging.debug("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
             step = 0
-            state_t = self.sim.get_state()
+            state_t, self.history_l, self.history_r = self.sim.get_state(self.history_l, self.history_r)
             while True:
-                action_t = self.get_action(state_t, train_indicator)
+                if len(self.history_l) < self.history_len:
+                    self.sim.update_vehicle(0., -1.)
+                    state_t, self.history_l, self.history_r = self.sim.get_state(self.history_l, self.history_r)
+                else:
+                    action_t = self.get_action(state_t, train_indicator)
                 reward_t, collision, not_move = self.reward.get_reward(state_t[0], action_t[0][0])
                 self.sim.update_vehicle(reward_t, action_t[0][0])
-                state_t1 = self.sim.get_state()
+                state_t1, self.history_l, self.history_r = self.sim.get_state(self.history_l, self.history_r)
                 self.update_batch(state_t, action_t[0], reward_t, state_t1)
                 loss = self.update_loss() if train_indicator else 0.
 

@@ -3,7 +3,7 @@ import math
 #from keras.initializations import normal, identity
 from keras.initializers import RandomNormal, identity
 from keras.models import Sequential, Model
-from keras.layers import Dense, Flatten, Input, merge, Lambda, concatenate
+from keras.layers import Dense, Flatten, Input, Lambda, concatenate, LSTM, Dropout, Merge
 from keras.optimizers import Adam
 import tensorflow as tf
 import keras.backend as keras
@@ -14,9 +14,10 @@ HIDDEN1_UNITS = 128
 HIDDEN2_UNITS = 64
 HIDDEN3_UNITS = 32
 HIDDEN4_UNITS = 32
+HIDDEN5_UNITS = 16
 
 
-class ActorNetwork(object):
+class ObsActorNetword(object):
     def __init__(self, sess, state_size, action_size, batch_size, sigma, learn_rate):
         self.sess = sess
         self.BATCH_SIZE = batch_size
@@ -47,23 +48,23 @@ class ActorNetwork(object):
         self.target_model.set_weights(actor_target_weights)
 
     @staticmethod
-    def create_actor_network(state_size):
+    def create_actor_network(state_size, his_len, his_size):
         # logging.info('...... Building actor model ......')
-        S  = Input(shape=[state_size])
-        h0 = Dense(HIDDEN1_UNITS, activation='relu')(S)
-        h1 = Dense(HIDDEN2_UNITS, activation='sigmoid')(h0)
-        # h2 = Dense(HIDDEN3_UNITS, activation='relu')(h1)
-        # h2 = Dense(HIDDEN3_UNITS, activation='relu')(h1)
-        h3 = Dense(HIDDEN4_UNITS, activation='relu')(h1)
-        a = Dense(1, activation='tanh', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
-        # b = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
-        # V = concatenate([Action, Parameter_Acc1, Parameter_Acc2, Parameter_Time1, Parameter_Time2,
-        #            Parameter_Time3, Parameter_Time4])
-        # V = concatenate([a])
-        # V = concatenate([a, b])
-        # V = merge([Action, Parameter_Acc1, Parameter_Acc2, Parameter_Time1, Parameter_Time2,
-        #            Parameter_Time3, Parameter_Time4], mode='concat')
-        V = a
-        # V = tf.concat(values=[a, b])
-        model = Model(input=S, output=V)
-        return model, model.trainable_weights, S
+        non_hist = Sequential()
+        non_hist.add(Dense(state_size, input_dim=state_size))
+
+        hist = Sequential()
+        hist.add(LSTM(input_shape=(his_len, his_size),
+                      output_dim=his_len,
+                      return_sequences=True))
+        hist.add(Dropout(0.2))
+        hist.add(LSTM(HIDDEN2_UNITS, return_sequences=False))
+        hist.add(Dropout(0.2))
+
+        merged = Merge([non_hist, hist], mode='concat')
+        actor = Sequential()
+        actor.add(merged)
+        actor.add(Dense(HIDDEN5_UNITS, activation='relu'))
+        actor.add(Dense(1, activation='tanh', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None)))
+
+        return actor, actor.trainable_weights, non_hist

@@ -5,15 +5,15 @@ import logging
 import numpy as np
 import tensorflow as tf
 import json
-from approach_network.ActorNetwork import ActorNetwork
-from approach_network.CriticNetwork import CriticNetwork
-from approach_network.ReplayBuffer import ReplayBuffer
+from approach_network.app_actor_net import AppActorNetwork
+from approach_network.app_critic_net import AppCriticNetwork
+from approach_network.app_replay import AppReplay
 from utilities.toolfunc import ToolFunc
 from keras import backend as keras
 from interface.inter_sim import InterSim
 import time
 from random import random
-from reward_func import Reward
+from reward_app import AppReward
 import matplotlib.pyplot as plt
 import utilities.log_color
 
@@ -53,7 +53,7 @@ class ReinAcc(object):
 
     def __init__(self):
         self.sim = InterSim()
-        self.reward = Reward()
+        self.reward = AppReward()
         self.total_reward = 0
         self.if_pass = False
         self.if_done = False
@@ -73,9 +73,9 @@ class ReinAcc(object):
         self.sub_overspeed = 0
         self.sub_not_move = 0
 
-        self.actor_network = ActorNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRA)
-        self.critic_network = CriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
-        self.buffer = ReplayBuffer()
+        self.app_actor = AppActorNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRA)
+        self.app_critic = AppCriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
+        self.buffer = AppReplay()
 
         self.batch = None
         self.batch_state = None
@@ -92,22 +92,22 @@ class ReinAcc(object):
     def load_weights(self):
         # logging.info('...... Loading weight ......')
         try:
-            self.actor_network.model.load_weights("../weights/actormodel.h5")
-            self.critic_network.model.load_weights("../weights/criticmodel.h5")
-            self.actor_network.target_model.load_weights("../weights/actormodel.h5")
-            self.critic_network.target_model.load_weights("../weights/criticmodel.h5")
+            self.app_actor.model.load_weights("../weights/actormodel.h5")
+            self.app_critic.model.load_weights("../weights/criticmodel.h5")
+            self.app_actor.target_model.load_weights("../weights/actormodel.h5")
+            self.app_critic.target_model.load_weights("../weights/criticmodel.h5")
             # logging.info("Weight load successfully")
         except:
             logging.warn("Cannot find the weight !")
 
     def update_weights(self):
         # logging.info('...... Updating weight ......')
-        self.actor_network.model.save_weights("../weights/actormodel.h5", overwrite=True)
+        self.app_actor.model.save_weights("../weights/actormodel.h5", overwrite=True)
         with open("../weights/actormodel.json", "w") as outfile:
-            json.dump(self.actor_network.model.to_json(), outfile)
-        self.critic_network.model.save_weights("../weights/criticmodel.h5", overwrite=True)
+            json.dump(self.app_actor.model.to_json(), outfile)
+        self.app_critic.model.save_weights("../weights/criticmodel.h5", overwrite=True)
         with open("../weights/criticmodel.json", "w") as outfile:
-            json.dump(self.critic_network.model.to_json(), outfile)
+            json.dump(self.app_critic.model.to_json(), outfile)
 
     def update_batch(self, s, a, r, s1):
         # logging.info('...... Updating batch ......')
@@ -119,26 +119,26 @@ class ReinAcc(object):
         self.batch_new_state = np.squeeze(np.asarray([e[3] for e in self.batch]), axis=1)
         self.batch_if_done = np.asarray([e[4] for e in self.batch])
         self.batch_output = np.asarray([e[2] for e in self.batch])
-        target_q_values = self.critic_network.target_model.predict(
-            [self.batch_new_state, self.actor_network.target_model.predict(self.batch_new_state)])
+        target_q_values = self.app_critic.target_model.predict(
+            [self.batch_new_state, self.app_actor.target_model.predict(self.batch_new_state)])
         for k, done in enumerate(self.batch_if_done):
             self.batch_output[k] = self.batch_reward[k] if done else self.batch_reward[k] + self.gamma * target_q_values[k]
 
     def update_loss(self):
         # logging.info('...... Updating loss ......')
-        loss = self.critic_network.model.train_on_batch([self.batch_state, self.batch_action], self.batch_output)
-        actor_predict = self.actor_network.model.predict(self.batch_state)
-        actor_grad = self.critic_network.gradients(self.batch_state, actor_predict)
-        self.actor_network.train(self.batch_state, actor_grad)
-        self.actor_network.target_train()
-        self.critic_network.target_train()
+        loss = self.app_critic.model.train_on_batch([self.batch_state, self.batch_action], self.batch_output)
+        actor_predict = self.app_actor.model.predict(self.batch_state)
+        actor_grad = self.app_critic.gradients(self.batch_state, actor_predict)
+        self.app_actor.train(self.batch_state, actor_grad)
+        self.app_actor.target_train()
+        self.app_critic.target_train()
         return loss
 
     def get_action(self, state_t, train_indicator):
         # logging.info('...... Getting action ......')
         self.epsilon -= 1.0 / self.explore_iter
         noise = []
-        action_ori = self.actor_network.model.predict(state_t)
+        action_ori = self.app_actor.model.predict(state_t)
         for i in range(self.action_size):
             a = action_ori[0][i]
             noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.5, 0.5, 0.3))
@@ -199,9 +199,9 @@ class ReinAcc(object):
         # np.random.seed(1337)
         state_t = self.sim.get_state()
         state_dim = state_t.shape[1]
-        self.actor_network = ActorNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRA)
-        self.critic_network = CriticNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRC)
-        self.buffer = ReplayBuffer(self.buffer_size)
+        self.app_actor = AppActorNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRA)
+        self.app_critic = AppCriticNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRC)
+        self.buffer = AppReplay(self.buffer_size)
         self.load_weights()
 
         for e in range(self.episode_count):

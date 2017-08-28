@@ -2,7 +2,7 @@ from collections import deque
 import random
 
 
-class ReplayBuffer(object):
+class ObsReplay(object):
 
     def __init__(self, buffer_size=None):
         self.buffer_size = buffer_size

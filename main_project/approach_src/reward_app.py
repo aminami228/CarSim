@@ -8,7 +8,7 @@ import utilities.log_color
 __author__ = 'qzq'
 
 
-class Reward(object):
+class AppReward(object):
     Tau = 1. / 30
     Speed_limit = 12.  # m/s
     Scenary = randint(0, 2)
@@ -180,5 +180,5 @@ class Reward(object):
             return 0.
 
 if __name__ == '__main__':
-    r = Reward()
+    r = AppReward()
     r.reward_speedlimit()
