@@ -12,7 +12,7 @@ from utilities.toolfunc import ToolFunc
 from keras import backend as keras
 from interface.inter_sim_hv import InterSim
 import time
-from reward_obs import ObsReward
+from rewards.reward_obs import ObsReward
 import matplotlib.pyplot as plt
 from random import random
 import utilities.log_color
@@ -25,15 +25,12 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 class ReinAcc(object):
     tools = ToolFunc()
 
-    history_len = 50
-    predict_len = 50
-
     Tau = 1. / 30
     gamma = 0.99
     epsilon = 0.5
 
     buffer_size = 10000
-    batch_size = 128
+    batch_size = 32
     tau = 0.0001            # Target Network HyperParameters
     LRA = 0.001             # Learning rate for Actor
     LRC = 0.001             # Learning rate for Critic
@@ -43,8 +40,12 @@ class ReinAcc(object):
     episode_count = 20000
     max_steps = 2000
 
-    action_dim = 1          # Steering/Acceleration/Brake
-    action_size = 1
+    state_dim = 110
+    non_his_dim = 10
+    history_len = 50
+    his_dim = 2
+    predict_len = 50
+    action_dim = 1          # Acceleration
 
     # Tensorflow GPU optimization
     config = tf.ConfigProto()
@@ -55,7 +56,7 @@ class ReinAcc(object):
     Speed_limit = 12
 
     def __init__(self):
-        self.sim = InterSim()
+        self.sim = None
         self.history_l = []
         self.history_r = []
         self.reward = ObsReward()
@@ -78,8 +79,10 @@ class ReinAcc(object):
         self.sub_overspeed = 0
         self.sub_not_move = 0
 
-        self.obs_actor = ObsActorNetword(self.tf_sess, 10, 50, 2, self.action_dim, 10, self.tau, self.LRA)
-        self.obs_critic = ObsCriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
+        self.obs_actor = ObsActorNetword(self.tf_sess, self.non_his_dim, self.history_len, self.his_dim,
+                                         self.action_dim, self.batch_size, self.tau, self.LRA)
+        self.obs_critic = ObsCriticNetwork(self.tf_sess, self.non_his_dim, self.history_len, self.his_dim,
+                                           self.action_dim, self.batch_size, self.tau, self.LRC)
         self.buffer = ObsReplay()
 
         self.batch = None
@@ -140,12 +143,12 @@ class ReinAcc(object):
         self.obs_critic.target_train()
         return loss
 
-    def get_action(self, state_t, train_indicator):
+    def get_action(self, state_t, state_his, train_indicator):
         # logging.info('...... Getting action ......')
         self.epsilon -= 1.0 / self.explore_iter
         noise = []
-        action_ori = self.obs_actor.model.predict(state_t)
-        for i in range(self.action_size):
+        action_ori = self.obs_actor.model.predict([state_t, state_his])
+        for i in range(self.action_dim):
             a = action_ori[0][i]
             noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.5, 0.5, 0.3))
         action = action_ori + np.array(noise)
@@ -156,7 +159,7 @@ class ReinAcc(object):
         self.epsilon -= 1.0 / self.explore_iter
         noise = []
         action_ori = self.obs_actor.model.predict(state_t)
-        for i in range(self.action_size):
+        for i in range(self.action_dim):
             a = action_ori[0][i]
             noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.5, 0.5, 0.3))
         action = action_ori + np.array(noise)
@@ -214,44 +217,47 @@ class ReinAcc(object):
     def launch_train(self, train_indicator=1):  # 1 means Train, 0 means simply Run
         # logging.info('Launch Training Process')
         # np.random.seed(1337)
-        state_dim = 110
-        self.obs_actor = ObsActorNetword(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRA)
-        self.obs_critic = ObsCriticNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size, self.tau, self.LRC)
+        self.obs_actor = ObsActorNetword(self.tf_sess, self.non_his_dim, self.history_len, self.his_dim,
+                                         self.action_dim, self.batch_size, self.tau, self.LRA)
+        self.obs_critic = ObsCriticNetwork(self.tf_sess, self.non_his_dim, self.history_len, self.his_dim,
+                                           self.action_dim, self.batch_size, self.tau, self.LRC)
         self.buffer = ObsReplay(self.buffer_size)
         self.load_weights()
 
+        self.sim = InterSim()
         for e in range(self.episode_count):
             total_loss = 0.
             total_time = 0.
             # logging.debug("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
             step = 0
-            state_t, self.history_l, self.history_r = self.sim.get_state(self.history_l, self.history_r)
+            state_t, state_his, self.history_l, self.history_r = self.sim.get_state(self.history_l, self.history_r)
             while True:
                 if len(self.history_l) < self.history_len:
                     self.sim.update_vehicle(0., -1.)
-                    state_t, self.history_l, self.history_r = self.sim.get_state(self.history_l, self.history_r)
+                    state_t, state_his, self.history_l, self.history_r = \
+                        self.sim.get_state(self.history_l, self.history_r)
                 else:
-                    action_t = self.get_action(state_t, train_indicator)
-                reward_t, collision, not_move = self.reward.get_reward(state_t[0], action_t[0][0])
-                self.sim.update_vehicle(reward_t, action_t[0][0])
-                state_t1, self.history_l, self.history_r = self.sim.get_state(self.history_l, self.history_r)
-                self.update_batch(state_t, action_t[0], reward_t, state_t1)
-                loss = self.update_loss() if train_indicator else 0.
+                    action_t = self.get_action(state_t, state_his, train_indicator)
+                    reward_t, collision, not_move = self.reward.get_reward(state_t[0], state_his[0], action_t[0][0])
+                    self.sim.update_vehicle(reward_t, action_t[0][0])
+                    state_t1, self.history_l, self.history_r = self.sim.get_state(self.history_l, self.history_r)
+                    self.update_batch(state_t, action_t[0], reward_t, state_t1)
+                    loss = self.update_loss() if train_indicator else 0.
 
-                self.total_reward += reward_t
-                self.if_exit(step, state_t[0], collision, not_move)
-                step += 1
-                total_loss += loss
-                train_time = time.time() - self.start_time
-                # logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', Dis to SL: ' + str(state_t[0][6]) +
-                #               ', Dis to fv: ' + str(state_t[0][5]) + ', v: ' + str(state_t[0][0]) +
-                #               ', a: ' + str(action_t) + ', r: ' + str(reward_t) + ', loss: ' + str(loss) +
-                #               ', time: ' + str(train_time))
-                total_time += train_time
-                if self.if_done:
-                    break
-                self.start_time = time.time()
-                state_t = state_t1
+                    self.total_reward += reward_t
+                    self.if_exit(step, state_t[0], collision, not_move)
+                    step += 1
+                    total_loss += loss
+                    train_time = time.time() - self.start_time
+                    # logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) + ', Dis to SL: ' + str(state_t[0][6]) +
+                    #               ', Dis to fv: ' + str(state_t[0][5]) + ', v: ' + str(state_t[0][0]) +
+                    #               ', a: ' + str(action_t) + ', r: ' + str(reward_t) + ', loss: ' + str(loss) +
+                    #               ', time: ' + str(train_time))
+                    total_time += train_time
+                    if self.if_done:
+                        break
+                    self.start_time = time.time()
+                    state_t = state_t1
 
             plt.close('all')
             total_step = step + 1

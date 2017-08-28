@@ -74,6 +74,7 @@ class InterSim(object):
             rv_pos['dir'] = 'L'
             self.rv_poses.append(rv_pos)
         self.hv_poses = self.lv_poses + self.rv_poses
+        self.state_hv_mem = []
         self.target_dis = None
         self.target_v = None
         self.state = None
@@ -138,11 +139,13 @@ class InterSim(object):
         if len(his_l) > self.history_len:
             his_l = his_l[-self.history_len:]
             his_r = his_r[-self.history_len:]
-        self.state_hv = [l_min_dis, r_min_dis] + his_l + his_r
+        self.state_hv = [l_min_dis, r_min_dis]
+        self.state_hv_mem = np.array([his_l, his_r], ndmin=2).T
+        self.state_hv_mem = np.expand_dims(self.state_hv_mem, axis=0)
 
         self.state = np.array(self.state_av + self.state_road + self.state_hv, ndmin=2)
         self.state_dim = self.state.shape[1]
-        return self.state, his_l, his_r
+        return self.state, self.state_hv_mem, his_l, his_r
 
     def update_vehicle(self, r, a=0, st=0):
         a = self.Cft_Accel * a

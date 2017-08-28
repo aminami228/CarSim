@@ -1,6 +1,6 @@
 import numpy as np
 import math
-from keras.layers import Dense, Flatten, Input, merge, Lambda, Activation, concatenate
+from keras.layers import Dense, Flatten, Input, merge, Lambda, Activation, concatenate, LSTM
 from keras.models import Sequential, Model
 from keras.optimizers import Adam
 import keras.backend as keras
@@ -13,10 +13,11 @@ HIDDEN1_UNITS = 128
 HIDDEN2_UNITS = 64
 HIDDEN3_UNITS = 32
 HIDDEN4_UNITS = 32
+HIDDEN5_UNITS = 16
 
 
 class ObsCriticNetwork(object):
-    def __init__(self, sess, state_size, action_size, batch_size, sigma, learn_rate):
+    def __init__(self, sess, non_his_size, his_len, his_size, action_size, batch_size, sigma, learn_rate):
         self.sess = sess
         self.BATCH_SIZE = batch_size
         self.TAU = sigma
@@ -26,8 +27,9 @@ class ObsCriticNetwork(object):
         keras.set_session(sess)
 
         # Now create the model
-        self.model, self.action, self.state = self.create_critic_network(state_size, action_size)  
-        self.target_model, self.target_action, self.target_state = self.create_critic_network(state_size, action_size)  
+        self.model, self.action, self.state = self.create_critic_network(non_his_size, his_len, his_size, action_size)
+        self.target_model, self.target_action, self.target_state = \
+            self.create_critic_network(non_his_size, his_len, his_size, action_size)
         self.action_grads = tf.gradients(self.model.output, self.action)  # GRADIENTS for policy update
         self.sess.run(tf.global_variables_initializer())
 
@@ -44,20 +46,26 @@ class ObsCriticNetwork(object):
             critic_target_weights[i] = self.TAU * critic_weights[i] + (1 - self.TAU) * critic_target_weights[i]
         self.target_model.set_weights(critic_target_weights)
 
-    def create_critic_network(self, state_size, action_size):
+    def create_critic_network(self, non_his_size, his_len, his_size, action_size):
         logging.info('...... Building critic model ......')
-        all_states = Input(shape=[state_size])
-        action = Input(shape=[action_size], name='action2')
-        w0 = Dense(state_size, activation='linear')(all_states)
-        a0 = Dense(action_size, activation='linear')(action)
-        # h0 = merge([w0, a0], mode='concat')
-        h0 = concatenate([w0, a0])
-        h1 = Dense(HIDDEN1_UNITS, activation='relu')(h0)
-        # h2 = Dense(HIDDEN2_UNITS, activation='sigmoid')(h1)
-        # h3 = Dense(HIDDEN3_UNITS, activation='relu')(h2)
-        h4 = Dense(HIDDEN4_UNITS, activation='relu')(h1)
-        V = Dense(1, activation='linear')(h4)
-        model = Model(input=[all_states, action], output=V)
+        non_his_state = Input(shape=(non_his_size,))
+        n1 = Dense(non_his_size, activation='linear')(non_his_state)
+
+        his_state = Input(shape=(his_len, his_size,))
+        # h0 = keras.reshape(his_state, (-1, his_len, his_size))
+        h1 = LSTM(HIDDEN1_UNITS, return_sequences=True)(his_state)
+        h2 = LSTM(HIDDEN2_UNITS, return_sequences=False)(h1)
+
+        action = Input(shape=[action_size], name='action')
+        a1 = Dense(action_size, activation='linear')(action)
+
+        c1 = concatenate([h2, n1, a1])
+        c2 = Dense(HIDDEN2_UNITS, activation='relu')(c1)
+        c3 = Dense(HIDDEN3_UNITS, activation='relu')(c2)
+        c4 = Dense(HIDDEN4_UNITS, activation='relu')(c3)
+
+        Q = Dense(1, activation='linear')(c4)
+        model = Model(input=[non_his_state, his_state, action], output=Q)
         adam = Adam(lr=self.LEARNING_RATE)
         model.compile(loss='mse', optimizer=adam)
-        return model, action, all_states
+        return model, action, [non_his_state, his_state]

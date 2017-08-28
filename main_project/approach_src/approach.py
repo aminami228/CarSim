@@ -11,10 +11,10 @@ from approach_network.app_replay import AppReplay
 from utilities.toolfunc import ToolFunc
 from keras import backend as keras
 from interface.inter_sim import InterSim
+from rewards.reward_app import AppReward
 import time
-from random import random
-from reward_app import AppReward
 import matplotlib.pyplot as plt
+from random import random
 import utilities.log_color
 
 __author__ = 'qzq'
