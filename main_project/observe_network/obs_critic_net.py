@@ -46,10 +46,10 @@ class ObsCriticNetwork(object):
 
     def create_critic_network(self, state_size, action_size):
         logging.info('...... Building critic model ......')
-        S = Input(shape=[state_size])  
-        A = Input(shape=[action_size], name='action2')
-        w0 = Dense(state_size, activation='linear')(S)
-        a0 = Dense(action_size, activation='linear')(A)
+        all_states = Input(shape=[state_size])
+        action = Input(shape=[action_size], name='action2')
+        w0 = Dense(state_size, activation='linear')(all_states)
+        a0 = Dense(action_size, activation='linear')(action)
         # h0 = merge([w0, a0], mode='concat')
         h0 = concatenate([w0, a0])
         h1 = Dense(HIDDEN1_UNITS, activation='relu')(h0)
@@ -57,7 +57,7 @@ class ObsCriticNetwork(object):
         # h3 = Dense(HIDDEN3_UNITS, activation='relu')(h2)
         h4 = Dense(HIDDEN4_UNITS, activation='relu')(h1)
         V = Dense(1, activation='linear')(h4)
-        model = Model(input=[S, A], output=V)
+        model = Model(input=[all_states, action], output=V)
         adam = Adam(lr=self.LEARNING_RATE)
         model.compile(loss='mse', optimizer=adam)
-        return model, A, S 
+        return model, action, all_states

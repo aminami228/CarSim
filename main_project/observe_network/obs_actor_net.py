@@ -18,7 +18,7 @@ HIDDEN5_UNITS = 16
 
 
 class ObsActorNetword(object):
-    def __init__(self, sess, state_size, action_size, batch_size, sigma, learn_rate):
+    def __init__(self, sess, state_size, his_len, his_size, action_size, batch_size, sigma, learn_rate):
         self.sess = sess
         self.BATCH_SIZE = batch_size
         self.TAU = sigma
@@ -27,7 +27,7 @@ class ObsActorNetword(object):
         keras.set_session(sess)
 
         # Now create the model
-        self.model, self.weights, self.state = self.create_actor_network(state_size)
+        self.model, self.weights, self.state = self.create_actor_network(state_size, his_len, his_size)
         self.target_model, self.target_weights, self.target_state = self.create_actor_network(state_size)
         self.action_gradient = tf.placeholder(tf.float32,[None, action_size])
         self.params_grad = tf.gradients(self.model.output, self.weights, -self.action_gradient)
@@ -50,8 +50,11 @@ class ObsActorNetword(object):
     @staticmethod
     def create_actor_network(state_size, his_len, his_size):
         # logging.info('...... Building actor model ......')
-        non_hist = Sequential()
-        non_hist.add(Dense(state_size, input_dim=state_size))
+        non_hist_state = Input(shape=(state_size,))
+        hist_state = Input(shape=(his_len, his_size))
+        hist1 = LSTM(HIDDEN2_UNITS)(hist_state)
+        hist2 = Dropout(0.2)(hist1)
+        hist2 = Dropout(0.2)(hist1)
 
         hist = Sequential()
         hist.add(LSTM(input_shape=(his_len, his_size),

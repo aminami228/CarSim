@@ -78,7 +78,7 @@ class ReinAcc(object):
         self.sub_overspeed = 0
         self.sub_not_move = 0
 
-        self.obs_actor = ObsActorNetword(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRA)
+        self.obs_actor = ObsActorNetword(self.tf_sess, 10, 50, 2, self.action_dim, 10, self.tau, self.LRA)
         self.obs_critic = ObsCriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
         self.buffer = ObsReplay()
 
