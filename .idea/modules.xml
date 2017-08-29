@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CarSim.iml" filepath="$PROJECT_DIR$/.idea/CarSim.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/.idea/LSTM-Neural-Network-for-Time-Series-Prediction.iml" filepath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/.idea/LSTM-Neural-Network-for-Time-Series-Prediction.iml" />
     </modules>
   </component>
 </project>

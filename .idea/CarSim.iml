@@ -3,11 +3,13 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/intersection_project" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/main_project" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cl_src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/hrl_src" />
+      <excludeFolder url="file://$MODULE_DIR$/intersection_vires" />
+      <excludeFolder url="file://$MODULE_DIR$/speed_control" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="LSTM-Neural-Network-for-Time-Series-Prediction" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />

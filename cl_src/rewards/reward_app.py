@@ -38,7 +38,8 @@ class AppReward(object):
         #     else (- 0.6 * self.av_pos['vy'] + 8.4) - 0.2
         # r_v = max(- 0.2, r_v)
         r_time = - 1.
-        r_crash = - 500. if collision == 1 else 0.
+        # r_crash = - 500. if collision == 1 else 0.
+        r_crash = 0.
         r_dis = self.reward_dis()
         r_finish = self.reward_finish()
         r_notmove, not_move = self.reward_notmove(a)
@@ -54,10 +55,13 @@ class AppReward(object):
         # for accel in np.linspace(-5., 5., 100):
         if self.state[6] > 2.0:
             if (self.state[0] <= 0.01) and (self.state[2] < 0) and (-1. <= accel < 0.):
-                f = 100. * (self.tools.sigmoid(accel, 4.) - 0.5) if accel <= 0. else 0.
+                f = 100 * accel
+                # f = 100. * (self.tools.sigmoid(accel, 4.) - 0.5) if accel <= 0. else 0.
             if (self.state[0] <= 0.01) and (self.state[2] < 0) and (accel <= - 1.):
                 not_move = 1
-                f = - 500.
+                f = 100 * accel
+                # f = 100. * (self.tools.sigmoid(accel, 4.) - 0.5) if accel <= 0. else 0.
+                # f = - 500.
             # fp.append(f)
         # plt.plot(np.linspace(-5., 5., 100), fp, 'r.')
         # plt.xlabel('acceleration m/s')
@@ -100,12 +104,12 @@ class AppReward(object):
         # fr = 0.
         # collision = (f_clear <= 0.1) or (r_clear <= 0.1) or (l_clear <= 0.1)
         #############################################################################
-        f_clear = self.state[5] - 10.
+        f_clear = self.state[5]
         t_clear = self.state[5] / (self.state[0] - self.state[4]) if self.state[0] - self.state[4] >= 0.01 else 20.
         t_clear = min(t_clear, 20.)
         # fp = []
         # for t_clear in np.linspace(0., 10., 100):
-        ff = - 1. * (10. - f_clear) if f_clear <= 10. else 0.
+        ff = - 1. * (10. - f_clear) if f_clear <= 15. else 0.
         ft = - 10. * (1.5 - t_clear) if t_clear <= 1.5 else 0.
         # fp.append(ft)
         # plt.plot(np.linspace(0., 10., 100), fp, 'r')
@@ -174,7 +178,7 @@ class AppReward(object):
         return dis
 
     def reward_finish(self):
-        if self.state[6] <= 2.0 and (self.state[0] <= 2.):
+        if self.state[6] <= 2.0 and (self.state[0] <= 3.):
             return 1000.
         else:
             return 0.

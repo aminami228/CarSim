@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-sys.path.append('/home/scotty/qzq/git/CarSim_vires/main_project')
+sys.path.append('/home/scotty/qzq/git/CarSim_vires/cl_src')
 import logging
 import numpy as np
 import tensorflow as tf
@@ -27,7 +27,7 @@ class ReinAcc(object):
 
     Tau = 1. / 30
     gamma = 0.99
-    epsilon = 0.5
+    epsilon = 1.0
 
     buffer_size = 10000
     batch_size = 128
@@ -65,6 +65,8 @@ class ReinAcc(object):
         self.overspeed = []
         self.not_move = []
         self.loss = []
+        self.run_time = []
+        self.if_train = []
 
         self.sub_crash = 0
         self.sub_not_stop = 0
@@ -87,7 +89,7 @@ class ReinAcc(object):
 
         self.start_time = time.time()
         self.end_time = time.time()
-        self.total_time = 0.
+        self.total_time = time.time()
 
     def load_weights(self):
         # logging.info('...... Loading weight ......')
@@ -159,18 +161,11 @@ class ReinAcc(object):
             self.sub_overspeed += 1
             self.if_pass = False
             self.if_done = True
-        elif not_move > 0 and (state[6] >= 2.0):
+        elif not_move > 0:
             logging.warn('Not move! Start: ' + str(self.sim.Stop_Line - state[9]) + ', Dis to SL: ' + str(state[6]) +
                          ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]))
             self.sub_not_move += 1
             self.if_pass = False
-            self.if_done = True
-        elif not_move > 0 and (state[6] < 2.0):
-            logging.info('Congratulations! Reach stop line without crashing and has stopped. Start: ' +
-                         str(self.sim.Stop_Line - state[9]) + ', Dis to SL: ' + str(state[6]) +
-                         ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]))
-            self.sub_success += 1
-            self.if_pass = True
             self.if_done = True
         elif collision > 0:
             logging.warn('Crash to other vehicles or road boundary! Start: ' + str(self.sim.Stop_Line - state[9]) +
@@ -179,14 +174,14 @@ class ReinAcc(object):
             self.sub_crash += 1
             self.if_pass = False
             self.if_done = True
-        elif collision == 0 and (state[6] <= 1.0) and (state[0] > 5.0):
+        elif state[6] <= 2.0 and (state[0] > 3.0):
             logging.warn('No crash and reached stop line. But has not stopped! Start: ' +
                          str(self.sim.Stop_Line - state[9]) + ', Dis to SL: ' + str(state[6]) +
                          ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]))
             self.sub_not_stop += 1
             self.if_pass = False
             self.if_done = True
-        elif collision == 0 and (state[6] <= 1.0) and (state[0] <= 5.0):
+        elif state[6] <= 2.0 and (state[0] <= 3.0):
             logging.info('Congratulations! Reach stop line without crashing and has stopped. Start: ' +
                          str(self.sim.Stop_Line - state[9]) + ', Dis to SL: ' + str(state[6]) +
                          ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]))
@@ -206,7 +201,7 @@ class ReinAcc(object):
 
         for e in range(self.episode_count):
             total_loss = 0.
-            total_time = 0.
+            total_time = time.time()
             # logging.debug("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
             step = 0
             state_t = self.sim.get_state()
@@ -227,7 +222,7 @@ class ReinAcc(object):
                 #               ', Dis to fv: ' + str(state_t[0][5]) + ', v: ' + str(state_t[0][0]) +
                 #               ', a: ' + str(action_t) + ', r: ' + str(reward_t) + ', loss: ' + str(loss) +
                 #               ', time: ' + str(train_time))
-                total_time += train_time
+                # total_time += train_time
                 if self.if_done:
                     break
                 self.start_time = time.time()
@@ -238,26 +233,30 @@ class ReinAcc(object):
             if train_indicator:
                 self.update_weights()
 
-            mean_loss = total_loss / total_step
-            mean_time = total_time / total_step
+            # mean_loss = total_loss / total_step
+            # mean_time = total_time / total_step
+            mean_time = time.time() - total_time
             logging.debug(str(e) + "-th Episode: Steps: " + str(total_step) + ', Time: ' + str(mean_time) +
                           ', Reward: ' + str(self.total_reward) + " Loss: " + str(loss) + ', Crash: ' +
                           str(self.sub_crash) + ', Not Stop: ' + str(self.sub_not_stop) + ', Not Finished: ' +
                           str(self.sub_not_finish) + ', Overspeed: ' + str(self.sub_overspeed) + ', Not Move: ' +
                           str(self.sub_not_move) + ', Success: ' + str(self.sub_success))
 
-            self.sim = InterSim(True) if e % 50 == 0 else InterSim()
+            # self.sim = InterSim(True) if e % 50 == 0 else InterSim()
+            self.sim = InterSim()
             self.total_reward = 0
             self.if_pass = False
             self.if_done = False
 
-            if (e + 1) % 200 == 0:
+            if (e + 1) % 100 == 0:
+                self.if_train.append(train_indicator)
                 self.crash.append(self.sub_crash)
                 self.not_stop.append(self.sub_not_stop)
                 self.success.append(self.sub_success)
                 self.not_finish.append(self.sub_not_finish)
                 self.overspeed.append(self.sub_overspeed)
                 self.not_move.append(self.sub_not_move)
+                self.run_time.append(time.time() - self.total_time)
 
                 self.sub_crash = 0.
                 self.sub_not_stop = 0.
@@ -267,7 +266,9 @@ class ReinAcc(object):
                 self.sub_not_move = 0.
                 logging.info('Crash: ' + str(self.crash) + ', Not Stop: ' + str(self.not_stop) + ', Not Finished: ' +
                              str(self.not_finish) + ', Overspeed: ' + str(self.overspeed) + ', Not Move: ' +
-                             str(self.not_move) + ', Success: ' + str(self.success) + ', Loss: ' + str(loss))
+                             str(self.not_move) + ', Success: ' + str(self.success) + ', Loss: ' + str(loss) +
+                             ', Time: ' + str(time.time() - self.total_time))
+                train_indicator = 0 if train_indicator == 1 else 1
 
 
 if __name__ == '__main__':
