@@ -27,7 +27,7 @@ class ReinAcc(object):
 
     Tau = 1. / 30
     gamma = 0.99
-    epsilon = 0.5
+    epsilon = 1.0
 
     buffer_size = 10000
     batch_size = 32
@@ -41,9 +41,9 @@ class ReinAcc(object):
     max_steps = 2000
 
     state_dim = 110
-    non_his_dim = 10
+    non_his_dim = 11
     history_len = 50
-    his_dim = 2
+    his_dim = 4
     predict_len = 50
     action_dim = 1          # Acceleration
 
@@ -57,8 +57,7 @@ class ReinAcc(object):
 
     def __init__(self):
         self.sim = None
-        self.history_l = []
-        self.history_r = []
+        self.history = []
         self.reward = ObsReward()
         self.total_reward = 0
         self.if_pass = False
@@ -87,9 +86,11 @@ class ReinAcc(object):
 
         self.batch = None
         self.batch_state = None
+        self.batch_his = None
         self.batch_action = None
         self.batch_reward = None
         self.batch_new_state = None
+        self.batch_new_his = None
         self.batch_if_done = None
         self.batch_output = None
 
@@ -117,28 +118,32 @@ class ReinAcc(object):
         with open("../lstm_weights/criticmodel.json", "w") as outfile:
             json.dump(self.obs_critic.model.to_json(), outfile)
 
-    def update_batch(self, s, a, r, s1):
+    def update_batch(self, s, h, a, r, s1, h1):
         # logging.info('...... Updating batch ......')
-        self.buffer.add(s, a, r, s1, self.if_done)
+        self.buffer.add(s, h, a, r, s1, h1, self.if_done)
         self.batch = self.buffer.get_batch(self.batch_size)
         self.batch_state = np.squeeze(np.asarray([e[0] for e in self.batch]), axis=1)
-        self.batch_action = np.asarray([e[1] for e in self.batch])
-        self.batch_reward = np.asarray([e[2] for e in self.batch])
-        self.batch_new_state = np.squeeze(np.asarray([e[3] for e in self.batch]), axis=1)
-        self.batch_if_done = np.asarray([e[4] for e in self.batch])
-        self.batch_output = np.asarray([e[2] for e in self.batch])
+        self.batch_his = np.squeeze(np.asarray([e[1] for e in self.batch]), axis=1)
+        self.batch_action = np.asarray([e[2] for e in self.batch])
+        self.batch_reward = np.asarray([e[3] for e in self.batch])
+        self.batch_new_state = np.squeeze(np.asarray([e[4] for e in self.batch]), axis=1)
+        self.batch_new_his = np.squeeze(np.asarray([e[5] for e in self.batch]), axis=1)
+        self.batch_if_done = np.asarray([e[6] for e in self.batch])
+        self.batch_output = np.asarray([e[3] for e in self.batch])
         target_q_values = self.obs_critic.target_model.predict(
-            [self.batch_new_state, self.obs_actor.target_model.predict(self.batch_new_state)])
+            [self.batch_new_state, self.batch_new_his,
+             self.obs_actor.target_model.predict([self.batch_new_state, self.batch_new_his])])
         for k, done in enumerate(self.batch_if_done):
             self.batch_output[k] = self.batch_reward[k] if done else \
                 self.batch_reward[k] + self.gamma * target_q_values[k]
 
     def update_loss(self):
         # logging.info('...... Updating loss ......')
-        loss = self.obs_critic.model.train_on_batch([self.batch_state, self.batch_action], self.batch_output)
-        actor_predict = self.obs_actor.model.predict(self.batch_state)
-        actor_grad = self.obs_critic.gradients(self.batch_state, actor_predict)
-        self.obs_actor.train(self.batch_state, actor_grad)
+        loss = self.obs_critic.model.train_on_batch([self.batch_state, self.batch_his, self.batch_action],
+                                                    self.batch_output)
+        actor_predict = self.obs_actor.model.predict([self.batch_state, self.batch_his])
+        actor_grad = self.obs_critic.gradients(self.batch_state, self.batch_his, actor_predict)
+        self.obs_actor.train(self.batch_state, self.batch_his, actor_grad)
         self.obs_actor.target_train()
         self.obs_critic.target_train()
         return loss
@@ -230,18 +235,17 @@ class ReinAcc(object):
             total_time = 0.
             # logging.debug("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
             step = 0
-            state_t, state_his, self.history_l, self.history_r = self.sim.get_state(self.history_l, self.history_r)
+            state_t, state_his, self.history = self.sim.get_state(self.history)
             while True:
-                if len(self.history_l) < self.history_len:
+                if len(self.history) < self.history_len:
                     self.sim.update_vehicle(0., -1.)
-                    state_t, state_his, self.history_l, self.history_r = \
-                        self.sim.get_state(self.history_l, self.history_r)
+                    state_t, state_his, self.history = self.sim.get_state(self.history)
                 else:
                     action_t = self.get_action(state_t, state_his, train_indicator)
                     reward_t, collision, not_move = self.reward.get_reward(state_t[0], state_his[0], action_t[0][0])
                     self.sim.update_vehicle(reward_t, action_t[0][0])
-                    state_t1, self.history_l, self.history_r = self.sim.get_state(self.history_l, self.history_r)
-                    self.update_batch(state_t, action_t[0], reward_t, state_t1)
+                    state_t1, state_his1, self.history = self.sim.get_state(self.history)
+                    self.update_batch(state_t, state_his, action_t[0], reward_t, state_t1, state_his1)
                     loss = self.update_loss() if train_indicator else 0.
 
                     self.total_reward += reward_t

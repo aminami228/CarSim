@@ -21,7 +21,7 @@ class InterSim(object):
     Inter_Left = - 4.
     Inter_Right = 4.
     FV_NO = 2
-    LV_NO = 8
+    LV_NO = 5
     RV_NO = 8
     Lane_Left = 0.
     Lane_Right = 4.
@@ -37,7 +37,7 @@ class InterSim(object):
         self.Start_Pos = self.av_pos['y']
         self.av_pos['x'] = 2.
         self.av_pos['vx'] = 0.
-        self.av_pos['vy'] = random() * 5.
+        self.av_pos['vy'] = 5. - random()
         self.av_pos['heading'] = 0
         self.av_pos['accel'] = 0
         self.av_pos['steer'] = 0
@@ -106,7 +106,7 @@ class InterSim(object):
             plt.pause(0.0001)
             plt.clf()
 
-    def get_state(self, his_l, his_r):
+    def get_state(self, his_):
         self.state_av = [self.av_pos['vy'], self.av_pos['heading'], self.av_pos['accel'], self.av_pos['steer']]
 
         # fv_dis_list = [fv_pos['y'] - self.av_pos['y'] for fv_pos in self.fv_poses]
@@ -115,10 +115,13 @@ class InterSim(object):
         # self.state_fv = [fv_pos['v'], fv_pos['y'] - self.av_pos['y'] - 4.]
 
         sl_dis = self.Stop_Line - self.av_pos['y']
+        int_center_dis = self.Inter_Ori - self.av_pos['y']
+        int_upper_dis = self.Inter_Up - self.av_pos['y']
+        pass_dis = self.Pass_Point - self.av_pos['y']
         ll = self.av_pos['x'] - self.av_size[1] / 2 - self.Lane_Left
         lr = self.Lane_Right - (self.av_pos['x'] + self.av_size[1] / 2)
         start_pos = self.Start_Pos
-        self.state_road = [sl_dis, ll, lr, start_pos]
+        self.state_road = [sl_dis, int_center_dis, int_upper_dis, pass_dis, ll, lr, start_pos]
 
         lv_dis_list = [self.av_pos['x'] - lv_pos['x'] - 3. for lv_pos in self.lv_poses]
         l_min_dis = np.inf
@@ -127,6 +130,9 @@ class InterSim(object):
             if dis <= l_min_dis and (dis >= 0.):
                 lv_pos = self.lv_poses[i]
                 l_min_dis = dis
+        if np.isinf(l_min_dis):
+            l_min_dis = -1.
+            lv_pos['v'] = -1.
         rv_dis_list = [rv_pos['x'] - self.av_pos['x'] - 3. for rv_pos in self.rv_poses]
         r_min_dis = np.inf
         rv_pos = self.rv_poses[0]
@@ -134,18 +140,19 @@ class InterSim(object):
             if dis <= r_min_dis and (dis >= 0.):
                 rv_pos = self.rv_poses[i]
                 r_min_dis = dis
-        his_l += [lv_pos['v']]
-        his_r += [rv_pos['v']]
-        if len(his_l) > self.history_len:
-            his_l = his_l[-self.history_len:]
-            his_r = his_r[-self.history_len:]
-        self.state_hv = [l_min_dis, r_min_dis]
-        self.state_hv_mem = np.array([his_l, his_r], ndmin=2).T
+        if np.isinf(r_min_dis):
+            r_min_dis = -1.
+        if not his_:
+            his_ = [[lv_pos['v'], l_min_dis, rv_pos['v'], r_min_dis]]
+        else:
+            his_.append([lv_pos['v'], l_min_dis, rv_pos['v'], r_min_dis])
+        if len(his_) > self.history_len:
+            his_ = his_[-self.history_len:]
+        self.state_hv_mem = np.array(his_, ndmin=2)
         self.state_hv_mem = np.expand_dims(self.state_hv_mem, axis=0)
 
         self.state = np.array(self.state_av + self.state_road + self.state_hv, ndmin=2)
-        self.state_dim = self.state.shape[1]
-        return self.state, self.state_hv_mem, his_l, his_r
+        return self.state, self.state_hv_mem, his_
 
     def update_vehicle(self, r, a=0, st=0):
         a = self.Cft_Accel * a

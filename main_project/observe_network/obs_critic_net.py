@@ -33,9 +33,9 @@ class ObsCriticNetwork(object):
         self.action_grads = tf.gradients(self.model.output, self.action)  # GRADIENTS for policy update
         self.sess.run(tf.global_variables_initializer())
 
-    def gradients(self, states, actions):
+    def gradients(self, non_his, his, actions):
         return self.sess.run(self.action_grads, feed_dict={
-            self.state: states,
+            self.state: [non_his, his],
             self.action: actions
         })[0]
 
@@ -52,7 +52,7 @@ class ObsCriticNetwork(object):
         n1 = Dense(non_his_size, activation='linear')(non_his_state)
 
         his_state = Input(shape=(his_len, his_size,))
-        # h0 = keras.reshape(his_state, (-1, his_len, his_size))
+        h0 = keras.reshape(his_state, (-1, his_len * his_size))
         h1 = LSTM(HIDDEN1_UNITS, return_sequences=True)(his_state)
         h2 = LSTM(HIDDEN2_UNITS, return_sequences=False)(h1)
 

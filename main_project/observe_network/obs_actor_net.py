@@ -35,9 +35,9 @@ class ObsActorNetword(object):
         self.optimize = tf.train.AdamOptimizer(learn_rate).apply_gradients(grads)
         self.sess.run(tf.global_variables_initializer())
 
-    def train(self, states, action_grads):
+    def train(self, non_his, his, action_grads):
         self.sess.run(self.optimize, feed_dict={
-            self.state: states,
+            self.state: [non_his, his],
             self.action_gradient: action_grads})
 
     def target_train(self):
