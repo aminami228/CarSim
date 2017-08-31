@@ -51,7 +51,7 @@ class ReinAcc(object):
     Speed_limit = 12
 
     def __init__(self):
-        self.sim = InterSim(self.Speed_limit - 5. * random())
+        self.sim =InterSim(0)
         self.reward = Reward()
         self.total_reward = 0
         self.if_pass = False
@@ -84,6 +84,7 @@ class ReinAcc(object):
         self.batch_if_done = None
         self.batch_output = None
 
+        self.sim = InterSim(self.Speed_limit - 5. * random())
         self.start_time = time.time()
 
     def load_weights(self):
