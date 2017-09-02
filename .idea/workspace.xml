@@ -2,57 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb47f4d-19ca-4217-b78a-ed812ce59c4c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hrl_src/interface/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hrl_src/src/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hrl_src/utilities/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hrl_src/utilities/log_color.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hrl_src/utilities/toolfunc.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/ActorNetwork.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/CriticNetwork.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/OU.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/ReplayBuffer.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/actormodel.h5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/actormodel.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/control.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/criticmodel.h5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/criticmodel.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/intersection.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/test.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/train.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/vires_comm.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hrl_src/vires_types.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/approach_network/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/approach_network/app_actor_net.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/approach_network/app_critic_net.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/approach_network/app_replay.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/approach_src/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/approach_src/approach.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/approach_src/new_action.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/interface/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/interface/inter_sim.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/interface/inter_sim2.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/interface/inter_sim_hv.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/observe_network/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/observe_network/obs_actor_net.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/observe_network/obs_critic_net.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/observe_network/obs_replay.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/observe_src/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/observe_src/new_action.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/observe_src/observe.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/observe_src/reward_func.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/observe_src/reward_func2.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/observe_src/reward_vires.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/rewards/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/rewards/reward_app.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/rewards/reward_func2.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/rewards/reward_obs.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/rewards/reward_vires.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/utilities/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/utilities/log_color.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main_project/utilities/toolfunc.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CarSim.iml" afterPath="$PROJECT_DIR$/.idea/CarSim.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/approach_network/app_actor_net.py" afterPath="$PROJECT_DIR$/cl_src/approach_network/app_actor_net.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/approach_network/app_critic_net.py" afterPath="$PROJECT_DIR$/cl_src/approach_network/app_critic_net.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/approach_src/approach.py" afterPath="$PROJECT_DIR$/cl_src/approach_src/approach.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/rewards/reward_app.py" afterPath="$PROJECT_DIR$/cl_src/rewards/reward_app.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -71,6 +25,7 @@
     <SUITE FILE_PATH="coverage/CarSim_vires$reward_func.coverage" NAME="reward_func Coverage Results" MODIFIED="1503582093230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main_project/approach_src" />
     <SUITE FILE_PATH="coverage/CarSim_acceleration$rl_acc.coverage" NAME="rl_acc Coverage Results" MODIFIED="1502657351717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intersection_vires/approach_src" />
     <SUITE FILE_PATH="coverage/CarSim$rl_acc.coverage" NAME="rl_acc Coverage Results" MODIFIED="1502488795695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intersection_vires/approach_src" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$approach.coverage" NAME="approach Coverage Results" MODIFIED="1504157416388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cl_src/approach_src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$train.coverage" NAME="train Coverage Results" MODIFIED="1503280282466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../CarSim_sensor" />
     <SUITE FILE_PATH="coverage/CarSim_acceleration$rl_acc__2_.coverage" NAME="rl_acc (2) Coverage Results" MODIFIED="1502821906848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intersection_project/approach_src" />
     <SUITE FILE_PATH="coverage/CarSim$inter_sim.coverage" NAME="inter_sim Coverage Results" MODIFIED="1502286361806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intersection_project/approach_src" />
@@ -84,8 +39,8 @@
       <file leaf-file-name="approach.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cl_src/approach_src/approach.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="257" column="55" lean-forward="true" selection-start-line="257" selection-start-column="55" selection-end-line="257" selection-end-column="55" />
+            <state relative-caret-position="16">
+              <caret line="162" column="32" lean-forward="false" selection-start-line="162" selection-start-column="32" selection-end-line="162" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -94,8 +49,8 @@
       <file leaf-file-name="inter_sim.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cl_src/interface/inter_sim.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="95" column="13" lean-forward="false" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="13" />
+            <state relative-caret-position="1280">
+              <caret line="85" column="31" lean-forward="false" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="31" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -106,8 +61,8 @@
       <file leaf-file-name="reward_app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cl_src/rewards/reward_app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
-              <caret line="54" column="49" lean-forward="false" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
+            <state relative-caret-position="2416">
+              <caret line="156" column="70" lean-forward="true" selection-start-line="156" selection-start-column="70" selection-end-line="156" selection-end-column="70" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -118,8 +73,8 @@
       <file leaf-file-name="app_actor_net.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cl_src/approach_network/app_actor_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="56" column="42" lean-forward="false" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="42" />
+            <state relative-caret-position="400">
+              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -130,8 +85,8 @@
       <file leaf-file-name="app_critic_net.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cl_src/approach_network/app_critic_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="736">
+              <caret line="55" column="53" lean-forward="false" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -150,8 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>logging</find>
-      <find>create</find>
       <find>update_vehicle</find>
       <find>scp_sock</find>
       <find>get_state</find>
@@ -180,6 +133,8 @@
       <find>update_weights</find>
       <find>self.total_ti</find>
       <find>self.total_time</find>
+      <find>episode_count</find>
+      <find>not_move</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -188,7 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/intersection_vires/approach_src/vires_comm.py" />
         <option value="$PROJECT_DIR$/intersection_vires/approach_src/rl_acc.py" />
         <option value="$PROJECT_DIR$/intersection_vires/approach_src/control.py" />
         <option value="$PROJECT_DIR$/speed_control/approach_src/vires_types.py" />
@@ -235,9 +189,10 @@
         <option value="$PROJECT_DIR$/hrl_src/networks/replay.py" />
         <option value="$PROJECT_DIR$/hrl_src/rewards/reward_hrl.py" />
         <option value="$PROJECT_DIR$/hrl_src/src/hrl.py" />
-        <option value="$PROJECT_DIR$/cl_src/approach_network/app_actor_net.py" />
-        <option value="$PROJECT_DIR$/cl_src/rewards/reward_app.py" />
         <option value="$PROJECT_DIR$/cl_src/interface/inter_sim.py" />
+        <option value="$PROJECT_DIR$/cl_src/approach_network/app_actor_net.py" />
+        <option value="$PROJECT_DIR$/cl_src/approach_network/app_critic_net.py" />
+        <option value="$PROJECT_DIR$/cl_src/rewards/reward_app.py" />
         <option value="$PROJECT_DIR$/cl_src/approach_src/approach.py" />
       </list>
     </option>
@@ -249,10 +204,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="59" />
-    <option name="y" value="-4" />
-    <option name="width" value="1861" />
-    <option name="height" value="1084" />
+    <option name="x" value="1978" />
+    <option name="y" value="-11" />
+    <option name="width" value="1863" />
+    <option name="height" value="1092" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -270,6 +225,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -310,7 +266,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -339,7 +294,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.observe">
+  <component name="RunManager" selected="Python.approach">
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -434,6 +389,38 @@
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
     </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CarSim_vires" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CarSim" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -543,37 +530,23 @@
       <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <configuration default="true" type="tests" factoryName="py.test">
+    <configuration name="approach" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CarSim_vires" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Nosetests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cl_src/approach_src" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CarSim" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cl_src/approach_src/approach.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <configuration name="hrl_vires" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -647,18 +620,20 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.hrl_vires" />
       <item index="1" class="java.lang.String" itemvalue="Python.rl_acc" />
       <item index="2" class="java.lang.String" itemvalue="Python.reward_func" />
       <item index="3" class="java.lang.String" itemvalue="Python.observe" />
+      <item index="4" class="java.lang.String" itemvalue="Python.approach" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.observe" />
-        <item index="1" class="java.lang.String" itemvalue="Python.reward_func" />
-        <item index="2" class="java.lang.String" itemvalue="Python.rl_acc" />
-        <item index="3" class="java.lang.String" itemvalue="Python.hrl_vires" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.approach" />
+        <item index="1" class="java.lang.String" itemvalue="Python.observe" />
+        <item index="2" class="java.lang.String" itemvalue="Python.reward_func" />
+        <item index="3" class="java.lang.String" itemvalue="Python.rl_acc" />
+        <item index="4" class="java.lang.String" itemvalue="Python.hrl_vires" />
       </list>
     </recent_temporary>
   </component>
@@ -685,10 +660,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="59" y="-4" width="1861" height="1084" extended-state="6" />
-    <editor active="true" />
+    <frame x="1978" y="-11" width="1863" height="1092" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14986226" sideWeight="0.49455675" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15316804" sideWeight="0.49455675" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.49146006" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3322546" sideWeight="0.56271183" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -706,7 +680,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.4980716" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37540454" sideWeight="0.5019284" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27748692" sideWeight="0.5019284" order="5" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -746,7 +720,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="273" />
+      <option name="time" value="274" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -803,7 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="359" column="0" lean-forward="false" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -923,30 +896,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cl_src/rewards/reward_app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="54" column="49" lean-forward="false" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cl_src/approach_network/app_actor_net.py">
+    <entry file="file://$PROJECT_DIR$/cl_src/approach_network/app_critic_net.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
-          <caret line="56" column="42" lean-forward="false" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="42" />
+          <caret line="55" column="53" lean-forward="false" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cl_src/approach_network/app_critic_net.py">
+    <entry file="file://$PROJECT_DIR$/cl_src/approach_network/app_actor_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="400">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -955,18 +918,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cl_src/interface/inter_sim.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="95" column="13" lean-forward="false" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="13" />
+        <state relative-caret-position="1280">
+          <caret line="85" column="31" lean-forward="false" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="31" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cl_src/rewards/reward_app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2416">
+          <caret line="156" column="70" lean-forward="true" selection-start-line="156" selection-start-column="70" selection-end-line="156" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cl_src/approach_src/approach.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="257" column="55" lean-forward="true" selection-start-line="257" selection-start-column="55" selection-end-line="257" selection-end-column="55" />
+        <state relative-caret-position="16">
+          <caret line="162" column="32" lean-forward="false" selection-start-line="162" selection-start-column="32" selection-end-line="162" selection-end-column="32" />
           <folding />
         </state>
       </provider>

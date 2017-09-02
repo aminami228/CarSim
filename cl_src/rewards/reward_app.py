@@ -32,19 +32,19 @@ class AppReward(object):
         self.state = state
         r_smooth = self.reward_smooth(a, st)
         r_clerance, collision = self.reward_clear()
-        r_stop = self.reward_stop(a)
+        r_stop, cannot_stop = self.reward_stop(a)
         r_speedlimit = self.reward_speedlimit()
         # r_v = 0.1 * self.av_pos['vy'] - 0.2 if self.av_pos['vy'] <= self.Speed_limit \
         #     else (- 0.6 * self.av_pos['vy'] + 8.4) - 0.2
         # r_v = max(- 0.2, r_v)
         r_time = - 1.
-        # r_crash = - 500. if collision == 1 else 0.
-        r_crash = 0.
+        r_crash = - 500. if collision == 1 else 0.
+        # r_crash = 0.
         r_dis = self.reward_dis()
         r_finish = self.reward_finish()
         r_notmove, not_move = self.reward_notmove(a)
         r = r_dis + r_time + r_speedlimit + r_clerance + r_smooth + r_stop + r_finish + r_crash + r_notmove
-        return r, collision, not_move
+        return r, collision, not_move, cannot_stop
 
     def reward_notmove(self, a):
         not_move = 0
@@ -61,7 +61,7 @@ class AppReward(object):
                 not_move = 1
                 f = 100 * accel
                 # f = 100. * (self.tools.sigmoid(accel, 4.) - 0.5) if accel <= 0. else 0.
-                # f = - 500.
+                f = - 500.
             # fp.append(f)
         # plt.plot(np.linspace(-5., 5., 100), fp, 'r.')
         # plt.xlabel('acceleration m/s')
@@ -139,10 +139,22 @@ class AppReward(object):
         # if self.state[6] <= 5 and (self.state[0] >= self.state[6]):
         #     f = - 5. * (self.state[0] - self.state[6])
         #############################################################################
-        f = 0.
-        if self.state[6] <= 5:
-            x = self.state[0] ** 2 / self.state[6]
-            f -= (x - 2. * self.Cft_Accel) if (x >= 2. * self.Cft_Accel) else 0.
+        # good version
+        # f = 0.
+        # if self.state[6] <= 5:
+        #     x = self.state[0] ** 2 / self.state[6]
+        #     f -= (x - 2. * self.Cft_Accel) if (x >= 2. * self.Cft_Accel) else 0.
+        #############################################################################
+        # f = 0.
+        # cannot_stop = 0
+        # x = self.state[0] ** 2 / (2. * self.state[6])
+        # f -= 10. * (x - self.Cft_Accel) if (x > self.Cft_Accel) else 0.
+        # if x >= 1.5 * self.Cft_Accel:
+        #     cannot_stop = 1
+        #     f -= 500.
+        #############################################################################
+        f = - 100. * self.state[0] if (self.state[6] <= 2.0) else 0.
+        cannot_stop = 1 if (self.state[6] <= 2.0 and (self.state[0] > 4.)) else 0
         # fp = []
         # for x in np.linspace(0., 20., 100):
         #     f = - 5. * (x - 2. * self.Cft_Accel) if (x >= 2. * self.Cft_Accel) else 0.
@@ -151,7 +163,7 @@ class AppReward(object):
         # plt.xlabel('v^2 / l')
         # plt.ylabel('reward')
         # plt.show()
-        return f
+        return f, cannot_stop
 
     def reward_speedlimit(self):
         #############################################################################

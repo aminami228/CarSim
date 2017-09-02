@@ -1,0 +1,436 @@
+oss: 0.0, Crash: 0, Not Stop: 25, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 56
+2017-08-30 23:13:55,667 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 105.900192134, Dis to SL: 1.96817443351, Dis to FL: 26.109871213, Velocity: 1.99650906293
+2017-08-30 23:13:55,668 - DEBUG - 3382-th Episode: Steps: 499, Time: 3.92094707489, Reward: 4630.43088876 Loss: 0.0, Crash: 0, Not Stop: 25, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 57
+2017-08-30 23:13:59,867 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 124.062906674, Dis to SL: 1.91072515396, Dis to FL: 18.1737636095, Velocity: 2.70281042695
+2017-08-30 23:13:59,868 - DEBUG - 3383-th Episode: Steps: 541, Time: 4.20019602776, Reward: 4017.27733434 Loss: 0.0, Crash: 0, Not Stop: 25, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 58
+2017-08-30 23:14:04,269 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 115.861867928, Dis to SL: 1.94300392082, Dis to FL: 18.8999485786, Velocity: 2.95148337095
+2017-08-30 23:14:04,270 - DEBUG - 3384-th Episode: Steps: 552, Time: 4.40159893036, Reward: 3822.59412153 Loss: 0.0, Crash: 0, Not Stop: 25, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 59
+2017-08-30 23:14:09,958 - WARNING - Did not stop at stop line! Start: 142.066761744, Dis to SL: 1.92134137183, Dis to FL: 21.89829893, Velocity: 3.56871351366
+2017-08-30 23:14:09,958 - DEBUG - 3385-th Episode: Steps: 713, Time: 5.68823003769, Reward: 2516.59224825 Loss: 0.0, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 59
+2017-08-30 23:14:13,870 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 98.8602658773, Dis to SL: 1.95932760655, Dis to FL: 23.255573062, Velocity: 2.1078564804
+2017-08-30 23:14:13,870 - DEBUG - 3386-th Episode: Steps: 488, Time: 3.91245508194, Reward: 4087.73920877 Loss: 0.0, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 60
+2017-08-30 23:14:18,288 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 129.431388166, Dis to SL: 1.91868683139, Dis to FL: 16.5923860342, Velocity: 2.73517569441
+2017-08-30 23:14:18,288 - DEBUG - 3387-th Episode: Steps: 560, Time: 4.41727399826, Reward: 3569.33231897 Loss: 0.0, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 61
+2017-08-30 23:14:22,223 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 114.564678753, Dis to SL: 1.9304583614, Dis to FL: 16.4498915436, Velocity: 2.74050945303
+2017-08-30 23:14:22,223 - DEBUG - 3388-th Episode: Steps: 493, Time: 3.93515396118, Reward: 4119.15219497 Loss: 0.0, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 62
+2017-08-30 23:14:25,663 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 106.669601304, Dis to SL: 1.96857127323, Dis to FL: 16.9527871083, Velocity: 2.89444802643
+2017-08-30 23:14:25,663 - DEBUG - 3389-th Episode: Steps: 437, Time: 3.4400510788, Reward: 4358.34961092 Loss: 0.0, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 63
+2017-08-30 23:14:29,876 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 119.48321672, Dis to SL: 1.91116891992, Dis to FL: 18.943283283, Velocity: 2.9767330079
+2017-08-30 23:14:29,877 - DEBUG - 3390-th Episode: Steps: 539, Time: 4.21320199966, Reward: 4025.55089154 Loss: 0.0, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 64
+2017-08-30 23:14:34,233 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 125.751381509, Dis to SL: 1.93036299523, Dis to FL: 18.2950365405, Velocity: 2.89632999974
+2017-08-30 23:14:34,233 - DEBUG - 3391-th Episode: Steps: 539, Time: 4.35619592667, Reward: 3958.26367229 Loss: 0.0, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 65
+2017-08-30 23:14:37,931 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 102.632882643, Dis to SL: 1.91858876032, Dis to FL: 18.1611173086, Velocity: 2.72919910715
+2017-08-30 23:14:37,931 - DEBUG - 3392-th Episode: Steps: 456, Time: 3.69836997986, Reward: 4528.42426771 Loss: 0.0, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 66
+2017-08-30 23:14:41,384 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 95.7492094612, Dis to SL: 1.93387323887, Dis to FL: 20.3347287318, Velocity: 2.37497370118
+2017-08-30 23:14:41,384 - DEBUG - 3393-th Episode: Steps: 422, Time: 3.45238089561, Reward: 4778.76871959 Loss: 0.0, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 67
+2017-08-30 23:14:45,154 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 114.756778023, Dis to SL: 1.91870489429, Dis to FL: 15.793487241, Velocity: 2.64567732993
+2017-08-30 23:14:45,154 - DEBUG - 3394-th Episode: Steps: 484, Time: 3.77011418343, Reward: 4142.82776204 Loss: 0.0, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 68
+2017-08-30 23:14:50,334 - WARNING - Did not stop at stop line! Start: 143.180867809, Dis to SL: 1.96772201366, Dis to FL: 20.6410164248, Velocity: 3.26040599925
+2017-08-30 23:14:50,335 - DEBUG - 3395-th Episode: Steps: 649, Time: 5.18034887314, Reward: 1552.5832453 Loss: 0.0, Crash: 0, Not Stop: 27, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 68
+2017-08-30 23:14:53,610 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 100.139243633, Dis to SL: 1.96773268309, Dis to FL: 17.7933339716, Velocity: 2.78665878992
+2017-08-30 23:14:53,610 - DEBUG - 3396-th Episode: Steps: 414, Time: 3.27513289452, Reward: 4564.03478103 Loss: 0.0, Crash: 0, Not Stop: 27, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 69
+2017-08-30 23:14:58,366 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 136.205487417, Dis to SL: 1.95031620814, Dis to FL: 18.776567012, Velocity: 2.74864408293
+2017-08-30 23:14:58,367 - DEBUG - 3397-th Episode: Steps: 594, Time: 4.75677895546, Reward: 2775.28410161 Loss: 0.0, Crash: 0, Not Stop: 27, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 70
+2017-08-30 23:15:02,224 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 103.396718694, Dis to SL: 1.9482171935, Dis to FL: 24.1835972975, Velocity: 2.12873147924
+2017-08-30 23:15:02,225 - DEBUG - 3398-th Episode: Steps: 477, Time: 3.85770702362, Reward: 4632.58928341 Loss: 0.0, Crash: 0, Not Stop: 27, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 71
+2017-08-30 23:15:06,573 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 126.605920538, Dis to SL: 1.99453919462, Dis to FL: 17.4902052411, Velocity: 2.75803524542
+2017-08-30 23:15:06,573 - DEBUG - 3399-th Episode: Steps: 542, Time: 4.34811615944, Reward: 3365.43124433 Loss: 0.0, Crash: 0, Not Stop: 27, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 72
+2017-08-30 23:15:06,573 - INFO - Crash: [2, 0, 3, 11, 2, 0, 18, 15, 26, 0, 0, 0, 4, 7, 20, 26, 36, 44, 67, 89, 84, 0, 68, 36, 14, 16, 4, 20, 3, 2, 4, 22, 8, 0], Not Stop: [52, 31, 32, 26, 29, 0, 25, 2, 12, 0, 9, 70, 14, 9, 29, 23, 21, 26, 3, 0, 5, 2, 5, 8, 17, 0, 20, 0, 15, 3, 4, 0, 6, 27], Not Finished: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], Overspeed: [4, 69, 1, 63, 2, 48, 3, 83, 28, 91, 4, 6, 9, 48, 1, 51, 1, 0, 26, 0, 0, 0, 9, 56, 34, 24, 1, 10, 15, 15, 3, 0, 0, 0], Not Move: [35, 0, 41, 0, 49, 0, 24, 0, 7, 2, 27, 0, 9, 0, 11, 0, 9, 0, 2, 11, 6, 3, 7, 0, 25, 8, 18, 59, 12, 6, 12, 12, 9, 1], Success: [7, 0, 23, 0, 18, 52, 30, 0, 27, 7, 60, 24, 64, 36, 39, 0, 33, 30, 2, 0, 5, 95, 11, 0, 10, 52, 57, 11, 55, 74, 77, 66, 77, 72], Loss: 0.0, Time: [1175.3636629581451, 1325.8046610355377, 2709.945363998413, 3006.6839921474457, 4505.699679136276, 4935.117380142212, 6223.045480966568, 6434.858991146088, 7211.185703992844, 7282.630923032761, 8842.108170032501, 9311.281839132309, 10535.918928146362, 10815.487190008163, 11957.275830030441, 12162.840547084808, 13179.317733049393, 13485.076256036758, 14004.07461309433, 14204.335383176804, 14845.068530082703, 15303.021150112152, 16124.138276100159, 16366.742247104645, 17295.23852300644, 17655.153922080994, 18843.084972143173, 19156.67893910408, 20177.962363004684, 20527.884932994843, 21648.84183216095, 22000.8834130764, 23161.03391313553, 23582.352097034454], Test: [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
+2017-08-30 23:15:18,556 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 109.756933579, Dis to SL: 1.94947448353, Dis to FL: 25.1412309817, Velocity: 2.23422717957
+2017-08-30 23:15:18,569 - DEBUG - 3400-th Episode: Steps: 525, Time: 11.9958190918, Reward: 2962.50602484 Loss: 383.549, Crash: 0, Not Stop: 0, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:15:29,661 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 113.965884476, Dis to SL: 1.98276250893, Dis to FL: 16.2003941788, Velocity: 2.4137492941
+2017-08-30 23:15:29,677 - DEBUG - 3401-th Episode: Steps: 490, Time: 11.108161211, Reward: 3274.26416467 Loss: 466.061, Crash: 0, Not Stop: 0, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 2
+2017-08-30 23:15:41,661 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 113.662027613, Dis to SL: 1.9628894522, Dis to FL: 19.5052252303, Velocity: 2.32369012194
+2017-08-30 23:15:41,677 - DEBUG - 3402-th Episode: Steps: 531, Time: 11.9994840622, Reward: 2745.86752791 Loss: 231.665, Crash: 0, Not Stop: 0, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 3
+2017-08-30 23:15:52,137 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 97.9846871023, Dis to SL: 1.98403784013, Dis to FL: 21.798216695, Velocity: 2.01466747539
+2017-08-30 23:15:52,158 - DEBUG - 3403-th Episode: Steps: 465, Time: 10.4806568623, Reward: 3524.57009177 Loss: 1560.36, Crash: 0, Not Stop: 0, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:16:06,962 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 132.588228552, Dis to SL: 1.9900416095, Dis to FL: 24.1956838314, Velocity: 2.85536024689
+2017-08-30 23:16:06,985 - DEBUG - 3404-th Episode: Steps: 655, Time: 14.8272898197, Reward: 2863.5043914 Loss: 686.946, Crash: 0, Not Stop: 0, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 5
+2017-08-30 23:16:18,885 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 113.775041351, Dis to SL: 1.94674874369, Dis to FL: 26.3215269589, Velocity: 1.72848731771
+2017-08-30 23:16:18,905 - DEBUG - 3405-th Episode: Steps: 524, Time: 11.9193880558, Reward: 2775.55891087 Loss: 672.046, Crash: 0, Not Stop: 0, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 6
+2017-08-30 23:16:33,398 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 134.668668645, Dis to SL: 1.98388351583, Dis to FL: 19.003364939, Velocity: 2.8116737242
+2017-08-30 23:16:33,419 - DEBUG - 3406-th Episode: Steps: 636, Time: 14.5135951042, Reward: 2237.0824544 Loss: 4842.38, Crash: 0, Not Stop: 0, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 7
+2017-08-30 23:16:47,724 - WARNING - Did not stop at stop line! Start: 133.905509392, Dis to SL: 1.9748968664, Dis to FL: 21.4582957189, Velocity: 3.02431168316
+2017-08-30 23:16:47,749 - DEBUG - 3407-th Episode: Steps: 631, Time: 14.3296620846, Reward: 1621.61354232 Loss: 6994.51, Crash: 0, Not Stop: 1, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 7
+2017-08-30 23:17:00,373 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 110.084309818, Dis to SL: 1.90608819527, Dis to FL: 28.1537877149, Velocity: 2.98278387257
+2017-08-30 23:17:00,394 - DEBUG - 3408-th Episode: Steps: 553, Time: 12.645170927, Reward: 3350.84997655 Loss: 1970.06, Crash: 0, Not Stop: 1, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 8
+2017-08-30 23:17:08,559 - WARNING - Not move! Start: 114.710249229, Dis to SL: 11.6268391417, Dis to FL: 5.29136038464, Velocity: 0.0
+2017-08-30 23:17:08,584 - DEBUG - 3409-th Episode: Steps: 362, Time: 8.18932199478, Reward: 1780.56987373 Loss: 344.963, Crash: 0, Not Stop: 1, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 8
+2017-08-30 23:17:20,170 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 102.488403176, Dis to SL: 1.93078149567, Dis to FL: 25.5430284304, Velocity: 2.78059596955
+2017-08-30 23:17:20,189 - DEBUG - 3410-th Episode: Steps: 510, Time: 11.6048018932, Reward: 3138.17890584 Loss: 3243.24, Crash: 0, Not Stop: 1, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 9
+2017-08-30 23:17:30,241 - WARNING - Did not stop at stop line! Start: 120.782982452, Dis to SL: 1.99910983062, Dis to FL: 9.50107099706, Velocity: 3.33342910536
+2017-08-30 23:17:30,260 - DEBUG - 3411-th Episode: Steps: 444, Time: 10.0709009171, Reward: 1558.63017675 Loss: 1076.97, Crash: 0, Not Stop: 2, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 9
+2017-08-30 23:17:43,217 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 122.969398408, Dis to SL: 1.98488377251, Dis to FL: 19.2633199157, Velocity: 2.64146216818
+2017-08-30 23:17:43,237 - DEBUG - 3412-th Episode: Steps: 570, Time: 12.9767320156, Reward: 2964.42428981 Loss: 1619.46, Crash: 0, Not Stop: 2, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 10
+2017-08-30 23:17:54,421 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 101.781680048, Dis to SL: 1.95243161663, Dis to FL: 27.7345351988, Velocity: 2.54724760524
+2017-08-30 23:17:54,443 - DEBUG - 3413-th Episode: Steps: 493, Time: 11.2062559128, Reward: 3820.32861994 Loss: 1181.96, Crash: 0, Not Stop: 2, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 11
+2017-08-30 23:18:06,048 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 109.636378901, Dis to SL: 1.92564051361, Dis to FL: 29.694891954, Velocity: 2.36419519906
+2017-08-30 23:18:06,067 - DEBUG - 3414-th Episode: Steps: 513, Time: 11.6238610744, Reward: 3269.57286876 Loss: 758.393, Crash: 0, Not Stop: 2, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 12
+2017-08-30 23:18:17,694 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 101.953186843, Dis to SL: 1.98281598685, Dis to FL: 30.008493801, Velocity: 2.39620494217
+2017-08-30 23:18:17,718 - DEBUG - 3415-th Episode: Steps: 515, Time: 11.6507589817, Reward: 3540.58867755 Loss: 2158.63, Crash: 0, Not Stop: 2, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 13
+2017-08-30 23:18:26,718 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 97.2108212467, Dis to SL: 1.9526470044, Dis to FL: 18.8966800068, Velocity: 2.55128284776
+2017-08-30 23:18:26,735 - DEBUG - 3416-th Episode: Steps: 399, Time: 9.0172970295, Reward: 3796.96468106 Loss: 541.908, Crash: 0, Not Stop: 2, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 14
+2017-08-30 23:18:42,605 - WARNING - Did not stop at stop line! Start: 141.561401771, Dis to SL: 1.88836056346, Dis to FL: 20.6875570568, Velocity: 3.52415474297
+2017-08-30 23:18:42,622 - DEBUG - 3417-th Episode: Steps: 699, Time: 15.8866760731, Reward: 635.738666089 Loss: 1517.79, Crash: 0, Not Stop: 3, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 14
+2017-08-30 23:18:54,176 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 111.427718337, Dis to SL: 1.9969023261, Dis to FL: 21.915739012, Velocity: 2.72416142191
+2017-08-30 23:18:54,193 - DEBUG - 3418-th Episode: Steps: 510, Time: 11.5707900524, Reward: 3952.04326923 Loss: 699.768, Crash: 0, Not Stop: 3, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 15
+2017-08-30 23:19:09,344 - WARNING - Did not stop at stop line! Start: 138.826154903, Dis to SL: 1.97872170299, Dis to FL: 19.3272397203, Velocity: 3.55427769723
+2017-08-30 23:19:09,366 - DEBUG - 3419-th Episode: Steps: 673, Time: 15.1730101109, Reward: 1249.73486635 Loss: 37097.9, Crash: 0, Not Stop: 4, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 15
+2017-08-30 23:19:19,741 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 102.746625051, Dis to SL: 1.94236509562, Dis to FL: 17.4036233351, Velocity: 2.52835320679
+2017-08-30 23:19:19,761 - DEBUG - 3420-th Episode: Steps: 457, Time: 10.3941361904, Reward: 4166.75232491 Loss: 1357.33, Crash: 0, Not Stop: 4, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 16
+2017-08-30 23:19:36,059 - WARNING - Did not stop at stop line! Start: 144.599171407, Dis to SL: 1.91062581889, Dis to FL: 25.5009425293, Velocity: 3.17565985036
+2017-08-30 23:19:36,080 - DEBUG - 3421-th Episode: Steps: 715, Time: 16.319423914, Reward: 2286.6606297 Loss: 5838.35, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 16
+2017-08-30 23:19:49,459 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 135.517036729, Dis to SL: 1.99040076993, Dis to FL: 24.5215351166, Velocity: 2.6617718715
+2017-08-30 23:19:49,476 - DEBUG - 3422-th Episode: Steps: 590, Time: 13.3952710629, Reward: 3266.6415689 Loss: 2860.46, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 17
+2017-08-30 23:20:05,434 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 140.051292248, Dis to SL: 1.96797370866, Dis to FL: 27.2400356865, Velocity: 2.70780978379
+2017-08-30 23:20:05,455 - DEBUG - 3423-th Episode: Steps: 706, Time: 15.9791359901, Reward: 2123.31351591 Loss: 3435.63, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 18
+2017-08-30 23:20:18,317 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 121.599961644, Dis to SL: 1.98913776257, Dis to FL: 30.2101850863, Velocity: 2.5210601204
+2017-08-30 23:20:18,332 - DEBUG - 3424-th Episode: Steps: 569, Time: 12.8768730164, Reward: 3436.95734277 Loss: 472.816, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 19
+2017-08-30 23:20:31,455 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 117.18914432, Dis to SL: 1.92369710944, Dis to FL: 26.4192848533, Velocity: 2.57519110225
+2017-08-30 23:20:31,478 - DEBUG - 3425-th Episode: Steps: 576, Time: 13.1451380253, Reward: 3492.85568299 Loss: 983.209, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 20
+2017-08-30 23:20:44,689 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 118.129813969, Dis to SL: 1.96761195094, Dis to FL: 25.3376613036, Velocity: 2.76453156114
+2017-08-30 23:20:44,714 - DEBUG - 3426-th Episode: Steps: 576, Time: 13.2358779907, Reward: 3453.06995478 Loss: 482.426, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 1, Success: 21
+2017-08-30 23:20:54,166 - WARNING - Not move! Start: 124.293628929, Dis to SL: 9.02576155352, Dis to FL: 3.44167559126, Velocity: 0.00562232503194
+2017-08-30 23:20:54,185 - DEBUG - 3427-th Episode: Steps: 421, Time: 9.4708199501, Reward: 576.022537111 Loss: 2724.75, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 2, Success: 21
+2017-08-30 23:21:04,809 - WARNING - Not move! Start: 141.016799126, Dis to SL: 14.8291963403, Dis to FL: 5.96011514773, Velocity: 0.00342156324911
+2017-08-30 23:21:04,827 - DEBUG - 3428-th Episode: Steps: 463, Time: 10.6418809891, Reward: 3.86353146705 Loss: 2119.86, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 3, Success: 21
+2017-08-30 23:21:16,499 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 102.701476324, Dis to SL: 1.99247200646, Dis to FL: 26.4043936145, Velocity: 2.62941502278
+2017-08-30 23:21:16,520 - DEBUG - 3429-th Episode: Steps: 511, Time: 11.6930220127, Reward: 3312.20175241 Loss: 1526.84, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 3, Success: 22
+2017-08-30 23:21:26,654 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 95.7600190712, Dis to SL: 1.92050452693, Dis to FL: 24.2017276555, Velocity: 2.62031589888
+2017-08-30 23:21:26,673 - DEBUG - 3430-th Episode: Steps: 448, Time: 10.1530680656, Reward: 4551.93952899 Loss: 1635.26, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 3, Success: 23
+2017-08-30 23:21:39,295 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 110.295527035, Dis to SL: 1.92465617812, Dis to FL: 32.3171899281, Velocity: 2.58993815852
+2017-08-30 23:21:39,314 - DEBUG - 3431-th Episode: Steps: 554, Time: 12.6408600807, Reward: 3530.17180839 Loss: 5451.22, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 3, Success: 24
+2017-08-30 23:21:50,798 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 103.129071471, Dis to SL: 1.98779598781, Dis to FL: 29.3519255035, Velocity: 2.62848469732
+2017-08-30 23:21:50,815 - DEBUG - 3432-th Episode: Steps: 507, Time: 11.500660181, Reward: 3696.78667654 Loss: 558.11, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 3, Success: 25
+2017-08-30 23:22:01,427 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 104.872593951, Dis to SL: 1.93663520706, Dis to FL: 16.3540033211, Velocity: 2.62748944454
+2017-08-30 23:22:01,449 - DEBUG - 3433-th Episode: Steps: 464, Time: 10.6334960461, Reward: 3459.22549024 Loss: 5005.02, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 3, Success: 26
+2017-08-30 23:22:16,911 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 137.697725476, Dis to SL: 1.99035978311, Dis to FL: 26.5042655248, Velocity: 2.77989706248
+2017-08-30 23:22:16,930 - DEBUG - 3434-th Episode: Steps: 680, Time: 15.4807739258, Reward: 2889.17926718 Loss: 1415.43, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 3, Success: 27
+2017-08-30 23:22:25,132 - WARNING - Not move! Start: 110.180800414, Dis to SL: 10.2355643429, Dis to FL: 3.98625810321, Velocity: 0.0
+2017-08-30 23:22:25,154 - DEBUG - 3435-th Episode: Steps: 363, Time: 8.22469687462, Reward: 1297.63851827 Loss: 975.382, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 4, Success: 27
+2017-08-30 23:22:39,102 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 120.837449397, Dis to SL: 1.92388295046, Dis to FL: 25.8399660848, Velocity: 2.44677418136
+2017-08-30 23:22:39,120 - DEBUG - 3436-th Episode: Steps: 613, Time: 13.9657399654, Reward: 3062.95041659 Loss: 2361.19, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 4, Success: 28
+2017-08-30 23:22:53,288 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 129.097180906, Dis to SL: 1.97806821001, Dis to FL: 25.8666839754, Velocity: 2.60918200236
+2017-08-30 23:22:53,309 - DEBUG - 3437-th Episode: Steps: 625, Time: 14.1887440681, Reward: 3725.8365927 Loss: 2262.44, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 4, Success: 29
+2017-08-30 23:22:58,480 - WARNING - Exceed Speed Limit: 133.585989465, Dis to SL: 59.5017878467, Dis to FL: 17.6378991925, Velocity: 14.045981471
+2017-08-30 23:22:58,497 - DEBUG - 3438-th Episode: Steps: 229, Time: 5.18798398972, Reward: 1228.34215496 Loss: 2012.46, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 1, Not Move: 4, Success: 29
+2017-08-30 23:23:07,545 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 104.115433838, Dis to SL: 1.99257265625, Dis to FL: 14.2665712064, Velocity: 2.45191463186
+2017-08-30 23:23:07,566 - DEBUG - 3439-th Episode: Steps: 401, Time: 9.06795978546, Reward: 2829.83675646 Loss: 930.152, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 1, Not Move: 4, Success: 30
+2017-08-30 23:23:13,664 - WARNING - Exceed Speed Limit: 144.496080326, Dis to SL: 58.5595136902, Dis to FL: 25.2064564339, Velocity: 14.081468898
+2017-08-30 23:23:13,682 - DEBUG - 3440-th Episode: Steps: 269, Time: 6.11595416069, Reward: 1293.86127518 Loss: 655.245, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 2, Not Move: 4, Success: 30
+2017-08-30 23:23:19,001 - WARNING - Exceed Speed Limit: 120.039999574, Dis to SL: 46.5890426799, Dis to FL: 21.3437568023, Velocity: 14.0089895316
+2017-08-30 23:23:19,023 - DEBUG - 3441-th Episode: Steps: 236, Time: 5.34151911736, Reward: 1544.34106789 Loss: 1462.84, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 30
+2017-08-30 23:23:29,511 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 108.993526753, Dis to SL: 1.98712304999, Dis to FL: 14.3191874268, Velocity: 2.48079469821
+2017-08-30 23:23:29,532 - DEBUG - 3442-th Episode: Steps: 461, Time: 10.5081210136, Reward: 1614.98880349 Loss: 1806.66, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 31
+2017-08-30 23:23:44,254 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 128.876948664, Dis to SL: 1.99817412079, Dis to FL: 22.975768169, Velocity: 2.6154076486
+2017-08-30 23:23:44,271 - DEBUG - 3443-th Episode: Steps: 649, Time: 14.739071846, Reward: 3457.77495724 Loss: 579.911, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 32
+2017-08-30 23:23:53,391 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 103.74816194, Dis to SL: 1.94299476382, Dis to FL: 13.4861200477, Velocity: 2.41919211552
+2017-08-30 23:23:53,410 - DEBUG - 3444-th Episode: Steps: 410, Time: 9.13914895058, Reward: 3194.8036854 Loss: 450.498, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 33
+2017-08-30 23:24:06,535 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 122.208992026, Dis to SL: 1.97401545878, Dis to FL: 25.2538616, Velocity: 2.56458075311
+2017-08-30 23:24:06,555 - DEBUG - 3445-th Episode: Steps: 579, Time: 13.1446330547, Reward: 4386.5225234 Loss: 1501.1, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 34
+2017-08-30 23:24:15,949 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 109.873710506, Dis to SL: 1.93152364739, Dis to FL: 12.3494580383, Velocity: 2.65835682419
+2017-08-30 23:24:15,970 - DEBUG - 3446-th Episode: Steps: 418, Time: 9.4143447876, Reward: 3058.6522719 Loss: 1690.45, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 35
+2017-08-30 23:24:30,577 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 136.497252833, Dis to SL: 1.93138315282, Dis to FL: 24.707981085, Velocity: 2.82267803173
+2017-08-30 23:24:30,598 - DEBUG - 3447-th Episode: Steps: 638, Time: 14.6283619404, Reward: 4191.08977143 Loss: 1474.83, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 36
+2017-08-30 23:24:43,108 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 123.333988908, Dis to SL: 1.99340704785, Dis to FL: 15.2308259423, Velocity: 2.81734753151
+2017-08-30 23:24:43,134 - DEBUG - 3448-th Episode: Steps: 550, Time: 12.535902977, Reward: 3811.579208 Loss: 3523.53, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 37
+2017-08-30 23:24:57,028 - WARNING - Did not stop at stop line! Start: 135.82555604, Dis to SL: 1.9260369921, Dis to FL: 16.0134952385, Velocity: 3.28941984311
+2017-08-30 23:24:57,048 - DEBUG - 3449-th Episode: Steps: 613, Time: 13.9135169983, Reward: 2803.58792439 Loss: 472.541, Crash: 0, Not Stop: 6, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 37
+2017-08-30 23:25:09,599 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 113.6083798, Dis to SL: 1.9429368766, Dis to FL: 20.8807250212, Velocity: 2.8471140197
+2017-08-30 23:25:09,617 - DEBUG - 3450-th Episode: Steps: 554, Time: 12.5685789585, Reward: 3161.09577573 Loss: 1744.3, Crash: 0, Not Stop: 6, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 38
+2017-08-30 23:25:20,503 - WARNING - Did not stop at stop line! Start: 102.414946082, Dis to SL: 1.94734025021, Dis to FL: 19.2826273774, Velocity: 3.13904673294
+2017-08-30 23:25:20,521 - DEBUG - 3451-th Episode: Steps: 479, Time: 10.9036121368, Reward: 2230.47170988 Loss: 1451.44, Crash: 0, Not Stop: 7, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 38
+2017-08-30 23:25:28,088 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 98.7307923438, Dis to SL: 1.90376181013, Dis to FL: 17.1534625622, Velocity: 2.89630285906
+2017-08-30 23:25:28,110 - DEBUG - 3452-th Episode: Steps: 338, Time: 7.58883285522, Reward: 4262.11721107 Loss: 396.397, Crash: 0, Not Stop: 7, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 39
+2017-08-30 23:25:38,148 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 109.937197627, Dis to SL: 1.95328740271, Dis to FL: 13.8839614232, Velocity: 2.68591470669
+2017-08-30 23:25:38,175 - DEBUG - 3453-th Episode: Steps: 444, Time: 10.0650229454, Reward: 3897.10052418 Loss: 2186.34, Crash: 0, Not Stop: 7, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 40
+2017-08-30 23:25:49,337 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 105.260022781, Dis to SL: 1.93103875294, Dis to FL: 19.9272454783, Velocity: 2.47540630319
+2017-08-30 23:25:49,358 - DEBUG - 3454-th Episode: Steps: 491, Time: 11.1830689907, Reward: 3747.56450873 Loss: 3829.23, Crash: 0, Not Stop: 7, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 41
+2017-08-30 23:26:01,341 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 113.555892257, Dis to SL: 1.95012427117, Dis to FL: 19.8808378049, Velocity: 2.96666101632
+2017-08-30 23:26:01,363 - DEBUG - 3455-th Episode: Steps: 525, Time: 12.0043179989, Reward: 3511.6781613 Loss: 2715.06, Crash: 0, Not Stop: 7, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 42
+2017-08-30 23:26:16,003 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 133.867309812, Dis to SL: 1.93213126355, Dis to FL: 23.8487997331, Velocity: 2.98333764902
+2017-08-30 23:26:16,027 - DEBUG - 3456-th Episode: Steps: 645, Time: 14.6640110016, Reward: 3178.08814663 Loss: 1019.67, Crash: 0, Not Stop: 7, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 43
+2017-08-30 23:26:26,982 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 103.926923714, Dis to SL: 1.96861604207, Dis to FL: 18.9881533169, Velocity: 2.98227225345
+2017-08-30 23:26:27,001 - DEBUG - 3457-th Episode: Steps: 482, Time: 10.9742698669, Reward: 3688.68007455 Loss: 332.315, Crash: 0, Not Stop: 7, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 44
+2017-08-30 23:26:40,168 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 119.01707123, Dis to SL: 1.9780925186, Dis to FL: 22.0447206549, Velocity: 2.87783164125
+2017-08-30 23:26:40,187 - DEBUG - 3458-th Episode: Steps: 580, Time: 13.1854569912, Reward: 3838.69844219 Loss: 189.596, Crash: 0, Not Stop: 7, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 45
+2017-08-30 23:26:48,934 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 98.0748853025, Dis to SL: 1.9853859069, Dis to FL: 17.2976702525, Velocity: 2.86437740818
+2017-08-30 23:26:48,954 - DEBUG - 3459-th Episode: Steps: 386, Time: 8.7674498558, Reward: 4885.29684931 Loss: 1848.44, Crash: 0, Not Stop: 7, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 46
+2017-08-30 23:27:01,008 - WARNING - Did not stop at stop line! Start: 120.789601336, Dis to SL: 1.99038798686, Dis to FL: 16.0805668442, Velocity: 3.16129546846
+2017-08-30 23:27:01,031 - DEBUG - 3460-th Episode: Steps: 531, Time: 12.0761311054, Reward: 3112.57180371 Loss: 2003.62, Crash: 0, Not Stop: 8, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 46
+2017-08-30 23:27:14,567 - WARNING - Did not stop at stop line! Start: 138.746652005, Dis to SL: 1.93342932238, Dis to FL: 16.9226917821, Velocity: 3.09367421577
+2017-08-30 23:27:14,588 - DEBUG - 3461-th Episode: Steps: 597, Time: 13.5575277805, Reward: 2605.06889645 Loss: 418.18, Crash: 0, Not Stop: 9, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 46
+2017-08-30 23:27:27,878 - WARNING - Did not stop at stop line! Start: 124.258148922, Dis to SL: 1.977091688, Dis to FL: 19.5867972347, Velocity: 3.0322073616
+2017-08-30 23:27:27,899 - DEBUG - 3462-th Episode: Steps: 588, Time: 13.3106400967, Reward: 3083.27829277 Loss: 445.908, Crash: 0, Not Stop: 10, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 46
+2017-08-30 23:27:39,610 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 116.510218854, Dis to SL: 1.94503677694, Dis to FL: 19.8748610909, Velocity: 2.35664261852
+2017-08-30 23:27:39,633 - DEBUG - 3463-th Episode: Steps: 513, Time: 11.7336900234, Reward: 4456.18625288 Loss: 2874.31, Crash: 0, Not Stop: 10, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 47
+2017-08-30 23:27:49,908 - WARNING - Did not stop at stop line! Start: 103.5854946, Dis to SL: 1.99970877119, Dis to FL: 19.0886399888, Velocity: 3.17737645782
+2017-08-30 23:27:49,925 - DEBUG - 3464-th Episode: Steps: 452, Time: 10.2920460701, Reward: 3763.70932416 Loss: 2100.89, Crash: 0, Not Stop: 11, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 47
+2017-08-30 23:28:00,995 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 109.127827178, Dis to SL: 1.92623545284, Dis to FL: 20.0211240651, Velocity: 2.67081430879
+2017-08-30 23:28:01,013 - DEBUG - 3465-th Episode: Steps: 485, Time: 11.0874578953, Reward: 4697.81490601 Loss: 1157.2, Crash: 0, Not Stop: 11, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 48
+2017-08-30 23:28:15,304 - WARNING - Did not stop at stop line! Start: 131.797476898, Dis to SL: 1.9547907978, Dis to FL: 23.0877257678, Velocity: 3.10729201228
+2017-08-30 23:28:15,323 - DEBUG - 3466-th Episode: Steps: 631, Time: 14.3093979359, Reward: 1062.91685476 Loss: 514.075, Crash: 0, Not Stop: 12, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 48
+2017-08-30 23:28:27,526 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 124.838312877, Dis to SL: 1.9623323483, Dis to FL: 20.952317376, Velocity: 2.8919858743
+2017-08-30 23:28:27,548 - DEBUG - 3467-th Episode: Steps: 541, Time: 12.2256770134, Reward: 3754.89373088 Loss: 4707.33, Crash: 0, Not Stop: 12, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 49
+2017-08-30 23:28:42,299 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 134.090666981, Dis to SL: 1.93217170631, Dis to FL: 22.9296270369, Velocity: 2.85429744271
+2017-08-30 23:28:42,317 - DEBUG - 3468-th Episode: Steps: 653, Time: 14.768021822, Reward: 2453.31370821 Loss: 6332.58, Crash: 0, Not Stop: 12, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 50
+2017-08-30 23:28:54,342 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 124.550744295, Dis to SL: 1.99709769584, Dis to FL: 19.0582546621, Velocity: 2.84971441692
+2017-08-30 23:28:54,363 - DEBUG - 3469-th Episode: Steps: 533, Time: 12.0465431213, Reward: 3620.41390007 Loss: 5041.41, Crash: 0, Not Stop: 12, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 51
+2017-08-30 23:29:07,825 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 129.189151079, Dis to SL: 1.96871514173, Dis to FL: 21.1286373946, Velocity: 2.88918168191
+2017-08-30 23:29:07,847 - DEBUG - 3470-th Episode: Steps: 595, Time: 13.4833199978, Reward: 3296.53058683 Loss: 2654.85, Crash: 0, Not Stop: 12, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 52
+2017-08-30 23:29:23,369 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 140.550909587, Dis to SL: 1.95849200682, Dis to FL: 24.0387780393, Velocity: 2.97538139708
+2017-08-30 23:29:23,389 - DEBUG - 3471-th Episode: Steps: 689, Time: 15.542495966, Reward: 1152.76617499 Loss: 353.97, Crash: 0, Not Stop: 12, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 53
+2017-08-30 23:29:39,051 - WARNING - Did not stop at stop line! Start: 141.045156666, Dis to SL: 1.98004132438, Dis to FL: 24.8798144283, Velocity: 3.12770003268
+2017-08-30 23:29:39,075 - DEBUG - 3472-th Episode: Steps: 685, Time: 15.6849720478, Reward: 1409.00015025 Loss: 2311.38, Crash: 0, Not Stop: 13, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 53
+2017-08-30 23:29:53,276 - WARNING - Did not stop at stop line! Start: 133.119497287, Dis to SL: 1.91698833409, Dis to FL: 25.9180479002, Velocity: 3.15316080319
+2017-08-30 23:29:53,299 - DEBUG - 3473-th Episode: Steps: 624, Time: 14.2244729996, Reward: 2411.14086088 Loss: 2669.51, Crash: 0, Not Stop: 14, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 53
+2017-08-30 23:30:04,202 - WARNING - Did not stop at stop line! Start: 103.713054717, Dis to SL: 1.99748567669, Dis to FL: 22.905330983, Velocity: 3.53069299088
+2017-08-30 23:30:04,225 - DEBUG - 3474-th Episode: Steps: 480, Time: 10.9252197742, Reward: 3340.82288841 Loss: 854.116, Crash: 0, Not Stop: 15, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 53
+2017-08-30 23:30:14,404 - WARNING - Did not stop at stop line! Start: 114.027739451, Dis to SL: 1.99711577185, Dis to FL: 13.8640550906, Velocity: 3.02865652034
+2017-08-30 23:30:14,426 - DEBUG - 3475-th Episode: Steps: 447, Time: 10.2008850574, Reward: 2379.33380862 Loss: 590.938, Crash: 0, Not Stop: 16, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 53
+2017-08-30 23:30:24,893 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 101.602220034, Dis to SL: 1.93813462632, Dis to FL: 22.1816660043, Velocity: 2.97567287006
+2017-08-30 23:30:24,912 - DEBUG - 3476-th Episode: Steps: 461, Time: 10.4862229824, Reward: 4522.931985 Loss: 394.133, Crash: 0, Not Stop: 16, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 54
+2017-08-30 23:30:36,883 - WARNING - Did not stop at stop line! Start: 111.230582418, Dis to SL: 1.9530416617, Dis to FL: 21.4813320658, Velocity: 3.46417038516
+2017-08-30 23:30:36,900 - DEBUG - 3477-th Episode: Steps: 530, Time: 11.9881198406, Reward: 2432.82348334 Loss: 1527.91, Crash: 0, Not Stop: 17, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 54
+2017-08-30 23:30:51,360 - WARNING - Did not stop at stop line! Start: 137.440081772, Dis to SL: 1.99654454662, Dis to FL: 22.6316779616, Velocity: 3.04629485314
+2017-08-30 23:30:51,379 - DEBUG - 3478-th Episode: Steps: 636, Time: 14.4780321121, Reward: 1551.82307943 Loss: 1915.32, Crash: 0, Not Stop: 18, Not Finished: 0, Overspeed: 3, Not Move: 4, Success: 54
+2017-08-30 23:30:56,259 - WARNING - Exceed Speed Limit: 136.515611779, Dis to SL: 64.0553585271, Dis to FL: 25.8528349124, Velocity: 14.0572716229
+2017-08-30 23:30:56,280 - DEBUG - 3479-th Episode: Steps: 218, Time: 4.90092086792, Reward: 1020.45647147 Loss: 780.405, Crash: 0, Not Stop: 18, Not Finished: 0, Overspeed: 4, Not Move: 4, Success: 54
+2017-08-30 23:31:09,097 - WARNING - Did not stop at stop line! Start: 115.000352544, Dis to SL: 1.90853161338, Dis to FL: 22.7502728173, Velocity: 3.17426286053
+2017-08-30 23:31:09,115 - DEBUG - 3480-th Episode: Steps: 567, Time: 12.8351559639, Reward: 2179.58443065 Loss: 1771.04, Crash: 0, Not Stop: 19, Not Finished: 0, Overspeed: 4, Not Move: 4, Success: 54
+2017-08-30 23:31:19,579 - WARNING - Did not stop at stop line! Start: 97.3031460197, Dis to SL: 1.99002841127, Dis to FL: 20.6267785186, Velocity: 3.46875428043
+2017-08-30 23:31:19,600 - DEBUG - 3481-th Episode: Steps: 462, Time: 10.4844717979, Reward: 3033.90977248 Loss: 957.745, Crash: 0, Not Stop: 20, Not Finished: 0, Overspeed: 4, Not Move: 4, Success: 54
+2017-08-30 23:31:30,176 - WARNING - Did not stop at stop line! Start: 109.481846635, Dis to SL: 1.9304401553, Dis to FL: 17.8108768964, Velocity: 3.18099469257
+2017-08-30 23:31:30,198 - DEBUG - 3482-th Episode: Steps: 466, Time: 10.5975778103, Reward: 3567.00781155 Loss: 1074.4, Crash: 0, Not Stop: 21, Not Finished: 0, Overspeed: 4, Not Move: 4, Success: 54
+2017-08-30 23:31:44,105 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 129.894684645, Dis to SL: 1.91147555384, Dis to FL: 23.4933471911, Velocity: 2.91612192398
+2017-08-30 23:31:44,122 - DEBUG - 3483-th Episode: Steps: 612, Time: 13.9240069389, Reward: 3705.28740512 Loss: 1093.96, Crash: 0, Not Stop: 21, Not Finished: 0, Overspeed: 4, Not Move: 4, Success: 55
+2017-08-30 23:31:55,598 - WARNING - Did not stop at stop line! Start: 123.96311658, Dis to SL: 1.95779301136, Dis to FL: 14.6312969502, Velocity: 3.24000379792
+2017-08-30 23:31:55,621 - DEBUG - 3484-th Episode: Steps: 510, Time: 11.4992420673, Reward: 2356.69747705 Loss: 3335.99, Crash: 0, Not Stop: 22, Not Finished: 0, Overspeed: 4, Not Move: 4, Success: 55
+2017-08-30 23:32:07,160 - WARNING - Did not stop at stop line! Start: 123.355227095, Dis to SL: 1.91060783113, Dis to FL: 15.0559322094, Velocity: 3.13375607162
+2017-08-30 23:32:07,177 - DEBUG - 3485-th Episode: Steps: 509, Time: 11.555590868, Reward: 1978.37467218 Loss: 1563.97, Crash: 0, Not Stop: 23, Not Finished: 0, Overspeed: 4, Not Move: 4, Success: 55
+2017-08-30 23:32:18,046 - WARNING - Not move! Start: 133.698463291, Dis to SL: 10.5319515013, Dis to FL: 6.73130045498, Velocity: 0.0
+2017-08-30 23:32:18,068 - DEBUG - 3486-th Episode: Steps: 480, Time: 10.8907210827, Reward: -317.983571527 Loss: 563.121, Crash: 0, Not Stop: 23, Not Finished: 0, Overspeed: 4, Not Move: 5, Success: 55
+2017-08-30 23:32:33,583 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 143.586930256, Dis to SL: 1.90427311602, Dis to FL: 23.9878991303, Velocity: 2.96027876211
+2017-08-30 23:32:33,603 - DEBUG - 3487-th Episode: Steps: 686, Time: 15.5347440243, Reward: 3289.86984203 Loss: 3531.8, Crash: 0, Not Stop: 23, Not Finished: 0, Overspeed: 4, Not Move: 5, Success: 56
+2017-08-30 23:32:42,420 - WARNING - Did not stop at stop line! Start: 102.386351942, Dis to SL: 1.97673188334, Dis to FL: 16.3136882774, Velocity: 3.17914081015
+2017-08-30 23:32:42,439 - DEBUG - 3488-th Episode: Steps: 392, Time: 8.83648300171, Reward: 3227.34644276 Loss: 1123.07, Crash: 0, Not Stop: 24, Not Finished: 0, Overspeed: 4, Not Move: 5, Success: 56
+2017-08-30 23:32:57,700 - WARNING - Did not stop at stop line! Start: 142.024550115, Dis to SL: 1.99547120188, Dis to FL: 22.1162671765, Velocity: 3.52285388595
+2017-08-30 23:32:57,720 - DEBUG - 3489-th Episode: Steps: 670, Time: 15.2803139687, Reward: 2280.96196288 Loss: 470.951, Crash: 0, Not Stop: 25, Not Finished: 0, Overspeed: 4, Not Move: 5, Success: 56
+2017-08-30 23:33:11,674 - WARNING - Did not stop at stop line! Start: 126.276119509, Dis to SL: 1.99856562036, Dis to FL: 22.313714351, Velocity: 3.11450617848
+2017-08-30 23:33:11,694 - DEBUG - 3490-th Episode: Steps: 617, Time: 13.9742050171, Reward: 3071.44176366 Loss: 75.4005, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 4, Not Move: 5, Success: 56
+2017-08-30 23:33:25,551 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 130.618962883, Dis to SL: 1.99038231615, Dis to FL: 21.9367370497, Velocity: 2.77134843141
+2017-08-30 23:33:25,575 - DEBUG - 3491-th Episode: Steps: 613, Time: 13.8801858425, Reward: 3789.32204538 Loss: 1510.32, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 4, Not Move: 5, Success: 57
+2017-08-30 23:33:30,574 - WARNING - Exceed Speed Limit: 132.042227292, Dis to SL: 61.9788217403, Dis to FL: 21.5749145967, Velocity: 14.0763215743
+2017-08-30 23:33:30,592 - DEBUG - 3492-th Episode: Steps: 218, Time: 5.01753807068, Reward: 1125.3235368 Loss: 1289.9, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 5, Not Move: 5, Success: 57
+2017-08-30 23:33:42,263 - WARNING - Did not stop at stop line! Start: 120.473214572, Dis to SL: 1.92844488769, Dis to FL: 17.2401931064, Velocity: 3.08767362009
+2017-08-30 23:33:42,280 - DEBUG - 3493-th Episode: Steps: 514, Time: 11.6872570515, Reward: 1877.76503084 Loss: 374.851, Crash: 0, Not Stop: 27, Not Finished: 0, Overspeed: 5, Not Move: 5, Success: 57
+2017-08-30 23:33:55,060 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 121.897738825, Dis to SL: 1.97925021341, Dis to FL: 23.3455561066, Velocity: 2.77768427723
+2017-08-30 23:33:55,081 - DEBUG - 3494-th Episode: Steps: 563, Time: 12.8014340401, Reward: 3443.01542864 Loss: 199.023, Crash: 0, Not Stop: 27, Not Finished: 0, Overspeed: 5, Not Move: 5, Success: 58
+2017-08-30 23:34:08,522 - WARNING - Did not stop at stop line! Start: 124.717849872, Dis to SL: 1.97116314961, Dis to FL: 22.8548220804, Velocity: 3.2533091718
+2017-08-30 23:34:08,541 - DEBUG - 3495-th Episode: Steps: 589, Time: 13.4593200684, Reward: 2654.83029864 Loss: 3598.43, Crash: 0, Not Stop: 28, Not Finished: 0, Overspeed: 5, Not Move: 5, Success: 58
+2017-08-30 23:34:13,314 - WARNING - Exceed Speed Limit: 137.417350171, Dis to SL: 65.3011782672, Dis to FL: 23.6269687073, Velocity: 14.0139999054
+2017-08-30 23:34:13,335 - DEBUG - 3496-th Episode: Steps: 212, Time: 4.79352092743, Reward: 1169.72423585 Loss: 2008.35, Crash: 0, Not Stop: 28, Not Finished: 0, Overspeed: 6, Not Move: 5, Success: 58
+2017-08-30 23:34:23,292 - WARNING - Did not stop at stop line! Start: 103.479758938, Dis to SL: 1.89483241567, Dis to FL: 19.8929079382, Velocity: 3.37799707183
+2017-08-30 23:34:23,311 - DEBUG - 3497-th Episode: Steps: 440, Time: 9.97630405426, Reward: 3468.68742761 Loss: 4937.24, Crash: 0, Not Stop: 29, Not Finished: 0, Overspeed: 6, Not Move: 5, Success: 58
+2017-08-30 23:34:37,806 - WARNING - Did not stop at stop line! Start: 134.958496242, Dis to SL: 1.99001700343, Dis to FL: 23.526995257, Velocity: 3.12215838383
+2017-08-30 23:34:37,825 - DEBUG - 3498-th Episode: Steps: 642, Time: 14.5139520168, Reward: 3205.3645405 Loss: 1033.71, Crash: 0, Not Stop: 30, Not Finished: 0, Overspeed: 6, Not Move: 5, Success: 58
+2017-08-30 23:34:51,805 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 133.707717855, Dis to SL: 1.92231265826, Dis to FL: 23.020997172, Velocity: 2.99068078414
+2017-08-30 23:34:51,823 - DEBUG - 3499-th Episode: Steps: 614, Time: 13.9979600906, Reward: 4590.30391885 Loss: 3514.03, Crash: 0, Not Stop: 30, Not Finished: 0, Overspeed: 6, Not Move: 5, Success: 59
+2017-08-30 23:34:51,824 - INFO - Crash: [2, 0, 3, 11, 2, 0, 18, 15, 26, 0, 0, 0, 4, 7, 20, 26, 36, 44, 67, 89, 84, 0, 68, 36, 14, 16, 4, 20, 3, 2, 4, 22, 8, 0, 0], Not Stop: [52, 31, 32, 26, 29, 0, 25, 2, 12, 0, 9, 70, 14, 9, 29, 23, 21, 26, 3, 0, 5, 2, 5, 8, 17, 0, 20, 0, 15, 3, 4, 0, 6, 27, 30], Not Finished: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], Overspeed: [4, 69, 1, 63, 2, 48, 3, 83, 28, 91, 4, 6, 9, 48, 1, 51, 1, 0, 26, 0, 0, 0, 9, 56, 34, 24, 1, 10, 15, 15, 3, 0, 0, 0, 6], Not Move: [35, 0, 41, 0, 49, 0, 24, 0, 7, 2, 27, 0, 9, 0, 11, 0, 9, 0, 2, 11, 6, 3, 7, 0, 25, 8, 18, 59, 12, 6, 12, 12, 9, 1, 5], Success: [7, 0, 23, 0, 18, 52, 30, 0, 27, 7, 60, 24, 64, 36, 39, 0, 33, 30, 2, 0, 5, 95, 11, 0, 10, 52, 57, 11, 55, 74, 77, 66, 77, 72, 59], Loss: 3514.03, Time: [1175.3636629581451, 1325.8046610355377, 2709.945363998413, 3006.6839921474457, 4505.699679136276, 4935.117380142212, 6223.045480966568, 6434.858991146088, 7211.185703992844, 7282.630923032761, 8842.108170032501, 9311.281839132309, 10535.918928146362, 10815.487190008163, 11957.275830030441, 12162.840547084808, 13179.317733049393, 13485.076256036758, 14004.07461309433, 14204.335383176804, 14845.068530082703, 15303.021150112152, 16124.138276100159, 16366.742247104645, 17295.23852300644, 17655.153922080994, 18843.084972143173, 19156.67893910408, 20177.962363004684, 20527.884932994843, 21648.84183216095, 22000.8834130764, 23161.03391313553, 23582.352097034454, 24767.602651119232], Test: [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+2017-08-30 23:34:54,800 - WARNING - Did not stop at stop line! Start: 96.5232849986, Dis to SL: 1.97013107515, Dis to FL: 14.281040439, Velocity: 3.15595125758
+2017-08-30 23:34:54,801 - DEBUG - 3500-th Episode: Steps: 376, Time: 2.97694182396, Reward: 3412.73484913 Loss: 0.0, Crash: 0, Not Stop: 1, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 0
+2017-08-30 23:34:58,639 - WARNING - Did not stop at stop line! Start: 116.770598342, Dis to SL: 1.95491628454, Dis to FL: 15.0690223232, Velocity: 3.2250895108
+2017-08-30 23:34:58,639 - DEBUG - 3501-th Episode: Steps: 484, Time: 3.83829784393, Reward: 2917.51923501 Loss: 0.0, Crash: 0, Not Stop: 2, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 0
+2017-08-30 23:35:02,644 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 110.434552751, Dis to SL: 1.92685010194, Dis to FL: 19.9814209934, Velocity: 2.97058355479
+2017-08-30 23:35:02,644 - DEBUG - 3502-th Episode: Steps: 503, Time: 4.00492310524, Reward: 4891.89860057 Loss: 0.0, Crash: 0, Not Stop: 2, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:35:06,470 - WARNING - Did not stop at stop line! Start: 101.961054781, Dis to SL: 1.97779032083, Dis to FL: 18.4336449102, Velocity: 3.08478238364
+2017-08-30 23:35:06,471 - DEBUG - 3503-th Episode: Steps: 480, Time: 3.82637286186, Reward: 3806.26816221 Loss: 0.0, Crash: 0, Not Stop: 3, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:35:11,732 - WARNING - Did not stop at stop line! Start: 140.974246843, Dis to SL: 1.96691604126, Dis to FL: 21.8832005726, Velocity: 3.12972678999
+2017-08-30 23:35:11,732 - DEBUG - 3504-th Episode: Steps: 650, Time: 5.26143908501, Reward: 4160.98629991 Loss: 0.0, Crash: 0, Not Stop: 4, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:35:15,545 - WARNING - Did not stop at stop line! Start: 117.530035932, Dis to SL: 1.98114063536, Dis to FL: 14.4834815391, Velocity: 3.29985465019
+2017-08-30 23:35:15,546 - DEBUG - 3505-th Episode: Steps: 477, Time: 3.81336212158, Reward: 3146.13145181 Loss: 0.0, Crash: 0, Not Stop: 5, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:35:20,774 - WARNING - Did not stop at stop line! Start: 141.172571633, Dis to SL: 1.93841485229, Dis to FL: 21.6928379279, Velocity: 3.10569831858
+2017-08-30 23:35:20,774 - DEBUG - 3506-th Episode: Steps: 656, Time: 5.22852301598, Reward: 3631.4260467 Loss: 0.0, Crash: 0, Not Stop: 6, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:35:24,903 - WARNING - Did not stop at stop line! Start: 116.065937182, Dis to SL: 1.92587615914, Dis to FL: 19.7456369246, Velocity: 3.01290951052
+2017-08-30 23:35:24,903 - DEBUG - 3507-th Episode: Steps: 524, Time: 4.12892794609, Reward: 3625.13096895 Loss: 0.0, Crash: 0, Not Stop: 7, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:35:29,252 - WARNING - Did not stop at stop line! Start: 126.437529855, Dis to SL: 1.99131571149, Dis to FL: 18.3263547565, Velocity: 3.19538147136
+2017-08-30 23:35:29,252 - DEBUG - 3508-th Episode: Steps: 540, Time: 4.34883999825, Reward: 3499.94985033 Loss: 0.0, Crash: 0, Not Stop: 8, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:35:33,247 - WARNING - Did not stop at stop line! Start: 114.293787297, Dis to SL: 1.99707541309, Dis to FL: 20.4139147209, Velocity: 3.01411900028
+2017-08-30 23:35:33,247 - DEBUG - 3509-th Episode: Steps: 515, Time: 3.9947450161, Reward: 3884.20305286 Loss: 0.0, Crash: 0, Not Stop: 9, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:35:38,049 - WARNING - Did not stop at stop line! Start: 128.589510291, Dis to SL: 1.98810768434, Dis to FL: 21.1800589577, Velocity: 3.08179112754
+2017-08-30 23:35:38,049 - DEBUG - 3510-th Episode: Steps: 613, Time: 4.80151391029, Reward: 4090.79384968 Loss: 0.0, Crash: 0, Not Stop: 10, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:35:43,498 - WARNING - Did not stop at stop line! Start: 139.360792612, Dis to SL: 1.96753808037, Dis to FL: 21.2670167852, Velocity: 3.14463696789
+2017-08-30 23:35:43,498 - DEBUG - 3511-th Episode: Steps: 674, Time: 5.44937992096, Reward: 4148.90192246 Loss: 0.0, Crash: 0, Not Stop: 11, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:35:46,349 - WARNING - Did not stop at stop line! Start: 98.2413793004, Dis to SL: 1.9598101322, Dis to FL: 7.63390661481, Velocity: 3.7434357739
+2017-08-30 23:35:46,350 - DEBUG - 3512-th Episode: Steps: 356, Time: 2.85115289688, Reward: 3142.94653407 Loss: 0.0, Crash: 0, Not Stop: 12, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:35:50,249 - WARNING - Did not stop at stop line! Start: 122.207937321, Dis to SL: 1.89938012925, Dis to FL: 15.3486564463, Velocity: 3.21025886698
+2017-08-30 23:35:50,250 - DEBUG - 3513-th Episode: Steps: 492, Time: 3.89999699593, Reward: 2810.17338771 Loss: 0.0, Crash: 0, Not Stop: 13, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:35:53,618 - WARNING - Did not stop at stop line! Start: 96.7006829511, Dis to SL: 1.93711144429, Dis to FL: 17.6579272087, Velocity: 3.07449839393
+2017-08-30 23:35:53,618 - DEBUG - 3514-th Episode: Steps: 420, Time: 3.36850905418, Reward: 3776.29845826 Loss: 0.0, Crash: 0, Not Stop: 14, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:35:58,366 - WARNING - Did not stop at stop line! Start: 127.521291915, Dis to SL: 1.94166933171, Dis to FL: 21.1099444343, Velocity: 3.03382932378
+2017-08-30 23:35:58,366 - DEBUG - 3515-th Episode: Steps: 604, Time: 4.74739909172, Reward: 4071.11537313 Loss: 0.0, Crash: 0, Not Stop: 15, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:36:03,680 - WARNING - Did not stop at stop line! Start: 141.93486589, Dis to SL: 1.97868072545, Dis to FL: 21.7157417758, Velocity: 3.14331254782
+2017-08-30 23:36:03,680 - DEBUG - 3516-th Episode: Steps: 659, Time: 5.31415104866, Reward: 3194.16109942 Loss: 0.0, Crash: 0, Not Stop: 16, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 1
+2017-08-30 23:36:07,800 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 110.466577206, Dis to SL: 1.94023025273, Dis to FL: 19.8143260217, Velocity: 2.97863178685
+2017-08-30 23:36:07,800 - DEBUG - 3517-th Episode: Steps: 519, Time: 4.11988592148, Reward: 4726.03783707 Loss: 0.0, Crash: 0, Not Stop: 16, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 2
+2017-08-30 23:36:12,715 - WARNING - Did not stop at stop line! Start: 134.641253928, Dis to SL: 1.95808234927, Dis to FL: 20.9952125121, Velocity: 3.10472203679
+2017-08-30 23:36:12,716 - DEBUG - 3518-th Episode: Steps: 618, Time: 4.91543006897, Reward: 3119.13300398 Loss: 0.0, Crash: 0, Not Stop: 17, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 2
+2017-08-30 23:36:16,086 - WARNING - Did not stop at stop line! Start: 117.037002402, Dis to SL: 1.98530164941, Dis to FL: 9.59627445785, Velocity: 3.68173216374
+2017-08-30 23:36:16,086 - DEBUG - 3519-th Episode: Steps: 420, Time: 3.36998391151, Reward: 2026.96659483 Loss: 0.0, Crash: 0, Not Stop: 18, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 2
+2017-08-30 23:36:20,790 - WARNING - Did not stop at stop line! Start: 123.362877279, Dis to SL: 1.98630816612, Dis to FL: 20.8666016707, Velocity: 3.07173954764
+2017-08-30 23:36:20,790 - DEBUG - 3520-th Episode: Steps: 587, Time: 4.70397686958, Reward: 4108.82665259 Loss: 0.0, Crash: 0, Not Stop: 19, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 2
+2017-08-30 23:36:25,513 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 124.004912567, Dis to SL: 1.90480405096, Dis to FL: 21.2464483917, Velocity: 2.99173036815
+2017-08-30 23:36:25,513 - DEBUG - 3521-th Episode: Steps: 584, Time: 4.7227408886, Reward: 5146.24079475 Loss: 0.0, Crash: 0, Not Stop: 19, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 3
+2017-08-30 23:36:30,589 - WARNING - Did not stop at stop line! Start: 142.935479288, Dis to SL: 1.91093408521, Dis to FL: 22.1300160564, Velocity: 3.07914731162
+2017-08-30 23:36:30,590 - DEBUG - 3522-th Episode: Steps: 631, Time: 5.07680988312, Reward: 3469.44330321 Loss: 0.0, Crash: 0, Not Stop: 20, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 3
+2017-08-30 23:36:34,205 - WARNING - Did not stop at stop line! Start: 122.483624665, Dis to SL: 1.98139638504, Dis to FL: 13.8441359736, Velocity: 3.38377548247
+2017-08-30 23:36:34,205 - DEBUG - 3523-th Episode: Steps: 456, Time: 3.61527609825, Reward: 2037.56451939 Loss: 0.0, Crash: 0, Not Stop: 21, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 3
+2017-08-30 23:36:39,350 - WARNING - Did not stop at stop line! Start: 133.669117021, Dis to SL: 1.90234850831, Dis to FL: 21.3194081262, Velocity: 3.03029130901
+2017-08-30 23:36:39,350 - DEBUG - 3524-th Episode: Steps: 635, Time: 5.14469695091, Reward: 3987.06123661 Loss: 0.0, Crash: 0, Not Stop: 22, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 3
+2017-08-30 23:36:44,375 - WARNING - Did not stop at stop line! Start: 136.830338409, Dis to SL: 1.95305130424, Dis to FL: 21.4377228452, Velocity: 3.09192764646
+2017-08-30 23:36:44,376 - DEBUG - 3525-th Episode: Steps: 624, Time: 5.0254240036, Reward: 3334.39682522 Loss: 0.0, Crash: 0, Not Stop: 23, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 3
+2017-08-30 23:36:49,258 - WARNING - Did not stop at stop line! Start: 125.869084635, Dis to SL: 1.98815098504, Dis to FL: 20.654255979, Velocity: 3.07665437429
+2017-08-30 23:36:49,258 - DEBUG - 3526-th Episode: Steps: 616, Time: 4.88215184212, Reward: 3966.47377402 Loss: 0.0, Crash: 0, Not Stop: 24, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 3
+2017-08-30 23:36:52,897 - WARNING - Did not stop at stop line! Start: 101.204779482, Dis to SL: 1.96139556618, Dis to FL: 18.6667324546, Velocity: 3.0457525562
+2017-08-30 23:36:52,897 - DEBUG - 3527-th Episode: Steps: 457, Time: 3.63881492615, Reward: 3990.77878879 Loss: 0.0, Crash: 0, Not Stop: 25, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 3
+2017-08-30 23:36:56,463 - WARNING - Did not stop at stop line! Start: 103.028435867, Dis to SL: 1.96498229701, Dis to FL: 17.5138569086, Velocity: 3.11710545336
+2017-08-30 23:36:56,463 - DEBUG - 3528-th Episode: Steps: 450, Time: 3.56605005264, Reward: 3674.56917726 Loss: 0.0, Crash: 0, Not Stop: 26, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 3
+2017-08-30 23:37:01,380 - WARNING - Did not stop at stop line! Start: 128.374971473, Dis to SL: 1.93364893866, Dis to FL: 21.0414149554, Velocity: 3.03125898051
+2017-08-30 23:37:01,380 - DEBUG - 3529-th Episode: Steps: 617, Time: 4.91724610329, Reward: 4166.4647947 Loss: 0.0, Crash: 0, Not Stop: 27, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 3
+2017-08-30 23:37:04,622 - WARNING - Did not stop at stop line! Start: 97.5711465325, Dis to SL: 1.92698555041, Dis to FL: 17.8026701346, Velocity: 3.06216293928
+2017-08-30 23:37:04,622 - DEBUG - 3530-th Episode: Steps: 403, Time: 3.24171209335, Reward: 3655.93820736 Loss: 0.0, Crash: 0, Not Stop: 28, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 3
+2017-08-30 23:37:09,367 - WARNING - Did not stop at stop line! Start: 131.155028528, Dis to SL: 1.90087690573, Dis to FL: 21.5006200785, Velocity: 3.0072225921
+2017-08-30 23:37:09,368 - DEBUG - 3531-th Episode: Steps: 596, Time: 4.74523711205, Reward: 3417.08385285 Loss: 0.0, Crash: 0, Not Stop: 29, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 3
+2017-08-30 23:37:12,607 - WARNING - Did not stop at stop line! Start: 95.5629048556, Dis to SL: 1.9986619957, Dis to FL: 17.4041062424, Velocity: 3.14880750823
+2017-08-30 23:37:12,607 - DEBUG - 3532-th Episode: Steps: 412, Time: 3.23979783058, Reward: 3732.28562618 Loss: 0.0, Crash: 0, Not Stop: 30, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 3
+2017-08-30 23:37:16,891 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 110.665356105, Dis to SL: 1.9277240098, Dis to FL: 19.6760000437, Velocity: 2.9686951212
+2017-08-30 23:37:16,891 - DEBUG - 3533-th Episode: Steps: 538, Time: 4.28336191177, Reward: 4811.73182475 Loss: 0.0, Crash: 0, Not Stop: 30, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:37:22,076 - WARNING - Did not stop at stop line! Start: 135.728077526, Dis to SL: 1.96224226927, Dis to FL: 21.3246927212, Velocity: 3.09834903993
+2017-08-30 23:37:22,076 - DEBUG - 3534-th Episode: Steps: 649, Time: 5.18539714813, Reward: 4223.14282819 Loss: 0.0, Crash: 0, Not Stop: 31, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:37:26,898 - WARNING - Did not stop at stop line! Start: 121.431166269, Dis to SL: 1.99748418161, Dis to FL: 20.2976020324, Velocity: 3.08232438579
+2017-08-30 23:37:26,899 - DEBUG - 3535-th Episode: Steps: 604, Time: 4.82192778587, Reward: 3998.64945482 Loss: 0.0, Crash: 0, Not Stop: 32, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:37:31,462 - WARNING - Did not stop at stop line! Start: 121.461329452, Dis to SL: 1.97254959057, Dis to FL: 20.9072478954, Velocity: 3.01563588974
+2017-08-30 23:37:31,462 - DEBUG - 3536-th Episode: Steps: 572, Time: 4.56354403496, Reward: 3954.62424885 Loss: 0.0, Crash: 0, Not Stop: 33, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:37:36,127 - WARNING - Did not stop at stop line! Start: 129.347455779, Dis to SL: 1.92522303912, Dis to FL: 21.6425758093, Velocity: 3.02059760681
+2017-08-30 23:37:36,127 - DEBUG - 3537-th Episode: Steps: 587, Time: 4.66496992111, Reward: 3833.95414804 Loss: 0.0, Crash: 0, Not Stop: 34, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:37:39,745 - WARNING - Did not stop at stop line! Start: 107.311878123, Dis to SL: 1.96182106684, Dis to FL: 17.1299744355, Velocity: 3.11106916123
+2017-08-30 23:37:39,745 - DEBUG - 3538-th Episode: Steps: 454, Time: 3.61728692055, Reward: 3534.63168904 Loss: 0.0, Crash: 0, Not Stop: 35, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:37:45,018 - WARNING - Did not stop at stop line! Start: 130.76272229, Dis to SL: 1.92809897543, Dis to FL: 20.8698346028, Velocity: 3.05976492773
+2017-08-30 23:37:45,018 - DEBUG - 3539-th Episode: Steps: 655, Time: 5.27318096161, Reward: 4146.11695335 Loss: 0.0, Crash: 0, Not Stop: 36, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:37:49,647 - WARNING - Did not stop at stop line! Start: 119.994688635, Dis to SL: 1.99659370905, Dis to FL: 20.3623161158, Velocity: 3.06377850281
+2017-08-30 23:37:49,647 - DEBUG - 3540-th Episode: Steps: 587, Time: 4.62896895409, Reward: 4030.33683696 Loss: 0.0, Crash: 0, Not Stop: 37, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:37:53,209 - WARNING - Did not stop at stop line! Start: 97.0386328069, Dis to SL: 1.95582794218, Dis to FL: 17.9111179128, Velocity: 3.08724108702
+2017-08-30 23:37:53,210 - DEBUG - 3541-th Episode: Steps: 444, Time: 3.56235194206, Reward: 3908.16186209 Loss: 0.0, Crash: 0, Not Stop: 38, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:37:56,382 - WARNING - Did not stop at stop line! Start: 105.496507171, Dis to SL: 1.93395339584, Dis to FL: 15.9989028256, Velocity: 3.10881885427
+2017-08-30 23:37:56,382 - DEBUG - 3542-th Episode: Steps: 398, Time: 3.17201399803, Reward: 3292.31020311 Loss: 0.0, Crash: 0, Not Stop: 39, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:38:01,048 - WARNING - Did not stop at stop line! Start: 142.681685682, Dis to SL: 1.91075181422, Dis to FL: 18.3320748604, Velocity: 3.34005255807
+2017-08-30 23:38:01,048 - DEBUG - 3543-th Episode: Steps: 580, Time: 4.66591215134, Reward: 2080.74571944 Loss: 0.0, Crash: 0, Not Stop: 40, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:38:06,171 - WARNING - Did not stop at stop line! Start: 129.86771364, Dis to SL: 1.97753443685, Dis to FL: 21.0513444898, Velocity: 3.08848097562
+2017-08-30 23:38:06,171 - DEBUG - 3544-th Episode: Steps: 631, Time: 5.12342596054, Reward: 4199.96016391 Loss: 0.0, Crash: 0, Not Stop: 41, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:38:09,579 - WARNING - Did not stop at stop line! Start: 100.600312632, Dis to SL: 1.92756668673, Dis to FL: 17.6613918038, Velocity: 3.07210668855
+2017-08-30 23:38:09,579 - DEBUG - 3545-th Episode: Steps: 425, Time: 3.40747308731, Reward: 3739.31461648 Loss: 0.0, Crash: 0, Not Stop: 42, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:38:14,937 - WARNING - Did not stop at stop line! Start: 136.294090833, Dis to SL: 1.90328404755, Dis to FL: 21.2267927149, Velocity: 3.05905745388
+2017-08-30 23:38:14,938 - DEBUG - 3546-th Episode: Steps: 668, Time: 5.35849404335, Reward: 4289.57321753 Loss: 0.0, Crash: 0, Not Stop: 43, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:38:20,227 - WARNING - Did not stop at stop line! Start: 139.815739356, Dis to SL: 1.9113003793, Dis to FL: 21.766820983, Velocity: 3.08699703191
+2017-08-30 23:38:20,228 - DEBUG - 3547-th Episode: Steps: 659, Time: 5.28994989395, Reward: 4175.38600131 Loss: 0.0, Crash: 0, Not Stop: 44, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:38:25,904 - WARNING - Did not stop at stop line! Start: 143.386167382, Dis to SL: 1.91056755937, Dis to FL: 21.9167362569, Velocity: 3.08498680098
+2017-08-30 23:38:25,905 - DEBUG - 3548-th Episode: Steps: 712, Time: 5.67686009407, Reward: 4314.63474373 Loss: 0.0, Crash: 0, Not Stop: 45, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:38:30,726 - WARNING - Did not stop at stop line! Start: 127.772093343, Dis to SL: 1.93937635079, Dis to FL: 21.0408995896, Velocity: 3.03466832401
+2017-08-30 23:38:30,726 - DEBUG - 3549-th Episode: Steps: 622, Time: 4.82132196426, Reward: 4173.28519587 Loss: 0.0, Crash: 0, Not Stop: 46, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:38:35,581 - WARNING - Did not stop at stop line! Start: 136.968131811, Dis to SL: 1.99479089098, Dis to FL: 21.6020598406, Velocity: 3.13219906887
+2017-08-30 23:38:35,581 - DEBUG - 3550-th Episode: Steps: 613, Time: 4.85515213013, Reward: 3364.84449551 Loss: 0.0, Crash: 0, Not Stop: 47, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:38:40,859 - WARNING - Did not stop at stop line! Start: 137.205082429, Dis to SL: 1.98378719204, Dis to FL: 20.8703289007, Velocity: 3.16419367496
+2017-08-30 23:38:40,860 - DEBUG - 3551-th Episode: Steps: 665, Time: 5.27824211121, Reward: 4013.46502192 Loss: 0.0, Crash: 0, Not Stop: 48, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:38:45,117 - WARNING - Did not stop at stop line! Start: 118.182347339, Dis to SL: 1.99833132179, Dis to FL: 20.7819657698, Velocity: 3.01761213761
+2017-08-30 23:38:45,117 - DEBUG - 3552-th Episode: Steps: 527, Time: 4.25716400146, Reward: 3733.24045584 Loss: 0.0, Crash: 0, Not Stop: 49, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:38:48,998 - WARNING - Did not stop at stop line! Start: 112.732108974, Dis to SL: 1.95625949166, Dis to FL: 18.8785416427, Velocity: 3.06987930385
+2017-08-30 23:38:48,999 - DEBUG - 3553-th Episode: Steps: 490, Time: 3.8815112114, Reward: 3687.77056658 Loss: 0.0, Crash: 0, Not Stop: 50, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:38:51,974 - WARNING - Crash to other vehicles or road boundary! Start: 118.942211668, Dis to SL: 5.87782609974, Dis to FL: 0.0688770287897, Velocity: 4.17699101483
+2017-08-30 23:38:51,974 - DEBUG - 3554-th Episode: Steps: 363, Time: 2.97508502007, Reward: 841.924593403 Loss: 0.0, Crash: 1, Not Stop: 50, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:38:56,977 - WARNING - Did not stop at stop line! Start: 133.543933172, Dis to SL: 1.94913304105, Dis to FL: 21.5183194419, Velocity: 3.0662045235
+2017-08-30 23:38:56,977 - DEBUG - 3555-th Episode: Steps: 618, Time: 5.00335001945, Reward: 4048.21812761 Loss: 0.0, Crash: 1, Not Stop: 51, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:39:01,479 - WARNING - Did not stop at stop line! Start: 133.423178215, Dis to SL: 1.99206539712, Dis to FL: 17.2975764335, Velocity: 3.32829187646
+2017-08-30 23:39:01,480 - DEBUG - 3556-th Episode: Steps: 579, Time: 4.50223994255, Reward: 3096.38103764 Loss: 0.0, Crash: 1, Not Stop: 52, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:39:05,253 - WARNING - Did not stop at stop line! Start: 117.637052563, Dis to SL: 1.91510254724, Dis to FL: 14.8828307971, Velocity: 3.22700631606
+2017-08-30 23:39:05,253 - DEBUG - 3557-th Episode: Steps: 469, Time: 3.7731320858, Reward: 3296.51187011 Loss: 0.0, Crash: 1, Not Stop: 53, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 4
+2017-08-30 23:39:09,541 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 110.966918076, Dis to SL: 1.96269783353, Dis to FL: 19.809056393, Velocity: 2.98860622972
+2017-08-30 23:39:09,541 - DEBUG - 3558-th Episode: Steps: 528, Time: 4.28787398338, Reward: 4907.66240034 Loss: 0.0, Crash: 1, Not Stop: 53, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 5
+2017-08-30 23:39:13,465 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 108.828756144, Dis to SL: 1.95767563665, Dis to FL: 19.6145586511, Velocity: 2.99368673964
+2017-08-30 23:39:13,465 - DEBUG - 3559-th Episode: Steps: 493, Time: 3.92386579514, Reward: 4870.23525675 Loss: 0.0, Crash: 1, Not Stop: 53, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 6
+2017-08-30 23:39:17,467 - WARNING - Did not stop at stop line! Start: 116.259217693, Dis to SL: 1.94891363759, Dis to FL: 15.3906556526, Velocity: 3.19752756593
+2017-08-30 23:39:17,467 - DEBUG - 3560-th Episode: Steps: 498, Time: 4.00179290771, Reward: 3265.14193876 Loss: 0.0, Crash: 1, Not Stop: 54, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 6
+2017-08-30 23:39:22,671 - WARNING - Did not stop at stop line! Start: 138.25802086, Dis to SL: 1.97667588538, Dis to FL: 21.4286903867, Velocity: 3.14310764102
+2017-08-30 23:39:22,671 - DEBUG - 3561-th Episode: Steps: 649, Time: 5.20400309563, Reward: 4206.43568626 Loss: 0.0, Crash: 1, Not Stop: 55, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 6
+2017-08-30 23:39:26,401 - WARNING - Did not stop at stop line! Start: 107.601359314, Dis to SL: 1.95864649885, Dis to FL: 17.4629754903, Velocity: 3.11112164554
+2017-08-30 23:39:26,401 - DEBUG - 3562-th Episode: Steps: 460, Time: 3.73036003113, Reward: 3602.67190321 Loss: 0.0, Crash: 1, Not Stop: 56, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 6
+2017-08-30 23:39:29,428 - WARNING - Did not stop at stop line! Start: 98.8590253372, Dis to SL: 1.93887546562, Dis to FL: 17.5444825011, Velocity: 3.08411385592
+2017-08-30 23:39:29,428 - DEBUG - 3563-th Episode: Steps: 379, Time: 3.02632284164, Reward: 3568.48343219 Loss: 0.0, Crash: 1, Not Stop: 57, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 6
+2017-08-30 23:39:34,166 - WARNING - Did not stop at stop line! Start: 122.861414297, Dis to SL: 1.93755195526, Dis to FL: 20.6653846035, Velocity: 3.031688992
+2017-08-30 23:39:34,167 - DEBUG - 3564-th Episode: Steps: 598, Time: 4.73857808113, Reward: 3960.61820448 Loss: 0.0, Crash: 1, Not Stop: 58, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 6
+2017-08-30 23:39:38,033 - WARNING - Did not stop at stop line! Start: 100.319098553, Dis to SL: 1.91806539965, Dis to FL: 18.3851102163, Velocity: 3.01961301631
+2017-08-30 23:39:38,033 - DEBUG - 3565-th Episode: Steps: 482, Time: 3.86637496948, Reward: 3886.56060064 Loss: 0.0, Crash: 1, Not Stop: 59, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 6
+2017-08-30 23:39:41,053 - WARNING - Did not stop at stop line! Start: 97.4790109104, Dis to SL: 1.91769167259, Dis to FL: 16.6742356455, Velocity: 3.08757377286
+2017-08-30 23:39:41,053 - DEBUG - 3566-th Episode: Steps: 383, Time: 3.01989579201, Reward: 3516.40107029 Loss: 0.0, Crash: 1, Not Stop: 60, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 6
+2017-08-30 23:39:44,436 - WARNING - Did not stop at stop line! Start: 96.9754328209, Dis to SL: 1.9814084138, Dis to FL: 17.7525353274, Velocity: 3.11964035505
+2017-08-30 23:39:44,437 - DEBUG - 3567-th Episode: Steps: 420, Time: 3.38351798058, Reward: 3888.41786301 Loss: 0.0, Crash: 1, Not Stop: 61, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 6
+2017-08-30 23:39:48,930 - WARNING - Did not stop at stop line! Start: 132.650252894, Dis to SL: 1.97146391483, Dis to FL: 17.8189371833, Velocity: 3.27193852094
+2017-08-30 23:39:48,931 - DEBUG - 3568-th Episode: Steps: 563, Time: 4.49368309975, Reward: 3388.43343149 Loss: 0.0, Crash: 1, Not Stop: 62, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 6
+2017-08-30 23:39:52,769 - WARNING - Did not stop at stop line! Start: 110.325099885, Dis to SL: 1.91814909853, Dis to FL: 16.5196815544, Velocity: 3.08782543825
+2017-08-30 23:39:52,769 - DEBUG - 3569-th Episode: Steps: 475, Time: 3.83830499649, Reward: 3401.22874747 Loss: 0.0, Crash: 1, Not Stop: 63, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 6
+2017-08-30 23:39:57,739 - WARNING - Did not stop at stop line! Start: 136.989500634, Dis to SL: 1.97735276325, Dis to FL: 21.4847460089, Velocity: 3.11243974688
+2017-08-30 23:39:57,740 - DEBUG - 3570-th Episode: Steps: 625, Time: 4.97070598602, Reward: 3716.84738057 Loss: 0.0, Crash: 1, Not Stop: 64, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 6
+2017-08-30 23:40:01,641 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 104.937818469, Dis to SL: 1.90827031529, Dis to FL: 19.2033558733, Velocity: 2.96527998896
+2017-08-30 23:40:01,641 - DEBUG - 3571-th Episode: Steps: 482, Time: 3.90131998062, Reward: 4838.369291 Loss: 0.0, Crash: 1, Not Stop: 64, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 7
+2017-08-30 23:40:05,243 - WARNING - Did not stop at stop line! Start: 108.461913528, Dis to SL: 1.99792001654, Dis to FL: 16.0055831274, Velocity: 3.166557978
+2017-08-30 23:40:05,243 - DEBUG - 3572-th Episode: Steps: 455, Time: 3.60165190697, Reward: 3352.79400656 Loss: 0.0, Crash: 1, Not Stop: 65, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 7
+2017-08-30 23:40:10,265 - WARNING - Did not stop at stop line! Start: 133.849635159, Dis to SL: 1.9522650302, Dis to FL: 21.5054532288, Velocity: 3.07210220409
+2017-08-30 23:40:10,265 - DEBUG - 3573-th Episode: Steps: 625, Time: 5.02200984955, Reward: 4172.09758157 Loss: 0.0, Crash: 1, Not Stop: 66, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 7
+2017-08-30 23:40:13,758 - WARNING - Did not stop at stop line! Start: 98.3567155653, Dis to SL: 1.94190869782, Dis to FL: 17.8951279352, Velocity: 3.06803082038
+2017-08-30 23:40:13,758 - DEBUG - 3574-th Episode: Steps: 439, Time: 3.49270296097, Reward: 3864.39562847 Loss: 0.0, Crash: 1, Not Stop: 67, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 7
+2017-08-30 23:40:19,340 - WARNING - Did not stop at stop line! Start: 142.721759264, Dis to SL: 1.98360402922, Dis to FL: 21.653402173, Velocity: 3.16297536681
+2017-08-30 23:40:19,340 - DEBUG - 3575-th Episode: Steps: 692, Time: 5.58200407028, Reward: 4281.39749454 Loss: 0.0, Crash: 1, Not Stop: 68, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 7
+2017-08-30 23:40:23,094 - WARNING - Did not stop at stop line! Start: 111.229680121, Dis to SL: 1.92548731079, Dis to FL: 18.5759390952, Velocity: 3.06049231969
+2017-08-30 23:40:23,094 - DEBUG - 3576-th Episode: Steps: 481, Time: 3.75349283218, Reward: 3697.82208542 Loss: 0.0, Crash: 1, Not Stop: 69, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 7
+2017-08-30 23:40:27,109 - WARNING - Did not stop at stop line! Start: 114.940799498, Dis to SL: 1.96265898969, Dis to FL: 20.296308304, Velocity: 3.00306198877
+2017-08-30 23:40:27,109 - DEBUG - 3577-th Episode: Steps: 522, Time: 4.01539492607, Reward: 3637.95188185 Loss: 0.0, Crash: 1, Not Stop: 70, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 7
+2017-08-30 23:40:31,985 - WARNING - Did not stop at stop line! Start: 134.222009898, Dis to SL: 1.91061415254, Dis to FL: 21.3551976171, Velocity: 3.04056320065
+2017-08-30 23:40:31,985 - DEBUG - 3578-th Episode: Steps: 646, Time: 4.87551403046, Reward: 4227.78755665 Loss: 0.0, Crash: 1, Not Stop: 71, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 7
+2017-08-30 23:40:34,830 - WARNING - Crash to other vehicles or road boundary! Start: 120.472865445, Dis to SL: 6.36981587336, Dis to FL: 0.0107901538216, Velocity: 5.02466425841
+2017-08-30 23:40:34,830 - DEBUG - 3579-th Episode: Steps: 358, Time: 2.84522891045, Reward: 635.802277612 Loss: 0.0, Crash: 2, Not Stop: 71, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 7
+2017-08-30 23:40:39,394 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 113.65787079, Dis to SL: 1.92983942167, Dis to FL: 19.9778030716, Velocity: 2.9809296552
+2017-08-30 23:40:39,394 - DEBUG - 3580-th Episode: Steps: 566, Time: 4.5638358593, Reward: 4933.36247523 Loss: 0.0, Crash: 2, Not Stop: 71, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 8
+2017-08-30 23:40:44,112 - WARNING - Did not stop at stop line! Start: 128.047455056, Dis to SL: 1.97091772769, Dis to FL: 21.204392956, Velocity: 3.05982728183
+2017-08-30 23:40:44,112 - DEBUG - 3581-th Episode: Steps: 598, Time: 4.71778512001, Reward: 4079.97032158 Loss: 0.0, Crash: 2, Not Stop: 72, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 8
+2017-08-30 23:40:48,111 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 109.637458161, Dis to SL: 1.91440712155, Dis to FL: 19.9943054381, Velocity: 2.96227244489
+2017-08-30 23:40:48,111 - DEBUG - 3582-th Episode: Steps: 500, Time: 3.99872398376, Reward: 4842.54080261 Loss: 0.0, Crash: 2, Not Stop: 72, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 9
+2017-08-30 23:40:53,400 - WARNING - Did not stop at stop line! Start: 142.51054929, Dis to SL: 1.90034351275, Dis to FL: 22.1618598774, Velocity: 3.06139361682
+2017-08-30 23:40:53,400 - DEBUG - 3583-th Episode: Steps: 657, Time: 5.28882813454, Reward: 3958.18821495 Loss: 0.0, Crash: 2, Not Stop: 73, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 9
+2017-08-30 23:40:58,304 - WARNING - Did not stop at stop line! Start: 133.497844396, Dis to SL: 1.95800744048, Dis to FL: 21.0509908477, Velocity: 3.08854692616
+2017-08-30 23:40:58,304 - DEBUG - 3584-th Episode: Steps: 609, Time: 4.90377211571, Reward: 3314.05586299 Loss: 0.0, Crash: 2, Not Stop: 74, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 9
+2017-08-30 23:41:02,431 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 109.587666911, Dis to SL: 1.90750803072, Dis to FL: 19.9248621246, Velocity: 2.96033787007
+2017-08-30 23:41:02,431 - DEBUG - 3585-th Episode: Steps: 513, Time: 4.12704992294, Reward: 5018.99225239 Loss: 0.0, Crash: 2, Not Stop: 74, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 10
+2017-08-30 23:41:07,346 - WARNING - Did not stop at stop line! Start: 135.594084198, Dis to SL: 1.95596537278, Dis to FL: 21.5095744202, Velocity: 3.08751211799
+2017-08-30 23:41:07,346 - DEBUG - 3586-th Episode: Steps: 614, Time: 4.91519093513, Reward: 3441.39320038 Loss: 0.0, Crash: 2, Not Stop: 75, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 10
+2017-08-30 23:41:11,907 - WARNING - Did not stop at stop line! Start: 118.406840092, Dis to SL: 1.96743767131, Dis to FL: 20.4239089991, Velocity: 3.03000408604
+2017-08-30 23:41:11,907 - DEBUG - 3587-th Episode: Steps: 571, Time: 4.56070804596, Reward: 3946.47349256 Loss: 0.0, Crash: 2, Not Stop: 76, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 10
+2017-08-30 23:41:16,975 - WARNING - Did not stop at stop line! Start: 133.335958536, Dis to SL: 1.92012290661, Dis to FL: 21.3570205109, Velocity: 3.04869645035
+2017-08-30 23:41:16,975 - DEBUG - 3588-th Episode: Steps: 635, Time: 5.06788706779, Reward: 4158.64580859 Loss: 0.0, Crash: 2, Not Stop: 77, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 10
+2017-08-30 23:41:22,124 - WARNING - Did not stop at stop line! Start: 133.457316905, Dis to SL: 1.90282391517, Dis to FL: 21.2840421081, Velocity: 3.03094937164
+2017-08-30 23:41:22,124 - DEBUG - 3589-th Episode: Steps: 647, Time: 5.14906096458, Reward: 4032.16778785 Loss: 0.0, Crash: 2, Not Stop: 78, Not Finished: 0, Overspeed: 0, Not Move: 0, Success: 10
+2017-08-30 23:41:24,363 - WARNING - Exceed Speed Limit: 133.187171547, Dis to SL: 42.2556007881, Dis to FL: 23.8924627569, Velocity: 14.0638894716
+2017-08-30 23:41:24,363 - DEBUG - 3590-th Episode: Steps: 281, Time: 2.23832297325, Reward: 637.220743073 Loss: 0.0, Crash: 2, Not Stop: 78, Not Finished: 0, Overspeed: 1, Not Move: 0, Success: 10
+2017-08-30 23:41:28,347 - WARNING - Did not stop at stop line! Start: 122.592860315, Dis to SL: 1.94769699359, Dis to FL: 15.4358859845, Velocity: 3.26730518634
+2017-08-30 23:41:28,348 - DEBUG - 3591-th Episode: Steps: 505, Time: 3.98465585709, Reward: 3202.52647856 Loss: 0.0, Crash: 2, Not Stop: 79, Not Finished: 0, Overspeed: 1, Not Move: 0, Success: 10
+2017-08-30 23:41:31,958 - WARNING - Did not stop at stop line! Start: 102.90369062, Dis to SL: 1.91012521791, Dis to FL: 19.0206470423, Velocity: 3.00266125287
+2017-08-30 23:41:31,958 - DEBUG - 3592-th Episode: Steps: 462, Time: 3.6100962162, Reward: 3969.93843554 Loss: 0.0, Crash: 2, Not Stop: 80, Not Finished: 0, Overspeed: 1, Not Move: 0, Success: 10
+2017-08-30 23:41:36,370 - WARNING - Did not stop at stop line! Start: 118.184429849, Dis to SL: 1.98101133912, Dis to FL: 20.5909814276, Velocity: 3.02043816297
+2017-08-30 23:41:36,370 - DEBUG - 3593-th Episode: Steps: 550, Time: 4.41244292259, Reward: 3788.79046604 Loss: 0.0, Crash: 2, Not Stop: 81, Not Finished: 0, Overspeed: 1, Not Move: 0, Success: 10
+2017-08-30 23:41:41,381 - WARNING - Did not stop at stop line! Start: 136.090224036, Dis to SL: 1.91886326688, Dis to FL: 21.9190477823, Velocity: 3.04342761698
+2017-08-30 23:41:41,382 - DEBUG - 3594-th Episode: Steps: 623, Time: 5.01098704338, Reward: 4026.23546377 Loss: 0.0, Crash: 2, Not Stop: 82, Not Finished: 0, Overspeed: 1, Not Move: 0, Success: 10
+2017-08-30 23:41:45,677 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 112.906850764, Dis to SL: 1.93712242086, Dis to FL: 20.1840651504, Velocity: 2.98248370602
+2017-08-30 23:41:45,678 - DEBUG - 3595-th Episode: Steps: 541, Time: 4.296033144, Reward: 5035.40450872 Loss: 0.0, Crash: 2, Not Stop: 82, Not Finished: 0, Overspeed: 1, Not Move: 0, Success: 11
+2017-08-30 23:41:50,102 - WARNING - Did not stop at stop line! Start: 118.28518616, Dis to SL: 1.98213290159, Dis to FL: 20.5261890292, Velocity: 3.02958757914
+2017-08-30 23:41:50,103 - DEBUG - 3596-th Episode: Steps: 564, Time: 4.42470908165, Reward: 3866.47027552 Loss: 0.0, Crash: 2, Not Stop: 83, Not Finished: 0, Overspeed: 1, Not Move: 0, Success: 11
+2017-08-30 23:41:53,415 - WARNING - Did not stop at stop line! Start: 106.552343013, Dis to SL: 1.90813683156, Dis to FL: 16.8921913634, Velocity: 3.05041402445
+2017-08-30 23:41:53,415 - DEBUG - 3597-th Episode: Steps: 409, Time: 3.31236100197, Reward: 3179.61768228 Loss: 0.0, Crash: 2, Not Stop: 84, Not Finished: 0, Overspeed: 1, Not Move: 0, Success: 11
+2017-08-30 23:41:57,758 - INFO - Congratulations! Reach stop line without crashing and has stopped. Start: 115.838050719, Dis to SL: 1.93457141718, Dis to FL: 20.5255088843, Velocity: 2.95403993308
