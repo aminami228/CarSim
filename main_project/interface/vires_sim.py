@@ -48,10 +48,15 @@ class InterSim(object):
         self.hv_thread.setDaemon(True)
         self.hv_thread.start()
 
-        self.action_q = Queue.LifoQueue()
-        self.action_thread = Thread(target=self.scp.scp_control, args=(self.action_q,))
-        self.action_thread.setDaemon(True)
-        self.action_thread.start()
+        self.speed_q = Queue.LifoQueue()
+        self.speed_thread = Thread(target=self.scp.scp_control, args=(self.speed_q,))
+        self.speed_thread.setDaemon(True)
+        self.speed_thread.start()
+
+        self.steering_q = Queue.LifoQueue()
+        self.steering_thread = Thread(target=self.rdb.rdb_control, args=(self.steering_q,))
+        self.steering_thread.setDaemon(True)
+        self.steering_thread.start()
 
         self.av_get_q = self.ego_q.get()
         self.av_pos = dict()
@@ -74,7 +79,7 @@ class InterSim(object):
         self.av_pos['vx'] = 0.
         self.av_pos['vy'] = self.av_get_q['av']['v']
         self.av_pos['heading'] = self.av_get_q['av']['h']
-        self.av_pos['accel'] = a
+        self.av_pos['accel'] = self.av_get_q['av']['a']
         self.av_pos['steer'] = 0.
         self.state_av = [self.av_pos['vy'], self.av_pos['heading'], self.av_pos['accel'], self.av_pos['steer']]
 
@@ -109,8 +114,10 @@ class InterSim(object):
         full_action = dict()
         # new_av_vel = max(0., state[0] + a * self.Tau)
         # full_action['vy'] = new_av_vel
-        full_action['vy'] = 20. - random()
-        self.action_q.put(full_action)
+        full_action['vy'] = 20. + random()
+        full_action['steer'] = 0.2
+        self.speed_q.put(full_action)
+        self.steering_q.put(full_action)
 
 
 if __name__ == '__main__':
