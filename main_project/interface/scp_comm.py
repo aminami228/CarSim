@@ -27,7 +27,7 @@ class SCPComm(object):
         scp_sock.send(bytearray(scp_msg) + bytearray(msg_text))
 
         msg_text = "<SimCtrl><LoadScenario " \
-                   "filename=\"/home/cmu/Software/VTD/Data/Projects/Current/Scenarios/test.xml\"/></SimCtrl>"
+                   "filename=\"/home/scotty/Software/VTD/Data/Projects/Current/Scenarios/test.xml\"/></SimCtrl>"
         scp_msg.dataSize = len(msg_text)
         scp_sock.send(bytearray(scp_msg) + bytearray(msg_text))
 

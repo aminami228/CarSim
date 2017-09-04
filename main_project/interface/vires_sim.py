@@ -53,10 +53,10 @@ class InterSim(object):
         self.speed_thread.setDaemon(True)
         self.speed_thread.start()
 
-        self.steering_q = Queue.LifoQueue()
-        self.steering_thread = Thread(target=self.rdb.rdb_control, args=(self.steering_q,))
-        self.steering_thread.setDaemon(True)
-        self.steering_thread.start()
+        # self.steering_q = Queue.LifoQueue()
+        # self.steering_thread = Thread(target=self.rdb.rdb_control, args=(self.steering_q,))
+        # self.steering_thread.setDaemon(True)
+        # self.steering_thread.start()
 
         self.av_get_q = self.ego_q.get()
         self.av_pos = dict()
@@ -70,6 +70,7 @@ class InterSim(object):
         self.state_road = []
 
         self.start_time = time.time()
+        self.start_av_time = time.time()
 
     def get_state(self, a):
         # Get ego vehicle data
@@ -82,6 +83,8 @@ class InterSim(object):
         self.av_pos['accel'] = self.av_get_q['av']['a']
         self.av_pos['steer'] = 0.
         self.state_av = [self.av_pos['vy'], self.av_pos['heading'], self.av_pos['accel'], self.av_pos['steer']]
+        # logging.info('Time to update av: ' + str(time.time() - self.start_av_time))
+        self.start_av_time = time.time()
 
         # Get sensor data
         # sensor_data = vehicle_state['sensor']
@@ -93,7 +96,7 @@ class InterSim(object):
         # Get other vehicles
         if not self.hv_q.empty():
             self.hv_get_q = self.hv_q.get()
-            logging.info('Time to update hv: ' + str(time.time() - self.start_time))
+            # logging.info('Time to update hv: ' + str(time.time() - self.start_time))
             self.start_time = time.time()
         self.state_fv = [self.hv_get_q['v'], self.hv_get_q['y'] - self.av_pos['y']]
 
@@ -115,9 +118,9 @@ class InterSim(object):
         # new_av_vel = max(0., state[0] + a * self.Tau)
         # full_action['vy'] = new_av_vel
         full_action['vy'] = 20. + random()
-        full_action['steer'] = 0.2
+        # full_action['steer'] = 0.2
         self.speed_q.put(full_action)
-        self.steering_q.put(full_action)
+        # self.steering_q.put(full_action)
 
 
 if __name__ == '__main__':

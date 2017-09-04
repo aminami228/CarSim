@@ -1,8 +1,7 @@
 from random import randint, random
 import sys
-if "../" not in sys.path: # Path to utilities and other custom modules
+if "../" not in sys.path:               # Path to utilities and other custom modules
     sys.path.append("../")
-
 from utilities.toolfunc import ToolFunc
 import logging
 import utilities.log_color
