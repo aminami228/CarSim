@@ -12,7 +12,7 @@ import utilities.log_color
 HIDDEN1_UNITS = 128
 HIDDEN2_UNITS = 64
 HIDDEN3_UNITS = 32
-HIDDEN4_UNITS = 32
+HIDDEN4_UNITS = 16
 
 
 class CriticNetwork(object):
@@ -22,12 +22,12 @@ class CriticNetwork(object):
         self.TAU = sigma
         self.LEARNING_RATE = learn_rate
         self.action_size = action_size
-        
+
         keras.set_session(sess)
 
         # Now create the model
-        self.model, self.action, self.state = self.create_critic_network(state_size, action_size)  
-        self.target_model, self.target_action, self.target_state = self.create_critic_network(state_size, action_size)  
+        self.model, self.action, self.state = self.create_critic_network(state_size, action_size)
+        self.target_model, self.target_action, self.target_state = self.create_critic_network(state_size, action_size)
         self.action_grads = tf.gradients(self.model.output, self.action)  # GRADIENTS for policy update
         self.sess.run(tf.global_variables_initializer())
 
@@ -46,18 +46,18 @@ class CriticNetwork(object):
 
     def create_critic_network(self, state_size, action_size):
         logging.info('...... Building critic model ......')
-        S = Input(shape=[state_size])  
+        S = Input(shape=[state_size])
         A = Input(shape=[action_size], name='action2')
         w0 = Dense(state_size, activation='linear')(S)
         a0 = Dense(action_size, activation='linear')(A)
         # h0 = merge([w0, a0], mode='concat')
         h0 = concatenate([w0, a0])
-        h1 = Dense(HIDDEN1_UNITS, activation='relu')(h0)
-        # h2 = Dense(HIDDEN2_UNITS, activation='sigmoid')(h1)
+        h1 = Dense(HIDDEN2_UNITS, activation='relu')(h0)
+        h2 = Dense(HIDDEN3_UNITS, activation='sigmoid')(h1)
         # h3 = Dense(HIDDEN3_UNITS, activation='relu')(h2)
         h4 = Dense(HIDDEN4_UNITS, activation='relu')(h1)
         V = Dense(1, activation='linear')(h4)
         model = Model(input=[S, A], output=V)
         adam = Adam(lr=self.LEARNING_RATE)
         model.compile(loss='mse', optimizer=adam)
-        return model, A, S 
+        return model, A, S

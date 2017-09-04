@@ -17,7 +17,7 @@ class InterSim(object):
     Speed_limit = 12        # m/s
     Scenary = randint(0, 2)
     Inter_Ori = 0.
-    Stop_Line = 142.733
+    Stop_Line = 132.370
     Pass_Point = 168
     Inter_Low = 147.355
     Inter_Up = 157.931
@@ -74,13 +74,15 @@ class InterSim(object):
 
     def get_state(self, a):
         # Get ego vehicle data
+        accel = self.Cft_Accel * a
         self.av_get_q = self.ego_q.get()
         self.av_pos['y'] = self.av_get_q['av']['y']
         self.av_pos['x'] = self.av_get_q['av']['x']
         self.av_pos['vx'] = 0.
         self.av_pos['vy'] = self.av_get_q['av']['v']
         self.av_pos['heading'] = self.av_get_q['av']['h']
-        self.av_pos['accel'] = self.av_get_q['av']['a']
+        # self.av_pos['accel'] = self.av_get_q['av']['a']
+        self.av_pos['accel'] = accel
         self.av_pos['steer'] = 0.
         self.state_av = [self.av_pos['vy'], self.av_pos['heading'], self.av_pos['accel'], self.av_pos['steer']]
         # logging.info('Time to update av: ' + str(time.time() - self.start_av_time))
@@ -97,11 +99,11 @@ class InterSim(object):
         if not self.hv_q.empty():
             self.hv_get_q = self.hv_q.get()
             # logging.info('Time to update hv: ' + str(time.time() - self.start_time))
-            self.start_time = time.time()
-        self.state_fv = [self.hv_get_q['v'], self.hv_get_q['y'] - self.av_pos['y']]
+            # self.start_time = time.time()
+        self.state_fv = [self.hv_get_q['v'], self.hv_get_q['y'] - self.av_pos['y'] - 3.5]
 
         # Get map info
-        sl_dis = self.Stop_Line - self.av_pos['y']
+        sl_dis = self.Stop_Line - self.av_pos['y'] - 4.
         ll = self.av_pos['x'] - self.av_size[1] / 2 - self.Lane_Left
         lr = self.Lane_Right - (self.av_pos['x'] + self.av_size[1] / 2)
         start_pos = self.Start_Pos
@@ -113,11 +115,11 @@ class InterSim(object):
             logging.error('Wrong states get !!!')
         return self.state
 
-    def update_vehicle(self, state, a, st=0.):
+    def update_vehicle(self, speed, a=0, st=0.):
         full_action = dict()
         # new_av_vel = max(0., state[0] + a * self.Tau)
         # full_action['vy'] = new_av_vel
-        full_action['vy'] = 20. + random()
+        full_action['vy'] = speed
         # full_action['steer'] = 0.2
         self.speed_q.put(full_action)
         # self.steering_q.put(full_action)

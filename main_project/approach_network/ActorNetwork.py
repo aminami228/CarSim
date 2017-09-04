@@ -13,7 +13,7 @@ import utilities.log_color
 HIDDEN1_UNITS = 128
 HIDDEN2_UNITS = 64
 HIDDEN3_UNITS = 32
-HIDDEN4_UNITS = 32
+HIDDEN4_UNITS = 16
 
 
 class ActorNetwork(object):
@@ -50,10 +50,8 @@ class ActorNetwork(object):
     def create_actor_network(state_size):
         # logging.info('...... Building actor model ......')
         S  = Input(shape=[state_size])
-        h0 = Dense(HIDDEN1_UNITS, activation='relu')(S)
-        h1 = Dense(HIDDEN2_UNITS, activation='sigmoid')(h0)
-        # h2 = Dense(HIDDEN3_UNITS, activation='relu')(h1)
-        # h2 = Dense(HIDDEN3_UNITS, activation='relu')(h1)
+        h0 = Dense(HIDDEN2_UNITS, activation='relu')(S)
+        h1 = Dense(HIDDEN3_UNITS, activation='sigmoid')(h0)
         h3 = Dense(HIDDEN4_UNITS, activation='relu')(h1)
         a = Dense(1, activation='tanh', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
         # b = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
