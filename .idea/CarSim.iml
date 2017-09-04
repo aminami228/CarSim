@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/cl_src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/hrl_src" />
       <excludeFolder url="file://$MODULE_DIR$/intersection_vires" />
+      <excludeFolder url="file://$MODULE_DIR$/main_project" />
       <excludeFolder url="file://$MODULE_DIR$/speed_control" />
     </content>
     <orderEntry type="inheritedJdk" />
