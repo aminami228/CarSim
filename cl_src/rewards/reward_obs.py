@@ -11,8 +11,8 @@ class ObsReward(object):
     Speed_limit = 12.  # m/s
     Scenary = randint(0, 2)
     Inter_Ori = 0.
-    Stop_Line = - 5. - random()
-    Pass_Point = 20.
+    Stop_Line = - 7. - random()
+    Pass_Point = 12.
     Inter_Low = - 4.
     Inter_Up = 4.
     Inter_Left = - 4.
@@ -28,20 +28,19 @@ class ObsReward(object):
         self.state = None
         self.state_rec_his = None
 
-    def get_reward(self, state, state_his, a=0., b=0., st=0.):
+    def get_reward(self, state, a=0., b=0., st=0.):
         self.state = state
-        self.state_rec_his = state_his[-1]
         r_smooth = self.reward_smooth(a, st)
-        r_clerance, collision = self.reward_clear()
+        r_clerance, collision_l, collision_r = self.reward_clear()
         # r_stop = self.reward_stop(a)
         r_speedlimit = self.reward_speedlimit()
-        r_time = - 1.
-        r_crash = - 500. if collision == 1 else 0.
+        r_time = - 0.1
+        r_crash = - 500. if (collision_l == 1 or (collision_r == 1)) else 0.
         r_dis = self.reward_dis()
         r_finish = self.reward_finish()
         r_notmove, not_move = self.reward_notmove(a)
         r = r_dis + r_time + r_speedlimit + r_clerance + r_smooth + r_finish + r_crash + r_notmove
-        return r, collision, not_move
+        return r, collision_l, collision_r, not_move
 
     def reward_notmove(self, a):
         not_move = 0
@@ -50,13 +49,16 @@ class ObsReward(object):
         # fp = []
         # self.state = [0., 0., -2.]
         # for accel in np.linspace(-5., 5., 100):
-        if self.state[7] > 1.0:
-            if self.state_rec_his[1] < 0 and (self.state_rec_his[3] < 0):
-                if (self.state[0] <= 0.01) and (self.state[2] < 0) and (-1. <= accel < 0.):
-                    f = 100. * (self.tools.sigmoid(accel, 4.) - 0.5) if accel <= 0. else 0.
-                if (self.state[0] <= 0.01) and (self.state[2] < 0) and (accel <= - 1.):
-                    not_move = 1
-                    f = - 500.
+        if self.state[5] > 4 and (self.state[10] < 0. or (self.state[10] > 40.)) \
+                or (self.state[5] > 0 and (self.state[13] < 0. or (self.state[13] > 40.))):
+            if (self.state[0] <= 0.01) and (self.state[2] < 0) and (-1. <= accel < 0.):
+                f = 100 * accel
+                # f = 100. * (self.tools.sigmoid(accel, 4.) - 0.5) if accel <= 0. else 0.
+            if (self.state[0] <= 0.01) and (self.state[2] < 0) and (accel <= - 1.):
+                not_move = 1
+                f = 100 * accel
+                # f = 100. * (self.tools.sigmoid(accel, 4.) - 0.5) if accel <= 0. else 0.
+                f -= 500.
             # fp.append(f)
         # plt.plot(np.linspace(-5., 5., 100), fp, 'r.')
         # plt.xlabel('acceleration m/s')
@@ -66,17 +68,17 @@ class ObsReward(object):
 
     def reward_smooth(self, a, st):
         #############################################################################
-        # jerk = abs(a - self.state[2]) / self.Tau
-        # x1 = abs(jerk) - 1.
-        # f1 = 4. * (- self.tools.sigmoid(x1, 3.) + 0.5) if x1 >= 0. else 0.
+        # jerk = abs(a - self.state[2]) / self.Tau - 1.
+        # f1 = 2. * (- self.tools.sigmoid(jerk, 10) + 0.5) if jerk >= 0. else 0.
         # # yaw = (st - self.av_pos['steer']) / self.Tau
         # # f2 = - 2 * abs(self.tools.sigmoid(yaw, 2) - 0.5)
         # f2 = 0.
         #############################################################################
-        accel = self.Cft_Accel * a
-        jerk = abs(accel - self.state[2]) / self.Tau
+        a = self.Cft_Accel * a
+        # fp = []
+        jerk = abs(a - self.state[2]) / self.Tau
         # for jerk in np.linspace(-5., 5., 100):
-        f1 = - 0.1 * (jerk - 1.) if jerk >= 1. else 0.
+        f1 = - 0.01 * (jerk - 1.) if jerk >= 1. else 0.
         f2 = 0.
         # fp.append(f1 + f2)
         # plt.plot(np.linspace(-5., 5., 100), fp, 'r.')
@@ -96,46 +98,25 @@ class ObsReward(object):
         return f
 
     def reward_clear(self):
-        #############################################################################
-        # crash_dis_l = self.state[-2] - 5.
-        # crash_dis_r = self.state[-1] - 5.
-        # crash_time_l = crash_dis_l / self.state_his[0] if self.state_his[0] > 0.1 else 100.
-        # crash_time_r = crash_dis_r / self.state_his[1] if self.state_his[1] > 0.1 else 100.
-        # x1 = crash_dis_l - 10.
-        # x2 = crash_time_l - 3.
-        # x3 = crash_time_r - 10.
-        # x4 = crash_time_r - 3.
-        # f1 = 4. * (self.tools.sigmoid(x1, 0.3) - 0.5) if x1 <= 0. else 0.
-        # f2 = 50. * (self.tools.sigmoid(x2, 1.) - 0.5) if x2 <= 0. else 0.
-        # f3 = 4. * (self.tools.sigmoid(x3, 0.3) - 0.5) if x3 <= 0. else 0.
-        # f4 = 50. * (self.tools.sigmoid(x4, 1.) - 0.5) if x4 <= 0. else 0.
-        # # crash_left = self.state[7]
-        # # f3 = 0.
-        # # crash_right = self.state[8]
-        # # f4 = 0.
-        # collision = (crash_dis_l <= 0.1 or (crash_dis_r <= 0.1))
-        #############################################################################
-        f_clear_l = self.state_rec_his[1] - 5. if self.state[5] >= - 2 else 10000.
-        f_clear_r = self.state_rec_his[3] - 5. if self.state[6] >= - 2 else 10000.
-        t_clear_l = f_clear_l / self.state_rec_his[0] if self.state_rec_his[0] > 0.1 else 20.
-        t_clear_r = f_clear_r / self.state_rec_his[2] if self.state_rec_his[2] > 0.1 else 20.
-        t_clear_l = min(t_clear_l, 20.)
-        t_clear_r = min(t_clear_r, 20.)
-        # fp = []
-        # for t_clear in np.linspace(0., 10., 100):
-        ff1 = - 1. * (10. - f_clear_l) if f_clear_l <= 10. else 0.
-        ff2 = - 1. * (10. - f_clear_r) if f_clear_r <= 10. else 0.
-        ft1 = - 10. * (1.5 - t_clear_l) if t_clear_l <= 1.5 else 0.
-        ft2 = - 10. * (1.5 - t_clear_r) if t_clear_r <= 1.5 else 0.
-        # fp.append(ft)
-        # plt.plot(np.linspace(0., 10., 100), fp, 'r')
-        # plt.xlabel('Crash time to front vehilce s')
-        # plt.ylabel('reward')
-        # plt.show()
+        f_clear_l, f_clear_r = 100., 100.
+        ft1, ft2 = 0., 0.
+        if self.state[10] >= 0.:
+            f_clear_l = self.state[10] - 5.
+            t_clear_l = f_clear_l / self.state[9]
+            if f_clear_l <= 20. or t_clear_l <= 1.5:
+                ft1 = - 20. * self.state[0] if (self.state[4] <= 0.) else 0.
+
+        if self.state[13] >= 0.:
+            f_clear_r = self.state[13] - 5.
+            t_clear_r = f_clear_r / self.state[12]
+            if f_clear_r <= 30. or t_clear_r <= 2.0:
+                ft2 = - 20. * self.state[0] if (self.state[4] <= 0.) else 0.
+
         fl = 0.
         fr = 0.
-        collision = (f_clear_l <= 0.1 or (f_clear_r <= 0.1))
-        return ff1 + ff2 + ft1 + ft2 + fl + fr,  collision
+        collision_l = (f_clear_l <= 0.) if (-4. <= self.state[11] <= 0.) else 0
+        collision_r = (f_clear_r <= 0.) if (-4. <= self.state[14] <= 0.) else 0
+        return ft1 + ft2 + fl + fr,  collision_l, collision_r
 
     def reward_stop(self):
         #############################################################################
@@ -149,23 +130,17 @@ class ObsReward(object):
         return f
 
     def reward_speedlimit(self):
-        #############################################################################
-        # x = self.state[0] - self.Speed_limit
-        # f = 100. * (- self.tools.sigmoid(x, 1.5) + 0.5) if x >= 0. else 0.
-        # if x >= 2.:
-        #     f -= 500
-        #############################################################################
-        fx = - 30. * (self.state[0] - self.Speed_limit) if self.state[0] >= self.Speed_limit else 0.
+        fx = - 80. * (self.state[0] - self.Speed_limit) if self.state[0] >= self.Speed_limit else 0.
         if self.state[0] >= (self.Speed_limit + 2.):
-            fx = - 500
+            fx -= 500
         return fx
 
     def reward_dis(self):
-        dis = (self.state[0]) * self.Tau / (self.Pass_Point - self.state[10]) * 5000.
+        dis = (self.state[0]) * self.Tau / (self.Pass_Point - self.state[8]) * 2000.
         return dis
 
     def reward_finish(self):
-        if self.state[7] <= 1.0:
+        if self.state[7] <= 0.:
             return 1000.
         else:
             return 0.

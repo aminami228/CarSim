@@ -36,6 +36,7 @@ class InterSim(object):
         self.av_pos['x'] = 2.
         self.av_pos['vx'] = 0.
         self.av_pos['vy'] = self.Speed_limit - random() * 5.
+        self.ini_speed = self.av_pos['vy']
         self.av_pos['heading'] = 0
         self.av_pos['accel'] = 0
         self.av_pos['steer'] = 0

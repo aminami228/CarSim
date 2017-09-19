@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sys
-sys.path.append('/home/scotty/qzq/git/CarSim_vires/cl_src')
+if "../" not in sys.path:               # Path to utilities and other custom modules
+    sys.path.append("../")
 import logging
 import numpy as np
 import tensorflow as tf
@@ -34,13 +35,13 @@ class ReinAcc(object):
     LRA = 0.001             # Learning rate for Actor
     LRC = 0.001             # Learning rate for Critic
 
-    explore_iter = 1000000.
+    explore_iter = 100000.
     # explore_iter = 1000.
     episode_count = 20000
     max_steps = 2000
-
     action_dim = 1          # Steering/Acceleration/Brake
     action_size = 1
+    state_dim = 10
 
     # Tensorflow GPU optimization
     config = tf.ConfigProto()
@@ -51,9 +52,9 @@ class ReinAcc(object):
     Speed_limit = 12
 
     def __init__(self):
-        self.epsilon = 1.0
+        self.epsilon = 1.
 
-        self.sim = InterSim(True)
+        self.sim = InterSim(False)
         self.reward = AppReward()
         self.total_reward = 0
         self.if_pass = False
@@ -76,8 +77,8 @@ class ReinAcc(object):
         self.sub_not_move = 0
         self.sub_cannot_stop = 0
 
-        self.app_actor = AppActorNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRA)
-        self.app_critic = AppCriticNetwork(self.tf_sess, 9, self.action_dim, 10, self.tau, self.LRC)
+        self.app_actor = AppActorNetwork(self.tf_sess, self.state_dim, self.action_dim, self.batch_size, self.tau, self.LRA)
+        self.app_critic = AppCriticNetwork(self.tf_sess, self.state_dim, self.action_dim, self.batch_size, self.tau, self.LRC)
         self.buffer = AppReplay()
 
         self.batch = None
@@ -152,40 +153,43 @@ class ReinAcc(object):
         if step >= self.max_steps:
             logging.warn('Not finished with max steps! Start: ' + str(self.sim.Stop_Line - state[9]) +
                          ', Dis to SL: ' + str(state[6]) + ', Dis to FL: ' + str(state[5]) +
-                         ', Velocity: ' + str(state[0]))
+                         ', Velocity: ' + str(state[0]) + ', V0: ' + str(self.sim.ini_speed))
             self.sub_not_finish += 1
             self.if_pass = False
             self.if_done = True
         elif state[0] >= self.sim.Speed_limit + 2.:
             logging.warn('Exceed Speed Limit: ' + str(self.sim.Stop_Line - state[9]) + ', Dis to SL: ' + str(state[6]) +
-                         ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]))
+                         ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]) +
+                         ', V0: ' + str(self.sim.ini_speed))
             self.sub_overspeed += 1
             self.if_pass = False
             self.if_done = True
         elif not_move > 0:
             logging.warn('Not move! Start: ' + str(self.sim.Stop_Line - state[9]) + ', Dis to SL: ' + str(state[6]) +
-                         ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]))
+                         ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]) +
+                         ', V0: ' + str(self.sim.ini_speed))
             self.sub_not_move += 1
             self.if_pass = False
             self.if_done = True
         elif collision > 0:
             logging.warn('Crash to other vehicles or road boundary! Start: ' + str(self.sim.Stop_Line - state[9]) +
                          ', Dis to SL: ' + str(state[6]) + ', Dis to FL: ' + str(state[5]) +
-                         ', Velocity: ' + str(state[0]))
+                         ', Velocity: ' + str(state[0]) + ', V0: ' + str(self.sim.ini_speed))
             self.sub_crash += 1
             self.if_pass = False
             self.if_done = True
         elif cannot_stop > 0:
             logging.warn('Did not stop at stop line! Start: ' + str(self.sim.Stop_Line - state[9]) +
                          ', Dis to SL: ' + str(state[6]) + ', Dis to FL: ' + str(state[5]) +
-                         ', Velocity: ' + str(state[0]))
+                         ', Velocity: ' + str(state[0]) + ', V0: ' + str(self.sim.ini_speed))
             self.sub_cannot_stop += 1
             self.if_pass = False
             self.if_done = True
-        elif state[6] <= 2.0 and (state[0] <= 4.0):
+        elif state[6] <= 0.5 and (state[0] <= 0.1):
             logging.info('Congratulations! Reach stop line without crashing and has stopped. Start: ' +
                          str(self.sim.Stop_Line - state[9]) + ', Dis to SL: ' + str(state[6]) +
-                         ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]))
+                         ', Dis to FL: ' + str(state[5]) + ', Velocity: ' + str(state[0]) +
+                         ', V0: ' + str(self.sim.ini_speed))
             self.sub_success += 1
             self.if_pass = True
             self.if_done = True
@@ -244,7 +248,7 @@ class ReinAcc(object):
                           str(self.sub_not_move) + ', Success: ' + str(self.sub_success))
 
             # self.sim = InterSim(True) if e % 50 == 0 else InterSim()
-            self.sim = InterSim(True)
+            self.sim = InterSim(False)
             self.total_reward = 0
             self.if_pass = False
             self.if_done = False
@@ -257,7 +261,7 @@ class ReinAcc(object):
                 self.overspeed.append(self.sub_overspeed)
                 self.not_move.append(self.sub_not_move)
                 self.cannot_stop.append(self.sub_cannot_stop)
-                self.run_time.append(time.time() - self.total_time)
+                self.run_time.append((time.time() - self.total_time) / 60.)
 
                 self.sub_crash = 0
                 self.sub_cannot_stop = 0
@@ -265,10 +269,10 @@ class ReinAcc(object):
                 self.sub_not_finish = 0
                 self.sub_overspeed = 0
                 self.sub_not_move = 0
-                logging.info('Crash: ' + str(self.crash) + ', Not Stop: ' + str(self.cannot_stop) + ', Not Finished: ' +
-                             str(self.not_finish) + ', Overspeed: ' + str(self.overspeed) + ', Not Move: ' +
-                             str(self.not_move) + ', Success: ' + str(self.success) + ', Loss: ' + str(loss) +
-                             ', Time: ' + str(self.run_time) + ', Test: ' + str(self.if_train))
+                logging.info('Crash: ' + str(self.crash) + '\nNot Stop: ' + str(self.cannot_stop) +
+                             '\nNot Finished: ' + str(self.not_finish) + '\nOverspeed: ' + str(self.overspeed) +
+                             '\nNot Move: ' + str(self.not_move) + '\nSuccess: ' + str(self.success) +
+                             '\nLoss: ' + str(loss) + '\nTime: ' + str(self.run_time) + '\nTest: ' + str(self.if_train))
                 train_indicator = 0 if train_indicator == 1 else 1
             # if (e + 1) % 1000 == 0:
             #     self.epsilon = 1.0
@@ -277,4 +281,4 @@ class ReinAcc(object):
 if __name__ == '__main__':
     plt.ion()
     acc = ReinAcc()
-    acc.launch_train(0)
+    acc.launch_train(1)
