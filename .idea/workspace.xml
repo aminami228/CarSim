@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1cb47f4d-19ca-4217-b78a-ed812ce59c4c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hrl_vanila/hrl_network/hrl_actor_net.py" afterPath="$PROJECT_DIR$/hrl_vanila/hrl_network/hrl_actor_net.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hrl_vanila/hrl_network/hrl_critic_net.py" afterPath="$PROJECT_DIR$/hrl_vanila/hrl_network/hrl_critic_net.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hrl_vanila/results/hrl1.txt" afterPath="$PROJECT_DIR$/hrl_vanila/results/hrl1.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hrl_vanila/results/hrl1_1.eps" afterPath="$PROJECT_DIR$/hrl_vanila/results/hrl1_1.eps" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hrl_vanila/results/hrl1_2.eps" afterPath="$PROJECT_DIR$/hrl_vanila/results/hrl1_2.eps" />
@@ -33,7 +32,7 @@
     <SUITE FILE_PATH="coverage/CarSim_vires$train.coverage" NAME="train Coverage Results" MODIFIED="1503280282466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../CarSim_sensor" />
     <SUITE FILE_PATH="coverage/CarSim_vires$inter_new.coverage" NAME="inter_new Coverage Results" MODIFIED="1505276570542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cl_src/interface" />
     <SUITE FILE_PATH="coverage/CarSim_vires$observe__1_.coverage" NAME="observe (1) Coverage Results" MODIFIED="1505773374494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cl_src/observe_src" />
-    <SUITE FILE_PATH="coverage/CarSim_vires$visual_result__1_.coverage" NAME="visual_result (1) Coverage Results" MODIFIED="1505936863189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hrl_vanila/utilities" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$visual_result__1_.coverage" NAME="visual_result (1) Coverage Results" MODIFIED="1505940968062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hrl_vanila/utilities" />
     <SUITE FILE_PATH="coverage/CarSim_vires$hrl.coverage" NAME="hrl Coverage Results" MODIFIED="1505929339249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hrl_vanila/src" />
     <SUITE FILE_PATH="coverage/CarSim_acceleration$rl_acc__2_.coverage" NAME="rl_acc (2) Coverage Results" MODIFIED="1502821906848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intersection_project/approach_src" />
     <SUITE FILE_PATH="coverage/CarSim$inter_sim.coverage" NAME="inter_sim Coverage Results" MODIFIED="1502286361806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intersection_project/approach_src" />
@@ -55,21 +54,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hrl_actor_net.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="hrl_actor_net.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hrl_vanila/hrl_network/hrl_actor_net.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
-              <caret line="2" column="53" lean-forward="false" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="53" />
+              <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hrl_critic_net.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="hrl_critic_net.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hrl_vanila/hrl_network/hrl_critic_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="38" lean-forward="false" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+            <state relative-caret-position="57">
+              <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -210,8 +209,8 @@
         <option value="$PROJECT_DIR$/hrl_vanila/utilities/visual_result.py" />
         <option value="$PROJECT_DIR$/hrl_vanila/interface/inter_hrl.py" />
         <option value="$PROJECT_DIR$/hrl_vanila/src/hrl.py" />
-        <option value="$PROJECT_DIR$/hrl_vanila/hrl_network/hrl_actor_net.py" />
         <option value="$PROJECT_DIR$/hrl_vanila/hrl_network/hrl_critic_net.py" />
+        <option value="$PROJECT_DIR$/hrl_vanila/hrl_network/hrl_actor_net.py" />
       </list>
     </option>
   </component>
@@ -1146,18 +1145,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hrl_vanila/hrl_network/hrl_actor_net.py">
+    <entry file="file://$PROJECT_DIR$/hrl_vanila/hrl_network/hrl_critic_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="53" lean-forward="false" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="53" />
+        <state relative-caret-position="57">
+          <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hrl_vanila/hrl_network/hrl_critic_net.py">
+    <entry file="file://$PROJECT_DIR$/hrl_vanila/hrl_network/hrl_actor_net.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
-          <caret line="2" column="38" lean-forward="false" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+          <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
           <folding />
         </state>
       </provider>
