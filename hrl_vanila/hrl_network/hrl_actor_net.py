@@ -54,8 +54,7 @@ class HrlActorNetwork(object):
         h1 = Dense(HIDDEN2_UNITS, activation='relu')(h0d)
         h1d = Dropout(0.5)(h1)
         h3 = Dense(HIDDEN3_UNITS, activation='relu')(h1d)
-        # a = Dense(1, activation='tanh', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
-        a = Dense(1, activation='tanh', kernel_initializer='random_normal')(h3)
+        a = Dense(1, activation='tanh', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
         # b = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
         # V = concatenate([Action, Parameter_Acc1, Parameter_Acc2, Parameter_Time1, Parameter_Time2,
         #            Parameter_Time3, Parameter_Time4])
