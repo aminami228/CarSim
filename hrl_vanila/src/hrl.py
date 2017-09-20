@@ -157,7 +157,10 @@ class ReinAcc(object):
         action_ori = self.obs_actor.model.predict(state)
         for i in range(self.action_size):
             a = action_ori[0][i]
-            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.4, 0.5, 0.5))
+            if state[0][4] < -  0.5:
+                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.4, 0.5, 0.5))
+            else:
+                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.4, 0.5, -0.5))
         action = action_ori + np.array(noise)
         return action
 
@@ -175,7 +178,7 @@ class ReinAcc(object):
             self.sub_overspeed += 1
             self.if_done = True
         elif not_move > 0:
-            logging.warn('Not move! Dis to SL: {0:.2f}'.format(state[4]) + 'Dis to Center: {0:.2f}'.format(state[6]) +
+            logging.warn('Not move! Dis to SL: {0:.2f}'.format(state[4]) + ', Dis to Center: {0:.2f}'.format(state[6]) +
                          ', Dis to fv: {0:.2f}'.format(state[14]) +
                          ', Dis to hv: [{0:.2f}, {1:.2f}]'.format(state[33], state[53]) +
                          ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j))
@@ -189,7 +192,7 @@ class ReinAcc(object):
             else:
                 v = 'front'
             logging.warn('Crash to ' + v + ' vehicles! Dis to SL: {0:.2f}'.format(state[4]) +
-                         'Dis to Center: {0:.2f}'.format(state[6]) +
+                         ', Dis to Center: {0:.2f}'.format(state[6]) +
                          ', Dis to fv: {0:.2f}'.format(state[14]) +
                          ', Dis to hv: [{0:.2f}, {1:.2f}]'.format(state[33], state[53]) +
                          ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j))
@@ -283,6 +286,7 @@ class ReinAcc(object):
                 self.not_finish.append(self.sub_not_finish)
                 self.overspeed.append(self.sub_overspeed)
                 self.not_move.append(self.sub_not_move)
+                self.not_stop.append(self.sub_not_stop)
                 self.run_time.append((time.time() - self.total_time) / 60.)
 
                 self.sub_crash = 0
@@ -290,6 +294,7 @@ class ReinAcc(object):
                 self.sub_not_finish = 0
                 self.sub_overspeed = 0
                 self.sub_not_move = 0
+                self.sub_not_stop = 0
                 logging.info('Crash: ' + str(self.crash) + '\nNot Finished: ' + str(self.not_finish) +
                              '\nOverspeed: ' + str(self.overspeed) + '\nNot Move: ' + str(self.not_move) +
                              '\nNot Stop: ' + str(self.not_stop) +

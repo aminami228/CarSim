@@ -193,12 +193,8 @@ class InterSim(object):
             fv_pos['v'] += fv_pos['a'] * self.Tau
             fv_pos['v'] = min(max(0.1, fv_pos['v']), self.Speed_limit)
             fv_pos['y'] += fv_pos['v'] * self.Tau + 0.5 * fv_pos['a'] * (self.Tau ** 2)
-            if fv_pos['y'] > self.Inter_Up:
-                fv_pass = True
-            else:
-                fv_pass = False
 
-        if fv_pass and (not self.hv_poses):
+        if self.av_pos['y'] >= self.Stop_Line and (not self.hv_poses):
             lv_locs = np.array(sample(xrange(-15, 2), self.LV_NO))
             lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
             rv_locs = np.array(sample(xrange(0, 17), self.RV_NO))
