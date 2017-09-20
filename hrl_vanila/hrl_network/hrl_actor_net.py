@@ -1,10 +1,8 @@
 import numpy as np
 import math
-#from keras.initializations import normal, identity
 from keras.initializers import RandomNormal, identity
 from keras.models import Sequential, Model
-from keras.layers import Dense, Flatten, Input, merge, Lambda, concatenate, Dropout
-from keras.optimizers import Adam
+from keras.layers import Dense, Input, Dropout
 import tensorflow as tf
 import keras.backend as keras
 import logging

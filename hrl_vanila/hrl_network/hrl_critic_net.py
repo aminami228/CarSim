@@ -1,6 +1,6 @@
 import numpy as np
 import math
-from keras.layers import Dense, Flatten, Input, merge, Lambda, Activation, concatenate, Dropout
+from keras.layers import Dense, Input, concatenate, Dropout
 from keras.models import Sequential, Model
 from keras.optimizers import Adam
 import keras.backend as keras
