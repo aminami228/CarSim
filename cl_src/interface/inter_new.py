@@ -73,9 +73,9 @@ class InterSim(object):
                     self.cond = 'lb'
                     lv_locs = np.array(sample(xrange(-8, -5), self.LV_NO))
             elif gamma == 2:
-                self.LV_NO = 6
+                self.LV_NO = 5
                 self.cond = 'lcra'
-                lv_locs = np.array(sample(xrange(-4, 2), self.LV_NO))
+                lv_locs = np.array(sample(xrange(-3, 2), self.LV_NO))
             lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
             self.lv_ini = lv_locs[0]
             for x in lv_locs:

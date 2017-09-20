@@ -27,7 +27,7 @@ class ReinAcc(object):
     tools = ToolFunc()
 
     Tau = 1. / 10.
-    gamma = 0.
+    gamma = 0.99
 
     buffer_size = 10000
     batch_size = 128
@@ -57,7 +57,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(0, True)
+        self.sim = InterSim(2, True)
         self.reward = ObsReward()
         self.if_pass = False
         self.if_done = False
@@ -116,7 +116,7 @@ class ReinAcc(object):
         with open("../lstm_weights/criticmodel.json", "w") as outfile:
             json.dump(self.obs_critic.model.to_json(), outfile)
 
-    def save_weights(self, gamma):
+    def save_weights(self, gamma, results):
         if gamma == 0:
             w = 'w1'
         elif gamma == 1:
@@ -129,6 +129,9 @@ class ReinAcc(object):
         self.obs_critic.model.save_weights("../" + w + "/criticmodel.h5", overwrite=True)
         with open("../" + w + "/criticmodel.json", "w") as outfile:
             json.dump(self.obs_critic.model.to_json(), outfile)
+        with open('../' + w + '/g2.txt', 'w+') as json_file:
+            jsoned_data = json.dumps(results)
+            json_file.write(jsoned_data)
 
     def update_batch(self, s, a, r, s1):
         # logging.info('...... Updating batch ......')
@@ -166,12 +169,12 @@ class ReinAcc(object):
         for i in range(self.action_size):
             a = action_ori[0][i]
             if gamma == 0:
-                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.4, 0.5, -0.2))   # empty
+                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 1., 0.5, -0.5))   # empty
             elif gamma == 1:
-                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.2, 0.5, 0.4))   # 2v [-1, 2]
+                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.2, 0.5, 0.2))   # 2v [-1, 2]
             elif gamma == 2:
                 # noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.4, 0.5, 0.3))   # 4v [-2, 2]
-                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -1., 0.5, 0.5))   # full
+                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.8, 0.5, 0.4))   # full
             # noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.1, 0.2, 0.2))   # 3v [-10, -5]
             # noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.5, 0.5, 0.3))
             # noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.4, 0.5, 0.2))
@@ -245,7 +248,8 @@ class ReinAcc(object):
             self.if_done = True
 
     def launch_train(self, train_indicator=1):  # 1 means Train, 0 means simply Run
-        gamma = 0
+        gamma = 2
+        empty = 0
         # logging.info('Launch Training Process')
         # self.sim.draw_scenary(self.sim.av_pos, self.sim.hv_poses, 0.)
         state_t = self.sim.get_state()
@@ -360,16 +364,18 @@ class ReinAcc(object):
                            'stop': self.not_move, 'succeess': self.success,
                            'loss': self.loss, 'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/g2.txt', 'w+') as json_file:
+                with open('../results/g3.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
 
                 train_indicator = 0 if train_indicator == 1 else 1
-                if len(self.success) % 2 == 0 and (np.mean(self.success[-20::2]) == 100.) \
-                        and (len(self.success) > 20):
-                    self.save_weights(gamma)
+                if len(self.success) % 2 == 0 and (np.mean(self.success[-21::2]) == 100.) \
+                        and (len(self.success) - empty > 20):
+                    self.save_weights(gamma, results)
+                    break
+                    empty = e
                     gamma += 1
-                    if gamma > 3:
+                    if gamma > 2:
                         break
                     train_indicator = 1
                     self.epsilon = 1.

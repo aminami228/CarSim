@@ -3,7 +3,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/intersection_project" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cl_src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hrl_vanila" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/cl_src" />
       <excludeFolder url="file://$MODULE_DIR$/cl_src/observe_network_lstm" />
       <excludeFolder url="file://$MODULE_DIR$/hrl_src" />
       <excludeFolder url="file://$MODULE_DIR$/intersection_vires" />
