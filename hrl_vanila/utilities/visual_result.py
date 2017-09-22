@@ -5,7 +5,7 @@ import json
 __author__ = 'qzq'
 
 
-file_name = 'hrl1'
+file_name = 'hrl_gpu'
 with open('../results/' + file_name + '.txt', 'r') as json_file:
     results = json.load(json_file)
 
@@ -16,7 +16,7 @@ test_result = dict()
 train_qun = dict()
 test_qun = dict()
 
-correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess', 'not_stop'}
+correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess'} #, 'not_stop'}
 for key in correct_key:
     train_result[key] = np.reshape(results[key], (ep, 2))[:, 0]
     test_result[key] = np.reshape(results[key], (ep, 2))[:, 1]
@@ -44,8 +44,8 @@ plt.title('test')
 for key, value in test_result.iteritems():
     plt.plot(np.arange(ep), value, 'o-', label=key)
 plt.legend(loc=1)
-fig1.set_size_inches(12, 9)
-fig1.savefig('../results/' + file_name + '_1.eps', dpi=fig1.dpi)
+fig1.set_size_inches(24, 18)
+fig1.savefig('../results/' + file_name + '_1.png', dpi=fig1.dpi)
 
 fig2 = plt.figure(2)
 plt.subplot(311)
@@ -65,6 +65,6 @@ plt.plot(np.arange(total_ep), train_qun['max_j'], 'r', label='train max jerk')
 plt.plot(np.arange(total_ep), test_qun['max_j'], 'g', label='test max jerk')
 plt.legend(loc=1)
 fig2.set_size_inches(24, 18)
-fig2.savefig('../results/' + file_name + '_2.eps', dpi=fig2.dpi)
+fig2.savefig('../results/' + file_name + '_2.png', dpi=fig2.dpi)
 
 plt.show()
