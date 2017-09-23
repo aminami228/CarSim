@@ -5,11 +5,12 @@ import json
 __author__ = 'qzq'
 
 
-file_name = 'hrl_gpu'
-with open('../results/' + file_name + '.txt', 'r') as json_file:
-    results = json.load(json_file)
+file_name = 'ddpg'
+# file_name = 'hrl'
+with open('../../' + file_name + '.txt', 'r') as json_file:
+    results1 = json.load(json_file)
 
-ep = len(results['crash']) / 2
+ep = len(results1['crash']) / 2
 # results = {'crash': crash, 'non_stop': non_stop, 'unfinished': unfinished, 'overspeed': overspeed, 'stop': stop,
 train_result = dict()
 test_result = dict()
@@ -18,23 +19,23 @@ test_qun = dict()
 
 correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess'} #, 'not_stop'}
 for key in correct_key:
-    train_result[key] = np.reshape(results[key], (ep, 2))[:, 0]
-    test_result[key] = np.reshape(results[key], (ep, 2))[:, 1]
+    train_result[key] = np.reshape(results1[key], (ep, 2))[:, 0]
+    test_result[key] = np.reshape(results1[key], (ep, 2))[:, 1]
 
-ep1 = len(results['reward']) / 100
-total_ep = len(results['reward']) / 2
+ep1 = len(results1['reward']) / 100
+total_ep = len(results1['reward']) / 2
 quan_key = {'reward', 'max_j'}
 for key in quan_key:
-    train_qun[key] = np.reshape(results[key], (ep1, 100))[::2, :]
+    train_qun[key] = np.reshape(results1[key], (ep1, 100))[::2, :]
     train_qun[key] = np.reshape(train_qun[key], (1, total_ep))[0]
-    test_qun[key] = np.reshape(results[key], (ep1, 100))[1::2, :]
+    test_qun[key] = np.reshape(results1[key], (ep1, 100))[1::2, :]
     test_qun[key] = np.reshape(test_qun[key], (1, total_ep))[0]
 
-train_loss = np.reshape(results['loss'], (total_ep, 1))[:, 0]
+train_loss = np.reshape(results1['loss'], (total_ep, 1))[:, 0]
 
 fig1 = plt.figure(1)
 plt.subplot(211)
-plt.title('train, total time: {0:.2f} hr'.format(results['time'][-1] / 60.))
+plt.title('train, total time: {0:.2f} hr'.format(results1['time'][-1] / 60.))
 for key, value in train_result.iteritems():
     plt.plot(np.arange(ep), value, 'o-', label=key)
 plt.legend(loc=1)
