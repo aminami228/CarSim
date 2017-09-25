@@ -107,7 +107,7 @@ class HrlReward(object):
             elif dis1 > Tho_dis or (dis1 < - 2.5):
                 l_dis = 0.
             else:
-                l_dis = 0.5 * dis1 - 1
+                l_dis = 0.5 * dis1 - 1.
             if 0. <= dis2 <= Tho_dis:
                 r_dis = 1. / Tho_dis * dis2 - 1.
             elif dis2 > Tho_dis or (dis2 < - 2.5):
@@ -119,7 +119,7 @@ class HrlReward(object):
             elif t1 > Tho_time or (t1 < 0.):
                 l_t = 0.
             else:
-                l_t = - t1 - 1
+                l_t = - t1 - 1.
             if 0. <= t2 <= Tho_time:
                 r_t = 1. / Tho_time * t2 - 1.
             elif t2 > Tho_time or (t2 < 0.):

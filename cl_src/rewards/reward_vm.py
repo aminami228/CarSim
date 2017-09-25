@@ -80,18 +80,18 @@ class ObsReward(object):
         not_move = 0
         f = 0.
         accel = self.Cft_Accel * a
-        # if self.state[12] <= -3.:
-        #     if (self.state[0] <= 0.01) and (self.state[1] < 0) and (- 1. <= accel < 0.):
-        #         f = 50 * accel
-        #         # f = 100. * (self.tools.sigmoid(accel, 4.) - 0.5) if accel <= 0. else 0.
-        #     if (self.state[0] <= 0.01) and (self.state[1] < 0) and (accel < - 1.):
-        #         not_move = 1
-        #         f = 50 * accel
-        #         # f = 100. * (self.tools.sigmoid(accel, 4.) - 0.5) if accel <= 0. else 0.
-        #         f -= 500.
         if self.state[-2] <= -3.:     # or (self.state[12] > Safe_dis and (self.state[13] > Safe_time))\
                 # or (self.state[5] < -self.state[2]):
             if (self.state[0] <= 0.01) and (accel <= 0):
+                f = 50 * (accel - self.Cft_Accel)
+                f -= 500.
+                not_move = 1
+        ###
+        if self.state[-22] <= -3. and (self.state[-2] <= -3.)\
+                and (self.state[0] == 0.) and (self.state[1] < 0):
+            if - 0.5 < accel < 0.:
+                f = 50 * (accel - self.Cft_Accel)
+            elif accel <= - 0.5:
                 f = 50 * (accel - self.Cft_Accel)
                 f -= 500.
                 not_move = 1
@@ -185,17 +185,17 @@ class ObsReward(object):
         for dis, t in zip(crash_dis, crash_time):
             if 0. <= dis <= Tho_dis:
                 l_dis = 1. / Tho_dis * dis - 1.
-            elif dis > Tho_dis or (dis < - self.state[11]):
+            elif dis > Tho_dis or (dis < - 2.5):
                 l_dis = 0.
             else:
-                l_dis = - 1. / self.state[11] * dis - 1
+                l_dis = 0.5 * dis - 1.
 
             if 0. <= t <= Tho_time:
                 l_t = 1. / Tho_time * t - 1.
             elif t > Tho_time or (t < 0.):
                 l_t = 0.
             else:
-                l_t = - t - 1
+                l_t = - t - 1.
 
             if self.state[4] < 0.5 and (self.state[5] > - self.state[2]):
                 r1 += l_dis * 10.
@@ -222,7 +222,7 @@ class ObsReward(object):
         return fx
 
     def reward_dis(self):
-        dis = (self.state[0]) * self.Tau / (self.Pass_Point - self.state[9]) * 300.
+        dis = (self.state[0]) * self.Tau / (self.Pass_Point - self.state[9]) * 1000.
         return dis
 
     def reward_finish(self):

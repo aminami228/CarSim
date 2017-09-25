@@ -57,7 +57,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(2, True)
+        self.sim = InterSim(0, True)
         self.reward = ObsReward()
         self.if_pass = False
         self.if_done = False
@@ -117,12 +117,7 @@ class ReinAcc(object):
             json.dump(self.obs_critic.model.to_json(), outfile)
 
     def save_weights(self, gamma, results):
-        if gamma == 0:
-            w = 'w1'
-        elif gamma == 1:
-            w = 'w2'
-        elif gamma == 2:
-            w = 'w3'
+        w = 'w' + str(gamma)
         self.obs_actor.model.save_weights('../' + w + '/actormodel.h5', overwrite=True)
         with open("../" + w + "/actormodel.json", "w") as outfile:
             json.dump(self.obs_actor.model.to_json(), outfile)
@@ -162,7 +157,6 @@ class ReinAcc(object):
 
     def get_action(self, state, train_indicator, gamma):
         # logging.info('...... Getting action ......')
-
         noise = []
         # hist_state = np.reshape(self.hist_state, (1, self.his_len, self.state_dim))
         action_ori = self.obs_actor.model.predict(state)
@@ -171,10 +165,11 @@ class ReinAcc(object):
             if gamma == 0:
                 noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 1., 0.5, -0.5))   # empty
             elif gamma == 1:
-                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.2, 0.5, 0.2))   # 2v [-1, 2]
-            elif gamma == 2:
-                # noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.4, 0.5, 0.3))   # 4v [-2, 2]
                 noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.8, 0.5, 0.4))   # full
+            else:
+                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.4, 0.5, 0.3))
+            # noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.4, 0.5, 0.3))   # 4v [-2, 2]
+            # noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.2, 0.5, 0.2))  # 2v [-1, 2]
             # noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.1, 0.2, 0.2))   # 3v [-10, -5]
             # noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.5, 0.5, 0.3))
             # noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.4, 0.5, 0.2))
@@ -184,10 +179,6 @@ class ReinAcc(object):
 
     def if_exit(self, step, state, max_a, collision_l, collision_r, not_move):
         if step >= self.max_steps:
-            # dis = np.array(state[(10 + self.sim.LV_NO):])
-            # t = -2.
-            # if max(dis) > -2.:
-            #     t = min(dis[dis > -2.])
             logging.warn('Not finished with max steps! Start: {0:.2f}'.format(state[4]) +
                          ', Dis to Center: {0:.2f}'.format(state[5]) +
                          ', Dis to hv: {0:.2f}'.format(state[12]) +
@@ -197,10 +188,6 @@ class ReinAcc(object):
             self.if_pass = False
             self.if_done = True
         elif state[0] >= self.sim.Speed_limit + 2.:
-            # dis = np.array(state[(10 + self.sim.LV_NO):])
-            # t = -2.
-            # if max(dis) > -2.:
-            #     t = min(dis[dis > -2.])
             logging.warn('Exceed Speed Limit! Start: {0:.2f}'.format(state[4]) +
                          ', Dis to Center: {0:.2f}'.format(state[5]) +
                          ', Dis to hv: {0:.2f}'.format(state[12]) +
@@ -210,10 +197,6 @@ class ReinAcc(object):
             self.if_pass = False
             self.if_done = True
         elif not_move > 0:
-            # dis = np.array(state[(10 + self.sim.LV_NO):])
-            # t = -2.
-            # if max(dis) > -2.:
-            #     t = min(dis[dis > -2.])
             logging.warn('Not move! Start: {0:.2f}'.format(state[4]) + ', Dis to Center: {0:.2f}'.format(state[5]) +
                          ', Dis to hv: {0:.2f}'.format(state[12]) +
                          ', Velocity: {0:.2f}'.format(state[0]) + ', Max_a: {0:.2f}'.format(max_a) +
@@ -222,8 +205,6 @@ class ReinAcc(object):
             self.if_pass = False
             self.if_done = True
         elif collision_l > 0 or (collision_r > 0):
-            # dis = np.array(state[(10 + self.sim.LV_NO):])
-            # t = min(dis[dis > -2.])
             v = 'left' if collision_l > 0 else 'right'
             logging.warn('Crash to ' + v + ' vehicles! Start: {0:.2f}'.format(state[4]) +
                          ', Dis to Center: {0:.2f}'.format(state[5]) +
@@ -234,10 +215,7 @@ class ReinAcc(object):
             self.if_pass = False
             self.if_done = True
         elif state[8] <= - state[2]:
-            # dis = np.array(state[(10 + self.sim.LV_NO):])
-            # t = -2.
-            # if max(dis) > -2.:
-            #     t = min(dis[dis > -2.])
+
             logging.info('Congratulations! Traverse successfully. Start: {0:.2f}'.format(state[4]) +
                          ', Dis to Center: {0:.2f}'.format(state[5]) +
                          ', Dis to hv: {0:.2f}'.format(state[12]) +
@@ -248,10 +226,9 @@ class ReinAcc(object):
             self.if_done = True
 
     def launch_train(self, train_indicator=1):  # 1 means Train, 0 means simply Run
-        gamma = 2
+        gamma = 0
         empty = 0
         # logging.info('Launch Training Process')
-        # self.sim.draw_scenary(self.sim.av_pos, self.sim.hv_poses, 0.)
         state_t = self.sim.get_state()
         state_dim = state_t.shape[1]
         self.obs_actor = ObsActorNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size,
@@ -267,17 +244,10 @@ class ReinAcc(object):
         for e in range(self.episode_count):
             total_loss = 0.
             total_reward = 0.
-            # logging.debug("Episode : " + str(e) + " Replay Buffer " + str(self.buffer.count()))
             step = 0
             state_t = self.sim.get_state()
             max_j = 0.
-            # self.hist_state = state_t
             while True:
-                # if np.shape(self.hist_state)[0] < self.his_len:
-                #     self.sim.update_vehicle(0.)
-                #     state_t = self.sim.get_state()
-                #     self.hist_state = np.vstack([self.hist_state, state_t])
-                #     continue
                 self.epsilon -= 1.0 / self.explore_iter * train_indicator # if e > 6000 else 0.
                 action_t = self.get_action(state_t, train_indicator, gamma)
                 reward_t, collision_l, collision_r, not_move, jerk = self.reward.get_reward(state_t[0], action_t[0][0])
@@ -287,9 +257,6 @@ class ReinAcc(object):
                 self.sim.update_vehicle(action_t[0][0], reward_t)
                 state_t1 = self.sim.get_state()
                 fre_time = time.time()
-                # self.hist_state_1 = np.vstack([self.hist_state, state_t1])
-                # self.hist_state_1 = self.hist_state_1[0:][1:]
-                # self.update_batch(self.hist_state, action_t[0], reward_t, self.hist_state_1)
                 self.update_batch(state_t, action_t[0], reward_t, state_t1)
                 loss = self.update_loss() if train_indicator else 0.
 
@@ -331,9 +298,12 @@ class ReinAcc(object):
             total_time = time.time()
 
             visual = True if (e + 1) % 1000 == 0 else False
-            # if (e + 1) % 1000 == 0:
-            #     gamma += 0.01
-            #     gamma = min(2. / 3., gamma)
+            if gamma == 0 and e >= 1000:
+                gamma += 1
+            elif gamma == 1 and e >= 3000:
+                gamma += 1
+            elif gamma >= 2 and ((e - 3000) % 5000 == 0):
+                gamma += 1
             self.sim = InterSim(gamma, visual)
             # self.sim = InterSim(False)
             # self.sim.draw_scenary(self.sim.av_pos, self.sim.hv_poses, 0.)
@@ -364,21 +334,21 @@ class ReinAcc(object):
                            'stop': self.not_move, 'succeess': self.success,
                            'loss': self.loss, 'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/g3.txt', 'w+') as json_file:
+                with open('../results/cl_tra.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
 
                 train_indicator = 0 if train_indicator == 1 else 1
-                if len(self.success) % 2 == 0 and (np.mean(self.success[-21::2]) == 100.) \
-                        and (len(self.success) - empty > 20):
-                    self.save_weights(gamma, results)
-                    break
-                    empty = e
-                    gamma += 1
-                    if gamma > 2:
-                        break
-                    train_indicator = 1
-                    self.epsilon = 1.
+                # if len(self.success) % 2 == 0 and (np.mean(self.success[-21::2]) == 100.) \
+                #         and (len(self.success) - empty > 20):
+                #     self.save_weights(gamma, results)
+                #     break
+                #     empty = e
+                #     gamma += 1
+                #     if gamma > 2:
+                #         break
+                #     train_indicator = 1
+                #     self.epsilon = 1.
                     # if (e + 1) % 1000 == 0:
                     #     self.epsilon = 1.0
 

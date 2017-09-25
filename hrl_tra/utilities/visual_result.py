@@ -5,7 +5,7 @@ import json
 __author__ = 'qzq'
 
 
-file_name = 'ddpg'
+file_name = 'hrl_tra'
 with open('../../' + file_name + '.txt', 'r') as json_file:
     results = json.load(json_file)
 
