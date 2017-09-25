@@ -80,12 +80,12 @@ class ObsReward(object):
         not_move = 0
         f = 0.
         accel = self.Cft_Accel * a
-        if self.state[-2] <= -3.:     # or (self.state[12] > Safe_dis and (self.state[13] > Safe_time))\
-                # or (self.state[5] < -self.state[2]):
-            if (self.state[0] <= 0.01) and (accel <= 0):
-                f = 50 * (accel - self.Cft_Accel)
-                f -= 500.
-                not_move = 1
+        # if self.state[-2] <= -3.:     # or (self.state[12] > Safe_dis and (self.state[13] > Safe_time))\
+        #         # or (self.state[5] < -self.state[2]):
+        #     if (self.state[0] <= 0.01) and (accel <= 0):
+        #         f = 50 * (accel - self.Cft_Accel)
+        #         f -= 500.
+        #         not_move = 1
         ###
         if self.state[-22] <= -3. and (self.state[-2] <= -3.)\
                 and (self.state[0] == 0.) and (self.state[1] < 0):
@@ -110,7 +110,7 @@ class ObsReward(object):
         jerk = abs(accel - self.state[1]) / self.Tau
 
         # for jerk in np.linspace(-5., 5., 100):
-        f1 = - 0.5 * (jerk - 15.) if jerk >= 10. else 0.
+        f1 = - 0.1 * (jerk - 15.) if jerk >= 15. else 0.
         f2 = 0.
         # fp.append(f1 + f2)
         # plt.plot(np.linspace(-5., 5., 100), fp, 'r.')
@@ -179,7 +179,7 @@ class ObsReward(object):
         r1, r2 = 0., 0.
         t1, t2 = 0., 0.
         collision_l, collision_r = 0, 0
-        crash = self.state[12:]
+        crash = self.state[12:33]
         crash_dis = crash[::2]
         crash_time = crash[1::2]
         for dis, t in zip(crash_dis, crash_time):

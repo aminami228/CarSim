@@ -35,9 +35,9 @@ class ReinAcc(object):
     LRA = 0.001             # Learning rate for Actor
     LRC = 0.001             # Learning rate for Critic
 
-    explore_iter = 1000000.
+    explore_iter = 200000.
     # explore_iter = 1000.
-    episode_count = 6000000
+    episode_count = 500000
     max_steps = 800
     action_dim = 1          # Steering/Acceleration/Brake
     action_size = 1
@@ -99,21 +99,21 @@ class ReinAcc(object):
     def load_weights(self):
         # logging.info('...... Loading weight ......')
         try:
-            self.obs_actor.model.load_weights("../lstm_weights/actormodel.h5")
-            self.obs_critic.model.load_weights("../lstm_weights/criticmodel.h5")
-            self.obs_actor.target_model.load_weights("../lstm_weights/actormodel.h5")
-            self.obs_critic.target_model.load_weights("../lstm_weights/criticmodel.h5")
+            self.obs_actor.model.load_weights("../weights/actormodel.h5")
+            self.obs_critic.model.load_weights("../weights/criticmodel.h5")
+            self.obs_actor.target_model.load_weights("../weights/actormodel.h5")
+            self.obs_critic.target_model.load_weights("../weights/criticmodel.h5")
             # logging.info("Weight load successfully")
         except:
             logging.warn("Cannot find the weight !")
 
     def update_weights(self):
         # logging.info('...... Updating weight ......')
-        self.obs_actor.model.save_weights("../lstm_weights/actormodel.h5", overwrite=True)
-        with open("../lstm_weights/actormodel.json", "w") as outfile:
+        self.obs_actor.model.save_weights("../weights/actormodel.h5", overwrite=True)
+        with open("../weights/actormodel.json", "w") as outfile:
             json.dump(self.obs_actor.model.to_json(), outfile)
-        self.obs_critic.model.save_weights("../lstm_weights/criticmodel.h5", overwrite=True)
-        with open("../lstm_weights/criticmodel.json", "w") as outfile:
+        self.obs_critic.model.save_weights("../weights/criticmodel.h5", overwrite=True)
+        with open("../weights/criticmodel.json", "w") as outfile:
             json.dump(self.obs_critic.model.to_json(), outfile)
 
     def save_weights(self, gamma, results):
@@ -216,11 +216,7 @@ class ReinAcc(object):
             self.if_done = True
         elif state[8] <= - state[2]:
 
-            logging.info('Congratulations! Traverse successfully. Start: {0:.2f}'.format(state[4]) +
-                         ', Dis to Center: {0:.2f}'.format(state[5]) +
-                         ', Dis to hv: {0:.2f}'.format(state[12]) +
-                         ', Velocity: {0:.2f}'.format(state[0]) + ', Max_a: {0:.2f}'.format(max_a) +
-                         ', ' + self.sim.cond + ', Lv_ini: {0:.2f}'.format(self.sim.lv_ini))
+            logging.info('Congratulations! Traverse successfully. ' + self.sim.cond + ' condion.')
             self.sub_success += 1
             self.if_pass = True
             self.if_done = True
@@ -300,10 +296,11 @@ class ReinAcc(object):
             visual = True if (e + 1) % 1000 == 0 else False
             if gamma == 0 and e >= 1000:
                 gamma += 1
-            elif gamma == 1 and e >= 3000:
+            elif gamma == 1 and e >= 6000:
                 gamma += 1
-            elif gamma >= 2 and ((e - 3000) % 5000 == 0):
+            elif gamma >= 2 and ((e - 6000) % 10000 == 0):
                 gamma += 1
+            gamma = min(gamma, 6)
             self.sim = InterSim(gamma, visual)
             # self.sim = InterSim(False)
             # self.sim.draw_scenary(self.sim.av_pos, self.sim.hv_poses, 0.)

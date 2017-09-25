@@ -4,10 +4,17 @@ import json
 
 __author__ = 'qzq'
 
-
-file_name = 'hrl_tra'
-with open('../../' + file_name + '.txt', 'r') as json_file:
-    results = json.load(json_file)
+a = 1
+if a == 0:
+    file_name = 'hrl_tra'
+    with open('../../' + file_name + '.txt', 'r') as json_file:
+        results = json.load(json_file)
+    correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess', 'not_stop'}
+else:
+    file_name = 'cl_tra'
+    with open('../../cl_src/results/' + file_name + '.txt', 'r') as json_file:
+        results = json.load(json_file)
+    correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess'}
 
 ep = len(results['crash']) / 2
 # results = {'crash': crash, 'non_stop': non_stop, 'unfinished': unfinished, 'overspeed': overspeed, 'stop': stop,
@@ -16,7 +23,7 @@ test_result = dict()
 train_qun = dict()
 test_qun = dict()
 
-correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess', 'not_stop'}
+
 for key in correct_key:
     train_result[key] = np.reshape(results[key], (ep, 2))[:, 0]
     test_result[key] = np.reshape(results[key], (ep, 2))[:, 1]

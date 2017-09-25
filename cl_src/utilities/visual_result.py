@@ -5,7 +5,7 @@ import json
 __author__ = 'qzq'
 
 
-file_name = 'g3'
+file_name = 'cl_tra'
 with open('../results/' + file_name + '.txt', 'r') as json_file:
     results = json.load(json_file)
 with open('../results/' + 'g1' + '.txt', 'r') as json_file:
