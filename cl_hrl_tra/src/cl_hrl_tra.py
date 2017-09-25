@@ -114,8 +114,8 @@ class ReinAcc(object):
         with open("../weights/criticmodel.json", "w") as outfile:
             json.dump(self.obs_critic.model.to_json(), outfile)
 
-    def save_weights(self, results):
-        w = 'saved_weights'
+    def save_weights(self, gamma, results):
+        w = 'w' + str(gamma)
         self.obs_actor.model.save_weights('../' + w + '/actormodel.h5', overwrite=True)
         with open("../" + w + "/actormodel.json", "w") as outfile:
             json.dump(self.obs_actor.model.to_json(), outfile)
@@ -327,9 +327,9 @@ class ReinAcc(object):
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
                 train_indicator = 0 if train_indicator == 1 else 1
+                self.save_weights(gamma, results)
                 # if len(self.success) % 2 == 0 and (np.mean(self.success[-10::2]) == 100.) \
                 #         and (len(self.success) > 10):
-                #     self.save_weights(results)
                 #     break
 
 

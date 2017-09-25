@@ -336,6 +336,7 @@ class ReinAcc(object):
                     json_file.write(jsoned_data)
 
                 train_indicator = 0 if train_indicator == 1 else 1
+                self.save_weights(gamma, results)
                 # if len(self.success) % 2 == 0 and (np.mean(self.success[-21::2]) == 100.) \
                 #         and (len(self.success) - empty > 20):
                 #     self.save_weights(gamma, results)
