@@ -67,9 +67,9 @@ class HrlReward(object):
 
         if self.state[4] < 0.5 and (self.state[33] <= -3.) and (self.state[53] <= -3.)\
                 and (self.state[0] == 0.) and (self.state[1] < 0):
-            if 0.5 < accel < 0.:
+            if - 0.5 < accel < 0.:
                 f = 50 * (accel - self.Cft_Accel)
-            elif accel <= 0.5:
+            elif accel <= - 0.5:
                 f = 50 * (accel - self.Cft_Accel)
                 f -= 500.
                 not_move = 1

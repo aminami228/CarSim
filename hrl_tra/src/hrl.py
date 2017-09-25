@@ -54,7 +54,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(True)
+        self.sim = InterSim(False)
         self.reward = HrlReward()
         self.if_done = False
 
@@ -277,7 +277,7 @@ class ReinAcc(object):
                           ', Not Stop: ' + str(self.sub_not_stop) + ', Success: ' + str(self.sub_success))
             total_time = time.time()
 
-            visual = True if (e + 1) % 1000 == 0 else False
+            visual = False    # True if (e + 1) % 1000 == 0 else False
             self.sim = InterSim(visual)
             self.if_done = False
 
