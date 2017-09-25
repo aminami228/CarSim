@@ -258,12 +258,12 @@ class ReinAcc(object):
                 step += 1
                 total_loss += loss
                 train_time += time.time() - fre_time
-                logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) +
-                              ', Dis to Center: {0:.2f}'.format(state_t[0][5]) +
-                              ', Dis to hv: {0:.2f}'.format(state_t[0][12]) +
-                              ', v: {0:.2f}'.format(state_t[0][0]) + ', a: {0:.2f}'.format(action_t[0][0]) +
-                              ', r: {0:.2f}'.format(reward_t) + ', loss: {0:.3f}'.format(loss) +
-                              ', time: {0:.2f}'.format(train_time))
+                # logging.debug('Episode: ' + str(e) + ', Step: ' + str(step) +
+                #               ', Dis to Center: {0:.2f}'.format(state_t[0][5]) +
+                #               ', Dis to hv: {0:.2f}'.format(state_t[0][12]) +
+                #               ', v: {0:.2f}'.format(state_t[0][0]) + ', a: {0:.2f}'.format(action_t[0][0]) +
+                #               ', r: {0:.2f}'.format(reward_t) + ', loss: {0:.3f}'.format(loss) +
+                #               ', time: {0:.2f}'.format(train_time))
                 fre_time = time.time()
                 if self.if_done:
                     break
