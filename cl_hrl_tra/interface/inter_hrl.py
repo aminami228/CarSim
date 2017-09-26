@@ -226,6 +226,8 @@ class InterSim(object):
                     lv_pos['w'] = 2. + random() - 0.5
                     lv_pos['dir'] = 'R'
                     self.lv_poses.append(lv_pos)
+                for i in range(self.LV_NO):
+                    self.rv_poses.append({'x': 100., 'v': 0., 'y': 2., 'l': 4., 'w': 2., 'a': 0., 'dir': 'L'})
             self.hv_poses = self.lv_poses + self.rv_poses
 
         for hv_pos in self.hv_poses:

@@ -4,9 +4,9 @@ import json
 
 __author__ = 'qzq'
 
-a = 0
+a = 2
 if a == 0:
-    file_name = 'cl_tra4'
+    file_name = 'cl_tra2'
     with open('../../cl_src/results/' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess'}
@@ -21,7 +21,9 @@ ep = len(results['crash']) / 2
 train_result = dict()
 test_result = dict()
 train_qun = dict()
+train_qun1 = dict()
 test_qun = dict()
+test_qun1 = dict()
 
 
 for key in correct_key:
@@ -33,45 +35,30 @@ total_ep = len(results['reward']) / 2
 quan_key = {'reward', 'max_j'}
 for key in quan_key:
     train_qun[key] = np.reshape(results[key], (ep1, 100))[::2, :]
+    train_qun1[key] = np.mean(train_qun[key], axis=1)
     train_qun[key] = np.reshape(train_qun[key], (1, total_ep))[0]
     test_qun[key] = np.reshape(results[key], (ep1, 100))[1::2, :]
+    test_qun1[key] = np.mean(test_qun[key], axis=1)
     test_qun[key] = np.reshape(test_qun[key], (1, total_ep))[0]
 
 train_loss = np.reshape(results['loss'], (total_ep, 1))[:, 0]
 
-fig1 = plt.figure(1)
+fig2 = plt.figure(1)
 plt.subplot(211)
-plt.title('train, total time: {0:.2f} hr'.format(results['time'][-1] / 60.))
-for key, value in train_result.iteritems():
-    plt.plot(np.arange(ep), value, 'o-', label=key)
-plt.legend(loc=1)
-
-plt.subplot(212)
-plt.title('test')
-for key, value in test_result.iteritems():
-    plt.plot(np.arange(ep), value, 'o-', label=key)
-plt.legend(loc=1)
-fig1.set_size_inches(12, 9)
-fig1.savefig('../results/' + file_name + '_1.eps', dpi=fig1.dpi)
-
-fig2 = plt.figure(2)
-plt.subplot(311)
-plt.title('critic loss: {0:.2f}'.format(np.mean(train_loss[-100:])))
-# plt.ylim([0, 50000])
-plt.plot(np.arange(total_ep), train_loss, 'r', label='loss')
-plt.legend(loc=1)
-plt.subplot(312)
 # plt.ylim([-5000, 1000])
-plt.title('rewards: {0:.2f}'.format(np.mean(test_qun['reward'][-100:])))
-plt.plot(np.arange(total_ep), train_qun['reward'], 'r', label='train reward')
-plt.plot(np.arange(total_ep), test_qun['reward'], 'g', label='test reward')
+plt.title('Rewards')
+plt.plot(np.arange(total_ep), train_qun['reward'], '#FFCCCC')
+plt.plot(np.arange(total_ep), test_qun['reward'], '#E5FFCC')
+plt.plot(np.arange(0, total_ep, 100), train_qun1['reward'], 'r', label='train reward')
+plt.plot(np.arange(0, total_ep, 100), test_qun1['reward'], 'g', label='test reward')
 plt.legend(loc=1)
-plt.subplot(313)
-plt.title('max jerk: {0:.2f}'.format(np.mean(test_qun['max_j'][-100:])))
-plt.plot(np.arange(total_ep), train_qun['max_j'], 'r', label='train max jerk')
-plt.plot(np.arange(total_ep), test_qun['max_j'], 'g', label='test max jerk')
+plt.subplot(212)
+plt.title('Success rate')
+# plt.ylim([0, 100])
+plt.plot(np.arange(ep), train_result['succeess'], '.-', label='train')
+plt.plot(np.arange(ep), test_result['succeess'], '.-', label='test')
 plt.legend(loc=1)
-fig2.set_size_inches(24, 18)
+fig2.set_size_inches(12, 9)
 fig2.savefig('../results/' + file_name + '_2.eps', dpi=fig2.dpi)
 
 plt.show()

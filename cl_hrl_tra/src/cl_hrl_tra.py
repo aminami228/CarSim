@@ -288,11 +288,11 @@ class ReinAcc(object):
             total_time = time.time()
 
             visual = False    # True if (e + 1) % 1000 == 0 else False
-            if gamma == 0 and e >= 1000:
+            if gamma == 0 and e >= 2000:
                 gamma += 1
-            elif gamma == 1 and e >= 6000:
+            elif gamma == 1 and e >= 10000:
                 gamma += 1
-            elif gamma >= 2 and ((e - 6000) % 10000 == 0):
+            elif gamma >= 2 and ((e - 10000) % 10000 == 0):
                 gamma += 1
             gamma = min(gamma, 6)
             self.sim = InterSim(gamma, visual)
@@ -323,7 +323,7 @@ class ReinAcc(object):
                            'stop': self.not_move, 'not_stop': self.not_stop, 'succeess': self.success,
                            'loss': self.loss, 'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/cl_hrl_tra.txt', 'w+') as json_file:
+                with open('../results/cl_hrl_tra2.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
                 train_indicator = 0 if train_indicator == 1 else 1
@@ -336,4 +336,4 @@ class ReinAcc(object):
 if __name__ == '__main__':
     plt.ion()
     acc = ReinAcc()
-    acc.launch_train(1)
+    acc.launch_train(0)

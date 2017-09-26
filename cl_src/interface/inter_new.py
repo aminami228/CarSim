@@ -89,6 +89,37 @@ class InterSim(object):
                 lv_pos['w'] = 2. + random() - 0.5
                 lv_pos['dir'] = 'R'
                 self.lv_poses.append(lv_pos)
+        # if gamma == 0 or (rr < (1. / (gamma + 1.))):
+        #     self.LV_NO = 8
+        #     self.cond = 'l_full'
+        #     lv_locs = np.array(sample(xrange(-6, 2), self.LV_NO))
+        # elif gamma >= 1 and ((1. / (gamma + 1.)) <= rr < (2. / (gamma + 1.))):
+        #     self.cond = 'l_random1'
+        #     self.LV_NO = 8
+        #     lv_locs = np.array(sample(xrange(-10, 2), self.LV_NO))
+        # elif gamma >= 2 and ((2. / (gamma + 1.)) <= rr < (3. / (gamma + 1.))):
+        #     self.cond = 'l_random'
+        #     self.LV_NO = 8
+        #     lv_locs = np.array(sample(xrange(-15, 2), self.LV_NO))
+        # elif gamma >= 3 and ((3. / (gamma + 1.)) <= rr < (4. / (gamma + 1.))):
+        #     self.cond = 'empty'
+        #     self.lv_ini = -3.
+        #     lv_locs = []
+        # else:
+        #     self.cond = 'l_random'
+        #     self.LV_NO = 8
+        #     lv_locs = np.array(sample(xrange(-15, 2), self.LV_NO))
+        # lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
+        # for x in lv_locs:
+        #     lv_pos = dict()
+        #     lv_pos['y'] = (self.Inter_Ori['y'] + self.Inter_Low) / 2.
+        #     lv_pos['x'] = x
+        #     lv_pos['v'] = self.Speed_limit - random()
+        #     lv_pos['a'] = 0.
+        #     lv_pos['l'] = 4. + 2. * random()
+        #     lv_pos['w'] = 2. + random() - 0.5
+        #     lv_pos['dir'] = 'R'
+        #     self.lv_poses.append(lv_pos)
 
         self.hv_poses = self.lv_poses + self.rv_poses
 
