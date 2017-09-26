@@ -11,7 +11,7 @@ with open('../../hrl_tra.txt', 'r') as json_file:
     hrl_tra = json.load(json_file)
 with open('../../cl_hrl_tra.txt', 'r') as json_file:
     cl_hrl_tra = json.load(json_file)
-with open('../../cl_src/results/cl_tra3.txt', 'r') as json_file:
+with open('../../cl_src/results/cl_tra4.txt', 'r') as json_file:
     cl_tra = json.load(json_file)
 
 keys = ['ddpg', 'hddpg', 'cl+hddpg', 'cddpg']

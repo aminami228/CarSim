@@ -163,9 +163,9 @@ class ReinAcc(object):
         for i in range(self.action_size):
             a = action_ori[0][i]
             if gamma == 0:
-                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.8, 0.5, -0.5))  # full
+                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 1., 0.5, -0.5))  # full
             elif gamma == 1:
-                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.8, 0.5, 0.5))
+                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -1., 0.5, 0.5))
             else:
                 noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.4, 0.5, 0.5))
             # noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.4, 0.5, 0.3))   # 4v [-2, 2]
@@ -293,7 +293,7 @@ class ReinAcc(object):
             total_time = time.time()
 
             visual = True if (e + 1) % 1000 == 0 else False
-            if gamma == 0 and e >= 2000:
+            if gamma == 0 and e >= 5000:
                 gamma += 1
             elif gamma == 1 and e >= 10000:
                 gamma += 1
