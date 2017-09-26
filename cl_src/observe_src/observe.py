@@ -26,7 +26,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 class ReinAcc(object):
     tools = ToolFunc()
 
-    Tau = 1. / 10.
+    Tau = 1. / 30.
     gamma = 0.99
 
     buffer_size = 10000
@@ -295,9 +295,9 @@ class ReinAcc(object):
             visual = True if (e + 1) % 1000 == 0 else False
             if gamma == 0 and e >= 5000:
                 gamma += 1
-            elif gamma == 1 and e >= 10000:
+            elif gamma == 1 and e >= 20000:
                 gamma += 1
-            elif gamma >= 2 and ((e - 10000) % 10000 == 0):
+            elif gamma >= 2 and ((e - 20000) % 10000 == 0):
                 gamma += 1
             gamma = min(gamma, 5)
             self.sim = InterSim(gamma, visual)
@@ -330,7 +330,7 @@ class ReinAcc(object):
                            'stop': self.not_move, 'succeess': self.success,
                            'loss': self.loss, 'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/cl_tra4.txt', 'w+') as json_file:
+                with open('../results/cl_tra5.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
 

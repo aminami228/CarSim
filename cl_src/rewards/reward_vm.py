@@ -16,7 +16,7 @@ Focus_No = 10
 
 
 class ObsReward(object):
-    Tau = 1. / 10.
+    Tau = 1. / 30.
     Speed_limit = 12.  # m/s
     Scenary = randint(0, 2)
     Inter_Ori = 0.

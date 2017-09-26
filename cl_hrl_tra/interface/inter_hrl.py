@@ -40,10 +40,10 @@ class InterSim(object):
         self.Visual = visual
         self.gamma = gamma
         self.av_pos = dict()
-        self.av_pos['y'] = self.Stop_Line
+        self.av_pos['y'] = self.Stop_Line + 0.5 * random()
         self.Start_Pos = self.av_pos['y']
         self.av_pos['x'] = 2. + random() - 0.5
-        self.av_pos['vx'] = 0.
+        self.av_pos['vx'] = 0.1
         self.av_pos['vy'] = 0.      # self.Speed_limit - random() * 5.
         self.av_pos['heading'] = 0.
         self.av_pos['accel'] = 0.
@@ -197,7 +197,7 @@ class InterSim(object):
             fv_pos['v'] = min(max(0.1, fv_pos['v']), self.Speed_limit)
             fv_pos['y'] += fv_pos['v'] * self.Tau + 0.5 * fv_pos['a'] * (self.Tau ** 2)
 
-        if self.av_pos['y'] >= self.Stop_Line and (not self.hv_poses):
+        if not self.hv_poses:
             self.lv_poses, self.rv_poses = [], []
             rr = random()
             if self.gamma == 0 or (self.gamma != 1 and (rr > ((self.gamma - 1.) / self.gamma))):

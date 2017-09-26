@@ -6,12 +6,12 @@ __author__ = 'qzq'
 
 a = 0
 if a == 0:
-    file_name = 'cl_tra4'
+    file_name = 'cl_tra5'
     with open('../../cl_src/results/' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess'}
 else:
-    file_name = 'ddpg' if (a == 1) else 'cl_hrl_tra'
+    file_name = 'ddpg' if (a == 1) else 'cl_hrl_tra2'
     with open('../../' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess', 'not_stop'}

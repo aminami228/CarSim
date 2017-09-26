@@ -21,7 +21,7 @@ Focus_No = 10
 
 
 class InterSim(object):
-    Tau = 1. / 10.
+    Tau = 1. / 30.
     Speed_limit = 12        # m/s
     Inter_Ori = {'x': 0., 'y': 0.}
     Stop_Line = - 7. - random()

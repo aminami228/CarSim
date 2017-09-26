@@ -153,6 +153,6 @@ class HrlReward(object):
 
     def reward_finish(self):
         if self.state[9] <= - self.state[2]:
-            return 1000.
+            return 2000.
         else:
             return 0.
