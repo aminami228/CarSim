@@ -35,9 +35,9 @@ class ReinAcc(object):
     LRA = 0.001             # Learning rate for Actor
     LRC = 0.001             # Learning rate for Critic
 
-    explore_iter = 200000.
+    explore_iter = 1000000.
     # explore_iter = 1000.
-    episode_count = 500000
+    episode_count = 6000000
     max_steps = 800
     action_dim = 1          # Steering/Acceleration/Brake
     action_size = 1
@@ -223,7 +223,6 @@ class ReinAcc(object):
 
     def launch_train(self, train_indicator=1):  # 1 means Train, 0 means simply Run
         gamma = 0
-        empty = 0
         # logging.info('Launch Training Process')
         state_t = self.sim.get_state()
         state_dim = state_t.shape[1]
@@ -296,9 +295,9 @@ class ReinAcc(object):
             visual = True if (e + 1) % 1000 == 0 else False
             if gamma == 0 and e >= 1000:
                 gamma += 1
-            elif gamma == 1 and e >= 6000:
+            elif gamma == 1 and e >= 10000:
                 gamma += 1
-            elif gamma >= 2 and ((e - 6000) % 10000 == 0):
+            elif gamma >= 2 and ((e - 10000) % 10000 == 0):
                 gamma += 1
             gamma = min(gamma, 6)
             self.sim = InterSim(gamma, visual)

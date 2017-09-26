@@ -4,17 +4,17 @@ import json
 
 __author__ = 'qzq'
 
-a = 1
+a = 2
 if a == 0:
-    file_name = 'hrl_tra'
-    with open('../../' + file_name + '.txt', 'r') as json_file:
-        results = json.load(json_file)
-    correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess', 'not_stop'}
-else:
     file_name = 'cl_tra'
     with open('../../cl_src/results/' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess'}
+else:
+    file_name = 'hrl_tra' if (a == 1) else 'cl_hrl_tra'
+    with open('../../' + file_name + '.txt', 'r') as json_file:
+        results = json.load(json_file)
+    correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess', 'not_stop'}
 
 ep = len(results['crash']) / 2
 # results = {'crash': crash, 'non_stop': non_stop, 'unfinished': unfinished, 'overspeed': overspeed, 'stop': stop,

@@ -179,7 +179,7 @@ class ObsReward(object):
         r1, r2 = 0., 0.
         t1, t2 = 0., 0.
         collision_l, collision_r = 0, 0
-        crash = self.state[12:33]
+        crash = self.state[12:32]
         crash_dis = crash[::2]
         crash_time = crash[1::2]
         for dis, t in zip(crash_dis, crash_time):
