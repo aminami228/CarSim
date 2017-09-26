@@ -106,8 +106,6 @@ class InterSim(object):
         self.state_hv = []
         self.state_road = []
 
-        self.cond = ''
-
     def draw_scenary(self, av, hvs, fvs, a, r=0):
         if self.Visual:
             self.fig = plt.figure(1)

@@ -9,9 +9,11 @@ with open('../../ddpg.txt', 'r') as json_file:
     ddpg = json.load(json_file)
 with open('../../hrl_tra.txt', 'r') as json_file:
     hrl_tra = json.load(json_file)
-with open('../../cl_hrl_tra2.txt', 'r') as json_file:
+# with open('../../cl_hrl_tra2.txt', 'r') as json_file:
+#     cl_hrl_tra = json.load(json_file)
+with open('../../cl_hrl_local/results/cl_hrl_loc1.txt', 'r') as json_file:
     cl_hrl_tra = json.load(json_file)
-with open('../../cl_src/results/cl_tra5.txt', 'r') as json_file:
+with open('../../cl_src/results/cl_tra3.txt', 'r') as json_file:
     cl_tra = json.load(json_file)
 
 keys = ['ddpg', 'hddpg', 'cl+hddpg', 'cddpg']

@@ -11,7 +11,6 @@ Safe_dis = 30.
 Safe_time = 3.
 Tho_dis = 10.
 Tho_time = 1.5
-Visibility = 50.
 Focus_No = 10
 
 
@@ -43,7 +42,7 @@ class ObsReward(object):
     def get_reward(self, state, a=0., b=0., st=0.):
         self.state = state
         r_smooth, jerk = self.reward_smooth(a, st)
-        r_clerance, collision_l, collision_r = self.reward_clear()
+        r_clerance, collision_l, collision_r, collision_f = self.reward_clear()
         # r_stop = self.reward_stop(a)
         r_speedlimit = self.reward_speedlimit()
         r_time = - 1.
@@ -175,32 +174,48 @@ class ObsReward(object):
 
     def reward_clear(self):
         r1, r2 = 0., 0.
-        t1, t2 = 0., 0.
-        collision_l, collision_r = 0, 0
-        crash = self.state[12:32]
-        crash_dis = crash[::2]
-        crash_time = crash[1::2]
-        for dis, t in zip(crash_dis, crash_time):
-            if 0. <= dis <= Tho_dis:
-                l_dis = 1. / Tho_dis * dis - 1.
-            elif dis > Tho_dis or (dis < - 2.5):
+        t_1, t_2 = 0., 0.
+        collision_l, collision_r, collision_f = 0, 0, 0
+
+        crash_l, crash_r = self.state[14:33], self.state[34:]
+        crash_l_dis, crash_r_dis = crash_l[::2], crash_r[::2]
+        crash_l_time, crash_r_time = crash_l[1::2], crash_r[1::2]
+        for dis1, t1, dis2, t2 in zip(crash_l_dis, crash_l_time, crash_r_dis, crash_r_time):
+            if 0. <= dis1 <= Tho_dis:
+                l_dis = 1. / Tho_dis * dis1 - 1.
+            elif dis1 > Tho_dis or (dis1 < - 2.5):
                 l_dis = 0.
             else:
-                l_dis = 0.5 * dis - 1.
-
-            if 0. <= t <= Tho_time:
-                l_t = 1. / Tho_time * t - 1.
-            elif t > Tho_time or (t < 0.):
+                l_dis = 0.5 * dis1 - 1.
+            if 0. <= dis2 <= Tho_dis:
+                r_dis = 1. / Tho_dis * dis2 - 1.
+            elif dis2 > Tho_dis or (dis2 < - 2.5):
+                r_dis = 0.
+            else:
+                r_dis = 0.5 * dis2 - 1
+            if 0. <= t1 <= Tho_time:
+                l_t = 1. / Tho_time * t1 - 1.
+            elif t1 > Tho_time or (t1 < 0.):
                 l_t = 0.
             else:
-                l_t = - t - 1.
-
-            if self.state[4] < 0.5 and (self.state[5] > - self.state[2]):
-                r1 += l_dis * 10.
-                t1 += l_t * 50.
-            if l_dis <= - 1. and (self.state[4] < - 0.5 and (self.state[5] > - self.state[2])):
+                l_t = - t1 - 1.
+            if 0. <= t2 <= Tho_time:
+                r_t = 1. / Tho_time * t2 - 1.
+            elif t2 > Tho_time or (t2 < 0.):
+                r_t = 0.
+            else:
+                r_t = - t2 - 1
+            if self.state[5] < 0. and (self.state[6] > - self.state[2]):
+                r2 += l_dis * 10.
+                t_2 += l_t * 50.
+            if self.state[6] < 0. and (self.state[8] > - self.state[2]):
+                r2 += r_dis * 10.
+                t_2 += r_t * 50.
+            if l_dis <= - 1. and (self.state[5] < 0. and (self.state[6] > - self.state[2])):
                 collision_l += 1
-        return r1 + r2 + t1,  collision_l, collision_r
+            if r_dis <= - 1. and (self.state[6] < 0. and (self.state[8] > - self.state[2])):
+                collision_r += 1
+        return r1 + r2 + t_1 + t_2,  collision_l, collision_r, collision_f
 
     def reward_stop(self):
         #############################################################################
@@ -225,6 +240,6 @@ class ObsReward(object):
 
     def reward_finish(self):
         if self.state[8] <= - self.state[2]:
-            return 500.
+            return 2000.
         else:
             return 0.

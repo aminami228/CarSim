@@ -38,7 +38,7 @@ class ReinAcc(object):
     explore_iter = 1000000.
     # explore_iter = 1000.
     episode_count = 6000000
-    max_steps = 800
+    max_steps = 2000
     action_dim = 1          # Steering/Acceleration/Brake
     action_size = 1
     his_len = 20
@@ -165,7 +165,9 @@ class ReinAcc(object):
             if gamma == 0:
                 noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 1., 0.5, -0.5))  # full
             elif gamma == 1:
-                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -1., 0.5, 0.5))
+                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.8, 0.5, -0.5))
+            elif gamma == 2:
+                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.8, 0.5, 0.5))
             else:
                 noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.4, 0.5, 0.5))
             # noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, -0.4, 0.5, 0.3))   # 4v [-2, 2]
@@ -183,7 +185,7 @@ class ReinAcc(object):
                          ', Dis to Center: {0:.2f}'.format(state[5]) +
                          ', Dis to hv: {0:.2f}'.format(state[12]) +
                          ', Velocity: {0:.2f}'.format(state[0]) + ', Max_a: {0:.2f}'.format(max_a) +
-                         ', ' + self.sim.cond + ', Lv_ini: {0:.2f}'.format(self.sim.lv_ini))
+                         ', ' + self.sim.cond)
             self.sub_not_finish += 1
             self.if_pass = False
             self.if_done = True
@@ -192,7 +194,7 @@ class ReinAcc(object):
                          ', Dis to Center: {0:.2f}'.format(state[5]) +
                          ', Dis to hv: {0:.2f}'.format(state[12]) +
                          ', Velocity: {0:.2f}'.format(state[0]) + ', Max_a: {0:.2f}'.format(max_a) +
-                         ', ' + self.sim.cond + ', Lv_ini: {0:.2f}'.format(self.sim.lv_ini))
+                         ', ' + self.sim.cond)
             self.sub_overspeed += 1
             self.if_pass = False
             self.if_done = True
@@ -200,7 +202,7 @@ class ReinAcc(object):
             logging.warn('Not move! Start: {0:.2f}'.format(state[4]) + ', Dis to Center: {0:.2f}'.format(state[5]) +
                          ', Dis to hv: {0:.2f}'.format(state[12]) +
                          ', Velocity: {0:.2f}'.format(state[0]) + ', Max_a: {0:.2f}'.format(max_a) +
-                         ', ' + self.sim.cond + ', Lv_ini: {0:.2f}'.format(self.sim.lv_ini))
+                         ', ' + self.sim.cond)
             self.sub_not_move += 1
             self.if_pass = False
             self.if_done = True
@@ -210,7 +212,7 @@ class ReinAcc(object):
                          ', Dis to Center: {0:.2f}'.format(state[5]) +
                          ', Dis to hv: {0:.2f}'.format(state[12]) +
                          ', Velocity: {0:.2f}'.format(state[0]) + ', Max_a: {0:.2f}'.format(max_a) +
-                         ', ' + self.sim.cond + ', Lv_ini: {0:.2f}'.format(self.sim.lv_ini))
+                         ', ' + self.sim.cond)
             self.sub_crash += 1
             self.if_pass = False
             self.if_done = True
@@ -243,7 +245,7 @@ class ReinAcc(object):
             state_t = self.sim.get_state()
             max_j = 0.
             while True:
-                self.epsilon -= 1.0 / self.explore_iter * train_indicator # if e > 6000 else 0.
+                self.epsilon -= 1.0 / self.explore_iter * train_indicator    # if e > 6000 else 0.
                 action_t = self.get_action(state_t, train_indicator, gamma)
                 reward_t, collision_l, collision_r, not_move, jerk = self.reward.get_reward(state_t[0], action_t[0][0])
                 if jerk > max_j:
@@ -293,11 +295,11 @@ class ReinAcc(object):
             total_time = time.time()
 
             visual = True if (e + 1) % 1000 == 0 else False
-            if gamma == 0 and e >= 5000:
+            if gamma == 0 and e >= 2000:
                 gamma += 1
-            elif gamma == 1 and e >= 20000:
+            elif gamma == 1 and e >= 10000:
                 gamma += 1
-            elif gamma >= 2 and ((e - 20000) % 10000 == 0):
+            elif gamma >= 2 and ((e - 10000) % 10000 == 0):
                 gamma += 1
             gamma = min(gamma, 5)
             self.sim = InterSim(gamma, visual)
@@ -330,7 +332,7 @@ class ReinAcc(object):
                            'stop': self.not_move, 'succeess': self.success,
                            'loss': self.loss, 'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/cl_tra5.txt', 'w+') as json_file:
+                with open('../results/cl_tra6.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
 

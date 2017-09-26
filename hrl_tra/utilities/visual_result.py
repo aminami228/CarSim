@@ -6,8 +6,8 @@ __author__ = 'qzq'
 
 a = 0
 if a == 0:
-    file_name = 'cl_tra5'
-    with open('../../cl_src/results/' + file_name + '.txt', 'r') as json_file:
+    file_name = 'cl_hrl_loc1'
+    with open('../../cl_hrl_local/results/' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess'}
 else:
