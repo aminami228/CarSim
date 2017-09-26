@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb47f4d-19ca-4217-b78a-ed812ce59c4c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CarSim.iml" afterPath="$PROJECT_DIR$/.idea/CarSim.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_hrl_tra/interface/inter_hrl.py" afterPath="$PROJECT_DIR$/cl_hrl_tra/interface/inter_hrl.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_hrl_tra/results/ddpg_1.eps" afterPath="$PROJECT_DIR$/cl_hrl_tra/results/ddpg_1.eps" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_hrl_tra/results/ddpg_2.eps" afterPath="$PROJECT_DIR$/cl_hrl_tra/results/ddpg_2.eps" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_hrl_tra/rewards/reward_hrl_new.py" afterPath="$PROJECT_DIR$/cl_hrl_tra/rewards/reward_hrl_new.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/interface/inter_new.py" afterPath="$PROJECT_DIR$/cl_src/interface/inter_new.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/observe_src/observe.py" afterPath="$PROJECT_DIR$/cl_src/observe_src/observe.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/results/cl_tra4.txt" afterPath="$PROJECT_DIR$/cl_src/results/cl_tra4.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/results/reward.eps" afterPath="$PROJECT_DIR$/cl_src/results/reward.eps" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/results/succ_1.eps" afterPath="$PROJECT_DIR$/cl_src/results/succ_1.eps" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/rewards/reward_vm.py" afterPath="$PROJECT_DIR$/cl_src/rewards/reward_vm.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/utilities/multi_res.py" afterPath="$PROJECT_DIR$/cl_src/utilities/multi_res.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/results/cl_tra5.txt" afterPath="$PROJECT_DIR$/cl_src/results/cl_tra5.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/w0/g2.txt" afterPath="$PROJECT_DIR$/cl_src/w0/g2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/w2/g2.txt" afterPath="$PROJECT_DIR$/cl_src/w2/g2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hrl_tra/results/cl_tra4_1.eps" afterPath="$PROJECT_DIR$/hrl_tra/results/cl_tra4_1.eps" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hrl_tra/results/cl_tra4_2.eps" afterPath="$PROJECT_DIR$/hrl_tra/results/cl_tra4_2.eps" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hrl_tra/utilities/visual_result.py" afterPath="$PROJECT_DIR$/hrl_tra/utilities/visual_result.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" />
     </list>
@@ -51,8 +36,8 @@
     <SUITE FILE_PATH="coverage/CarSim_vires$visual_result.coverage" NAME="visual_result Coverage Results" MODIFIED="1506453386562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hrl_tra/utilities" />
     <SUITE FILE_PATH="coverage/CarSim_vires$inter_ray.coverage" NAME="inter_ray Coverage Results" MODIFIED="1505141776531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cl_src/interface" />
     <SUITE FILE_PATH="coverage/CarSim_vires$observe.coverage" NAME="observe Coverage Results" MODIFIED="1506376176292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cl_src/observe_src" />
-    <SUITE FILE_PATH="coverage/CarSim_vires$cl_hrl_tra.coverage" NAME="cl_hrl_tra Coverage Results" MODIFIED="1506450595977" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cl_hrl_tra/src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$multi_res.coverage" NAME="multi_res Coverage Results" MODIFIED="1506453301764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cl_src/utilities" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$cl_hrl_tra.coverage" NAME="cl_hrl_tra Coverage Results" MODIFIED="1506454056720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cl_hrl_tra/src" />
     <SUITE FILE_PATH="coverage/CarSim$train.coverage" NAME="train Coverage Results" MODIFIED="1502399075270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../CarSim_acc" />
     <SUITE FILE_PATH="coverage/CarSim_vires$tra.coverage" NAME="tra Coverage Results" MODIFIED="1506353423410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ddpg_tra/src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$approach.coverage" NAME="approach Coverage Results" MODIFIED="1504986682023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cl_src/approach_src" />
@@ -65,21 +50,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cl_hrl_tra.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="cl_hrl_tra.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cl_hrl_tra/src/cl_hrl_tra.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="246" column="42" lean-forward="false" selection-start-line="246" selection-start-column="32" selection-end-line="246" selection-end-column="42" />
+            <state relative-caret-position="365">
+              <caret line="169" column="21" lean-forward="true" selection-start-line="169" selection-start-column="21" selection-end-line="169" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reward_hrl_new.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="reward_hrl_new.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cl_hrl_tra/rewards/reward_hrl_new.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2822">
-              <caret line="154" column="39" lean-forward="false" selection-start-line="154" selection-start-column="39" selection-end-line="154" selection-end-column="39" />
+            <state relative-caret-position="884">
+              <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -88,8 +73,8 @@
       <file leaf-file-name="inter_hrl.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cl_hrl_tra/interface/inter_hrl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="46" column="38" lean-forward="false" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+            <state relative-caret-position="-266">
+              <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -239,8 +224,8 @@
         <option value="$PROJECT_DIR$/cl_src/utilities/multi_res.py" />
         <option value="$PROJECT_DIR$/hrl_tra/utilities/visual_result.py" />
         <option value="$PROJECT_DIR$/cl_hrl_tra/src/cl_hrl_tra.py" />
-        <option value="$PROJECT_DIR$/cl_hrl_tra/interface/inter_hrl.py" />
         <option value="$PROJECT_DIR$/cl_hrl_tra/rewards/reward_hrl_new.py" />
+        <option value="$PROJECT_DIR$/cl_hrl_tra/interface/inter_hrl.py" />
       </list>
     </option>
   </component>
@@ -251,8 +236,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1978" />
-    <option name="y" value="-11" />
+    <option name="x" value="58" />
+    <option name="y" value="-1091" />
     <option name="width" value="1863" />
     <option name="height" value="1092" />
   </component>
@@ -330,7 +315,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.visual_result">
+  <component name="RunManager" selected="Python.cl_hrl_tra">
     <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -665,9 +650,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.visual_result" />
-        <item index="1" class="java.lang.String" itemvalue="Python.multi_res" />
-        <item index="2" class="java.lang.String" itemvalue="Python.cl_hrl_tra" />
+        <item index="0" class="java.lang.String" itemvalue="Python.cl_hrl_tra" />
+        <item index="1" class="java.lang.String" itemvalue="Python.visual_result" />
+        <item index="2" class="java.lang.String" itemvalue="Python.multi_res" />
         <item index="3" class="java.lang.String" itemvalue="Python.visual_result (1)" />
         <item index="4" class="java.lang.String" itemvalue="Python.ddpg_gra" />
       </list>
@@ -696,7 +681,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1978" y="-11" width="1863" height="1092" extended-state="6" />
+    <frame x="58" y="-1091" width="1863" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.49146006" order="9" side_tool="false" content_ui="tabs" />
@@ -710,7 +695,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24958678" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13002755" sideWeight="0.5147059" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35183245" sideWeight="0.5371901" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35078534" sideWeight="0.5371901" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21983472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -750,6 +735,11 @@
           <line>248</line>
           <option name="timeStamp" value="268" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cl_hrl_tra/rewards/reward_hrl_new.py</url>
+          <line>73</line>
+          <option name="timeStamp" value="668" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -758,7 +748,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="668" />
+      <option name="time" value="670" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -1098,16 +1088,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cl_src/utilities/ddpg_gra.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cl_hrl_tra/utilities/visual_result.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1136,10 +1116,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cl_src/utilities/multi_res.py">
+    <entry file="file://$PROJECT_DIR$/cl_src/observe_src/observe.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+        <state relative-caret-position="19">
+          <caret line="161" column="54" lean-forward="false" selection-start-line="161" selection-start-column="54" selection-end-line="161" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cl_src/utilities/ddpg_gra.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -1156,34 +1144,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cl_src/observe_src/observe.py">
+    <entry file="file://$PROJECT_DIR$/cl_hrl_tra/rewards/reward_hrl_new.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="161" column="54" lean-forward="false" selection-start-line="161" selection-start-column="54" selection-end-line="161" selection-end-column="54" />
+        <state relative-caret-position="884">
+          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cl_src/utilities/multi_res.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cl_hrl_tra/interface/inter_hrl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="46" column="38" lean-forward="false" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+        <state relative-caret-position="-266">
+          <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cl_hrl_tra/src/cl_hrl_tra.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="246" column="42" lean-forward="false" selection-start-line="246" selection-start-column="32" selection-end-line="246" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cl_hrl_tra/rewards/reward_hrl_new.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2822">
-          <caret line="154" column="39" lean-forward="false" selection-start-line="154" selection-start-column="39" selection-end-line="154" selection-end-column="39" />
+        <state relative-caret-position="365">
+          <caret line="169" column="21" lean-forward="true" selection-start-line="169" selection-start-column="21" selection-end-line="169" selection-end-column="21" />
           <folding />
         </state>
       </provider>

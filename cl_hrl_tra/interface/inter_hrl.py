@@ -67,6 +67,36 @@ class InterSim(object):
 
         # self.sce = GenScen()
         self.lv_poses, self.rv_poses = [], []
+        self.lv_poses, self.rv_poses = [], []
+        rr = random()
+        if self.gamma == 0 or (self.gamma != 1 and (rr > ((self.gamma - 1.) / self.gamma))):
+            self.cond = 'empty'
+        else:
+            if self.gamma == 1 or (rr < (1. / self.gamma)):
+                self.LV_NO = 8
+                self.cond = 'l_full'
+                lv_locs = np.array(sample(xrange(-6, 2), self.LV_NO))
+            elif ((self.gamma - 2.) / self.gamma) <= rr <= ((self.gamma - 1.) / self.gamma):
+                self.cond = 'l_random1'
+                self.LV_NO = 8
+                lv_locs = np.array(sample(xrange(-10, 2), self.LV_NO))
+            else:
+                self.cond = 'l_random'
+                self.LV_NO = 8
+                lv_locs = np.array(sample(xrange(-15, 2), self.LV_NO))
+            lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
+            for x in lv_locs:
+                lv_pos = dict()
+                lv_pos['y'] = (self.Inter_Ori['y'] + self.Inter_Low) / 2.
+                lv_pos['x'] = x
+                lv_pos['v'] = self.Speed_limit - random()
+                lv_pos['a'] = 0.
+                lv_pos['l'] = 4. + 2. * random()
+                lv_pos['w'] = 2. + random() - 0.5
+                lv_pos['dir'] = 'R'
+                self.lv_poses.append(lv_pos)
+            for i in range(self.LV_NO):
+                self.rv_poses.append({'x': 100., 'v': 0., 'y': 2., 'l': 4., 'w': 2., 'a': 0., 'dir': 'L'})
         self.hv_poses = self.lv_poses + self.rv_poses
 
         self.state_dim = None
@@ -196,39 +226,6 @@ class InterSim(object):
             fv_pos['v'] += fv_pos['a'] * self.Tau
             fv_pos['v'] = min(max(0.1, fv_pos['v']), self.Speed_limit)
             fv_pos['y'] += fv_pos['v'] * self.Tau + 0.5 * fv_pos['a'] * (self.Tau ** 2)
-
-        if not self.hv_poses:
-            self.lv_poses, self.rv_poses = [], []
-            rr = random()
-            if self.gamma == 0 or (self.gamma != 1 and (rr > ((self.gamma - 1.) / self.gamma))):
-                self.cond = 'empty'
-            else:
-                if self.gamma == 1 or (rr < (1. / self.gamma)):
-                    self.LV_NO = 8
-                    self.cond = 'l_full'
-                    lv_locs = np.array(sample(xrange(-6, 2), self.LV_NO))
-                elif ((self.gamma - 2.) / self.gamma) <= rr <= ((self.gamma - 1.) / self.gamma):
-                    self.cond = 'l_random1'
-                    self.LV_NO = 8
-                    lv_locs = np.array(sample(xrange(-10, 2), self.LV_NO))
-                else:
-                    self.cond = 'l_random'
-                    self.LV_NO = 8
-                    lv_locs = np.array(sample(xrange(-15, 2), self.LV_NO))
-                lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
-                for x in lv_locs:
-                    lv_pos = dict()
-                    lv_pos['y'] = (self.Inter_Ori['y'] + self.Inter_Low) / 2.
-                    lv_pos['x'] = x
-                    lv_pos['v'] = self.Speed_limit - random()
-                    lv_pos['a'] = 0.
-                    lv_pos['l'] = 4. + 2. * random()
-                    lv_pos['w'] = 2. + random() - 0.5
-                    lv_pos['dir'] = 'R'
-                    self.lv_poses.append(lv_pos)
-                for i in range(self.LV_NO):
-                    self.rv_poses.append({'x': 100., 'v': 0., 'y': 2., 'l': 4., 'w': 2., 'a': 0., 'dir': 'L'})
-            self.hv_poses = self.lv_poses + self.rv_poses
 
         for hv_pos in self.hv_poses:
             hv_pos['v'] = min(max(0.1, hv_pos['v']), self.Speed_limit)
