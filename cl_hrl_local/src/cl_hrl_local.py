@@ -328,8 +328,9 @@ class ReinAcc(object):
                 with open('../results/cl_hrl_loc2.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
+                if train_indicator:
+                    self.save_weights(gamma, results)
                 train_indicator = 0 if train_indicator == 1 else 1
-                self.save_weights(gamma, results)
                 # if len(self.success) % 2 == 0 and (np.mean(self.success[-10::2]) == 100.) \
                 #         and (len(self.success) > 10):
                 #     break
@@ -338,4 +339,4 @@ class ReinAcc(object):
 if __name__ == '__main__':
     plt.ion()
     acc = ReinAcc()
-    acc.launch_train(1)
+    acc.launch_train(0)

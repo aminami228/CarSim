@@ -113,6 +113,52 @@ class InterSim(object):
                 rv_pos['dir'] = 'L'
                 self.lv_poses.append(lv_pos)
                 self.rv_poses.append(rv_pos)
+        # if gamma == 0 or (gamma >= 1 and (rr < 1. / (gamma+1.))) and (gamma != 2) and (gamma != 5):
+        #     self.cond = 'empty'
+        #     self.lv_ini = -3.
+        # else:
+        #     if 2. / (gamma+1.) > rr >= 1. / (gamma+1.):
+        #         self.LV_NO = randint(5, 8)
+        #         self.RV_NO = randint(5, 8)
+        #         self.cond = 'g1'
+        #         s1 = self.LV_NO - randint(0, 2)
+        #         s2 = self.RV_NO + randint(2, 5)
+        #         lv_locs = np.array(sample(xrange(-s1 - self.LV_NO, -s1), self.LV_NO))
+        #         rv_locs = np.array(sample(xrange(s2, s2 + self.RV_NO), self.RV_NO))
+        #     elif gamma == 2 or (3. / (gamma+1.) > rr >= 2. / (gamma+1.)):
+        #         self.cond = 'g2'
+        #         self.LV_NO = randint(2, 6)
+        #         lv_locs = np.array(sample(xrange(-self.LV_NO, 1), self.LV_NO))
+        #         self.RV_NO = randint(2, 6)
+        #         rv_locs = np.array(sample(xrange(-1, self.RV_NO), self.RV_NO))
+        #     else:
+        #         self.cond = 'l_random'
+        #         self.LV_NO = randint(5, 8)
+        #         self.RV_NO = randint(5, 8)
+        #         lv_locs = np.array(sample(xrange(-15, 2), self.LV_NO))
+        #         rv_locs = np.array(sample(xrange(-2, 15), self.RV_NO))
+        #     lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
+        #     rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
+        #     for x1, x2 in zip(lv_locs, rv_locs):
+        #         lv_pos = dict()
+        #         rv_pos = dict()
+        #         lv_pos['y'] = (self.Inter_Ori['y'] + self.Inter_Low) / 2.
+        #         rv_pos['y'] = (self.Inter_Ori['y'] + self.Inter_Up) / 2.
+        #         lv_pos['x'] = x1
+        #         rv_pos['x'] = x2
+        #         lv_pos['v'] = self.Speed_limit - random()
+        #         rv_pos['v'] = self.Speed_limit - random()
+        #         lv_pos['a'] = 0.
+        #         rv_pos['a'] = 0.
+        #         lv_pos['l'] = 4. + 2. * random()
+        #         rv_pos['l'] = 4. + 2. * random()
+        #         lv_pos['w'] = 2. + random() - 0.5
+        #         rv_pos['w'] = 2. + random() - 0.5
+        #         lv_pos['dir'] = 'R'
+        #         rv_pos['dir'] = 'L'
+        #         self.lv_poses.append(lv_pos)
+        #         self.rv_poses.append(rv_pos)
+
         self.hv_poses = self.lv_poses + self.rv_poses
 
         self.state_dim = None

@@ -4,14 +4,14 @@ import json
 
 __author__ = 'qzq'
 
-a = 0
+a = 2
 if a == 0:
     file_name = 'cl_hrl_loc1'
     with open('../../cl_hrl_local/results/' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess'}
 else:
-    file_name = 'ddpg' if (a == 1) else 'cl_hrl_tra2'
+    file_name = 'ddpg' if (a == 1) else 'cl_hrl_loc2'
     with open('../../' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess', 'not_stop'}
@@ -43,13 +43,13 @@ fig1 = plt.figure(1)
 plt.subplot(211)
 plt.title('train, total time: {0:.2f} hr'.format(results['time'][-1] / 60.))
 for key, value in train_result.iteritems():
-    plt.plot(np.arange(ep), value, 'o-', label=key)
+    plt.plot(np.arange(ep), value, '.-', label=key)
 plt.legend(loc=1)
 
 plt.subplot(212)
 plt.title('test')
 for key, value in test_result.iteritems():
-    plt.plot(np.arange(ep), value, 'o-', label=key)
+    plt.plot(np.arange(ep), value, '.-', label=key)
 plt.legend(loc=1)
 fig1.set_size_inches(12, 9)
 fig1.savefig('../results/' + file_name + '_1.eps', dpi=fig1.dpi)
