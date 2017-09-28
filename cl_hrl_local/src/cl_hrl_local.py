@@ -298,6 +298,7 @@ class ReinAcc(object):
                 gamma += 1
             gamma = min(gamma, 5)
             self.sim = InterSim(gamma, visual)
+            # self.sim = InterSim(3, True)
             self.if_done = False
 
             if (e + 1) % 100 == 0:

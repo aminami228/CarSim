@@ -11,7 +11,7 @@ if a == 0:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess'}
 else:
-    file_name = 'ddpg' if (a == 1) else 'cl_hrl_loc2'
+    file_name = 'ddpg' if (a == 1) else 'cl_hrl_gpu2'
     with open('../../' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess', 'not_stop'}
@@ -68,6 +68,7 @@ plt.plot(np.arange(total_ep), test_qun['reward'], 'g', label='test reward')
 plt.legend(loc=1)
 plt.subplot(313)
 plt.title('max jerk: {0:.2f}'.format(np.mean(test_qun['max_j'][-100:])))
+plt.xlabel('Learing iteration')
 plt.plot(np.arange(total_ep), train_qun['max_j'], 'r', label='train max jerk')
 plt.plot(np.arange(total_ep), test_qun['max_j'], 'g', label='test max jerk')
 plt.legend(loc=1)
