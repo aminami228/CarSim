@@ -36,8 +36,8 @@ class ReinAcc(object):
     explore_iter = 100000.
     episode_count = 600000
     max_steps = 2000
-    action_dim = 2          # Steering/Acceleration/Brake
-    action_size = 2
+    action_dim = 3          # Steering/Acceleration/Brake
+    action_size = 3
     his_len = 20
     state_dim = 21
 
@@ -54,7 +54,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(0, True)
+        self.sim = InterSim(0, False)
         self.reward = CHReward()
         self.if_done = False
 
