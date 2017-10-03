@@ -4,7 +4,10 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/intersection_project" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cl_hrl_src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cl_hrl_local" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/rule_base" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ch_action3" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/ch_action2" />
+      <excludeFolder url="file://$MODULE_DIR$/cl_hrl_local" />
       <excludeFolder url="file://$MODULE_DIR$/cl_hrl_local2" />
       <excludeFolder url="file://$MODULE_DIR$/cl_hrl_tra" />
       <excludeFolder url="file://$MODULE_DIR$/cl_src" />
@@ -17,7 +20,8 @@
       <excludeFolder url="file://$MODULE_DIR$/hrl_vanila" />
       <excludeFolder url="file://$MODULE_DIR$/intersection_vires" />
       <excludeFolder url="file://$MODULE_DIR$/main_project" />
-      <excludeFolder url="file://$MODULE_DIR$/rule_base" />
+      <excludeFolder url="file://$MODULE_DIR$/rule_based" />
+      <excludeFolder url="file://$MODULE_DIR$/saved_weights_cl_hrl" />
       <excludeFolder url="file://$MODULE_DIR$/speed_control" />
     </content>
     <orderEntry type="inheritedJdk" />
