@@ -18,8 +18,8 @@ with open('../../cl_hrl_local/results/cl_hrl_loc1.txt', 'r') as json_file:
 with open('../../cl_src/results/cl_tra3.txt', 'r') as json_file:
     cl_tra = json.load(json_file)
 
-keys = ['ddpg', 'hddpg', 'cl+hddpg', 'cl_tra_local', 'gpu1']
-results = [ddpg, hrl_tra, cl_hrl_gpu2, cl_tra_local, cl_hrl_gpu1]
+keys = ['ddpg', 'hddpg', 'cl+hddpg']
+results = [ddpg, hrl_tra, cl_hrl_gpu2]
 # keys = ['ddpg', 'hddpg']
 # results = [ddpg, hrl_tra]
 
