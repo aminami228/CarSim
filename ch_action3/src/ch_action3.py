@@ -54,7 +54,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(0, True)
+        self.sim = InterSim(0, False)
         self.reward = CHReward()
         self.if_done = False
 
@@ -285,7 +285,7 @@ class ReinAcc(object):
                           ', Not Stop: ' + str(self.sub_not_stop) + ', Success: ' + str(self.sub_success))
             total_time = time.time()
 
-            visual = True if (e + 1) % 100 == 0 else False
+            visual = False #if (e + 1) % 100 == 0 else False
             # if gamma == 0 and e >= 2000:
             #     gamma += 1
             # elif gamma == 1 and e >= 10000:

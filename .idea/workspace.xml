@@ -2,58 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb47f4d-19ca-4217-b78a-ed812ce59c4c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/.idea/cl_src.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/approach_network/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/approach_network/app_actor_net.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/approach_network/app_critic_net.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/approach_network/app_replay.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/hrl_network/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/hrl_network/hrl_actor_net.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/hrl_network/hrl_critic_net.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/hrl_network/hrl_replay.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/hrl_src/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/hrl_src/hrl_v.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/interface/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/interface/generate_sce.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/interface/inter_ray.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/interface/inter_rule.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/interface/inter_sim.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/interface/inter_sim2.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/interface/inter_sim_hv.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/interface/map.pickle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/interface/map.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/observe_network_lstm/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/observe_network_lstm/obs_actor_net.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/observe_network_lstm/obs_critic_net.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/observe_network_lstm/obs_replay.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/results/g1.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/results/g2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/results/g3.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/results/g3_1.eps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/results/g3_2.eps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/results/hrl1.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/results/hrl1_1.eps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/results/hrl1_2.eps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/rewards/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/rewards/reward_app.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/rewards/reward_func.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/rewards/reward_func2.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/rewards/reward_hrl.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/rewards/reward_obs.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/rewards/reward_vires.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/src/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/src/map.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/src/rule_base.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/utilities/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/utilities/log_color.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/utilities/toolfunc.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rule_base/utilities/visual_result.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CarSim.iml" afterPath="$PROJECT_DIR$/.idea/CarSim.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_action2/results/ch_a2.txt" afterPath="$PROJECT_DIR$/ch_action2/results/ch_a2.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_action2/w0/g2.txt" afterPath="$PROJECT_DIR$/ch_action2/w0/g2.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_action3/src/ch_action3.py" afterPath="$PROJECT_DIR$/ch_action3/src/ch_action3.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" />
     </list>
@@ -79,8 +30,8 @@
       <file leaf-file-name="ch_action3.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch_action3/src/ch_action3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="380">
+              <caret line="287" column="28" lean-forward="false" selection-start-line="287" selection-start-column="28" selection-end-line="287" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -100,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/ch_action2/utilities/visual_result.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
-              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+              <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -709,7 +660,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.4980716" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.146875" sideWeight="0.49783316" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34659687" sideWeight="0.6732782" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19685864" sideWeight="0.6732782" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.108333334" sideWeight="0.49615806" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12176309" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1175,7 +1126,7 @@
     <entry file="file://$PROJECT_DIR$/ch_action2/utilities/visual_result.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1198,8 +1149,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch_action3/src/ch_action3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="380">
+          <caret line="287" column="28" lean-forward="false" selection-start-line="287" selection-start-column="28" selection-end-line="287" selection-end-column="28" />
           <folding />
         </state>
       </provider>
