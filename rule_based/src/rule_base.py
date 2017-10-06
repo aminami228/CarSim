@@ -49,7 +49,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(0, True)
+        self.sim = InterSim(0, False)
         self.reward = HrlReward()
         self.if_done = False
 
@@ -102,43 +102,45 @@ class ReinAcc(object):
         # else:
         #     action = np.array([-1.], ndmin=2)
         # # rule 2 ##
-        # dis = state[0][15::2]
-        # dis_a = dis >= Safe_dis
-        # dis_b = dis < 0.
-        # dis_ = np.array([dis_a, dis_b])
-        # t = state[0][16::2]
-        # t_a = t >= Safe_time
-        # t_b = t < 0.
-        # t_ = np.array([t_a, t_b])
-        # if np.any(dis_, axis=0).all() and np.any(t_, axis=0).all():
+        dis = state[0][15::2]
+        dis_a = dis >= Safe_dis
+        dis_b = dis < 0.
+        dis_ = np.array([dis_a, dis_b])
+        t = state[0][16::2]
+        t_a = t >= Safe_time
+        t_b = t < 0.
+        t_ = np.array([t_a, t_b])
+        if np.any(dis_, axis=0).all() and np.any(t_, axis=0).all():
+            action = np.array([1.], ndmin=2)
+        else:
+            action = np.array([-1.], ndmin=2)
+        if (state[0][13] > state[0][11] - Safe_dis or (state[0][14] < state[0][12] + Safe_dis)) \
+                and (action[0][0] == 1.) and (state[0][0] ** 2 >= 2 * 3. * state[0][5]):
+            action = np.array([-1.], ndmin=2)
+        # if state[0][5] < 0.:
         #     action = np.array([1.], ndmin=2)
-        # else:
-        #     action = np.array([-1.], ndmin=2)
-        # if (state[0][13] > state[0][11] - Safe_dis or (state[0][14] < state[0][12] + Safe_dis)) \
-        #         and (action[0][0] == 1.) and (state[0][0] ** 2 >= 2 * 3. * state[0][5]):
-        #     action = np.array([-1.], ndmin=2)
         # # rule 3 ##
-        action = np.array([1.], ndmin=2)
+        # action = np.array([1.], ndmin=2)
         return action
 
     def if_exit(self, step, state, max_j, collision_l, collision_r, collision_f, not_move, not_stop):
         if step >= self.max_steps:
-            logging.warn('Not finished with max steps! Dis to SL: {0:.2f}'.format(state[4]) +
-                         ', Dis to fv: {0:.2f}'.format(state[14]) + ', Velocity: {0:.2f}'.format(state[0]) +
-                         ', Max_j: {0:.2f}'.format(max_j))
+            # logging.warn('Not finished with max steps! Dis to SL: {0:.2f}'.format(state[4]) +
+            #              ', Dis to fv: {0:.2f}'.format(state[14]) + ', Velocity: {0:.2f}'.format(state[0]) +
+            #              ', Max_j: {0:.2f}'.format(max_j))
             self.sub_not_finish += 1
             self.if_done = True
         elif state[0] >= self.sim.Speed_limit + 2.:
-            logging.warn('Exceed Speed Limit! Dis to SL: {0:.2f}'.format(state[4]) +
-                         ', Dis to fv: {0:.2f}'.format(state[14]) +
-                         ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j))
+            # logging.warn('Exceed Speed Limit! Dis to SL: {0:.2f}'.format(state[4]) +
+            #              ', Dis to fv: {0:.2f}'.format(state[14]) +
+            #              ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j))
             self.sub_overspeed += 1
             self.if_done = True
         elif not_move > 0:
-            logging.warn('Not move! Dis to SL: {0:.2f}'.format(state[4]) + ', Dis to Center: {0:.2f}'.format(state[6]) +
-                         ', Dis to fv: {0:.2f}'.format(state[14]) +
-                         ', Dis to hv: [{0:.2f}, {1:.2f}]'.format(state[23], state[33]) +
-                         ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j))
+            # logging.warn('Not move! Dis to SL: {0:.2f}'.format(state[4]) + ', Dis to Center: {0:.2f}'.format(state[6]) +
+            #              ', Dis to fv: {0:.2f}'.format(state[14]) +
+            #              ', Dis to hv: [{0:.2f}, {1:.2f}]'.format(state[23], state[33]) +
+            #              ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j))
             self.sub_not_move += 1
             self.if_done = True
         elif collision_f > 0 or (collision_l > 0) or (collision_r > 0):
@@ -148,11 +150,11 @@ class ReinAcc(object):
                 v = 'right'
             else:
                 v = 'front'
-            logging.warn('Crash to ' + v + ' vehicles! Dis to SL: {0:.2f}'.format(state[4]) +
-                         ', Dis to Center: {0:.2f}'.format(state[6]) +
-                         ', Dis to fv: {0:.2f}'.format(state[14]) +
-                         ', Dis to hv: [{0:.2f}, {1:.2f}]'.format(state[23], state[33]) +
-                         ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j))
+            # logging.warn('Crash to ' + v + ' vehicles! Dis to SL: {0:.2f}'.format(state[4]) +
+            #              ', Dis to Center: {0:.2f}'.format(state[6]) +
+            #              ', Dis to fv: {0:.2f}'.format(state[14]) +
+            #              ', Dis to hv: [{0:.2f}, {1:.2f}]'.format(state[23], state[33]) +
+            #              ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j))
             self.sub_crash += 1
             self.if_done = True
         elif not_stop > 0:
@@ -173,7 +175,7 @@ class ReinAcc(object):
         total_time = time.time()
         fre_time = time.time()
         mean_loss = 0.
-        for e in range(self.episode_count):
+        for e in range(26000):
             total_loss = 0.
             total_reward = 0.
             step = 0
@@ -218,7 +220,7 @@ class ReinAcc(object):
                           ', Not Stop: ' + str(self.sub_not_stop) + ', Success: ' + str(self.sub_success))
             total_time = time.time()
 
-            visual = True            # True if (e + 1) % 200 == 0 else False
+            visual = False            # True if (e + 1) % 200 == 0 else False
             # if gamma == 0 and e >= 2000:
             #     gamma += 1
             # elif gamma == 1 and e >= 10000:
@@ -254,7 +256,7 @@ class ReinAcc(object):
                            'stop': self.not_move, 'not_stop': self.not_stop, 'succeess': self.success,
                            'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/rule1.txt', 'w+') as json_file:
+                with open('../results/rule_new2.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
 

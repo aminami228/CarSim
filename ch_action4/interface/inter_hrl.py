@@ -46,7 +46,7 @@ class InterSim(object):
         self.av_pos['vx'] = 0.
         self.av_pos['vy'] = 0.      # self.Speed_limit - random() * 5.
         self.av_pos['heading'] = 0.
-        self.av_pos['accel'] = - self.Cft_Accel
+        self.av_pos['accel'] = 0.
         self.av_pos['steer'] = 0.
         self.av_pos['l'] = 4. + 0.4 * random() - 0.2
         self.av_pos['w'] = 2. + 0.2 * random() - 0.1
@@ -67,11 +67,22 @@ class InterSim(object):
 
         # self.sce = GenScen()
         self.lv_poses, self.rv_poses = [], []
-        # rr = random()
-        rr = 0.1
-        # if gamma == 0 or (gamma != 1 and (rr > ((gamma - 1.) / gamma))):
-        #     self.cond = 'empty'
-        #     self.lv_ini = -3.
+        if gamma > 1:
+            rr = random()
+            gamma = 0 if rr > 0.5 else 1
+        lv_locs, rv_locs = [], []
+        if gamma == 0:     # or (gamma != 1 and (rr > ((gamma - 1.) / gamma))):
+            self.cond = 'empty'
+            self.lv_ini = -3.
+        elif gamma == 1:
+            self.LV_NO = randint(4, 5)
+            self.RV_NO = randint(7, 8)
+            lb = randint(0, 1)
+            self.cond = 'lo'
+            lv_locs = np.array(sample(xrange(lb - self.LV_NO, lb), self.LV_NO))
+            rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
+        else:
+            logging.error('wrong')
         # else:
         #     if gamma == 1 or (rr < (1. / gamma)):
         #         self.LV_NO = randint(5, 8)
@@ -114,28 +125,29 @@ class InterSim(object):
         #         rv_pos['dir'] = 'L'
         #         self.lv_poses.append(lv_pos)
         #         self.rv_poses.append(rv_pos)
-        self.LV_NO = randint(4, 5)
-        self.RV_NO = randint(7, 8)
-        lb = randint(0, 1)
-        rb = randint(0, 1)
-        if rr < 0.25:
-            self.cond = 'lo'
-            lv_locs = np.array(sample(xrange(lb - self.LV_NO, lb), self.LV_NO))
-            rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
-        elif rr < 0.5:
-            self.cond = 'ro'
-            lv_locs = np.array(sample(xrange(1, 6), self.LV_NO))
-            rv_locs = np.array(sample(xrange(rb, rb + self.RV_NO), self.RV_NO))
-        elif rr < 0.75:
-            self.cond = 'lf'
-            lv_locs = np.array(sample(xrange(lb - self.LV_NO, lb), self.LV_NO))
-            rv_locs = np.array(sample(xrange(lb + self.LV_NO, lb + self.LV_NO + self.RV_NO), self.RV_NO))
-        else:
-            self.cond = 'rf'
-            lv_locs = np.array(sample(xrange(rb - 2 * self.LV_NO, rb - self.LV_NO), self.LV_NO))
-            rv_locs = np.array(sample(xrange(rb, rb + self.RV_NO), self.RV_NO))
-        lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
-        rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
+        # self.LV_NO = randint(4, 5)
+        # self.RV_NO = randint(7, 8)
+        # lb = randint(0, 1)
+        # rb = randint(0, 1)
+        # rr = 0.11
+        # if rr < 0.25:
+        #     self.cond = 'lo'
+        #     lv_locs = np.array(sample(xrange(lb - self.LV_NO, lb), self.LV_NO))
+        #     rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
+        # elif rr < 0.5:
+        #     self.cond = 'ro'
+        #     lv_locs = np.array(sample(xrange(1, 6), self.LV_NO))
+        #     rv_locs = np.array(sample(xrange(rb, rb + self.RV_NO), self.RV_NO))
+        # elif rr < 0.75:
+        #     self.cond = 'lf'
+        #     lv_locs = np.array(sample(xrange(lb - self.LV_NO, lb), self.LV_NO))
+        #     rv_locs = np.array(sample(xrange(lb + self.LV_NO, lb + self.LV_NO + self.RV_NO), self.RV_NO))
+        # else:
+        #     self.cond = 'rf'
+        #     lv_locs = np.array(sample(xrange(rb - 2 * self.LV_NO, rb - self.LV_NO), self.LV_NO))
+        #     rv_locs = np.array(sample(xrange(rb, rb + self.RV_NO), self.RV_NO))
+        # lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
+        # rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
         for x1, x2 in zip(lv_locs, rv_locs):
             lv_pos = dict()
             rv_pos = dict()

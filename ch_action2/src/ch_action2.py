@@ -155,21 +155,22 @@ class ReinAcc(object):
         # logging.info('...... Getting action ......')
         noise = []
         action_ori = self.ch_actor.model.predict(state)
-        # b = np.random.dirichlet(np.ones(2))
-        b = np.array([0., 1.]) if random() > 0.5 else np.array([1., 0.])
+        zz = train_indicator * max(self.epsilon, 0.)
+        action_ori = self.ch_actor.model.predict(state)
+        b = np.random.dirichlet(np.ones(2))
         noise.extend(list(train_indicator * max(self.epsilon, 0) * b))
         a1 = action_ori[0][2]
         a2 = action_ori[0][3]
         if gamma == 0:
-            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a1, 0.4, 0.9, 0.2))  # full
-            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a2, 0.6, 0.9, 0.2))  # full
+            noise.append(zz * self.tools.ou(a1, 0.4, 0.5, -0.2))  # full
+            noise.append(zz * self.tools.ou(a2, 0.6, 0.5, -0.3))  # full
         elif gamma == 1:
-            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a1, 0.8, 0.5, -0.5))
+            noise.append(zz * self.tools.ou(a1, 0.8, 0.5, -0.5))
         elif gamma == 2:
-            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a1, -0.8, 0.5, 0.5))
+            noise.append(zz * self.tools.ou(a1, -0.8, 0.5, 0.5))
         else:
-            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a1, -0.2, 0.5, 0.2))
-        action_h = (action_ori[0][0:2] + np.array(noise[0:2])) / 2.
+            noise.append(zz * self.tools.ou(a1, -0.2, 0.5, 0.2))
+        action_h = (1. - zz) * action_ori[0][0:2] + zz * np.array(noise[0:2])
         action_l = action_ori[0][2:] + np.array(noise[2:])
         action = np.array(np.concatenate([action_h, action_l], axis=0), ndmin=2)
         return action

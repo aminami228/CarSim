@@ -17,9 +17,11 @@ with open('../../cl_hrl_local/results/cl_hrl_loc1.txt', 'r') as json_file:
     cl_tra_local = json.load(json_file)
 with open('../../cl_src/results/cl_tra3.txt', 'r') as json_file:
     cl_tra = json.load(json_file)
+with open('../../rule_based/results/rule_new.txt', 'r') as json_file:
+    rule = json.load(json_file)
 
-keys = ['ddpg', 'hddpg', 'cl+hddpg']
-results = [ddpg, hrl_tra, cl_hrl_gpu2]
+keys = ['ddpg', 'hddpg', 'cl+hddpg', 'cl', 'rule based']
+results = [ddpg, hrl_tra, cl_hrl_gpu2, cl_tra, rule]
 # keys = ['ddpg', 'hddpg']
 # results = [ddpg, hrl_tra]
 
@@ -42,11 +44,13 @@ for i, key in enumerate(keys):
     test_reward[key] = np.reshape(reward, (ep, 100))[1::2, :]
     test_reward1[key] = np.mean(test_reward[key], axis=1)
     test_reward[key] = np.reshape(test_reward[key], (1, ep * 50))[0]
-    train_loss[key] = results[i]['loss']
+    if key != 'rule based':
+        train_loss[key] = results[i]['loss']
 
 fig1 = plt.figure(1)
 plt.subplot(211)
 plt.title('Success rate: train')
+plt.xlim([0, 130])
 # plt.ylim([0, 101])
 for key, value in train_succ.iteritems():
     plt.plot(np.arange(len(value)), value, '.-', label=key)
@@ -54,6 +58,7 @@ plt.legend(loc=1)
 plt.subplot(212)
 plt.title('Success rate: test')
 plt.xlabel('Learing epochs')
+plt.xlim([0, 130])
 # plt.ylim([0, 101])
 for key, value in test_succ.iteritems():
     plt.plot(np.arange(len(value)), value, '.-', label=key)
@@ -70,6 +75,7 @@ fig2 = plt.figure(2)
 # plt.legend(loc=1)
 plt.subplot(211)
 plt.ylim([-5000, 2000])
+plt.xlim([0, 13000])
 plt.title('Reward: train')
 m_c = ['r', 'g', 'b', '#7F00FF', '#FF8000']
 _c = ['#FFCCCC', '#E5FFCC', '#CCFFFF', '#E5CCFF', '#FFE5CC']
@@ -83,6 +89,7 @@ for key, value in train_reward1.iteritems():
 plt.legend(loc=1)
 plt.subplot(212)
 plt.ylim([-5000, 2000])
+plt.xlim([0, 13000])
 plt.title('Reward: test')
 plt.xlabel('Learing iteration')
 i, j = 0, 0

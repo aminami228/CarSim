@@ -28,8 +28,8 @@ class InterSim(object):
     Inter_Left = - 4.
     Inter_Right = 4.
     FV_NO = 1
-    LV_NO = 5
-    RV_NO = 5
+    LV_NO = 8
+    RV_NO = 8
     Lane_Left = 0.
     Lane_Right = 4.
     Cft_Accel = 3.     # m/s**2
@@ -68,8 +68,8 @@ class InterSim(object):
         # self.sce = GenScen()
         self.lv_poses, self.rv_poses = [], []
         # lv_locs = np.array(sample(xrange(-7, -1), self.LV_NO))
-        lv_locs = np.array(sample(xrange(-9, -3), self.LV_NO))
-        rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
+        lv_locs = np.array(sample(xrange(-15, 2), self.LV_NO))
+        rv_locs = np.array(sample(xrange(0, 17), self.RV_NO))
         lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
         rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
         for x1, x2 in zip(lv_locs, rv_locs):

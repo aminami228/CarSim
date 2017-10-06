@@ -11,7 +11,7 @@ if a == 0:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess', 'not_stop'}
 else:
-    file_name = 'ch_a2'
+    file_name = 'ch_a3'
     with open('../results/' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess'}

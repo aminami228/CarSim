@@ -5,9 +5,9 @@
       <sourceFolder url="file://$MODULE_DIR$/intersection_project" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cl_hrl_src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/rule_base" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/ch_action4" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ch_action3" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/ch_action2" />
-      <excludeFolder url="file://$MODULE_DIR$/ch_action3" />
+      <excludeFolder url="file://$MODULE_DIR$/ch_action4" />
       <excludeFolder url="file://$MODULE_DIR$/cl_hrl_local" />
       <excludeFolder url="file://$MODULE_DIR$/cl_hrl_local2" />
       <excludeFolder url="file://$MODULE_DIR$/cl_hrl_tra" />

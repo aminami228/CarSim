@@ -159,15 +159,15 @@ class ReinAcc(object):
         a1 = action_ori[0][0]
         a2 = action_ori[0][1]
         if gamma == 0:
-            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a1, 0.6, 0.9, 0.2))  # full
-            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a2, 0.6, 0.9, 0.2))  # full
+            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a1, 0.8, 0.5, -0.4))  # full
+            noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a2, 0.6, 0.5, -0.4))  # full
         elif gamma == 1:
             noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a1, 0.8, 0.5, -0.5))
         elif gamma == 2:
             noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a1, -0.8, 0.5, 0.5))
         else:
             noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a1, -0.2, 0.5, 0.2))
-        action = (action_ori[0][0:2] + np.array(noise[0:2]))
+        action = np.array(action_ori[0][0:2] + np.array(noise[0:2]), ndmin=2)
         action = np.array(action, ndmin=2)
         return action
 
@@ -286,6 +286,11 @@ class ReinAcc(object):
             total_time = time.time()
 
             visual = False #if (e + 1) % 100 == 0 else False
+            if gamma == 0 and e >= 5000:
+                gamma += 1
+                self.epsilon = 1.
+            elif gamma == 1 and e >= 10000:
+                gamma += 1
             # if gamma == 0 and e >= 2000:
             #     gamma += 1
             # elif gamma == 1 and e >= 10000:
@@ -321,7 +326,7 @@ class ReinAcc(object):
                            'stop': self.not_move, 'not_stop': self.not_stop, 'succeess': self.success,
                            'loss': self.loss, 'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/ch_a3.txt', 'w+') as json_file:
+                with open('../results/ch_a3_1.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
                 if train_indicator:

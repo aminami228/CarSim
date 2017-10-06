@@ -163,7 +163,7 @@ class ReinAcc(object):
         for i in range(self.action_size):
             a = action_ori[0][i]
             if gamma == 0:
-                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 1., 0.5, -0.5))  # full
+                noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, a, 0.5, 0.5))  # full
             elif gamma == 1:
                 noise.append(train_indicator * max(self.epsilon, 0) * self.tools.ou(a, 0.8, 0.5, -0.5))
             elif gamma == 2:
@@ -295,13 +295,13 @@ class ReinAcc(object):
             total_time = time.time()
 
             visual = True if (e + 1) % 1000 == 0 else False
-            if gamma == 0 and e >= 2000:
-                gamma += 1
-            elif gamma == 1 and e >= 10000:
-                gamma += 1
-            elif gamma >= 2 and ((e - 10000) % 10000 == 0):
-                gamma += 1
-            gamma = min(gamma, 5)
+            # if gamma == 0 and e >= 2000:
+            #     gamma += 1
+            # elif gamma == 1 and e >= 10000:
+            #     gamma += 1
+            # elif gamma >= 2 and ((e - 10000) % 10000 == 0):
+            #     gamma += 1
+            # gamma = min(gamma, 5)
             self.sim = InterSim(gamma, visual)
             # self.sim = InterSim(False)
             # self.sim.draw_scenary(self.sim.av_pos, self.sim.hv_poses, 0.)
@@ -332,7 +332,7 @@ class ReinAcc(object):
                            'stop': self.not_move, 'succeess': self.success,
                            'loss': self.loss, 'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/cl_tra6.txt', 'w+') as json_file:
+                with open('../results/cl_ave1.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
 
