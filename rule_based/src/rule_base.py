@@ -18,8 +18,8 @@ __author__ = 'qzq'
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 Vis_dis = 50.
-Safe_dis = 30.
-Safe_time = 3.
+Safe_dis = 10.
+Safe_time = 1.5
 Tho_dis = 10.
 Tho_time = 2.
 
@@ -49,7 +49,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(0, False)
+        self.sim = InterSim(0, True)
         self.reward = HrlReward()
         self.if_done = False
 
@@ -220,7 +220,7 @@ class ReinAcc(object):
                           ', Not Stop: ' + str(self.sub_not_stop) + ', Success: ' + str(self.sub_success))
             total_time = time.time()
 
-            visual = False            # True if (e + 1) % 200 == 0 else False
+            visual = True            # True if (e + 1) % 200 == 0 else False
             # if gamma == 0 and e >= 2000:
             #     gamma += 1
             # elif gamma == 1 and e >= 10000:

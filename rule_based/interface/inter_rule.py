@@ -105,7 +105,7 @@ class InterSim(object):
         if self.Visual:
             self.fig = plt.figure(1)
             self.ax = self.fig.add_subplot(1, 1, 1)
-            plt.axis([-100, 100, -110, 110])
+            plt.axis([-100, 100, -100, 100])
             self.ax.fill_between(np.arange(-104, self.Inter_Left, 0.5), self.Inter_Low,
                                  np.arange(self.Inter_Low, -104, -0.5), facecolor='black')
             self.ax.fill_between(np.arange(-104, self.Inter_Left, 0.5), self.Inter_Up,

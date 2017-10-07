@@ -326,7 +326,7 @@ class ReinAcc(object):
                            'stop': self.not_move, 'not_stop': self.not_stop, 'succeess': self.success,
                            'loss': self.loss, 'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/ch_a4_1.txt', 'w+') as json_file:
+                with open('../results/ch_a4_2.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
                 if train_indicator:
