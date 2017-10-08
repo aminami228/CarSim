@@ -39,8 +39,8 @@ class ReinAcc(object):
     explore_iter = 100000.
     episode_count = 600000
     max_steps = 2000
-    action_dim = 4          # Steering/Acceleration/Brake
-    action_size = 4
+    action_dim = 3          # Steering/Acceleration/Brake
+    action_size = 3
     his_len = 20
     state_dim = 21
 
@@ -172,10 +172,10 @@ class ReinAcc(object):
         zz = train_indicator * max(self.epsilon, 0.)
         action_ori = self.ch_actor.model.predict(state)
         # b = np.random.dirichlet(np.ones(2))
-        b = [1.5, 0.] if (ha == 1) else [0., 1.5]
+        b = [1.] if (ha == 1) else [0.]
         noise.extend(list(b))
-        a1 = action_ori[0][2]
-        a2 = action_ori[0][3]
+        a1 = action_ori[0][1]
+        a2 = action_ori[0][2]
         if gamma == 0:
             noise.append(zz * self.tools.ou(a1, 0.8, 0.5, -0.4))  # full
             noise.append(zz * self.tools.ou(a2, 0.5, 0.5, -0.2))  # full
@@ -185,8 +185,11 @@ class ReinAcc(object):
             noise.append(zz * self.tools.ou(a1, -0.8, 0.5, 0.5))
         else:
             noise.append(zz * self.tools.ou(a1, -0.2, 0.5, 0.2))
-        action_h = (1. - zz) * action_ori[0][0:2] + zz * np.array(noise[0:2]) * (nn > 0.5)
-        action_l = action_ori[0][2:] + np.array(noise[2:])
+        if nn > 0.5:
+            action_h = (1. - zz) * np.array(action_ori[0][0:1]) + zz * np.array(noise[0:1])
+        else:
+            action_h = np.array(action_ori[0][0:1])
+        action_l = action_ori[0][1:] + np.array(noise[1:])
         action = np.array(np.concatenate([action_h, action_l], axis=0), ndmin=2)
         return action
 
@@ -260,8 +263,9 @@ class ReinAcc(object):
             while True:
                 self.epsilon -= 1.0 / self.explore_iter * train_indicator  # if e > 6000 else 0.
                 action_t = self.get_action(state_t, train_indicator, gamma, nn)
-                h_action = np.argmax(action_t[0][0:2])
-                l_acc = action_t[0][2] if (h_action == 0) else (- action_t[0][3])
+                # h_action = np.argmax(action_t[0][0:2])
+                l_acc = action_t[0][1] if (action_t[0][0] > 0.5) else (- action_t[0][2])
+                # l_acc = action_t[0][1] if (h_action == 0) else (- action_t[0][2])
                 reward_t, collision_l, collision_r, collision_f, not_move, not_stop, jerk = \
                     self.reward.get_reward(state_t[0], l_acc)
                 if jerk > max_j:
