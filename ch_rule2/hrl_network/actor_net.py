@@ -55,7 +55,7 @@ class ActorNetwork(object):
         h1d = Dropout(0.5)(h1)
         h3 = Dense(HIDDEN3_UNITS, activation='relu')(h1d)
         ac1 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.1, stddev=1e-4, seed=None))(h3)
-        ac2 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.1, stddev=1e-4, seed=None))(h3)
+        ac2 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=-0.1, stddev=1e-4, seed=None))(h3)
         # ac = Dense(2, activation='softmax')(h3)
         # a = Dense(1, activation='tanh', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
         # a1 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)

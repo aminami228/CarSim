@@ -175,7 +175,8 @@ class ReinAcc(object):
         tr_ = np.array([t_a_r, t_b_r])
         if (np.any(disl_, axis=0).all() and np.any(tl_, axis=0).all()) or (state[0][5] < 0.):
             ha = 1
-            if (not (np.any(disr_, axis=0).all() and np.any(tr_, axis=0).all())) and (state[0][5] < 0.):
+            if (not (np.any(disr_, axis=0).all() and np.any(tr_, axis=0).all())) and (state[0][5] < 0.) \
+                    and (state[0][6] >= 0.):
                 ha = -1
         else:
             ha = -1
