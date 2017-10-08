@@ -181,15 +181,8 @@ class ReinAcc(object):
         noise.extend(list(b))
         a1 = action_ori[0][2]
         a2 = action_ori[0][3]
-        if gamma == 0:
-            noise.append(zz * self.tools.ou(a1, 0.8, 0.5, -0.4))  # full
-            noise.append(zz * self.tools.ou(a2, 0.5, 0.5, -0.2))  # full
-        elif gamma == 1:
-            noise.append(zz * self.tools.ou(a1, 0.8, 0.5, -0.5))
-        elif gamma == 2:
-            noise.append(zz * self.tools.ou(a1, -0.8, 0.5, 0.5))
-        else:
-            noise.append(zz * self.tools.ou(a1, -0.2, 0.5, 0.2))
+        noise.append(zz * self.tools.ou(a1, 0.5, 0.5, -0.4))  # full
+        noise.append(zz * self.tools.ou(a2, 0.5, 0.5, -0.4))  # full
         action_h = (1. - zz) * action_ori[0][0:2] + zz * np.array(noise[0:2]) * (nn > 0.5)
         action_l = action_ori[0][2:] + np.array(noise[2:])
         action = np.array(np.concatenate([action_h, action_l], axis=0), ndmin=2)
@@ -311,12 +304,13 @@ class ReinAcc(object):
                           ', Not Stop: ' + str(self.sub_not_stop) + ', Success: ' + str(self.sub_success))
             total_time = time.time()
 
-            visual = False     #if (e + 1) % 100 == 0 else False
-            if gamma == 0 and e >= 5000:
+            visual = True if (e + 1) % 1000 == 0 else False
+            if gamma == 0 and e >= 10000:
                 gamma += 1
                 self.epsilon = 1.
-            elif gamma == 1 and e >= 10000:
+            elif gamma == 1 and e >= 13000:
                 gamma += 1
+                self.epsilon = 1.
             # elif gamma >= 2 and ((e - 10000) % 10000 == 0):
             #     gamma += 1
             # gamma = min(gamma, 6)
@@ -348,7 +342,7 @@ class ReinAcc(object):
                            'stop': self.not_move, 'not_stop': self.not_stop, 'succeess': self.success,
                            'loss': self.loss, 'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/ch_a4_2.txt', 'w+') as json_file:
+                with open('../results/cr_1_2.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
                 if train_indicator:

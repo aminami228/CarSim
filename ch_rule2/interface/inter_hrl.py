@@ -75,19 +75,21 @@ class InterSim(object):
             self.LV_NO = randint(4, 5)
             self.RV_NO = randint(7, 8)
             lb = randint(0, 1)
-            self.cond = 'lo'
+            # self.cond = 'lo'
+            self.cond = 'lf'
             lv_locs = np.array(sample(xrange(lb - self.LV_NO, lb), self.LV_NO))
-            rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
+            rv_locs = np.array(sample(xrange(lb + self.LV_NO, lb + self.LV_NO + self.RV_NO), self.RV_NO))
             lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
             rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
         elif gamma == 1:
-            self.LV_NO = randint(5, 8)
-            self.RV_NO = randint(5, 8)
-            self.cond = 'g1'
-            s1 = self.LV_NO - randint(0, 2)
-            s2 = self.RV_NO + randint(2, 5)
-            lv_locs = np.array(sample(xrange(-s1 - self.LV_NO, -s1), self.LV_NO))
-            rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
+            self.LV_NO = randint(4, 5)
+            self.RV_NO = randint(7, 8)
+            rb = randint(0, 1)
+            # self.LV_NO = randint(5, 8)
+            # self.RV_NO = randint(5, 8)
+            self.cond = 'rf'
+            lv_locs = np.array(sample(xrange(rb - 2 * self.LV_NO, rb - self.LV_NO), self.LV_NO))
+            rv_locs = np.array(sample(xrange(rb, rb + self.RV_NO), self.RV_NO))
             lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
             rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
         else:
@@ -95,7 +97,7 @@ class InterSim(object):
             self.LV_NO = randint(5, 8)
             self.RV_NO = randint(5, 8)
             lv_locs = np.array(sample(xrange(-15, 2), self.LV_NO))
-            rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
+            rv_locs = np.array(sample(xrange(-2, 15), self.RV_NO))
             lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
             rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
         # else:

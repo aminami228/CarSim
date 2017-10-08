@@ -81,10 +81,13 @@ class InterSim(object):
             lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
             rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
         elif gamma == 1:
-            self.cond = 'empty'
-            self.lv_ini = -3.
-        else:
-            logging.error('wrong')
+            self.cond = 'l_random'
+            self.LV_NO = randint(5, 8)
+            self.RV_NO = randint(5, 8)
+            lv_locs = np.array(sample(xrange(-15, 2), self.LV_NO))
+            rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
+            lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
+            rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
         # else:
         #     if gamma == 1 or (rr < (1. / gamma)):
         #         self.LV_NO = randint(5, 8)

@@ -36,11 +36,11 @@ class ReinAcc(object):
     LRA = 0.001             # Learning rate for Actor
     LRC = 0.001             # Learning rate for Critic
 
-    explore_iter = 100000.
-    episode_count = 600000
+    explore_iter = 1000000.
+    episode_count = 6000000
     max_steps = 2000
-    action_dim = 3          # Steering/Acceleration/Brake
-    action_size = 3
+    action_dim = 4          # Steering/Acceleration/Brake
+    action_size = 4
     his_len = 20
     state_dim = 21
 
@@ -155,16 +155,28 @@ class ReinAcc(object):
         return loss
 
     def get_action(self, state, train_indicator, gamma, nn):
-        dis = state[0][15::2]
-        dis_a = dis >= Safe_dis
-        dis_b = dis < 0.
-        dis_ = np.array([dis_a, dis_b])
-        t = state[0][16::2]
-        t_a = t >= Safe_time
-        t_b = t < 0.
-        t_ = np.array([t_a, t_b])
-        if (np.any(dis_, axis=0).all() and np.any(t_, axis=0).all()) or (state[0][5] < 0.):
+        left = state[0][15:25]
+        dis_l = left[::2]
+        dis_a_l = dis_l >= Safe_dis
+        dis_b_l = dis_l < 0.
+        disl_ = np.array([dis_a_l, dis_b_l])
+        t_l = left[1::2]
+        t_a_l = t_l >= Safe_time
+        t_b_l = t_l < 0.
+        tl_ = np.array([t_a_l, t_b_l])
+        right = state[0][25:]
+        dis_r = right[::2]
+        dis_a_r = dis_r >= Safe_dis
+        dis_b_r = dis_r < 0.
+        disr_ = np.array([dis_a_r, dis_b_r])
+        t_r = right[1::2]
+        t_a_r = t_r >= Safe_time
+        t_b_r = t_r < 0.
+        tr_ = np.array([t_a_r, t_b_r])
+        if (np.any(disl_, axis=0).all() and np.any(tl_, axis=0).all()) or (state[0][5] < 0.):
             ha = 1
+            if (not (np.any(disr_, axis=0).all() and np.any(tr_, axis=0).all())) and (state[0][5] < 0.):
+                ha = -1
         else:
             ha = -1
         # logging.info('...... Getting action ......')
@@ -172,24 +184,14 @@ class ReinAcc(object):
         zz = train_indicator * max(self.epsilon, 0.)
         action_ori = self.ch_actor.model.predict(state)
         # b = np.random.dirichlet(np.ones(2))
-        b = [1.] if (ha == 1) else [0.]
+        b = [1.5, 0.] if (ha == 1) else [0., 1.5]
         noise.extend(list(b))
-        a1 = action_ori[0][1]
-        a2 = action_ori[0][2]
-        if gamma == 0:
-            noise.append(zz * self.tools.ou(a1, 0.8, 0.5, -0.4))  # full
-            noise.append(zz * self.tools.ou(a2, 0.5, 0.5, -0.2))  # full
-        elif gamma == 1:
-            noise.append(zz * self.tools.ou(a1, 0.8, 0.5, -0.5))
-        elif gamma == 2:
-            noise.append(zz * self.tools.ou(a1, -0.8, 0.5, 0.5))
-        else:
-            noise.append(zz * self.tools.ou(a1, -0.2, 0.5, 0.2))
-        if nn > 0.5:
-            action_h = (1. - zz) * np.array(action_ori[0][0:1]) + zz * np.array(noise[0:1])
-        else:
-            action_h = np.array(action_ori[0][0:1])
-        action_l = action_ori[0][1:] + np.array(noise[1:])
+        a1 = action_ori[0][2]
+        a2 = action_ori[0][3]
+        noise.append(zz * self.tools.ou(a1, 0.8, 0.5, -0.4))  # full
+        noise.append(zz * self.tools.ou(a2, 0.8, 0.5, -0.4))  # full
+        action_h = (1. - zz) * action_ori[0][0:2] + zz * np.array(noise[0:2]) * (nn >= 0.3)
+        action_l = action_ori[0][2:] + np.array(noise[2:])
         action = np.array(np.concatenate([action_h, action_l], axis=0), ndmin=2)
         return action
 
@@ -263,9 +265,8 @@ class ReinAcc(object):
             while True:
                 self.epsilon -= 1.0 / self.explore_iter * train_indicator  # if e > 6000 else 0.
                 action_t = self.get_action(state_t, train_indicator, gamma, nn)
-                # h_action = np.argmax(action_t[0][0:2])
-                l_acc = action_t[0][1] if (action_t[0][0] > 0.5) else (- action_t[0][2])
-                # l_acc = action_t[0][1] if (h_action == 0) else (- action_t[0][2])
+                h_action = np.argmax(action_t[0][0:2])
+                l_acc = action_t[0][2] if (h_action == 0) else (- action_t[0][3])
                 reward_t, collision_l, collision_r, collision_f, not_move, not_stop, jerk = \
                     self.reward.get_reward(state_t[0], l_acc)
                 if jerk > max_j:
@@ -311,10 +312,10 @@ class ReinAcc(object):
             total_time = time.time()
 
             visual = False     #if (e + 1) % 100 == 0 else False
-            if gamma == 0 and e >= 5000:
+            if gamma == 0 and e >= 10000:
                 gamma += 1
                 self.epsilon = 1.
-            elif gamma == 1 and e >= 8000:
+            elif gamma == 1 and e >= 20000:
                 gamma += 1
                 self.epsilon = 1.
 
@@ -349,7 +350,7 @@ class ReinAcc(object):
                            'stop': self.not_move, 'not_stop': self.not_stop, 'succeess': self.success,
                            'loss': self.loss, 'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/ch_rule_2.txt', 'w+') as json_file:
+                with open('../results/ch_rule2_2.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
                 if train_indicator:
