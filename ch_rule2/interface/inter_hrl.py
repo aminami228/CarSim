@@ -71,7 +71,6 @@ class InterSim(object):
         #     rr = random()
         #     gamma = 0 if rr > 0.5 else 1
         lv_locs, rv_locs = [], []
-        gamma = 1
         if gamma == 0:     # or (gamma != 1 and (rr > ((gamma - 1.) / gamma))):
             self.LV_NO = randint(4, 5)
             self.RV_NO = randint(7, 8)
