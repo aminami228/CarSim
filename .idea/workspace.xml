@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb47f4d-19ca-4217-b78a-ed812ce59c4c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/interface/inter_hrl.py" afterPath="$PROJECT_DIR$/ch_rule2/interface/inter_hrl.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/results/ch_rule2_2.txt" afterPath="$PROJECT_DIR$/ch_rule2/results/ch_rule2_2.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/results/ch_rule2_2_1.eps" afterPath="$PROJECT_DIR$/ch_rule2/results/ch_rule2_2_1.eps" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/results/ch_rule2_2_2.eps" afterPath="$PROJECT_DIR$/ch_rule2/results/ch_rule2_2_2.eps" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/utilities/visual_result.py" afterPath="$PROJECT_DIR$/ch_rule2/utilities/visual_result.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/w0/g2.txt" afterPath="$PROJECT_DIR$/ch_rule2/w0/g2.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" afterPath="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" />
     </list>
@@ -22,7 +20,7 @@
     <SUITE FILE_PATH="coverage/CarSim_vires$ch_action3.coverage" NAME="ch_action3 Coverage Results" MODIFIED="1507253024020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_action3/src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$visual_result.coverage" NAME="visual_result Coverage Results" MODIFIED="1507409088738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_action4/utilities" />
     <SUITE FILE_PATH="coverage/CarSim_vires$hrl_vires.coverage" NAME="hrl_vires Coverage Results" MODIFIED="1504559805482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main_project/approach_src" />
-    <SUITE FILE_PATH="coverage/CarSim_vires$visual_result__2_.coverage" NAME="visual_result (2) Coverage Results" MODIFIED="1507585055994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_rule2/utilities" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$visual_result__2_.coverage" NAME="visual_result (2) Coverage Results" MODIFIED="1507585810590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_rule2/utilities" />
     <SUITE FILE_PATH="coverage/CarSim_vires$multi_res.coverage" NAME="multi_res Coverage Results" MODIFIED="1507216075764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cl_src/utilities" />
     <SUITE FILE_PATH="coverage/CarSim_vires$ch_rule2.coverage" NAME="ch_rule2 Coverage Results" MODIFIED="1507584700946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_rule2/src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$ch_action4.coverage" NAME="ch_action4 Coverage Results" MODIFIED="1507270588656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_action4/src" />
@@ -41,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/ch_rule2/utilities/visual_result.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="5" />
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -49,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ch_rule2.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ch_rule2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="846">
-              <caret line="363" column="34" lean-forward="true" selection-start-line="363" selection-start-column="34" selection-end-line="363" selection-end-column="34" />
+            <state relative-caret-position="770">
+              <caret line="389" column="22" lean-forward="false" selection-start-line="389" selection-start-column="22" selection-end-line="389" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -101,7 +99,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="inter_hrl.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="inter_hrl.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch_rule2/interface/inter_hrl.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="149">
@@ -228,9 +226,9 @@
         <option value="$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py" />
         <option value="$PROJECT_DIR$/ch_rule1/hrl_network/critic_net.py" />
         <option value="$PROJECT_DIR$/ch_rule1/src/ch_rule1.py" />
-        <option value="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" />
         <option value="$PROJECT_DIR$/ch_rule2/utilities/visual_result.py" />
         <option value="$PROJECT_DIR$/ch_rule2/interface/inter_hrl.py" />
+        <option value="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" />
       </list>
     </option>
   </component>
@@ -241,8 +239,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1979" />
-    <option name="y" value="-4" />
+    <option name="x" value="59" />
+    <option name="y" value="-1084" />
     <option name="width" value="1861" />
     <option name="height" value="1084" />
   </component>
@@ -708,7 +706,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1979" y="-4" width="1861" height="1084" extended-state="6" />
+    <frame x="59" y="-1084" width="1861" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.171875" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1188,16 +1186,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule2/utilities/visual_result.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
@@ -1232,18 +1220,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="363" column="34" lean-forward="true" selection-start-line="363" selection-start-column="34" selection-end-line="363" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch_rule2/interface/inter_hrl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="72" column="33" lean-forward="false" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch_rule2/utilities/visual_result.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="389" column="22" lean-forward="false" selection-start-line="389" selection-start-column="22" selection-end-line="389" selection-end-column="22" />
           <folding />
         </state>
       </provider>
