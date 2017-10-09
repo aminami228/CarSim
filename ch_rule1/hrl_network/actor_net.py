@@ -54,18 +54,18 @@ class ActorNetwork(object):
         h1 = Dense(HIDDEN2_UNITS, activation='relu')(h0d)
         h1d = Dropout(0.5)(h1)
         h3 = Dense(HIDDEN3_UNITS, activation='relu')(h1d)
-        ac1 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.1, stddev=1e-4, seed=None))(h3)
-        ac2 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.1, stddev=1e-4, seed=None))(h3)
-        # a = Dense(1, activation='tanh', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
+        # ac1 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0., stddev=1e-4, seed=None))(h3)
+        # ac2 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0., stddev=1e-4, seed=None))(h3)
+        a = Dense(1, activation='tanh', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
         # a1 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.0, stddev=1e-4, seed=None))(h3)
-        a1 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.1, stddev=1e-4, seed=None))(h3)
-        a2 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.1, stddev=1e-4, seed=None))(h3)
-        V = concatenate([ac1, ac2, a1, a2])
+        # a1 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0., stddev=1e-4, seed=None))(h3)
+        # a2 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0., stddev=1e-4, seed=None))(h3)
+        # V = concatenate([a])
         # V = concatenate([a])
         # V = concatenate([a, b])
         # V = merge([Action, Parameter_Acc1, Parameter_Acc2, Parameter_Time1, Parameter_Time2,
         #            Parameter_Time3, Parameter_Time4], mode='concat')
-        # V = a
+        V = a
         # V = tf.concat(values=[a, b])
         model = Model(input=S, output=V)
         return model, model.trainable_weights, S

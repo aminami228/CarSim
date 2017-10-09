@@ -39,8 +39,8 @@ class ReinAcc(object):
     explore_iter = 1000000.
     episode_count = 6000000
     max_steps = 2000
-    action_dim = 4          # Steering/Acceleration/Brake
-    action_size = 4
+    action_dim = 3          # Steering/Acceleration/Brake
+    action_size = 3
     his_len = 20
     state_dim = 21
 
@@ -57,7 +57,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(0, False)
+        self.sim = InterSim(0, True)
         self.reward = CHReward()
         self.if_done = False
 
@@ -155,45 +155,51 @@ class ReinAcc(object):
         return loss
 
     def get_action(self, state, train_indicator, gamma, nn):
-        left = state[0][15:25]
-        dis_l = left[::2]
-        dis_a_l = dis_l >= Safe_dis
-        dis_b_l = dis_l < 0.
-        disl_ = np.array([dis_a_l, dis_b_l])
-        t_l = left[1::2]
-        t_a_l = t_l >= Safe_time
-        t_b_l = t_l < 0.
-        tl_ = np.array([t_a_l, t_b_l])
-        right = state[0][25:]
-        dis_r = right[::2]
-        dis_a_r = dis_r >= Safe_dis
-        dis_b_r = dis_r < 0.
-        disr_ = np.array([dis_a_r, dis_b_r])
-        t_r = right[1::2]
-        t_a_r = t_r >= Safe_time
-        t_b_r = t_r < 0.
-        tr_ = np.array([t_a_r, t_b_r])
-        if (np.any(disl_, axis=0).all() and np.any(tl_, axis=0).all()) or (state[0][5] < 0.):
-            ha = 1
-            if (not (np.any(disr_, axis=0).all() and np.any(tr_, axis=0).all())) and (state[0][5] < 0.) \
-                    and (state[0][6] >= 0.):
-                ha = -1
+        if train_indicator:
+            # left = state[0][15:25]
+            # dis_l = left[::2]
+            # dis_a_l = dis_l >= Safe_dis
+            # dis_b_l = dis_l < 0.
+            # disl_ = np.array([dis_a_l, dis_b_l])
+            # t_l = left[1::2]
+            # t_a_l = t_l >= Safe_time
+            # t_b_l = t_l < 0.
+            # tl_ = np.array([t_a_l, t_b_l])
+            # right = state[0][25:]
+            # dis_r = right[::2]
+            # dis_a_r = dis_r >= Safe_dis
+            # dis_b_r = dis_r < 0.
+            # disr_ = np.array([dis_a_r, dis_b_r])
+            # t_r = right[1::2]
+            # t_a_r = t_r >= Safe_time
+            # t_b_r = t_r < 0.
+            # tr_ = np.array([t_a_r, t_b_r])
+            # if np.any(disl_, axis=0).all() and np.any(tl_, axis=0).all():
+            #     ha = 1
+            # elif state[0][5] < 0.:
+            #     ha = 1
+            #     if (not (np.any(disr_, axis=0).all() and np.any(tr_, axis=0).all())) and (state[0][6] >= 0.):
+            #         ha = -1
+            # else:
+            #     ha = -1
+            # logging.info('...... Getting action ......')
+            noise = []
+            zz = train_indicator * max(self.epsilon, 0.)
+            action_ori = self.ch_actor.model.predict(state)
+            # b = np.random.dirichlet(np.ones(2))
+            # b = [1.5, 0.] if (ha == 1) else [0., 1.5]
+            b = [random() - 0.5]
+            noise.extend(list(b))
+            a1 = action_ori[0][1]
+            a2 = action_ori[0][2]
+            noise.append(zz * self.tools.ou(a1, 0.8, 0.5, -0.4))  # full
+            noise.append(zz * self.tools.ou(a2, 0.8, 0.5, -0.4))  # full
+            # action_h = (1. - zz) * action_ori[0][0:2] + zz * np.array(noise[0:2]) * (nn >= 0.3)
+            action_h = np.array(action_ori[0][0] + zz * np.array(noise[0]), ndmin=1)
+            action_l = action_ori[0][1:] + np.array(noise[1:])
+            action = np.array(np.concatenate([action_h, action_l], axis=0), ndmin=2)
         else:
-            ha = -1
-        # logging.info('...... Getting action ......')
-        noise = []
-        zz = train_indicator * max(self.epsilon, 0.)
-        action_ori = self.ch_actor.model.predict(state)
-        # b = np.random.dirichlet(np.ones(2))
-        b = [1.5, 0.] if (ha == 1) else [0., 1.5]
-        noise.extend(list(b))
-        a1 = action_ori[0][2]
-        a2 = action_ori[0][3]
-        noise.append(zz * self.tools.ou(a1, 0.8, 0.5, -0.4))  # full
-        noise.append(zz * self.tools.ou(a2, 0.8, 0.5, -0.4))  # full
-        action_h = (1. - zz) * action_ori[0][0:2] + zz * np.array(noise[0:2]) * (nn >= 0.3)
-        action_l = action_ori[0][2:] + np.array(noise[2:])
-        action = np.array(np.concatenate([action_h, action_l], axis=0), ndmin=2)
+            action = self.ch_actor.model.predict(state)
         return action
 
     def if_exit(self, step, state, max_j, collision_l, collision_r, collision_f, not_move, not_stop):
@@ -266,8 +272,9 @@ class ReinAcc(object):
             while True:
                 self.epsilon -= 1.0 / self.explore_iter * train_indicator  # if e > 6000 else 0.
                 action_t = self.get_action(state_t, train_indicator, gamma, nn)
-                h_action = np.argmax(action_t[0][0:2])
-                l_acc = action_t[0][2] if (h_action == 0) else (- action_t[0][3])
+                # h_action = np.argmax(action_t[0][0:2])
+                # l_acc = action_t[0][2] if (h_action == 0) else (- action_t[0][3])
+                l_acc = action_t[0][1] if (action_t[0][0] > 0) else (- action_t[0][2])
                 reward_t, collision_l, collision_r, collision_f, not_move, not_stop, jerk = \
                     self.reward.get_reward(state_t[0], l_acc)
                 if jerk > max_j:

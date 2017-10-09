@@ -36,11 +36,11 @@ class ReinAcc(object):
     LRA = 0.001             # Learning rate for Actor
     LRC = 0.001             # Learning rate for Critic
 
-    explore_iter = 100000.
-    episode_count = 600000
+    explore_iter = 1000000.
+    episode_count = 6000000
     max_steps = 2000
-    action_dim = 4          # Steering/Acceleration/Brake
-    action_size = 4
+    action_dim = 1          # Steering/Acceleration/Brake
+    action_size = 1
     his_len = 20
     state_dim = 21
 
@@ -155,57 +155,72 @@ class ReinAcc(object):
         return loss
 
     def get_action(self, state, train_indicator, gamma, nn):
-        dis = state[0][15::2]
-        dis_a = dis >= Safe_dis
-        dis_b = dis < 0.
-        dis_ = np.array([dis_a, dis_b])
-        t = state[0][16::2]
-        t_a = t >= Safe_time
-        t_b = t < 0.
-        t_ = np.array([t_a, t_b])
-        if (np.any(dis_, axis=0).all() and np.any(t_, axis=0).all()) or (state[0][5] < 0.):
-            ha = 1
-        else:
-            ha = -1
-        # if (state[0][13] > state[0][11] - Safe_dis or (state[0][14] < state[0][12] + Safe_dis)) \
+        if train_indicator:
+            dis = state[0][15::2]
+            dis_a = dis >= Safe_dis
+            dis_b = dis < 0.
+            dis_ = np.array([dis_a, dis_b])
+            t = state[0][16::2]
+            t_a = t >= Safe_time
+            t_b = t < 0.
+            t_ = np.array([t_a, t_b])
+            if (np.any(dis_, axis=0).all() and np.any(t_, axis=0).all()) or (state[0][5] < 0.):
+                ha = 1
+            else:
+                ha = -1
+    # if (state[0][13] > state[0][11] - Safe_dis or (state[0][14] < state[0][12] + Safe_dis)) \
         #         and (ha == 1) and (state[0][0] ** 2 >= 2 * 3. * state[0][5]):
         #     action = np.array([-1.], ndmin=2)
         # if state[0][5] < 0.:
         #     ha = 1
         # logging.info('...... Getting action ......')
-        noise = []
-        zz = train_indicator * max(self.epsilon, 0.)
-        action_ori = self.ch_actor.model.predict(state)
-        # b = np.random.dirichlet(np.ones(2))
-        b = [1.5, 0.] if (ha == 1) else [0., 1.5]
-        noise.extend(list(b))
-        a1 = action_ori[0][2]
-        a2 = action_ori[0][3]
-        noise.append(zz * self.tools.ou(a1, 0.5, 0.5, -0.4))  # full
-        noise.append(zz * self.tools.ou(a2, 0.5, 0.5, -0.4))  # full
-        action_h = (1. - zz) * action_ori[0][0:2] + zz * np.array(noise[0:2]) * (nn > 0.5)
-        action_l = action_ori[0][2:] + np.array(noise[2:])
-        action = np.array(np.concatenate([action_h, action_l], axis=0), ndmin=2)
+            noise = []
+            zz = train_indicator * max(self.epsilon, 0.)
+            action_ori = self.ch_actor.model.predict(state)
+            # b = np.random.dirichlet(np.ones(2))
+            # b = [1.5, 0.] if (ha == 1) else [0., 1.5]
+            # noise.extend(list(b))
+            # a1 = action_ori[0][2]
+            # a2 = action_ori[0][3]
+            # noise.append(zz * self.tools.ou(a1, 0.8, 0.5, -0.4))  # full
+            # noise.append(zz * self.tools.ou(a2, 0.8, 0.5, -0.4))  # full
+            if random() > 0.2:
+                if ha == 1:
+                    noise = (zz * self.tools.ou(action_ori[0][0], 0.8, 0.5, -0.4))  # full
+                else:
+                    noise = (zz * self.tools.ou(action_ori[0][0], -0.8, 0.5, 0.4))
+            else:
+                if ha == -1:
+                    noise = (zz * self.tools.ou(action_ori[0][0], 0.8, 0.5, -0.4))  # full
+                else:
+                    noise = (zz * self.tools.ou(action_ori[0][0], -0.8, 0.5, 0.4))
+            # action_h = (1. - zz) * action_ori[0][0:2] + zz * np.array(noise[0:2]) * (nn > 0.5)
+            # action_l = action_ori[0][2:] + np.array(noise[2:])
+            # action = np.array(np.concatenate([action_h, action_l], axis=0), ndmin=2)
+            action = np.array([action_ori[0][0] + noise], ndmin=2)
+        else:
+            action = self.ch_actor.model.predict(state)
         return action
 
-    def if_exit(self, step, state, max_j, collision_l, collision_r, collision_f, not_move, not_stop):
+    def if_exit(self, step, state, max_j, collision_l, collision_r, collision_f, not_move, not_stop, nn):
+        no = 'with rule' if nn > 0.5 else 'no rule'
         if step >= self.max_steps:
             logging.warn('Not finished with max steps! Dis to SL: {0:.2f}'.format(state[4]) +
                          ', Velocity: {0:.2f}'.format(state[0]) +
-                         ', Max_j: {0:.2f}'.format(max_j) + ', ' + self.sim.cond)
+                         ', Max_j: {0:.2f}'.format(max_j) + ', ' + self.sim.cond + ', ' + no)
             self.sub_not_finish += 1
             self.if_done = True
         elif state[0] >= self.sim.Speed_limit + 2.:
             logging.warn('Exceed Speed Limit! Dis to SL: {0:.2f}'.format(state[4]) +
                          ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j) +
-                         ', ' + self.sim.cond)
+                         ', ' + self.sim.cond + ', ' + no)
             self.sub_overspeed += 1
             self.if_done = True
         elif not_move > 0:
             logging.warn('Not move! Dis to SL: {0:.2f}'.format(state[4]) + ', Dis to Center: {0:.2f}'.format(state[6]) +
                          ', Dis to hv: [{0:.2f}, {1:.2f}]'.format(state[-12], state[-2]) +
                          ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j) +
-                         ', ' + self.sim.cond)
+                         ', ' + self.sim.cond + ', ' + no)
             self.sub_not_move += 1
             self.if_done = True
         elif collision_f > 0 or (collision_l > 0) or (collision_r > 0):
@@ -219,17 +234,17 @@ class ReinAcc(object):
                          ', Dis to Center: {0:.2f}'.format(state[6]) +
                          ', Dis to hv: [{0:.2f}, {1:.2f}]'.format(state[-12], state[-2]) +
                          ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j) +
-                         ', ' + self.sim.cond)
+                         ', ' + self.sim.cond + ', ' + no)
             self.sub_crash += 1
             self.if_done = True
         elif not_stop > 0:
             logging.warn('Did not stop at stop line! Dis to SL: {0:.2f}'.format(state[4]) +
                          ', Velocity: ' + str(state[0]) + ', Max_j: {0:.2f}'.format(max_j) +
-                         ', ' + self.sim.cond)
+                         ', ' + self.sim.cond + ', ' + no)
             self.sub_not_stop += 1
             self.if_done = True
         elif state[9] <= - state[2]:
-            logging.info('Congratulations! Traverse successfully. ' + self.sim.cond)
+            logging.info('Congratulations! Traverse successfully. ' + self.sim.cond + ', ' + no)
             self.sub_success += 1
             self.if_done = True
 
@@ -258,8 +273,9 @@ class ReinAcc(object):
             while True:
                 self.epsilon -= 1.0 / self.explore_iter * train_indicator  # if e > 6000 else 0.
                 action_t = self.get_action(state_t, train_indicator, gamma, nn)
-                h_action = np.argmax(action_t[0][0:2])
-                l_acc = action_t[0][2] if (h_action == 0) else (- action_t[0][3])
+                # h_action = np.argmax(action_t[0][0:2])
+                # l_acc = action_t[0][2] if (h_action == 0) else (- action_t[0][3])
+                l_acc = action_t[0][0]
                 reward_t, collision_l, collision_r, collision_f, not_move, not_stop, jerk = \
                     self.reward.get_reward(state_t[0], l_acc)
                 if jerk > max_j:
@@ -271,7 +287,7 @@ class ReinAcc(object):
                 self.update_batch(state_t, action_t[0], reward_t, state_t1)
                 loss = self.update_loss() if train_indicator else 0.
                 total_reward += reward_t
-                self.if_exit(step, state_t[0], max_j, collision_l, collision_r, collision_f, not_move, not_stop)
+                self.if_exit(step, state_t[0], max_j, collision_l, collision_r, collision_f, not_move, not_stop, nn)
                 step += 1
                 total_loss += loss
                 train_time += time.time() - fre_time
