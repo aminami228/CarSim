@@ -75,12 +75,13 @@ class InterSim(object):
             self.LV_NO = randint(4, 5)
             self.RV_NO = randint(7, 8)
             lb = randint(0, 1)
-            self.cond = 'lo'
+            # self.cond = 'lo'
+            self.cond = 'lf'
             lv_locs = np.array(sample(xrange(lb - self.LV_NO, lb), self.LV_NO))
             rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
             lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
             rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
-        elif gamma == 1:
+        else:
             self.cond = 'l_random'
             self.LV_NO = randint(5, 8)
             self.RV_NO = randint(5, 8)

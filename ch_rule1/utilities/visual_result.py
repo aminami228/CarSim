@@ -4,7 +4,7 @@ import json
 
 __author__ = 'qzq'
 
-a = 0
+a = 1
 if a == 0:
     file_name = 'ch_rule2_2'
     with open('../../' + file_name + '.txt', 'r') as json_file:

@@ -57,7 +57,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(0, True)
+        self.sim = InterSim(0, False)
         self.reward = CHReward()
         self.if_done = False
 
@@ -186,14 +186,16 @@ class ReinAcc(object):
             # noise.append(zz * self.tools.ou(a2, 0.8, 0.5, -0.4))  # full
             if random() > 0.2:
                 if ha == 1:
-                    noise = (zz * self.tools.ou(action_ori[0][0], 0.8, 0.5, -0.4))  # full
+                    noise = (zz * self.tools.ou(action_ori[0][0], 1., 0.5, -0.4))  # full
                 else:
-                    noise = (zz * self.tools.ou(action_ori[0][0], -0.8, 0.5, 0.4))
+                    noise = (zz * self.tools.ou(action_ori[0][0], -1., 0.5, 0.4))
             else:
-                if ha == -1:
-                    noise = (zz * self.tools.ou(action_ori[0][0], 0.8, 0.5, -0.4))  # full
-                else:
-                    noise = (zz * self.tools.ou(action_ori[0][0], -0.8, 0.5, 0.4))
+                aa = 2. * (random() - 0.5)
+                noise = (zz * self.tools.ou(action_ori[0][0], aa, 0.5, 0.2))
+                # if ha == -1:
+                #     noise = (zz * self.tools.ou(action_ori[0][0], 0.8, 0.5, -0.4))  # full
+                # else:
+                #     noise = (zz * self.tools.ou(action_ori[0][0], -0.8, 0.5, 0.4))
             # action_h = (1. - zz) * action_ori[0][0:2] + zz * np.array(noise[0:2]) * (nn > 0.5)
             # action_l = action_ori[0][2:] + np.array(noise[2:])
             # action = np.array(np.concatenate([action_h, action_l], axis=0), ndmin=2)
@@ -203,24 +205,23 @@ class ReinAcc(object):
         return action
 
     def if_exit(self, step, state, max_j, collision_l, collision_r, collision_f, not_move, not_stop, nn):
-        no = 'with rule' if nn > 0.5 else 'no rule'
         if step >= self.max_steps:
             logging.warn('Not finished with max steps! Dis to SL: {0:.2f}'.format(state[4]) +
                          ', Velocity: {0:.2f}'.format(state[0]) +
-                         ', Max_j: {0:.2f}'.format(max_j) + ', ' + self.sim.cond + ', ' + no)
+                         ', Max_j: {0:.2f}'.format(max_j) + ', ' + self.sim.cond)
             self.sub_not_finish += 1
             self.if_done = True
         elif state[0] >= self.sim.Speed_limit + 2.:
             logging.warn('Exceed Speed Limit! Dis to SL: {0:.2f}'.format(state[4]) +
                          ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j) +
-                         ', ' + self.sim.cond + ', ' + no)
+                         ', ' + self.sim.cond)
             self.sub_overspeed += 1
             self.if_done = True
         elif not_move > 0:
             logging.warn('Not move! Dis to SL: {0:.2f}'.format(state[4]) + ', Dis to Center: {0:.2f}'.format(state[6]) +
                          ', Dis to hv: [{0:.2f}, {1:.2f}]'.format(state[-12], state[-2]) +
                          ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j) +
-                         ', ' + self.sim.cond + ', ' + no)
+                         ', ' + self.sim.cond)
             self.sub_not_move += 1
             self.if_done = True
         elif collision_f > 0 or (collision_l > 0) or (collision_r > 0):
@@ -234,17 +235,17 @@ class ReinAcc(object):
                          ', Dis to Center: {0:.2f}'.format(state[6]) +
                          ', Dis to hv: [{0:.2f}, {1:.2f}]'.format(state[-12], state[-2]) +
                          ', Velocity: {0:.2f}'.format(state[0]) + ', Max_j: {0:.2f}'.format(max_j) +
-                         ', ' + self.sim.cond + ', ' + no)
+                         ', ' + self.sim.cond)
             self.sub_crash += 1
             self.if_done = True
         elif not_stop > 0:
             logging.warn('Did not stop at stop line! Dis to SL: {0:.2f}'.format(state[4]) +
                          ', Velocity: ' + str(state[0]) + ', Max_j: {0:.2f}'.format(max_j) +
-                         ', ' + self.sim.cond + ', ' + no)
+                         ', ' + self.sim.cond)
             self.sub_not_stop += 1
             self.if_done = True
         elif state[9] <= - state[2]:
-            logging.info('Congratulations! Traverse successfully. ' + self.sim.cond + ', ' + no)
+            logging.info('Congratulations! Traverse successfully. ' + self.sim.cond)
             self.sub_success += 1
             self.if_done = True
 
@@ -320,13 +321,13 @@ class ReinAcc(object):
                           ', Not Stop: ' + str(self.sub_not_stop) + ', Success: ' + str(self.sub_success))
             total_time = time.time()
 
-            visual = True if (e + 1) % 1000 == 0 else False
+            visual = False  # if (e + 1) % 1000 == 0 else False
             if gamma == 0 and e >= 10000:
                 gamma += 1
                 self.epsilon = 1.
-            elif gamma == 1 and e >= 13000:
+            elif gamma == 1 and e >= 20000:
                 gamma += 1
-                self.epsilon = 1.
+                # self.epsilon = 1.
             # elif gamma >= 2 and ((e - 10000) % 10000 == 0):
             #     gamma += 1
             # gamma = min(gamma, 6)
@@ -358,7 +359,7 @@ class ReinAcc(object):
                            'stop': self.not_move, 'not_stop': self.not_stop, 'succeess': self.success,
                            'loss': self.loss, 'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/cr_1_2.txt', 'w+') as json_file:
+                with open('../results/cr_1_3.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
                 if train_indicator:
