@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb47f4d-19ca-4217-b78a-ed812ce59c4c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/results/ch_rule2_2_1.eps" afterPath="$PROJECT_DIR$/ch_rule1/results/ch_rule2_2_1.eps" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/results/ch_rule2_2_2.eps" afterPath="$PROJECT_DIR$/ch_rule1/results/ch_rule2_2_2.eps" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/results/cr_1_2.txt" afterPath="$PROJECT_DIR$/ch_rule1/results/cr_1_2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/utilities/visual_result.py" afterPath="$PROJECT_DIR$/ch_rule1/utilities/visual_result.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/w0/g2.txt" afterPath="$PROJECT_DIR$/ch_rule1/w0/g2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" afterPath="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2_2.txt" afterPath="$PROJECT_DIR$/ch_rule2_2.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py" afterPath="$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" />
     </list>
@@ -53,8 +46,8 @@
       <file leaf-file-name="ch_rule2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="584">
-              <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+            <state relative-caret-position="529">
+              <caret line="278" column="50" lean-forward="false" selection-start-line="278" selection-start-column="43" selection-end-line="278" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -95,8 +88,8 @@
       <file leaf-file-name="actor_net.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="63" column="28" lean-forward="false" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
+            <state relative-caret-position="326">
+              <caret line="62" column="83" lean-forward="false" selection-start-line="62" selection-start-column="83" selection-end-line="62" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -197,11 +190,11 @@
         <option value="$PROJECT_DIR$/ch_rule2/interface/inter_hrl.py" />
         <option value="$PROJECT_DIR$/ch_rule1/rewards/reward_ch_action.py" />
         <option value="$PROJECT_DIR$/ch_rule1/hrl_network/actor_net.py" />
-        <option value="$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py" />
         <option value="$PROJECT_DIR$/ch_rule1/src/ch_rule1.py" />
         <option value="$PROJECT_DIR$/ch_rule2/rewards/reward_ch_action.py" />
         <option value="$PROJECT_DIR$/ch_rule1/utilities/visual_result.py" />
         <option value="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" />
+        <option value="$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py" />
       </list>
     </option>
   </component>
@@ -673,11 +666,11 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3183246" sideWeight="0.5449036" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.108333334" sideWeight="0.49615806" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14214876" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28586388" sideWeight="0.45509642" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.49146006" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -691,11 +684,11 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15482093" sideWeight="0.4852941" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277487" sideWeight="0.49586776" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24958678" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13002755" sideWeight="0.5147059" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21983472" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21983472" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1147,14 +1140,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="63" column="28" lean-forward="false" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch_rule1/src/ch_rule1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -1171,16 +1156,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule2/rewards/reward_ch_action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="67" column="116" lean-forward="false" selection-start-line="67" selection-start-column="116" selection-end-line="67" selection-end-column="116" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch_rule1/utilities/visual_result.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -1191,10 +1166,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="62" column="83" lean-forward="false" selection-start-line="62" selection-start-column="83" selection-end-line="62" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch_rule2/rewards/reward_ch_action.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="67" column="116" lean-forward="false" selection-start-line="67" selection-start-column="116" selection-end-line="67" selection-end-column="116" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+        <state relative-caret-position="529">
+          <caret line="278" column="50" lean-forward="false" selection-start-line="278" selection-start-column="43" selection-end-line="278" selection-end-column="50" />
           <folding />
         </state>
       </provider>
