@@ -6,7 +6,7 @@ __author__ = 'qzq'
 
 a = 1
 if a == 0:
-    file_name = 'ddpg'
+    file_name = 'cr_1_3'
     with open('../../' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess', 'not_stop'}
