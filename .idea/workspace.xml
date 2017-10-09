@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1cb47f4d-19ca-4217-b78a-ed812ce59c4c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/src/ch_rule1.py" afterPath="$PROJECT_DIR$/ch_rule1/src/ch_rule1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/interface/inter_hrl.py" afterPath="$PROJECT_DIR$/ch_rule2/interface/inter_hrl.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/results/ch_rule2_2.txt" afterPath="$PROJECT_DIR$/ch_rule2/results/ch_rule2_2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/results/ch_rule2_2_1.eps" afterPath="$PROJECT_DIR$/ch_rule2/results/ch_rule2_2_1.eps" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/results/ch_rule2_2_2.eps" afterPath="$PROJECT_DIR$/ch_rule2/results/ch_rule2_2_2.eps" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" afterPath="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/w0/g2.txt" afterPath="$PROJECT_DIR$/ch_rule2/w0/g2.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" />
     </list>
@@ -51,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ch_rule2.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ch_rule2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="344" column="26" lean-forward="true" selection-start-line="344" selection-start-column="26" selection-end-line="344" selection-end-column="26" />
+            <state relative-caret-position="-4745">
+              <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -103,7 +97,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="inter_hrl.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="inter_hrl.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch_rule2/interface/inter_hrl.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="491">
@@ -1234,18 +1228,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="344" column="26" lean-forward="true" selection-start-line="344" selection-start-column="26" selection-end-line="344" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch_rule2/interface/inter_hrl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="491">
           <caret line="90" column="40" lean-forward="true" selection-start-line="90" selection-start-column="40" selection-end-line="90" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4745">
+          <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
           <folding />
         </state>
       </provider>
