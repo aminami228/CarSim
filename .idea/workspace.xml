@@ -3,15 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="1cb47f4d-19ca-4217-b78a-ed812ce59c4c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/hrl_network/actor_net.py" afterPath="$PROJECT_DIR$/ch_rule1/hrl_network/actor_net.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/results/ch_rule2_2_1.eps" afterPath="$PROJECT_DIR$/ch_rule1/results/ch_rule2_2_1.eps" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/results/ch_rule2_2_2.eps" afterPath="$PROJECT_DIR$/ch_rule1/results/ch_rule2_2_2.eps" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/results/cr_1_2.txt" afterPath="$PROJECT_DIR$/ch_rule1/results/cr_1_2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/rewards/reward_ch_action.py" afterPath="$PROJECT_DIR$/ch_rule1/rewards/reward_ch_action.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/src/ch_rule1.py" afterPath="$PROJECT_DIR$/ch_rule1/src/ch_rule1.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/utilities/visual_result.py" afterPath="$PROJECT_DIR$/ch_rule1/utilities/visual_result.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule1/w0/g2.txt" afterPath="$PROJECT_DIR$/ch_rule1/w0/g2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py" afterPath="$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/rewards/reward_ch_action.py" afterPath="$PROJECT_DIR$/ch_rule2/rewards/reward_ch_action.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" afterPath="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2_2.txt" afterPath="$PROJECT_DIR$/ch_rule2_2.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" />
     </list>
@@ -30,7 +28,7 @@
     <SUITE FILE_PATH="coverage/CarSim_vires$ch_rule2.coverage" NAME="ch_rule2 Coverage Results" MODIFIED="1507512933417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_rule2/src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$ch_action4.coverage" NAME="ch_action4 Coverage Results" MODIFIED="1507270588656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_action4/src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$rule_base.coverage" NAME="rule_base Coverage Results" MODIFIED="1507408870455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rule_based/src" />
-    <SUITE FILE_PATH="coverage/CarSim_vires$visual_result__1_.coverage" NAME="visual_result (1) Coverage Results" MODIFIED="1507510417097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_rule1/utilities" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$visual_result__1_.coverage" NAME="visual_result (1) Coverage Results" MODIFIED="1507513059458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_rule1/utilities" />
     <SUITE FILE_PATH="coverage/CarSim_vires$ch_action2.coverage" NAME="ch_action2 Coverage Results" MODIFIED="1507154925318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_action2/src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$inter_hrl.coverage" NAME="inter_hrl Coverage Results" MODIFIED="1507416645286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_rule2/interface" />
     <SUITE FILE_PATH="coverage/CarSim_vires$ch_rule1.coverage" NAME="ch_rule1 Coverage Results" MODIFIED="1507510463278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_rule1/src" />
@@ -43,8 +41,8 @@
       <file leaf-file-name="visual_result.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch_rule1/utilities/visual_result.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+            <state relative-caret-position="304">
+              <caret line="16" column="67" lean-forward="true" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -55,8 +53,8 @@
       <file leaf-file-name="ch_rule2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+            <state relative-caret-position="584">
+              <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -198,11 +196,11 @@
         <option value="$PROJECT_DIR$/ch_rule1/interface/inter_hrl.py" />
         <option value="$PROJECT_DIR$/ch_rule2/interface/inter_hrl.py" />
         <option value="$PROJECT_DIR$/ch_rule1/rewards/reward_ch_action.py" />
-        <option value="$PROJECT_DIR$/ch_rule1/utilities/visual_result.py" />
         <option value="$PROJECT_DIR$/ch_rule1/hrl_network/actor_net.py" />
         <option value="$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py" />
         <option value="$PROJECT_DIR$/ch_rule1/src/ch_rule1.py" />
         <option value="$PROJECT_DIR$/ch_rule2/rewards/reward_ch_action.py" />
+        <option value="$PROJECT_DIR$/ch_rule1/utilities/visual_result.py" />
         <option value="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" />
       </list>
     </option>
@@ -298,7 +296,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ch_rule2">
+  <component name="RunManager" selected="Python.visual_result (1)">
     <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -633,9 +631,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.ch_rule2" />
-        <item index="1" class="java.lang.String" itemvalue="Python.ch_rule1" />
-        <item index="2" class="java.lang.String" itemvalue="Python.visual_result (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Python.visual_result (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ch_rule2" />
+        <item index="2" class="java.lang.String" itemvalue="Python.ch_rule1" />
         <item index="3" class="java.lang.String" itemvalue="Python.inter_hrl" />
         <item index="4" class="java.lang.String" itemvalue="Python.visual_result" />
       </list>
@@ -672,13 +670,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.4980716" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.146875" sideWeight="0.49783316" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3183246" sideWeight="0.54710746" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3183246" sideWeight="0.5449036" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.108333334" sideWeight="0.49615806" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14214876" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28586388" sideWeight="0.45289257" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28586388" sideWeight="0.45509642" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.49146006" order="15" side_tool="false" content_ui="tabs" />
@@ -1125,16 +1123,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule1/utilities/visual_result.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rule_based/interface/inter_rule.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="835">
@@ -1193,10 +1181,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ch_rule1/utilities/visual_result.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="67" lean-forward="true" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+        <state relative-caret-position="584">
+          <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
           <folding />
         </state>
       </provider>

@@ -57,7 +57,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(0, True)
+        self.sim = InterSim(0, False)
         self.reward = CHReward()
         self.if_done = False
 
