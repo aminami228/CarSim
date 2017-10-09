@@ -338,10 +338,10 @@ class ReinAcc(object):
             total_time = time.time()
 
             visual = True if (e + 1) % 500 == 0 else False
-            if gamma == 0 and e >= 10000:
+            if gamma == 0 and e >= 2000:
                 gamma += 1
                 self.epsilon = 1.
-            elif gamma == 1 and e >= 20000:
+            elif gamma == 1 and e >= 5000:
                 gamma += 1
                 self.epsilon = 1.
 

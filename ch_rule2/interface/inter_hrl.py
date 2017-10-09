@@ -71,6 +71,7 @@ class InterSim(object):
         #     rr = random()
         #     gamma = 0 if rr > 0.5 else 1
         lv_locs, rv_locs = [], []
+        gamma = 1
         if gamma == 0:     # or (gamma != 1 and (rr > ((gamma - 1.) / gamma))):
             self.LV_NO = randint(4, 5)
             self.RV_NO = randint(7, 8)
@@ -82,17 +83,18 @@ class InterSim(object):
             rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
             lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
             rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
-        # elif gamma == 1:
-        #     self.LV_NO = randint(4, 5)
-        #     self.RV_NO = randint(7, 8)
-        #     rb = randint(0, 1)
-        #     # self.LV_NO = randint(5, 8)
-        #     # self.RV_NO = randint(5, 8)
-        #     self.cond = 'rf'
-        #     lv_locs = np.array(sample(xrange(rb - 2 * self.LV_NO, rb - self.LV_NO), self.LV_NO))
-        #     rv_locs = np.array(sample(xrange(rb, rb + self.RV_NO), self.RV_NO))
-        #     lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
-        #     rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
+        elif gamma == 1:
+            self.LV_NO = randint(4, 5)
+            self.RV_NO = randint(7, 8)
+            lb = randint(0, 3)
+            rb = randint(0, 1)
+            # self.LV_NO = randint(5, 8)
+            # self.RV_NO = randint(5, 8)
+            self.cond = 'rf'
+            lv_locs = np.array(sample(xrange(-8, -lb), self.LV_NO))
+            rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
+            lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
+            rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
         else:
             self.cond = 'l_random'
             self.LV_NO = randint(5, 8)

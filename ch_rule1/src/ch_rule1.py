@@ -370,4 +370,4 @@ class ReinAcc(object):
 if __name__ == '__main__':
     plt.ion()
     acc = ReinAcc()
-    acc.launch_train(0)
+    acc.launch_train(1)
