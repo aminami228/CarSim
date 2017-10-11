@@ -382,7 +382,7 @@ class ReinAcc(object):
                     json_file.write(jsoned_data)
                 if train_indicator:
                     self.save_weights(gamma, results)
-                # train_indicator = 0 if train_indicator == 1 else 1
+                train_indicator = 0 if train_indicator == 1 else 1
 
 
 if __name__ == '__main__':

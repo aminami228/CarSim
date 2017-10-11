@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb47f4d-19ca-4217-b78a-ed812ce59c4c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/results/ch_rule_g1_5.txt" afterPath="$PROJECT_DIR$/ch_rule2/results/ch_rule_g1_5.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" afterPath="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch_rule2/w0/g2.txt" afterPath="$PROJECT_DIR$/ch_rule2/w0/g2.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" />
     </list>
@@ -35,8 +37,8 @@
       <file leaf-file-name="ch_rule2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1568">
-              <caret line="390" column="22" lean-forward="false" selection-start-line="390" selection-start-column="22" selection-end-line="390" selection-end-column="22" />
+            <state relative-caret-position="409">
+              <caret line="350" column="54" lean-forward="false" selection-start-line="350" selection-start-column="39" selection-end-line="350" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -1177,8 +1179,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1568">
-          <caret line="390" column="22" lean-forward="false" selection-start-line="390" selection-start-column="22" selection-end-line="390" selection-end-column="22" />
+        <state relative-caret-position="409">
+          <caret line="350" column="54" lean-forward="false" selection-start-line="350" selection-start-column="39" selection-end-line="350" selection-end-column="54" />
           <folding />
         </state>
       </provider>
