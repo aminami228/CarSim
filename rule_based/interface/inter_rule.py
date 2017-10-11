@@ -67,11 +67,54 @@ class InterSim(object):
 
         # self.sce = GenScen()
         self.lv_poses, self.rv_poses = [], []
+        if gamma == 0:     # or (gamma != 1 and (rr > ((gamma - 1.) / gamma))):
+            self.LV_NO = randint(4, 5)
+            self.RV_NO = randint(7, 8)
+            lb = randint(0, 1)
+            # self.cond = 'lo'
+            self.cond = 'lf'
+            lv_locs = np.array(sample(xrange(lb - self.LV_NO, lb), self.LV_NO))
+            # rv_locs = np.array(sample(xrange(lb + self.LV_NO, lb + self.LV_NO + self.RV_NO), self.RV_NO))
+            rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
+            lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
+            rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
+        elif gamma == 1:
+            self.LV_NO = randint(4, 5)
+            self.RV_NO = randint(7, 8)
+            lb = randint(1, 4)
+            rb = randint(0, 1)
+            # self.LV_NO = randint(5, 8)
+            # self.RV_NO = randint(5, 8)
+            self.cond = 'far l ' + str(lb)
+            lv_locs = np.array(sample(xrange(-11, -lb), self.LV_NO))
+            rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
+            lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
+            rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
+        else:
+            self.LV_NO = randint(5, 8)
+            self.RV_NO = 9
+            self.cond = 'random ' + str(self.LV_NO)
+            lv_locs = np.array(sample(xrange(-15, 2), self.LV_NO))
+            # rv_locs = np.array(sample(xrange(-2, 15), self.RV_NO))
+            rv_locs = np.array(sample(xrange(-10, -1), self.RV_NO))
+            lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
+            rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
+        # self.LV_NO = randint(4, 5)
+        # self.RV_NO = randint(7, 8)
+        # lb = randint(0, 3)
+        # rb = randint(0, 1)
+        # self.LV_NO = randint(5, 8)
+        # self.RV_NO = randint(5, 8)
+        # self.cond = 'haha'
+        # lv_locs = np.array(sample(xrange(-8, -lb), self.LV_NO))
+        # rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
+        # lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
+        # rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
+
         # lv_locs = np.array(sample(xrange(-7, -1), self.LV_NO))
-        lv_locs = np.array(sample(xrange(-15, 2), self.LV_NO))
-        rv_locs = np.array(sample(xrange(0, 17), self.RV_NO))
-        lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
-        rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
+        # lv_locs = np.array(sample(xrange(-15, 2), self.LV_NO))
+        # rv_locs = np.array(sample(xrange(0, 17), self.RV_NO))
+
         for x1, x2 in zip(lv_locs, rv_locs):
             lv_pos = dict()
             rv_pos = dict()
@@ -169,7 +212,7 @@ class InterSim(object):
         dis_ = - 3.
         veh_no = Focus_No
         crash_l, crash_r = [], []
-        while veh_no >= 0:
+        while veh_no > 0:
             if not lv_cand:
                 crash_l = [dis_, dis_ / 20.] * veh_no + crash_l
                 break
@@ -184,7 +227,7 @@ class InterSim(object):
             lv_cand.pop(0)
             veh_no -= 1
         veh_no = Focus_No
-        while veh_no >= 0:
+        while veh_no > 0:
             if not rv_cand:
                 crash_r = [dis_, dis_ / 20.] * veh_no + crash_r
                 break

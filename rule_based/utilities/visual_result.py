@@ -4,15 +4,15 @@ import json
 
 __author__ = 'qzq'
 
-a = 0
+a = 1
 if a == 0:
     file_name = 'ddpg'
     with open('../../' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess', 'not_stop'}
 else:
-    file_name = 'cl_tra'
-    with open('../../cl_src/results/' + file_name + '.txt', 'r') as json_file:
+    file_name = 'rule_fail2'
+    with open('../results/' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess'}
 
@@ -37,7 +37,7 @@ for key in quan_key:
     test_qun[key] = np.reshape(results[key], (ep1, 100))[1::2, :]
     test_qun[key] = np.reshape(test_qun[key], (1, total_ep))[0]
 
-train_loss = np.reshape(results['loss'], (total_ep, 1))[:, 0]
+# train_loss = np.reshape(results['loss'], (total_ep, 1))[:, 0]
 
 fig1 = plt.figure(1)
 plt.subplot(211)
@@ -56,9 +56,9 @@ fig1.savefig('../results/' + file_name + '_1.eps', dpi=fig1.dpi)
 
 fig2 = plt.figure(2)
 plt.subplot(311)
-plt.title('critic loss: {0:.2f}'.format(np.mean(train_loss[-100:])))
+# plt.title('critic loss: {0:.2f}'.format(np.mean(train_loss[-100:])))
 # plt.ylim([0, 50000])
-plt.plot(np.arange(total_ep), train_loss, 'r', label='loss')
+# plt.plot(np.arange(total_ep), train_loss, 'r', label='loss')
 plt.legend(loc=1)
 plt.subplot(312)
 # plt.ylim([-5000, 1000])

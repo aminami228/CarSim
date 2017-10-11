@@ -15,7 +15,7 @@ from interface.inter_hrl import InterSim
 import time
 from rewards.reward_ch_action import CHReward
 import matplotlib.pyplot as plt
-from random import random
+from random import random, randint
 import utilities.log_color
 
 __author__ = 'qzq'
@@ -36,8 +36,8 @@ class ReinAcc(object):
     LRA = 0.001             # Learning rate for Actor
     LRC = 0.001             # Learning rate for Critic
 
-    explore_iter = 1000000.
-    episode_count = 6000000
+    explore_iter = 100000.
+    episode_count = 600000
     max_steps = 2000
     action_dim = 3          # Steering/Acceleration/Brake
     action_size = 3
@@ -57,7 +57,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(0, False)
+        self.sim = InterSim(0, 1, False)
         self.reward = CHReward()
         self.if_done = False
 
@@ -190,7 +190,7 @@ class ReinAcc(object):
             # b = [1.5, 0.] if (ha == 1) else [0., 1.5]
             a1 = action_ori[0][1]
             a2 = action_ori[0][2]
-            if nn > 0.2:
+            if nn < (zz * 0.8):
                 if ha == 1:
                     b = [1.]
                     noise.extend(list(b))
@@ -288,11 +288,11 @@ class ReinAcc(object):
                 # l_acc = action_t[0][2] if (h_action == 0) else (- action_t[0][3])
                 # l_acc = action_t[0][1] if (action_t[0][0] >= 0.) else (- action_t[0][2])
                 if action_t[0][0] >= 0.5:
-                    l_acc = action_t[0][1]
+                    l_acc = action_t[0][1] - action_t[0][2]
                 elif action_t[0][0] <= -0.5:
-                    l_acc = - action_t[0][2]
+                    l_acc = - action_t[0][2] + action_t[0][1]
                 else:
-                    l_acc = 0.
+                    l_acc = - action_t[0][2] + action_t[0][1]
                 reward_t, collision_l, collision_r, collision_f, not_move, not_stop, jerk = \
                     self.reward.get_reward(state_t[0], l_acc)
                 if jerk > max_j:
@@ -301,7 +301,8 @@ class ReinAcc(object):
                 self.sim.update_vehicle(l_acc, reward_t)
                 state_t1 = self.sim.get_state()
                 fre_time = time.time()
-                self.update_batch(state_t, action_t[0], reward_t, state_t1)
+                if train_indicator:
+                    self.update_batch(state_t, action_t[0], reward_t, state_t1)
                 loss = self.update_loss() if train_indicator else 0.
                 total_reward += reward_t
                 self.if_exit(step, state_t[0], max_j, collision_l, collision_r, collision_f, not_move, not_stop)
@@ -338,17 +339,16 @@ class ReinAcc(object):
             total_time = time.time()
 
             visual = False if (e + 1) % 500 == 0 else False
-            if gamma == 0 and e >= 2000:
-                gamma += 1
-                self.epsilon = 1.
-            elif gamma == 1 and e >= 5000:
-                gamma += 1
-                self.epsilon = 1.
-
-            # elif gamma >= 2 and ((e - 10000) % 10000 == 0):
-            #     gamma += 1
-            # gamma = min(gamma, 6)
-            self.sim = InterSim(gamma, visual)
+            # if gamma == 0 and e >= 5000:
+            #     gamma = 1
+            #     self.epsilon = 1.
+            # elif e >= 7000:
+            #     gamma = randint(0, 2)
+            #     # self.epsilon = 1.
+            # gamma = 2
+            if e >= 1000:
+                gamma = 0 if random() > (e / 5000) else 1
+            self.sim = InterSim(gamma, train_indicator, visual)
             self.if_done = False
 
             if (e + 1) % 100 == 0:
@@ -376,15 +376,16 @@ class ReinAcc(object):
                            'stop': self.not_move, 'not_stop': self.not_stop, 'succeess': self.success,
                            'loss': self.loss, 'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/ch_rule_g2.txt', 'w+') as json_file:
+                # with open('../results/ch_rule_g1_5.txt', 'w+') as json_file:
+                with open('../results/test1.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
                 if train_indicator:
                     self.save_weights(gamma, results)
-                train_indicator = 0 if train_indicator == 1 else 1
+                # train_indicator = 0 if train_indicator == 1 else 1
 
 
 if __name__ == '__main__':
     plt.ion()
     acc = ReinAcc()
-    acc.launch_train(1)
+    acc.launch_train(0)

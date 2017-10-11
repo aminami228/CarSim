@@ -10,7 +10,7 @@ from interface.inter_rule import InterSim
 import time
 from rewards.reward_rule import HrlReward
 import matplotlib.pyplot as plt
-from random import random
+from random import random, randint
 import utilities.log_color
 
 __author__ = 'qzq'
@@ -49,7 +49,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(0, True)
+        self.sim = InterSim(0, False)
         self.reward = HrlReward()
         self.if_done = False
 
@@ -102,25 +102,50 @@ class ReinAcc(object):
         # else:
         #     action = np.array([-1.], ndmin=2)
         # # rule 2 ##
-        dis = state[0][15::2]
-        dis_a = dis >= Safe_dis
-        dis_b = dis < 0.
-        dis_ = np.array([dis_a, dis_b])
-        t = state[0][16::2]
-        t_a = t >= Safe_time
-        t_b = t < 0.
-        t_ = np.array([t_a, t_b])
-        if np.any(dis_, axis=0).all() and np.any(t_, axis=0).all():
+        # dis = state[0][15::2]
+        # dis_a = dis >= Safe_dis
+        # dis_b = dis < 0.
+        # dis_ = np.array([dis_a, dis_b])
+        # t = state[0][16::2]
+        # t_a = t >= Safe_time
+        # t_b = t < 0.
+        # t_ = np.array([t_a, t_b])
+        # if np.any(dis_, axis=0).all() and np.any(t_, axis=0).all():
+        #     action = np.array([1.], ndmin=2)
+        # else:
+        #     action = np.array([-1.], ndmin=2)
+        # if (state[0][13] > state[0][11] - Safe_dis or (state[0][14] < state[0][12] + Safe_dis)) \
+        #         and (action[0][0] == 1.) and (state[0][0] ** 2 >= 2 * 3. * state[0][5]):
+        #     action = np.array([-1.], ndmin=2)
+        # # if state[0][5] < 0.:
+        # #     action = np.array([1.], ndmin=2)
+        # # rule 3 ##
+        left = state[0][15:25]
+        dis_l = left[::2]
+        dis_a_l = dis_l >= Safe_dis
+        dis_b_l = dis_l < 0.
+        disl_ = np.array([dis_a_l, dis_b_l])
+        t_l = left[1::2]
+        t_a_l = t_l >= Safe_time
+        t_b_l = t_l < 0.
+        tl_ = np.array([t_a_l, t_b_l])
+        right = state[0][25:]
+        dis_r = right[::2]
+        dis_a_r = dis_r >= Safe_dis
+        dis_b_r = dis_r < 0.
+        disr_ = np.array([dis_a_r, dis_b_r])
+        t_r = right[1::2]
+        t_a_r = t_r >= Safe_time
+        t_b_r = t_r < 0.
+        tr_ = np.array([t_a_r, t_b_r])
+        if np.any(disl_, axis=0).all() and np.any(tl_, axis=0).all():
             action = np.array([1.], ndmin=2)
+        elif state[0][5] < 0.:
+            action = np.array([1.], ndmin=2)
+            if (not (np.any(disr_, axis=0).all() and np.any(tr_, axis=0).all())) and (state[0][6] >= 0.):
+                action = np.array([-1.], ndmin=2)
         else:
             action = np.array([-1.], ndmin=2)
-        if (state[0][13] > state[0][11] - Safe_dis or (state[0][14] < state[0][12] + Safe_dis)) \
-                and (action[0][0] == 1.) and (state[0][0] ** 2 >= 2 * 3. * state[0][5]):
-            action = np.array([-1.], ndmin=2)
-        # if state[0][5] < 0.:
-        #     action = np.array([1.], ndmin=2)
-        # # rule 3 ##
-        # action = np.array([1.], ndmin=2)
         return action
 
     def if_exit(self, step, state, max_j, collision_l, collision_r, collision_f, not_move, not_stop):
@@ -220,7 +245,7 @@ class ReinAcc(object):
                           ', Not Stop: ' + str(self.sub_not_stop) + ', Success: ' + str(self.sub_success))
             total_time = time.time()
 
-            visual = True            # True if (e + 1) % 200 == 0 else False
+            visual = False            # True if (e + 1) % 200 == 0 else False
             # if gamma == 0 and e >= 2000:
             #     gamma += 1
             # elif gamma == 1 and e >= 10000:
@@ -228,7 +253,8 @@ class ReinAcc(object):
             # elif gamma >= 2 and ((e - 10000) % 10000 == 0):
             #     gamma += 1
             # gamma = min(gamma, 6)
-            self.sim = InterSim(0, visual)
+            gamma = randint(0, 2)
+            self.sim = InterSim(gamma, visual)
             self.if_done = False
 
             if (e + 1) % 100 == 0:
@@ -256,7 +282,7 @@ class ReinAcc(object):
                            'stop': self.not_move, 'not_stop': self.not_stop, 'succeess': self.success,
                            'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
-                with open('../results/rule_new2.txt', 'w+') as json_file:
+                with open('../results/rule_fail2.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
 

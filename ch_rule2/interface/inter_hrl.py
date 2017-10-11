@@ -36,7 +36,7 @@ class InterSim(object):
 
     history_len = 50
 
-    def __init__(self, gamma, visual=False):
+    def __init__(self, gamma, train, visual=False):
         self.Visual = visual
         self.gamma = gamma
         self.av_pos = dict()
@@ -71,8 +71,11 @@ class InterSim(object):
         #     rr = random()
         #     gamma = 0 if rr > 0.5 else 1
         lv_locs, rv_locs = [], []
+        # gamma = 2
+        if train == 0:
+            gamma = 2
         if gamma == 0:     # or (gamma != 1 and (rr > ((gamma - 1.) / gamma))):
-            self.LV_NO = randint(4, 5)
+            self.LV_NO = randint(1, 6)
             self.RV_NO = randint(7, 8)
             lb = randint(0, 1)
             # self.cond = 'lo'
@@ -83,24 +86,24 @@ class InterSim(object):
             lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
             rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
         elif gamma == 1:
-            self.LV_NO = randint(4, 5)
+            self.LV_NO = randint(1, 6)
             self.RV_NO = randint(7, 8)
-            lb = randint(0, 3)
+            lb = randint(-5, 1)
             rb = randint(0, 1)
             # self.LV_NO = randint(5, 8)
             # self.RV_NO = randint(5, 8)
-            self.cond = 'rf'
-            lv_locs = np.array(sample(xrange(-8, -lb), self.LV_NO))
+            self.cond = 'far l ' + str(lb)
+            lv_locs = np.array(sample(xrange(lb - self.LV_NO - 1, lb), self.LV_NO))
             rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
             lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
             rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
         else:
-            self.cond = 'l_random'
             self.LV_NO = randint(5, 8)
-            self.RV_NO = randint(5, 8)
+            self.RV_NO = 9
+            self.cond = 'random ' + str(self.LV_NO)
             lv_locs = np.array(sample(xrange(-15, 2), self.LV_NO))
             # rv_locs = np.array(sample(xrange(-2, 15), self.RV_NO))
-            rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
+            rv_locs = np.array(sample(xrange(-10, -1), self.RV_NO))
             lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
             rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
         # else:
@@ -168,13 +171,14 @@ class InterSim(object):
         #     rv_locs = np.array(sample(xrange(rb, rb + self.RV_NO), self.RV_NO))
         # lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
         # rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
-        for x1, x2 in zip(lv_locs, rv_locs):
+        # for x1, x2 in zip(lv_locs, rv_locs):
+        for x1 in lv_locs:
             lv_pos = dict()
             rv_pos = dict()
             lv_pos['y'] = (self.Inter_Ori['y'] + self.Inter_Low) / 2.
             rv_pos['y'] = (self.Inter_Ori['y'] + self.Inter_Up) / 2.
             lv_pos['x'] = x1
-            rv_pos['x'] = x2
+            rv_pos['x'] = -5.
             lv_pos['v'] = self.Speed_limit - random()
             rv_pos['v'] = self.Speed_limit - random()
             lv_pos['a'] = 0.
@@ -268,13 +272,13 @@ class InterSim(object):
         for v1 in self.lv_poses:
             if vis_l < v1['x'] < self.Inter_Right:
                 lv_cand.append(v1)
-        for v2 in self.rv_poses:
-            if self.Inter_Ori['x'] < v2['x'] < vis_r:
-                rv_cand.append(v2)
+        # for v2 in self.rv_poses:
+        #     if self.Inter_Ori['x'] < v2['x'] < vis_r:
+        #         rv_cand.append(v2)
         dis_ = - 3.
         veh_no = Focus_No
         crash_l, crash_r = [], []
-        while veh_no >= 0:
+        while veh_no > 0:
             if not lv_cand:
                 crash_l = [dis_, dis_ / 20.] * veh_no + crash_l
                 break
@@ -288,8 +292,9 @@ class InterSim(object):
                 crash_l += [0., 0.]
             lv_cand.pop(0)
             veh_no -= 1
+
         veh_no = Focus_No
-        while veh_no >= 0:
+        while veh_no > 0:
             if not rv_cand:
                 crash_r = [dis_, dis_ / 20.] * veh_no + crash_r
                 break
@@ -305,7 +310,10 @@ class InterSim(object):
             veh_no -= 1
 
         self.state_hv = crash_l + crash_r
-        self.state = np.array(self.state_av + self.state_road + self.state_fv + self.state_hv, ndmin=2)
+        self.state = np.array(self.state_av + self.state_road + self.state_hv, ndmin=2)
+        d = self.state.shape
+        if d != (1, 35):
+            logging.debug(str(self.state) + str(crash_r) + str(crash_l))
         return self.state
 
     def update_vehicle(self, a=0, r=0, st=0):
