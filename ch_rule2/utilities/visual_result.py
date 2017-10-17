@@ -6,7 +6,8 @@ __author__ = 'qzq'
 
 a = 1
 if a == 0:
-    file_name = 'ch_rule_g2'
+    # file_name = 'ch_rule_g2'
+    file_name = 'test1'
     with open('../../' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess', 'not_stop'}
@@ -14,9 +15,12 @@ else:
     # file_name = 'ch_rule2_2'
     # file_name = 'ch_rule_g1_2'
     # file_name = 'ch_rule_g1_4'
-    file_name = 'ch_rule_g1_5'
+    # file_name = 'ch_rule_g1_5'
+    file_name = 'test3'
     with open('../results/' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
+    # with open('../results/' + file_name1 + '.txt', 'r') as json_file:
+    #     results1 = json.load(json_file)
     correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess'}
 
 ep = len(results['crash']) / 2
@@ -44,6 +48,7 @@ train_loss = np.reshape(results['loss'], (total_ep, 1))[:, 0]
 
 fig1 = plt.figure(1)
 plt.subplot(211)
+# plt.xlim([0, 10])
 plt.title('train, total time: {0:.2f} hr'.format(results['time'][-1] / 60.))
 for key, value in train_result.iteritems():
     plt.plot(np.arange(ep), value, 'o-', label=key)
@@ -54,27 +59,31 @@ plt.title('test')
 for key, value in test_result.iteritems():
     plt.plot(np.arange(ep), value, 'o-', label=key)
 plt.legend(loc=1)
+# plt.xlim([0, 10])
 fig1.set_size_inches(12, 9)
-fig1.savefig('../results/' + file_name + '_1.eps', dpi=fig1.dpi)
+fig1.savefig('../results/' + file_name + '_1.png', dpi=fig1.dpi)
 
 fig2 = plt.figure(2)
 plt.subplot(311)
 plt.title('critic loss: {0:.2f}'.format(np.mean(train_loss[-100:])))
-# plt.ylim([0, 50000])
+# plt.ylim([0, 30000])
+# plt.xlim([0, 1000])
 plt.plot(np.arange(total_ep), train_loss, 'r', label='loss')
 plt.legend(loc=1)
 plt.subplot(312)
 # plt.ylim([-5000, 1000])
+# plt.xlim([0, 1000])
 plt.title('rewards: {0:.2f}'.format(np.mean(test_qun['reward'][-100:])))
 plt.plot(np.arange(total_ep), train_qun['reward'], 'r', label='train reward')
 plt.plot(np.arange(total_ep), test_qun['reward'], 'g', label='test reward')
 plt.legend(loc=1)
 plt.subplot(313)
+# plt.xlim([0, 1000])
 plt.title('max jerk: {0:.2f}'.format(np.mean(test_qun['max_j'][-100:])))
 plt.plot(np.arange(total_ep), train_qun['max_j'], 'r', label='train max jerk')
 plt.plot(np.arange(total_ep), test_qun['max_j'], 'g', label='test max jerk')
 plt.legend(loc=1)
 fig2.set_size_inches(24, 18)
-fig2.savefig('../results/' + file_name + '_2.eps', dpi=fig2.dpi)
+fig2.savefig('../results/' + file_name + '_2.png', dpi=fig2.dpi)
 
 plt.show()

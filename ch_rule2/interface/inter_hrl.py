@@ -36,7 +36,7 @@ class InterSim(object):
 
     history_len = 50
 
-    def __init__(self, gamma, train, visual=False):
+    def __init__(self, gamma, visual=False):
         self.Visual = visual
         self.gamma = gamma
         self.av_pos = dict()
@@ -72,10 +72,10 @@ class InterSim(object):
         #     gamma = 0 if rr > 0.5 else 1
         lv_locs, rv_locs = [], []
         # gamma = 2
-        if train == 0:
-            gamma = 2
+        # if train == 0:
+        #     gamma = 2
         if gamma == 0:     # or (gamma != 1 and (rr > ((gamma - 1.) / gamma))):
-            self.LV_NO = randint(1, 6)
+            self.LV_NO = randint(3, 6)
             self.RV_NO = randint(7, 8)
             lb = randint(0, 1)
             # self.cond = 'lo'
@@ -86,14 +86,15 @@ class InterSim(object):
             lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
             rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.
         elif gamma == 1:
-            self.LV_NO = randint(1, 6)
+            self.LV_NO = randint(3, 5)
             self.RV_NO = randint(7, 8)
             lb = randint(-5, 1)
             rb = randint(0, 1)
             # self.LV_NO = randint(5, 8)
             # self.RV_NO = randint(5, 8)
             self.cond = 'far l ' + str(lb)
-            lv_locs = np.array(sample(xrange(lb - self.LV_NO - 1, lb), self.LV_NO))
+            lv_locs = np.array(sample(xrange(lb - self.LV_NO - 1, lb), self.LV_NO) +
+                               sample(xrange(lb - self.LV_NO - 11, lb - self.LV_NO - 1), 1))
             rv_locs = np.array(sample(xrange(-9, -1), self.RV_NO))
             lv_locs = 10. * np.array(sorted(lv_locs, reverse=True)) + 2. * random() - 1.
             rv_locs = 10. * np.array(sorted(rv_locs)) + 2. * random() - 1.

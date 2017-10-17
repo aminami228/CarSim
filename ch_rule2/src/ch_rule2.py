@@ -36,7 +36,7 @@ class ReinAcc(object):
     LRA = 0.001             # Learning rate for Actor
     LRC = 0.001             # Learning rate for Critic
 
-    explore_iter = 100000.
+    explore_iter = 1000000.
     episode_count = 600000
     max_steps = 2000
     action_dim = 3          # Steering/Acceleration/Brake
@@ -57,7 +57,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(0, 1, False)
+        self.sim = InterSim(0, False)
         self.reward = CHReward()
         self.if_done = False
 
@@ -262,6 +262,7 @@ class ReinAcc(object):
     def launch_train(self, train_indicator=1):  # 1 means Train, 0 means simply Run
         # logging.info('Launch Training Process')
         gamma = 0
+        ep = False
         state_t = self.sim.get_state()
         state_dim = state_t. shape[1]
         self.ch_actor = ActorNetwork(self.tf_sess, state_dim, self.action_size, self.batch_size,
@@ -301,8 +302,8 @@ class ReinAcc(object):
                 self.sim.update_vehicle(l_acc, reward_t)
                 state_t1 = self.sim.get_state()
                 fre_time = time.time()
-                if train_indicator:
-                    self.update_batch(state_t, action_t[0], reward_t, state_t1)
+                # if train_indicator:
+                self.update_batch(state_t, action_t[0], reward_t, state_t1)
                 loss = self.update_loss() if train_indicator else 0.
                 total_reward += reward_t
                 self.if_exit(step, state_t[0], max_j, collision_l, collision_r, collision_f, not_move, not_stop)
@@ -346,10 +347,6 @@ class ReinAcc(object):
             #     gamma = randint(0, 2)
             #     # self.epsilon = 1.
             # gamma = 2
-            if e >= 1000:
-                gamma = 0 if random() > (e / 5000) else 1
-            self.sim = InterSim(gamma, train_indicator, visual)
-            self.if_done = False
 
             if (e + 1) % 100 == 0:
                 self.if_train.append(train_indicator)
@@ -377,12 +374,23 @@ class ReinAcc(object):
                            'loss': self.loss, 'reward': self.total_reward, 'max_j': self.max_j,
                            'time': self.run_time}
                 # with open('../results/ch_rule_g1_5.txt', 'w+') as json_file:
-                with open('../results/test1.txt', 'w+') as json_file:
+                with open('../results/test3.txt', 'w+') as json_file:
                     jsoned_data = json.dumps(results)
                     json_file.write(jsoned_data)
                 if train_indicator:
                     self.save_weights(gamma, results)
                 train_indicator = 0 if train_indicator == 1 else 1
+
+            if (e >= 2000 and (np.mean(self.success[-9::2]) >= 95.)) or ep:
+                ep = True
+                gamma = 0 if random() > (e / 10000) else 1
+                if train_indicator:
+                    self.sim = InterSim(2, visual)
+                else:
+                    self.sim = InterSim(gamma, visual)
+            else:
+                self.sim = InterSim(0, visual)
+            self.if_done = False
 
 
 if __name__ == '__main__':
