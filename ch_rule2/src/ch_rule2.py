@@ -57,7 +57,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(0, False)
+        self.sim = InterSim(2, True)
         self.reward = CHReward()
         self.if_done = False
 
@@ -339,7 +339,7 @@ class ReinAcc(object):
                           ', Not Stop: ' + str(self.sub_not_stop) + ', Success: ' + str(self.sub_success))
             total_time = time.time()
 
-            visual = False if (e + 1) % 500 == 0 else False
+            visual = True if (e + 1) % 1 == 0 else False
             # if gamma == 0 and e >= 5000:
             #     gamma = 1
             #     self.epsilon = 1.
@@ -389,11 +389,11 @@ class ReinAcc(object):
                 else:
                     self.sim = InterSim(gamma, visual)
             else:
-                self.sim = InterSim(0, visual)
+                self.sim = InterSim(2, visual)
             self.if_done = False
 
 
 if __name__ == '__main__':
     plt.ion()
     acc = ReinAcc()
-    acc.launch_train(1)
+    acc.launch_train(0)

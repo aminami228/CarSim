@@ -1,6 +1,7 @@
 import numpy as np
 import math
 from keras.layers import Dense, Input, concatenate, Dropout
+from keras.layers.normalization import BatchNormalization
 from keras.models import Sequential, Model
 from keras.optimizers import Adam
 import keras.backend as keras
@@ -53,11 +54,14 @@ class CriticNetwork(object):
         a0 = Dense(action_size, activation='linear')(A)
         # h0 = merge([w0, a0], mode='concat')
         h0 = concatenate([w0, a0])
-        h1 = Dense(HIDDEN1_UNITS, activation='relu')(h0)
+        h0b = BatchNormalization()(h0)
+        h1 = Dense(HIDDEN1_UNITS, activation='relu')(h0b)
         # h1d = Dropout(0.5)(h1)
-        h2 = Dense(HIDDEN2_UNITS, activation='relu')(h1)
+        h1b = BatchNormalization()(h1)
+        h2 = Dense(HIDDEN2_UNITS, activation='relu')(h1b)
         # h2d = Dropout(0.5)(h2)
         # h3 = Dense(HIDDEN3_UNITS, activation='relu')(h2)
+        h2b = BatchNormalization()(h2)
         h4 = Dense(HIDDEN3_UNITS, activation='relu')(h2)
         V = Dense(1, activation='linear')(h4)
         model = Model(input=[S, A], output=V)

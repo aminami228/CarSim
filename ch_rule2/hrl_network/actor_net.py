@@ -2,6 +2,7 @@ import numpy as np
 import math
 from keras.initializers import RandomNormal, identity
 from keras.models import Sequential, Model
+from keras.layers.normalization import BatchNormalization
 from keras.layers import Dense, Input, Dropout, concatenate
 import tensorflow as tf
 import keras.backend as keras
@@ -49,11 +50,15 @@ class ActorNetwork(object):
     def create_actor_network(state_size):
         # logging.info('...... Building actor model ......')
         S  = Input(shape=[state_size])
-        h0 = Dense(HIDDEN1_UNITS, activation='relu')(S)
+        sb = BatchNormalization()(S)
+        h0 = Dense(HIDDEN1_UNITS, activation='relu')(sb)
         # h0d = Dropout(0.5)(h0)
-        h1 = Dense(HIDDEN2_UNITS, activation='relu')(h0)
+        h0b = BatchNormalization()(h0)
+        h1 = Dense(HIDDEN2_UNITS, activation='relu')(h0b)
         # h1d = Dropout(0.5)(h1)
-        h3 = Dense(HIDDEN3_UNITS, activation='relu')(h1)
+        h1b = BatchNormalization()(h1)
+        h3 = Dense(HIDDEN3_UNITS, activation='relu')(h1b)
+        h3b = BatchNormalization()(h3)
         # ac1 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.1, stddev=1e-4, seed=None))(h3)
         # ac2 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=-0.1, stddev=1e-4, seed=None))(h3)
         ac = Dense(1, activation='tanh')(h3)

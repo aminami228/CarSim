@@ -215,7 +215,8 @@ class ReinAcc(object):
                 reward_t, collision, not_move, cannot_stop = self.reward.get_reward(state_t[0], action_t[0][0])
                 self.sim.update_vehicle(reward_t, action_t[0][0])
                 state_t1 = self.sim.get_state()
-                self.update_batch(state_t, action_t[0], reward_t, state_t1)
+                if train_indicator:
+                    self.update_batch(state_t, action_t[0], reward_t, state_t1)
                 loss = self.update_loss() if train_indicator else 0.
 
                 self.total_reward += reward_t
@@ -281,4 +282,4 @@ class ReinAcc(object):
 if __name__ == '__main__':
     plt.ion()
     acc = ReinAcc()
-    acc.launch_train(1)
+    acc.launch_train(0)
