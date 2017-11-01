@@ -39,8 +39,8 @@ class ReinAcc(object):
     explore_iter = 100000.
     episode_count = 600000
     max_steps = 1500
-    action_dim = 2          # Steering/Acceleration/Brake
-    action_size = 2
+    action_dim = 1          # Steering/Acceleration/Brake
+    action_size = 1
     his_len = 20
     state_dim = 21
 
@@ -190,36 +190,37 @@ class ReinAcc(object):
             action_ori = self.ch_actor.model.predict(state)
             # b = np.random.dirichlet(np.ones(2))
             # b = [1.5, 0.] if (ha == 1) else [0., 1.5]
-            # a1 = action_ori[0][1]
+            a1 = action_ori[0][0]
             # a2 = action_ori[0][2]
-            if nn < 0.5:
-                b = [1., 0.] if (ha == 1) else [0., 1.]
-                noise.extend(list(b))
-                # if ha == 1:
-                #     # noise.append(zz * self.tools.ou(a1, 1., 0.8, -0.5))  # full
+            if nn > 0.5 * zz:
+                # b = [1., 0.] if (ha == 1) else [0., 1.]
+                # noise.extend(list(b))
+                if ha == 1:
+                    noise.append(zz * self.tools.ou(a1, 1., 0.8, -0.5))  # full
                 #     # noise.extend(list(b))
                 #     # noise.append(zz * self.tools.ou(a1, 1., 0.5, -0.4))  # full
                 #     # noise.append(zz * self.tools.ou(a2, 0., 0.5, 0.2))  # full
-                # else:
-                #     # noise.append(zz * self.tools.ou(a1, - 1., 0.5, 0.4))  # full
+                else:
+                    noise.append(zz * self.tools.ou(a1, - 1., 0.5, 0.4))  # full
                 #     b = [-1.]
                 #     noise.extend(list(b))
                 #     noise.append(zz * self.tools.ou(a1, 0., 0.5, 0.2))  # full
                 #     noise.append(zz * self.tools.ou(a2, 1., 0.5, -0.4))  # full
             else:
-                # mu = 2. * random() - 1.
-                # noise.append(zz * self.tools.ou(a1, mu, 0.8, 0.2))  # full
-                b = np.random.dirichlet(np.ones(2))
-                noise.extend(list(b))
+                mu = 2. * random() - 1.
+                noise.append(zz * self.tools.ou(a1, mu, 0.8, 0.2))  # full
+                # b = np.random.dirichlet(np.ones(2))
+                # noise.extend(list(b))
                 # noise.append(zz * self.tools.ou(a1, 0.8, 0.5, -0.4))  # full
                 # noise.append(zz * self.tools.ou(a2, 0.8, 0.5, -0.4))  # full
             # action_h = np.array(action_ori[0][0] + zz * np.array(noise[0]), ndmin=1)
-            # action_l = action_ori[0][1:] + np.array(noise[1:])
+            action_l = action_ori[0] + np.array(noise)
             # action = np.array(np.concatenate([action_h, action_l], axis=0), ndmin=2)
-            if random() < zz:
-                action = np.array(np.array(noise), ndmin=2)
-            else:
-                action = np.array(action_ori, ndmin=2)
+            # if random() < zz:
+            #     action = np.array(np.array(noise), ndmin=2)
+            # else:
+            #     action = np.array(action_ori, ndmin=2)
+            action = np.array(action_l, ndmin=2)
         else:
             action = self.ch_actor.model.predict(state)
         return action
@@ -310,10 +311,11 @@ class ReinAcc(object):
                 #     l_acc = - action_t[0][2] + action_t[0][1]
                 # else:
                 #     l_acc = - action_t[0][2] + action_t[0][1]
-                if action_t[0][0] > action_t[0][1]:
-                    lacc = 1.
-                else:
-                    lacc = -1.
+                # if action_t[0][0] > action_t[0][1]:
+                #     lacc = 1.
+                # else:
+                #     lacc = -1.
+                lacc = action_t[0][0]
                 reward_t, collision_l, collision_r, collision_f, not_move, not_stop, jerk, dan = \
                     self.reward.get_reward(state_t[0], lacc)
                 if jerk > max_j:
