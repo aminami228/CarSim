@@ -216,7 +216,7 @@ class ReinAcc(object):
             # action_h = np.array(action_ori[0][0] + zz * np.array(noise[0]), ndmin=1)
             # action_l = action_ori[0][1:] + np.array(noise[1:])
             # action = np.array(np.concatenate([action_h, action_l], axis=0), ndmin=2)
-            if random() < 0.8:
+            if random() < 0.6:
                 action = np.array(np.array(noise), ndmin=2)
             else:
                 action = np.array(action_ori, ndmin=2)
