@@ -57,7 +57,7 @@ class ReinAcc(object):
         self.hist_state = None
         self.hist_state_1 = None
 
-        self.sim = InterSim(0, False)
+        self.sim = InterSim(0, True)
         self.reward = CHReward()
         self.if_done = False
 
@@ -192,7 +192,7 @@ class ReinAcc(object):
             # b = [1.5, 0.] if (ha == 1) else [0., 1.5]
             # a1 = action_ori[0][1]
             # a2 = action_ori[0][2]
-            if nn < 0.8 * zz:
+            if nn < 0.8:
                 b = [1., 0.] if (ha == 1) else [0., 1.]
                 noise.extend(list(b))
                 # if ha == 1:
@@ -216,7 +216,7 @@ class ReinAcc(object):
             # action_h = np.array(action_ori[0][0] + zz * np.array(noise[0]), ndmin=1)
             # action_l = action_ori[0][1:] + np.array(noise[1:])
             # action = np.array(np.concatenate([action_h, action_l], axis=0), ndmin=2)
-            action = np.array(action_ori + np.array(noise), ndmin=2)
+            action = (1. - zz) * np.array(action_ori + zz * np.array(noise), ndmin=2)
         else:
             action = self.ch_actor.model.predict(state)
         return action
@@ -308,9 +308,9 @@ class ReinAcc(object):
                 # else:
                 #     l_acc = - action_t[0][2] + action_t[0][1]
                 if action_t[0][0] > action_t[0][1]:
-                    lacc = -1.
-                else:
                     lacc = 1.
+                else:
+                    lacc = -1.
                 reward_t, collision_l, collision_r, collision_f, not_move, not_stop, jerk, dan = \
                     self.reward.get_reward(state_t[0], lacc)
                 if jerk > max_j:
