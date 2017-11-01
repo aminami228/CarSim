@@ -31,7 +31,7 @@ class ReinAcc(object):
     Tau = 1. / 30.
     gamma = 0.99
     buffer_size = 10000
-    batch_size = 128
+    batch_size = 32
     tau = 0.0001            # Target Network HyperParameters
     LRA = 0.001             # Learning rate for Actor
     LRC = 0.001             # Learning rate for Critic
