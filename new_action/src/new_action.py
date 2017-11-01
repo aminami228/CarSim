@@ -410,13 +410,13 @@ class ReinAcc(object):
             if (e >= 999 and ((e + 1) % 200 == 0) and (np.mean(self.success[-9::2]) >= 90.)) or ep:
                 if not ep:
                     self.epsilon = 1.
-                    self.batch = None
-                    self.batch_state = None
-                    self.batch_action = None
-                    self.batch_reward = None
-                    self.batch_new_state = None
-                    self.batch_if_done = None
-                    self.batch_output = None
+                    # self.batch = None
+                    # self.batch_state = None
+                    # self.batch_action = None
+                    # self.batch_reward = None
+                    # self.batch_new_state = None
+                    # self.batch_if_done = None
+                    # self.batch_output = None
                     ep = True
                     ei = e
                 gamma = 0 # if random() > (e / 20000.) else 2
