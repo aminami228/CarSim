@@ -13,6 +13,7 @@ HIDDEN1_UNITS = 128
 HIDDEN2_UNITS = 64
 HIDDEN3_UNITS = 32
 HIDDEN4_UNITS = 16
+HIDDEN5_UNITS = 8
 
 
 class ActorNetwork(object):
@@ -51,11 +52,11 @@ class ActorNetwork(object):
         # logging.info('...... Building actor model ......')
         S  = Input(shape=[state_size])
         # sb = BatchNormalization()(S)
-        h0 = Dense(HIDDEN1_UNITS, activation='relu')(S)
+        h0 = Dense(HIDDEN3_UNITS, activation='relu')(S)
         # h0d = Dropout(0.5)(h0)
-        h1 = Dense(HIDDEN2_UNITS, activation='relu')(h0)
+        h1 = Dense(HIDDEN4_UNITS, activation='relu')(h0)
         # h1d = Dropout(0.5)(h1)
-        h3 = Dense(HIDDEN3_UNITS, activation='relu')(h1)
+        h3 = Dense(HIDDEN5_UNITS, activation='relu')(h1)
         h3b = BatchNormalization()(h3)
         # ac1 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=0.1, stddev=1e-4, seed=None))(h3)
         # ac2 = Dense(1, activation='sigmoid', kernel_initializer=RandomNormal(mean=-0.1, stddev=1e-4, seed=None))(h3)

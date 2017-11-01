@@ -14,6 +14,7 @@ HIDDEN1_UNITS = 128
 HIDDEN2_UNITS = 64
 HIDDEN3_UNITS = 32
 HIDDEN4_UNITS = 16
+HIDDEN5_UNITS = 8
 
 
 class CriticNetwork(object):
@@ -56,12 +57,12 @@ class CriticNetwork(object):
         a0 = Dense(action_size, activation='linear')(A)
         # h0 = merge([w0, a0], mode='concat')
         h0 = concatenate([w0, a0])
-        h1 = Dense(HIDDEN1_UNITS, activation='relu')(h0)
+        h1 = Dense(HIDDEN3_UNITS, activation='relu')(h0)
         # h1d = Dropout(0.5)(h1)
-        h2 = Dense(HIDDEN2_UNITS, activation='relu')(h1)
+        h2 = Dense(HIDDEN4_UNITS, activation='relu')(h1)
         # h2d = Dropout(0.5)(h2)
         # h3 = Dense(HIDDEN3_UNITS, activation='relu')(h2)
-        h4 = Dense(HIDDEN3_UNITS, activation='relu')(h2)
+        h4 = Dense(HIDDEN5_UNITS, activation='relu')(h2)
         V = Dense(1, activation='linear')(h4)
         model = Model(input=[S, A], output=V)
         adam = Adam(lr=self.LEARNING_RATE)

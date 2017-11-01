@@ -4,13 +4,16 @@ import json
 
 __author__ = 'qzq'
 
-a = 1
+# plt.plot(np.arange(0.0, 1.0, 0.01), 1000 * np.arange(0.0, 1.0, 0.01), 'r.')
+# plt.show()
+
+a = 0
 if a == 0:
     # file_name = 'ch_rule_g2'
-    file_name = 'new1'
+    file_name = 'new2_ha'
     with open('../../' + file_name + '.txt', 'r') as json_file:
         results = json.load(json_file)
-    correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess', 'uncomfort'}
+    correct_key = {'crash', 'unfinished', 'overspeed', 'stop', 'succeess'}
 else:
     # file_name = 'ch_rule2_2'
     # file_name = 'ch_rule_g1_2'
