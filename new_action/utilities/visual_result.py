@@ -7,7 +7,7 @@ __author__ = 'qzq'
 # plt.plot(np.arange(0.0, 1.0, 0.01), 1000 * np.arange(0.0, 1.0, 0.01), 'r.')
 # plt.show()
 
-a = 0
+a = 1
 if a == 0:
     # file_name = 'ch_rule_g2'
     file_name = 'new2_ha'
