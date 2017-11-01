@@ -192,7 +192,7 @@ class ReinAcc(object):
             # b = [1.5, 0.] if (ha == 1) else [0., 1.5]
             # a1 = action_ori[0][1]
             # a2 = action_ori[0][2]
-            if nn < 1.:
+            if nn < 0.:
                 b = [1., 0.] if (ha == 1) else [0., 1.]
                 noise.extend(list(b))
                 # if ha == 1:
