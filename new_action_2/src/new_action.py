@@ -192,7 +192,7 @@ class ReinAcc(object):
             # b = [1.5, 0.] if (ha == 1) else [0., 1.5]
             # a1 = action_ori[0][1]
             # a2 = action_ori[0][2]
-            if nn < 0.8:
+            if nn > 0.:
                 b = [1., 0.] if (ha == 1) else [0., 1.]
                 noise.extend(list(b))
                 # if ha == 1:
@@ -216,7 +216,7 @@ class ReinAcc(object):
             # action_h = np.array(action_ori[0][0] + zz * np.array(noise[0]), ndmin=1)
             # action_l = action_ori[0][1:] + np.array(noise[1:])
             # action = np.array(np.concatenate([action_h, action_l], axis=0), ndmin=2)
-            action = np.array(0.2 * action_ori + 0.8 * np.array(noise), ndmin=2)
+            action = np.array((1. - nn) * action_ori + nn * np.array(noise), ndmin=2)
         else:
             action = self.ch_actor.model.predict(state)
         return action

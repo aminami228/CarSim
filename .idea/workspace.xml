@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb47f4d-19ca-4217-b78a-ed812ce59c4c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_action/results/new3_1.png" afterPath="$PROJECT_DIR$/new_action/results/new3_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_action/results/new3_2.png" afterPath="$PROJECT_DIR$/new_action/results/new3_2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_action/results/new3.txt" afterPath="$PROJECT_DIR$/new_action/results/new3.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_action/utilities/visual_result.py" afterPath="$PROJECT_DIR$/new_action/utilities/visual_result.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_action/w0/g2.txt" afterPath="$PROJECT_DIR$/new_action/w0/g2.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_action_2/src/new_action.py" afterPath="$PROJECT_DIR$/new_action_2/src/new_action.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" />
@@ -43,8 +39,8 @@
       <file leaf-file-name="new_action.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/new_action_2/src/new_action.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="218" column="33" lean-forward="false" selection-start-line="218" selection-start-column="33" selection-end-line="218" selection-end-column="33" />
+            <state relative-caret-position="551">
+              <caret line="218" column="41" lean-forward="false" selection-start-line="218" selection-start-column="40" selection-end-line="218" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -1117,8 +1113,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/new_action_2/src/new_action.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="218" column="33" lean-forward="false" selection-start-line="218" selection-start-column="33" selection-end-line="218" selection-end-column="33" />
+        <state relative-caret-position="551">
+          <caret line="218" column="41" lean-forward="false" selection-start-line="218" selection-start-column="40" selection-end-line="218" selection-end-column="41" />
           <folding />
         </state>
       </provider>
