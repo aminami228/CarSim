@@ -13,6 +13,9 @@ with open('../results/' + 'g1' + '.txt', 'r') as json_file:
 with open('../results/' + 'g2' + '.txt', 'r') as json_file:
     r2 = json.load(json_file)
 
+# with open('../../../iv/iv_1/s-3/result.txt', 'r') as json_file:
+#     results = json.load(json_file)
+
 ep = len(results['crash'] + r2['crash']) / 2 + 16
 # results = {'crash': crash, 'non_stop': non_stop, 'unfinished': unfinished, 'overspeed': overspeed, 'stop': stop,
 train_result = dict()

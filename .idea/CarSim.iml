@@ -5,7 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/intersection_project" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cl_hrl_src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/rule_base" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/new_action_2" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$" />
       <excludeFolder url="file://$MODULE_DIR$/ch_action2" />
       <excludeFolder url="file://$MODULE_DIR$/ch_action3" />
       <excludeFolder url="file://$MODULE_DIR$/ch_action4" />
@@ -17,6 +17,7 @@
       <excludeFolder url="file://$MODULE_DIR$/cl_src" />
       <excludeFolder url="file://$MODULE_DIR$/cl_src/observe_network_lstm" />
       <excludeFolder url="file://$MODULE_DIR$/ddpg_tra" />
+      <excludeFolder url="file://$MODULE_DIR$/dqn_hrl" />
       <excludeFolder url="file://$MODULE_DIR$/hrl_new" />
       <excludeFolder url="file://$MODULE_DIR$/hrl_src" />
       <excludeFolder url="file://$MODULE_DIR$/hrl_src_old" />
@@ -25,6 +26,7 @@
       <excludeFolder url="file://$MODULE_DIR$/intersection_vires" />
       <excludeFolder url="file://$MODULE_DIR$/main_project" />
       <excludeFolder url="file://$MODULE_DIR$/new_action" />
+      <excludeFolder url="file://$MODULE_DIR$/new_action_2" />
       <excludeFolder url="file://$MODULE_DIR$/rule_based" />
       <excludeFolder url="file://$MODULE_DIR$/saved_weights_cl_hrl" />
       <excludeFolder url="file://$MODULE_DIR$/speed_control" />
@@ -32,6 +34,11 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="LSTM-Neural-Network-for-Time-Series-Prediction" />
+    <orderEntry type="module" module-name="deep-q-learning" />
+    <orderEntry type="module" module-name="deep-q-learning" />
+    <orderEntry type="module" module-name="deep-q-learning" />
+    <orderEntry type="module" module-name="dqn_cl" />
+    <orderEntry type="module" module-name="deep-q-learning" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />

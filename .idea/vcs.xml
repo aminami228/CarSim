@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../deep-q-learning" vcs="Git" />
   </component>
 </project>

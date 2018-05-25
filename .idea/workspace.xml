@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/../deep-q-learning/dqn_cl/ddqn.py" line="350" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="1cb47f4d-19ca-4217-b78a-ed812ce59c4c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_action_2/src/new_action.py" afterPath="$PROJECT_DIR$/new_action_2/src/new_action.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cl_src/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s-1/criticmodel.h5" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s-1/criticmodel.h5" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s-2/criticmodel.h5" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s-2/criticmodel.h5" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s-3/criticmodel.h5" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s-3/criticmodel.h5" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s0/criticmodel.h5" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s0/criticmodel.h5" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s1/criticmodel.h5" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s1/criticmodel.h5" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s2/criticmodel.h5" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s2/criticmodel.h5" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/weights/criticmodel.h5" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/weights/criticmodel.h5" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CarSim.iml" afterPath="$PROJECT_DIR$/.idea/CarSim.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/.idea/cl_src.iml" afterPath="$PROJECT_DIR$/cl_src/.idea/cl_src.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/.idea/modules.xml" afterPath="$PROJECT_DIR$/cl_src/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cl_src/.idea/workspace.xml" afterPath="$PROJECT_DIR$/cl_src/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/lstm.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" afterPath="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction/run.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/.idea/dqn_cl.iml" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/.idea/dqn_cl.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/ddqn.py" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/ddqn.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s-1/result.txt" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s-1/result.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s-2/result.txt" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s-2/result.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s-3/result.txt" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s-3/result.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s0/result.txt" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s0/result.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s1/result.txt" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s1/result.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s2/result.txt" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/s2/result.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/train_pro.txt" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/train_pro.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/visual_result.py" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/visual_result.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/weights/criticmodel.json" afterPath="$PROJECT_DIR$/../deep-q-learning/dqn_cl/weights/criticmodel.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,17 +43,21 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/CarSim_vires$ch_action3.coverage" NAME="ch_action3 Coverage Results" MODIFIED="1507253024020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_action3/src" />
-    <SUITE FILE_PATH="coverage/CarSim_vires$visual_result.coverage" NAME="visual_result Coverage Results" MODIFIED="1507609810095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rule_based/utilities" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$visual_result.coverage" NAME="visual_result Coverage Results" MODIFIED="1511886987552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../deep-q-learning" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$ddqn.coverage" NAME="ddqn Coverage Results" MODIFIED="1511815099721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../deep-q-learning" />
     <SUITE FILE_PATH="coverage/CarSim_vires$hrl_vires.coverage" NAME="hrl_vires Coverage Results" MODIFIED="1504559805482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main_project/approach_src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$visual_result__2_.coverage" NAME="visual_result (2) Coverage Results" MODIFIED="1508006313028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_rule2/utilities" />
     <SUITE FILE_PATH="coverage/CarSim_vires$multi_res.coverage" NAME="multi_res Coverage Results" MODIFIED="1507216075764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cl_src/utilities" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$dqn_hrl.coverage" NAME="dqn_hrl Coverage Results" MODIFIED="1510344673074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dqn_hrl/src" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$ddqn__1_.coverage" NAME="ddqn (1) Coverage Results" MODIFIED="1511976304664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../deep-q-learning/dqn_cl" />
     <SUITE FILE_PATH="coverage/CarSim_vires$ch_action2.coverage" NAME="ch_action2 Coverage Results" MODIFIED="1507154925318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_action2/src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$ch_rule1.coverage" NAME="ch_rule1 Coverage Results" MODIFIED="1507510463278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_rule1/src" />
-    <SUITE FILE_PATH="coverage/CarSim_vires$ch_rule2.coverage" NAME="ch_rule2 Coverage Results" MODIFIED="1508340707128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_rule2/src" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$ch_rule2.coverage" NAME="ch_rule2 Coverage Results" MODIFIED="1510338589528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_rule2/src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$new_action__1_.coverage" NAME="new_action (1) Coverage Results" MODIFIED="1509571588156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_action_2/src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$ch_action4.coverage" NAME="ch_action4 Coverage Results" MODIFIED="1507270588656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_action4/src" />
     <SUITE FILE_PATH="coverage/CarSim_vires$rule_base.coverage" NAME="rule_base Coverage Results" MODIFIED="1507608701531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rule_based/src" />
-    <SUITE FILE_PATH="coverage/CarSim_vires$visual_result__1_.coverage" NAME="visual_result (1) Coverage Results" MODIFIED="1509569191523" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_action/utilities" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$visual_result__1_.coverage" NAME="visual_result (1) Coverage Results" MODIFIED="1511976317320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../deep-q-learning/dqn_cl" />
+    <SUITE FILE_PATH="coverage/CarSim_vires$raytrace.coverage" NAME="raytrace Coverage Results" MODIFIED="1511213759736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../deep-q-learning" />
     <SUITE FILE_PATH="coverage/CarSim_vires$inter_hrl.coverage" NAME="inter_hrl Coverage Results" MODIFIED="1507590557961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch_rule2/interface" />
     <SUITE FILE_PATH="coverage/CarSim_vires$new_action.coverage" NAME="new_action Coverage Results" MODIFIED="1509470722168" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_action/src" />
   </component>
@@ -33,70 +65,7 @@
     <favorites_list name="empty_intersection" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="new_action.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/new_action_2/src/new_action.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="194" column="23" lean-forward="false" selection-start-line="194" selection-start-column="23" selection-end-line="194" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="visual_result.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_action/utilities/visual_result.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reward_ch_action.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_action_2/rewards/reward_ch_action.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="44" column="11" lean-forward="true" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="critic_net.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_action_2/hrl_network/critic_net.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="52" column="54" lean-forward="true" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="actor_net.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_action_2/hrl_network/actor_net.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inter_hrl.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_action_2/interface/inter_hrl.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5179">
-              <caret line="331" column="8" lean-forward="false" selection-start-line="331" selection-start-column="8" selection-end-line="331" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -107,56 +76,44 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>self.total_reward</find>
-      <find>ep</find>
-      <find>epsilon</find>
-      <find>map</find>
-      <find>fig</find>
-      <find>ax</find>
-      <find>state_hv_mem</find>
-      <find>target_dis</find>
-      <find>target_v</find>
-      <find>state_vm</find>
-      <find>if_pass</find>
-      <find>tf</find>
-      <find>LV_NO</find>
-      <find>not_stop</find>
-      <find>load_weights</find>
-      <find>get_reward</find>
-      <find>self.gamma</find>
-      <find>save_weights</find>
-      <find>self.state</find>
-      <find>Visibility</find>
-      <find>visibility</find>
+      <find>self.critic_model</find>
       <find>Safe_dis</find>
-      <find>total_reward</find>
-      <find>RandomNormal</find>
-      <find>InterSim</find>
+      <find>Safe_time</find>
+      <find>loss</find>
+      <find>update_target_model</find>
+      <find>TAU</find>
+      <find>weight</find>
+      <find>keras</find>
+      <find>tau</find>
+      <find>DQNAgent</find>
+      <find>sess</find>
+      <find>a_t</find>
+      <find>EPISODES</find>
+      <find>tf_sess</find>
+      <find>self.ep</find>
+      <find>s_t</find>
       <find>gamma</find>
-      <find>self.mo</find>
-      <find>BATCH_SIZE</find>
-      <find>state</find>
-      <find>jerk</find>
+      <find>debug</find>
+      <find>train_loss</find>
+      <find>update</find>
+      <find>action_t</find>
+      <find>done</find>
+      <find>cond</find>
+      <find>weights</find>
+      <find>save</find>
+      <find>init_pos</find>
+      <find>batch_size</find>
+      <find>Buffer</find>
+      <find>B</find>
+      <find>train_pro</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../deep-q-learning" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cl_hrl_local2/src/cl_hrl_local.py" />
-        <option value="$PROJECT_DIR$/cl_hrl_local2/interface/inter_hrl.py" />
-        <option value="$PROJECT_DIR$/cl_hrl_local/src/cl_hrl_local.py" />
-        <option value="$PROJECT_DIR$/hrl_tra/utilities/visual_result.py" />
-        <option value="$PROJECT_DIR$/ch_action2/hrl_network/hrl_actor_net.py" />
-        <option value="$PROJECT_DIR$/ch_action2/utilities/toolfunc.py" />
-        <option value="$PROJECT_DIR$/rule_base/src/rule_base.py" />
-        <option value="$PROJECT_DIR$/ch_action2/interface/inter_hrl.py" />
-        <option value="$PROJECT_DIR$/ch_action3/hrl_network/actor_net.py" />
-        <option value="$PROJECT_DIR$/ch_action2/rewards/reward_ch_action.py" />
-        <option value="$PROJECT_DIR$/ch_action2/utilities/visual_result.py" />
-        <option value="$PROJECT_DIR$/cl_src/observe_src/observe.py" />
         <option value="$PROJECT_DIR$/ch_action2/src/ch_action2.py" />
         <option value="$PROJECT_DIR$/cl_src/utilities/multi_res.py" />
         <option value="$PROJECT_DIR$/ch_action4/hrl_network/actor_net.py" />
@@ -183,7 +140,6 @@
         <option value="$PROJECT_DIR$/ch_rule2/interface/inter_hrl.py" />
         <option value="$PROJECT_DIR$/cl_src/approach_src/approach.py" />
         <option value="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" />
-        <option value="$PROJECT_DIR$/ch_rule2/hrl_network/critic_net.py" />
         <option value="$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py" />
         <option value="$PROJECT_DIR$/new_action/hrl_network/actor_net.py" />
         <option value="$PROJECT_DIR$/new_action/hrl_network/critic_net.py" />
@@ -196,6 +152,19 @@
         <option value="$PROJECT_DIR$/new_action/utilities/visual_result.py" />
         <option value="$PROJECT_DIR$/new_action_2/hrl_network/actor_net.py" />
         <option value="$PROJECT_DIR$/new_action_2/src/new_action.py" />
+        <option value="$PROJECT_DIR$/dqn_hrl/interface/inter_hrl.py" />
+        <option value="$PROJECT_DIR$/dqn_hrl/rewards/reward_ch_action.py" />
+        <option value="$PROJECT_DIR$/ch_rule2/hrl_network/critic_net.py" />
+        <option value="$PROJECT_DIR$/dqn_hrl/hrl_network/critic_net.py" />
+        <option value="$PROJECT_DIR$/dqn_hrl/src/dqn_hrl.py" />
+        <option value="$PROJECT_DIR$/../deep-q-learning/raytrace.py" />
+        <option value="$PROJECT_DIR$/../deep-q-learning/reward.py" />
+        <option value="$PROJECT_DIR$/../deep-q-learning/ddqn.py" />
+        <option value="$PROJECT_DIR$/../deep-q-learning/visual_result.py" />
+        <option value="$PROJECT_DIR$/../deep-q-learning/inter_hrl.py" />
+        <option value="$PROJECT_DIR$/../deep-q-learning/dqn_cl/inter_hrl.py" />
+        <option value="$PROJECT_DIR$/../deep-q-learning/dqn_cl/ddqn.py" />
+        <option value="$PROJECT_DIR$/../deep-q-learning/dqn_cl/visual_result.py" />
       </list>
     </option>
   </component>
@@ -206,10 +175,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="59" />
-    <option name="y" value="-1084" />
-    <option name="width" value="1861" />
-    <option name="height" value="1084" />
+    <option name="x" value="424" />
+    <option name="y" value="122" />
+    <option name="width" value="1859" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -233,12 +202,12 @@
           <expand>
             <path>
               <item name="CarSim_vires" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CarSim_vires" type="462c0819:PsiDirectoryNode" />
+              <item name="dqn_cl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CarSim_vires" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CarSim_vires" type="462c0819:PsiDirectoryNode" />
-              <item name="new_action_2" type="462c0819:PsiDirectoryNode" />
+              <item name="dqn_cl" type="462c0819:PsiDirectoryNode" />
+              <item name="s0" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -250,21 +219,22 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LSTM-Neural-Network-for-Time-Series-Prediction" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../deep-q-learning" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../deep-q-learning" />
+      <recent name="$PROJECT_DIR$/hrl_vanila/results" />
+      <recent name="$PROJECT_DIR$/cl_src/results" />
+      <recent name="$PROJECT_DIR$/cl_src/observe_network" />
+      <recent name="$PROJECT_DIR$/hrl_src/utilities" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/hrl_vanila/results" />
       <recent name="$PROJECT_DIR$/cl_src/w2" />
       <recent name="$PROJECT_DIR$/cl_src/w1" />
       <recent name="$PROJECT_DIR$/cl_src/rewards" />
       <recent name="$PROJECT_DIR$/main_project/rewards" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/hrl_vanila/results" />
-      <recent name="$PROJECT_DIR$/cl_src/results" />
-      <recent name="$PROJECT_DIR$/cl_src/observe_network" />
-      <recent name="$PROJECT_DIR$/hrl_src/utilities" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -279,7 +249,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.new_action (1)">
+  <component name="RunManager" selected="Python.visual_result (1)">
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CarSim" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+    </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -299,7 +282,7 @@
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
     </configuration>
-    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+    <configuration default="true" type="tests" factoryName="Doctests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -310,7 +293,13 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CarSim" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
     </configuration>
     <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -355,7 +344,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <module name="CarSim" />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
+    <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -364,15 +353,27 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CarSim" />
+      <module name="CarSim_sensor" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CarSim_sensor" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -484,87 +485,56 @@
       <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CarSim_sensor" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="py.test">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CarSim_sensor" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
-    <configuration name="ch_rule2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ddqn (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch_rule2/src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../deep-q-learning/dqn_cl" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CarSim" />
+      <module name="dqn_cl" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch_rule2/src/ch_rule2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../deep-q-learning/dqn_cl/ddqn.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="new_action (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ddqn" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/new_action_2/src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../deep-q-learning" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CarSim" />
+      <module name="deep-q-learning" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_action_2/src/new_action.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../deep-q-learning/ddqn.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="new_action" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="raytrace" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/new_action/src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../deep-q-learning" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CarSim" />
+      <module name="deep-q-learning" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_action/src/new_action.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../deep-q-learning/raytrace.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -576,49 +546,49 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/new_action/utilities" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../deep-q-learning/dqn_cl" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CarSim" />
+      <module name="dqn_cl" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_action/utilities/visual_result.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../deep-q-learning/dqn_cl/visual_result.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="visual_result (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="visual_result" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch_rule2/utilities" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../deep-q-learning" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CarSim" />
+      <module name="deep-q-learning" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch_rule2/utilities/visual_result.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../deep-q-learning/visual_result.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.ch_rule2" />
-      <item index="1" class="java.lang.String" itemvalue="Python.visual_result (2)" />
-      <item index="2" class="java.lang.String" itemvalue="Python.new_action" />
-      <item index="3" class="java.lang.String" itemvalue="Python.visual_result (1)" />
-      <item index="4" class="java.lang.String" itemvalue="Python.new_action (1)" />
+      <item index="0" class="java.lang.String" itemvalue="Python.ddqn" />
+      <item index="1" class="java.lang.String" itemvalue="Python.visual_result" />
+      <item index="2" class="java.lang.String" itemvalue="Python.raytrace" />
+      <item index="3" class="java.lang.String" itemvalue="Python.ddqn (1)" />
+      <item index="4" class="java.lang.String" itemvalue="Python.visual_result (1)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.new_action (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.visual_result (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Python.new_action" />
-        <item index="3" class="java.lang.String" itemvalue="Python.ch_rule2" />
-        <item index="4" class="java.lang.String" itemvalue="Python.visual_result (2)" />
+        <item index="0" class="java.lang.String" itemvalue="Python.visual_result (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ddqn (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Python.visual_result" />
+        <item index="3" class="java.lang.String" itemvalue="Python.ddqn" />
+        <item index="4" class="java.lang.String" itemvalue="Python.raytrace" />
       </list>
     </recent_temporary>
   </component>
@@ -645,21 +615,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="59" y="-1084" width="1861" height="1084" extended-state="6" />
-    <editor active="true" />
+    <frame x="59" y="-4" width="1861" height="1084" extended-state="6" />
     <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15812673" sideWeight="0.4852941" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.49146006" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33124346" sideWeight="0.56271183" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879582" sideWeight="0.49146006" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37756202" sideWeight="0.41487604" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35706806" sideWeight="0.4677686" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34951457" sideWeight="0.21101928" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15647383" sideWeight="0.4852941" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277487" sideWeight="0.49586776" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37696335" sideWeight="0.41487604" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277487" sideWeight="0.4033058" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24958678" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34951457" sideWeight="0.21101928" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13002755" sideWeight="0.5147059" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14554974" sideWeight="0.5322314" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3068063" sideWeight="0.59669423" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21983472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -667,6 +635,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879582" sideWeight="0.49804798" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277487" sideWeight="0.49586776" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -709,6 +678,31 @@
           <line>256</line>
           <option name="timeStamp" value="744" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py</url>
+          <line>133</line>
+          <option name="timeStamp" value="821" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py</url>
+          <line>143</line>
+          <option name="timeStamp" value="823" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dqn_hrl/hrl_network/critic_net.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="828" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../deep-q-learning/visual_result.py</url>
+          <line>49</line>
+          <option name="timeStamp" value="947" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../deep-q-learning/dqn_cl/ddqn.py</url>
+          <line>384</line>
+          <option name="timeStamp" value="959" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -717,7 +711,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="819" />
+      <option name="time" value="960" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -728,208 +722,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch_action2/hrl_network/actor_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_action2/rewards/reward_ch_action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cl_hrl_local2/rewards/reward_hrl_new.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-541">
-          <caret line="76" column="24" lean-forward="false" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cl_hrl_local/rewards/reward_hrl_new.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1149">
-          <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cl_hrl_tra/rewards/reward_hrl_new.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-237">
-          <caret line="104" column="16" lean-forward="true" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/numpy/core/fromnumeric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cl_src/utilities/multi_res.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="76" column="22" lean-forward="false" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hrl_tra/interface/inter_hrl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="199" column="65" lean-forward="true" selection-start-line="197" selection-start-column="12" selection-end-line="199" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cl_hrl_local2/src/cl_hrl_local.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="242" column="23" lean-forward="true" selection-start-line="242" selection-start-column="23" selection-end-line="242" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_action2/src/ch_action2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-459">
-          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_action4/hrl_network/actor_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="38" column="46" lean-forward="false" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_action3/hrl_network/actor_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="59" column="56" lean-forward="false" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_action3/src/ch_action3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_action4/src/ch_action4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="325" column="76" lean-forward="false" selection-start-line="325" selection-start-column="76" selection-end-line="325" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_action3/rewards/reward_ch_action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="68" column="22" lean-forward="false" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_action3/interface/inter_hrl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="76" column="24" lean-forward="false" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_action4/rewards/reward_ch_action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="72" column="26" lean-forward="false" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_action4/interface/inter_hrl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="150" column="62" lean-forward="false" selection-start-line="150" selection-start-column="62" selection-end-line="150" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_action4/utilities/visual_result.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule1/utilities/toolfunc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule1/utilities/visual_result.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule1/interface/inter_hrl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4113">
-          <caret line="80" column="66" lean-forward="true" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule1/rewards/reward_hrl_new.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule1/rewards/reward_ch_action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-579">
-          <caret line="59" column="14" lean-forward="true" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule1/hrl_network/actor_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="33" column="29" lean-forward="false" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule1/src/ch_rule1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="303" column="45" lean-forward="false" selection-start-line="303" selection-start-column="44" selection-end-line="303" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule2/rewards/reward_ch_action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="143" column="23" lean-forward="false" selection-start-line="143" selection-start-column="19" selection-end-line="143" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#34#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rule_based/rewards/reward_rule.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="67" column="89" lean-forward="false" selection-start-line="67" selection-start-column="89" selection-end-line="67" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch_rule1/hrl_network/critic_net.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
@@ -969,7 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -977,9 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-489">
           <caret line="44" column="43" lean-forward="false" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -987,7 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-934">
           <caret line="638" column="16" lean-forward="false" selection-start-line="638" selection-start-column="11" selection-end-line="638" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -995,25 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-443">
           <caret line="971" column="18" lean-forward="false" selection-start-line="971" selection-start-column="11" selection-end-line="971" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule2/hrl_network/critic_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="55" column="38" lean-forward="true" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#18#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1021,7 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
           <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1029,7 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
           <caret line="59" column="55" lean-forward="false" selection-start-line="59" selection-start-column="55" selection-end-line="59" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1037,7 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="34" column="33" lean-forward="false" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,15 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="722">
           <caret line="111" column="74" lean-forward="true" selection-start-line="76" selection-start-column="8" selection-end-line="111" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="188" column="49" lean-forward="true" selection-start-line="188" selection-start-column="18" selection-end-line="188" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1061,59 +817,297 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="410" column="26" lean-forward="false" selection-start-line="410" selection-start-column="26" selection-end-line="410" selection-end-column="26" />
-          <folding>
-            <element signature="e#19130#19529#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_action_2/hrl_network/actor_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="817">
+          <caret line="52" column="38" lean-forward="false" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_action_2/src/new_action.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2850">
+          <caret line="150" column="35" lean-forward="false" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/new_action/utilities/visual_result.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="133">
           <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_action_2/rewards/reward_ch_action.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="44" column="11" lean-forward="false" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_action_2/hrl_network/critic_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_action_2/interface/inter_hrl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="295" column="63" lean-forward="false" selection-start-line="295" selection-start-column="63" selection-end-line="295" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch_rule2/hrl_network/critic_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="36" column="15" lean-forward="false" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch_rule2/hrl_network/actor_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-437">
+          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch_rule2/src/ch_rule2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="151" column="27" lean-forward="false" selection-start-line="151" selection-start-column="22" selection-end-line="151" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dqn_hrl/rewards/reward_ch_action.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="45" column="56" lean-forward="false" selection-start-line="45" selection-start-column="56" selection-end-line="45" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dqn_hrl/hrl_network/actor_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="40" column="48" lean-forward="false" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/tensorflow/python/framework/ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="540" column="0" lean-forward="false" selection-start-line="540" selection-start-column="0" selection-end-line="540" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/tensorflow/python/training/optimizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="424" column="0" lean-forward="false" selection-start-line="424" selection-start-column="0" selection-end-line="424" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg_tra/interface/inter_sim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1083">
+          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddpg_tra/hrl_src/hrl_v.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dqn_hrl/interface/inter_hrl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6289">
+          <caret line="352" column="38" lean-forward="false" selection-start-line="352" selection-start-column="38" selection-end-line="352" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/log_color.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="64" lean-forward="true" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/envs/tensorflow/lib/python2.7/site-packages/keras/engine/training.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="1244" column="0" lean-forward="false" selection-start-line="1244" selection-start-column="0" selection-end-line="1244" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2017.2/system/python_stubs/2135923251/__builtin__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="3360" column="8" lean-forward="false" selection-start-line="3360" selection-start-column="8" selection-end-line="3360" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/raytrace.py" />
+    <entry file="file://$PROJECT_DIR$/dqn_hrl/hrl_network/replay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dqn_hrl/hrl_network/critic_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="34" column="49" lean-forward="true" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_action_2/hrl_network/critic_net.py">
+    <entry file="file://$PROJECT_DIR$/dqn_hrl/src/dqn_hrl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="52" column="54" lean-forward="true" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
+        <state relative-caret-position="3957">
+          <caret line="280" column="31" lean-forward="false" selection-start-line="280" selection-start-column="30" selection-end-line="280" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/replay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#29#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/inter_hrl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="94" column="19" lean-forward="false" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#31#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/reward.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#34#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/ddqn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="320" column="21" lean-forward="false" selection-start-line="320" selection-start-column="20" selection-end-line="320" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_action_2/hrl_network/actor_net.py">
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/visual_result.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+        <state relative-caret-position="133">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/dqn_cl/log_color.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_action_2/interface/inter_hrl.py">
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/dqn_cl/ddqn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5179">
-          <caret line="331" column="8" lean-forward="false" selection-start-line="331" selection-start-column="8" selection-end-line="331" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="586">
+          <caret line="386" column="22" lean-forward="false" selection-start-line="386" selection-start-column="14" selection-end-line="386" selection-end-column="22" />
+          <folding>
+            <element signature="e#4471#4493#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_action_2/rewards/reward_ch_action.py">
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/dqn_cl/visual_result.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="44" column="11" lean-forward="true" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
-          <folding />
+        <state relative-caret-position="789">
+          <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_action_2/src/new_action.py">
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/dqn_cl/inter_hrl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="194" column="23" lean-forward="false" selection-start-line="194" selection-start-column="23" selection-end-line="194" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="-3">
+          <caret line="79" column="40" lean-forward="false" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/dqn_cl/replay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="33" lean-forward="false" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#29#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deep-q-learning/dqn_cl/reward.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-689">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

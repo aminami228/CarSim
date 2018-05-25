@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/cl_src.iml" filepath="$PROJECT_DIR$/.idea/cl_src.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../deep-q-learning/.idea/deep-q-learning.iml" filepath="$PROJECT_DIR$/../../deep-q-learning/.idea/deep-q-learning.iml" />
     </modules>
   </component>
 </project>
